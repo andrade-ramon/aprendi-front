@@ -1,6 +1,5 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
 .browsehappy {
@@ -14,7 +13,6 @@ body {
   padding: 0;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
 .footer {
