@@ -1,6 +1,8 @@
 # Projeto aprendi-front
 
-__Projeto de front-end de TCC da USJT__
+_Projeto de front-end de TCC da USJT_
+
+__Este projeto é dependente do [aprendi-api](https://github.com/andrade-ramon/aprendi-api)__
 
 ## Arquitetura
 
