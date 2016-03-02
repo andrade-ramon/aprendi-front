@@ -1,10 +1,10 @@
 'use strict';
 
-var aprendiApp = angular.module('aprendiApp', [
+var app = angular.module('app', [
     'ngRoute',
 ]);
 
-aprendiApp.config(function ($routeProvider, $locationProvider) {
+app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
     .when('/', {
         templateUrl: 'views/home.html',
