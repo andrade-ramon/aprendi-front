@@ -402,10 +402,19 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
+    },
+
+    concat: {
+      options: {
+        separator: ';',
+      },
+      dist: {
+        src: ['app/scripts/controllers/*.js'],
+        dest: 'app/scripts/all-controllers.js'
+      }
     }
 
   });
-
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -415,6 +424,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
+      'concat',
       'concurrent:server',
       'postcss:server',
       'connect:livereload',
