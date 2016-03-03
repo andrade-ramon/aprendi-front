@@ -1,8 +1,8 @@
-# Projeto aprendi-front
+# Projeto zeus
 
 _Projeto de front-end de TCC da USJT_
 
-__Este projeto é dependente do [aprendi-api](https://github.com/andrade-ramon/aprendi-api)__
+__Este projeto é dependente do [hades](https://github.com/andrade-ramon/hades)__
 
 ## Arquitetura
 
