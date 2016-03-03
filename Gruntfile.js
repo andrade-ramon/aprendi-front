@@ -47,7 +47,7 @@ module.exports = function (grunt) {
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'postcss:server','remove','concat:css'],
+        tasks: ['compass:server', 'postcss:server','concat:css'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -130,13 +130,6 @@ module.exports = function (grunt) {
       },
       server: '.tmp'
     },
-    remove: {
-      options: {
-        trace: true
-      },
-      fileList: ['<%= yeoman.app %>/min/all-css.css']
-    },
-
     // Add vendor prefixed styles
     postcss: {
       options: {
@@ -189,7 +182,7 @@ module.exports = function (grunt) {
         importPath: './bower_components',
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
-        httpFontsPath: '/styles/fonts',
+        httpFontsPath: '/styles/fonts', 
         relativeAssets: false,
         assetCacheBuster: false,
         raw: 'Sass::Script::Number.precision = 10\n'
@@ -384,7 +377,7 @@ module.exports = function (grunt) {
         options: {
           separator: '\n',
         },
-        src: ['app/min/**/*.css'],
+        src: ['app/min/**/*.css','!app/min/all-css.css'],
         dest: 'app/min/all-css.css'
       }
     },
@@ -397,7 +390,6 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'remove',
       'wiredep',
       'concat',
       'concurrent:server',
@@ -414,7 +406,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'remove',
     'wiredep',
     'concurrent:dist',
     'postcss',
