@@ -39,15 +39,18 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js','!<%= yeoman.app %>/scripts/all-js.js'],
-        tasks: ['newer:jshint:all', 'newer:jscs:all','concat'],
+        files: ['<%= yeoman.app %>/scripts/{,*/}*.js','!<%= yeoman.app %>/min/all-js.js'],
+        tasks: ['newer:jshint:all','concat:js'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'postcss:server']
+        tasks: ['compass:server', 'postcss:server','remove','concat:css'],
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        }
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -108,21 +111,7 @@ module.exports = function (grunt) {
       all: {
         src: [
           'Gruntfile.js',
-          '<%= yeoman.app %>/scripts/all-js.js'
-        ]
-      }
-    },
-
-    // Make sure code styles are up to par
-    jscs: {
-      options: {
-        config: '.jscsrc',
-        verbose: true
-      },
-      all: {
-        src: [
-          'Gruntfile.js',
-          '<%= yeoman.app %>/scripts/{,*/}*.js'
+          '<%= yeoman.app %>/min/all-js.js'
         ]
       }
     },
@@ -140,6 +129,12 @@ module.exports = function (grunt) {
         }]
       },
       server: '.tmp'
+    },
+    remove: {
+      options: {
+        trace: true
+      },
+      fileList: ['<%= yeoman.app %>/min/all-css.css']
     },
 
     // Add vendor prefixed styles
@@ -186,8 +181,8 @@ module.exports = function (grunt) {
     compass: {
       options: {
         sassDir: '<%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
-        generatedImagesDir: '.tmp/images/generated',
+        cssDir: '<%= yeoman.app %>/min',
+        generatedImagesDir: '<%= yeoman.app %>/min/images',
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/scripts',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
@@ -233,8 +228,8 @@ module.exports = function (grunt) {
         flow: {
           html: {
             steps: {
-              js: ['concat', 'uglifyjs'],
-              css: ['cssmin']
+              js: ['concat:js', 'uglifyjs'],
+              css: ['concat:css']
             },
             post: {}
           }
@@ -378,15 +373,21 @@ module.exports = function (grunt) {
     },
 
     concat: {
-      options: {
-        separator: '\n',
+      js: {
+        options: {
+          separator: '\n',
+        },
+        src: ['app/scripts/**/*.js'],
+        dest: 'app/min/all-js.js'
       },
-      dist: {
-        src: ['app/scripts/app.js', 'app/scripts/controllers/*.js'],
-        dest: 'app/scripts/all-js.js'
+      css: {
+        options: {
+          separator: '\n',
+        },
+        src: ['app/min/**/*.css'],
+        dest: 'app/min/all-css.css'
       }
-    }
-
+    },
   });
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
@@ -396,6 +397,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'remove',
       'wiredep',
       'concat',
       'concurrent:server',
@@ -412,6 +414,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'remove',
     'wiredep',
     'concurrent:dist',
     'postcss',
@@ -425,7 +428,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'newer:jscs',
     'build'
   ]);
 };
