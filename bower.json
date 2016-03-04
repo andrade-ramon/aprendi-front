@@ -1,5 +1,5 @@
 {
-  "name": "aprendi-front",
+  "name": "zeus",
   "version": "0.0.0",
   "dependencies": {
     "angular": "^1.4.0",
@@ -11,5 +11,5 @@
     "jquery-ui":"^1.11"
   },
   "appPath": "app",
-  "moduleName": "aprendiApp"
+  "moduleName": "zeusApp"
 }
