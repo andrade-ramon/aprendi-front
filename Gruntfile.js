@@ -1,11 +1,4 @@
-// Generated on 2016-02-26 using generator-angular 0.15.1
 'use strict';
-
-// # Globbing
-// for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
-// use this if you want to recursively match all subfolders:
-// 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
 
@@ -16,7 +9,6 @@ module.exports = function (grunt) {
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
-    ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn'
   });
 
@@ -93,12 +85,6 @@ module.exports = function (grunt) {
             ];
           }
         }
-      },
-      dist: {
-        options: {
-          open: true,
-          base: '<%= yeoman.dist %>'
-        }
       }
     },
 
@@ -114,21 +100,6 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/min/all-js.js'
         ]
       }
-    },
-
-    // Empties folders to start fresh
-    clean: {
-      dist: {
-        files: [{
-          dot: true,
-          src: [
-            '.tmp',
-            '<%= yeoman.dist %>/{,*/}*',
-            '!<%= yeoman.dist %>/.git{,*/}*'
-          ]
-        }]
-      },
-      server: '.tmp'
     },
     // Add vendor prefixed styles
     postcss: {
@@ -189,7 +160,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+          generatedImagesDir: '<%= yeoman.app %>/images/generated'
         }
       },
       server: {
@@ -198,38 +169,6 @@ module.exports = function (grunt) {
         }
       }
     },
-    
-    ngtemplates: {
-      dist: {
-        options: {
-          module: 'zeusApp',
-        },
-        cwd: '<%= yeoman.app %>',
-        src: 'views/{,*/}*.html',
-        dest: '.tmp/templateCache.js'
-      }
-    },
-
-    // ng-annotate tries to make the code safe for minification automatically
-    // by using the Angular long form for dependency injection.
-    ngAnnotate: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/concat/scripts',
-          src: '*.js',
-          dest: '.tmp/concat/scripts'
-        }]
-      }
-    },
-
-    // Replace Google CDN references
-    cdnify: {
-      dist: {
-        html: ['<%= yeoman.dist %>/*.html']
-      }
-    },
-
     concat: {
       js: {
         options: {
@@ -254,7 +193,6 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
-      'clean:server',
       'wiredep',
       'concat',
       'postcss:server',
@@ -269,12 +207,9 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('build', [
-    'clean:dist',
     'wiredep',
     'postcss',
-    'ngtemplates',
     'concat',
-    'ngAnnotate',
   ]);
 
   grunt.registerTask('default', [
