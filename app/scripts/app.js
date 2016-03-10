@@ -21,3 +21,30 @@ app.config(function ($routeProvider, $locationProvider) {
 
     $locationProvider.html5Mode(true);
 });
+
+app.directive('tagPage',function() {
+    return {
+        restrict: 'E',
+        transclude: true, 
+        templateUrl: 'views/page.tag.html',
+        controller: 'PageCtrl',
+        link: function(scope, elem, attrs){
+            scope.hasHeader = true;
+            attrs.$observe('header', function(value){
+                scope.hasHeader = value != 'false';
+            });            
+
+            scope.hasFooter = true;
+            attrs.$observe('footer', function(value){
+                scope.hasFooter = value != 'false';        
+            });
+        }
+    }; 
+});
+
+
+
+
+
+
+
