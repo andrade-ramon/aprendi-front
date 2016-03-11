@@ -1,42 +1,28 @@
 <!doctype html>
 <html ng-app="app">
-<head>
-    <meta charset="utf-8">
-    <title>Qual Facul?</title>
-    <base href="/"/>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <link rel="stylesheet" href="bower_components/admin-lte/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/admin-lte/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="bower_components/admin-lte/dist/css/skins/skin-purple.min.css">
-    <link rel="stylesheet" href="min/all-css.css">
-</head>
-<body class='skin-purple'>
-    <header class="main-header">
-        <a href="/" class="logo"><b>Qual Facul?</b></a>
-        <nav class="navbar navbar-static-top" role="navigation">
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown user user-menu">
-                        <a href="/login" class="dropdown-toggle">
-                            <i class="fa fa-user"></i>
-                            <span class="hidden-xs">Login</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <div class="container" ng-cloak>
-        <div ng-view></div>
-    </div>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
-    <script src="bower_components/admin-lte/bootstrap/js/bootstrap.min.js"></script>
-    <script src="bower_components/admin-lte/dist/js/app.min.js"></script>
-    <script src="min/all-js.js"></script>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <title>Qual Facul?</title>
+        <base href="/"/>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <link rel="stylesheet" href="bower_components/admin-lte/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/admin-lte/dist/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="bower_components/admin-lte/dist/css/skins/skin-blue.min.css">
+        <link rel="stylesheet" href="min/all-css.css">
+    </head>
+    <body class='skin-blue layout-top-nav'>
+        
+        <div ng-cloak>
+            <div ng-view></div>
+        </div>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+        <script src="bower_components/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <script src="bower_components/admin-lte/dist/js/app.min.js"></script>
+        <script src="min/all-js.js"></script>
+    </body>
 </html>
