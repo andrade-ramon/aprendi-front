@@ -1,4 +1,7 @@
 <tag-page>
-<p>Isto é o login</p>
-{{teste}}
+  <form  ng-submit="login()">
+    Login: <input type="text" name="username" ng-model="credentials.username">
+    Senha: <input type="password" name="password" ng-model="credentials.password">
+    <input type="submit" value="Logar">
+  </form>
 </tag-page>
