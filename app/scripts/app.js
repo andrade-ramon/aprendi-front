@@ -4,6 +4,16 @@ var app = angular.module('app', [
     'ngRoute',
 ]);
 
+app.constant('API', (function() {
+  var endpoint = 'http://localhost:6660';
+
+  return {
+    LOGIN: endpoint + '/login',
+    HOME: endpoint + '/home'
+  }
+
+}()));
+
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
     .when('/', {
@@ -41,10 +51,4 @@ app.directive('tagPage',function() {
         }
     }; 
 });
-
-
-
-
-
-
 
