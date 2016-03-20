@@ -32,7 +32,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js','!<%= yeoman.app %>/min/all-js.js'],
-        tasks: ['newer:jshint:all','concat:js'],
+        tasks: ['newer:jshint:all','concat:jsdev'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -170,50 +170,53 @@ module.exports = function (grunt) {
       }
     },
     concat: {
-      js: {
-        options: {
-          separator: '\n',
-        },
-        src: ['app/scripts/**/*.js'],
+      options: {
+        separator: '\n',
+      },
+      jsdev: {
+        src: ['app/scripts/**/*.js', '!app/scripts/env/prod.js'],
+        dest: 'app/min/all-js.js'
+      },
+      jsprod: {
+        src: ['app/scripts/**/*.js', '!app/scripts/env/dev.js'],
         dest: 'app/min/all-js.js'
       },
       css: {
-        options: {
-          separator: '\n',
-        },
         src: ['app/min/**/*.css','!app/min/all-css.css'],
         dest: 'app/min/all-css.css'
       }
     },
   });
 
-  grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
-    }
+  grunt.registerTask('s', 'Compile then start a connect web server', function () {
+    var env = grunt.option('env') || 'dev';
 
     grunt.task.run([
       'wiredep',
-      'concat',
+      'concat:js' + env,
+      'concat:css',
       'postcss:server',
       'connect:livereload',
       'watch'
     ]);
   });
 
-  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
+  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function () {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve:' + target]);
+    grunt.task.run(['s:']);
   });
 
   grunt.registerTask('build', [
     'wiredep',
     'postcss',
-    'concat',
+    'concat:jsdev',
+    'concat:css',
   ]);
+
 
   grunt.registerTask('default', [
     'newer:jshint',
     'build'
   ]);
+
 };
