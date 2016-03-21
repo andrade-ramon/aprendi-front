@@ -42,9 +42,3 @@ app.directive('tagPage',function() {
     }; 
 });
 
-
-
-
-
-
-

@@ -1,5 +1,5 @@
 app.controller('LoginCtrl', function ($scope, $http) {
-	$http.get('http://localhost:6660/home').success(function(data){
+	$http.get("ENV.API" + "/login" ).success(function(data){
         $scope.teste = data;
     });
 });
