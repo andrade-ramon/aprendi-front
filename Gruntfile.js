@@ -18,13 +18,21 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
-  // Define the configuration for all the tasks
   grunt.initConfig({
 
-    // Project settings
     yeoman: appConfig,
 
-    // Watches files for changes and runs tasks based on the changed files
+    envpreprocess: {
+      dev: {
+        files:{
+          src:  'env.json'
+        },
+        options:{
+          replacePath: ['app/min/**/*.*']
+        }
+      }
+    },
+
     watch: {
       bower: {
         files: ['bower.json'],
@@ -32,7 +40,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js','!<%= yeoman.app %>/min/all-js.js'],
-        tasks: ['newer:jshint:all','concat:jsdev'],
+        tasks: ['newer:jshint:all','concat:js','envpreprocess'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -173,12 +181,8 @@ module.exports = function (grunt) {
       options: {
         separator: '\n',
       },
-      jsdev: {
-        src: ['app/scripts/**/*.js', '!app/scripts/env/prod.js'],
-        dest: 'app/min/all-js.js'
-      },
-      jsprod: {
-        src: ['app/scripts/**/*.js', '!app/scripts/env/dev.js'],
+      js: {
+        src: ['app/scripts/**/*.js'],
         dest: 'app/min/all-js.js'
       },
       css: {
@@ -189,13 +193,11 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('s', 'Compile then start a connect web server', function () {
-    var env = grunt.option('env') || 'dev';
-
     grunt.task.run([
       'wiredep',
-      'concat:js' + env,
-      'concat:css',
+      'concat',
       'postcss:server',
+      'envpreprocess',
       'connect:livereload',
       'watch'
     ]);
@@ -203,16 +205,15 @@ module.exports = function (grunt) {
 
   grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function () {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['s:']);
+    grunt.task.run(['s']);
   });
 
   grunt.registerTask('build', [
     'wiredep',
     'postcss',
-    'concat:jsdev',
-    'concat:css',
+    'concat',
+    'envpreprocess',
   ]);
-
 
   grunt.registerTask('default', [
     'newer:jshint',
