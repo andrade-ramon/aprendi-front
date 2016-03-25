@@ -1,7 +1,8 @@
-<tag-page>
-  <form  ng-submit="login()">
-    Login: <input type="text" name="username" ng-model="credentials.username">
-    Senha: <input type="password" name="password" ng-model="credentials.password">
-    <input type="submit" value="Logar">
-  </form>
+<tag-page header="false" footer="false">
+	<div class="alert alert-danger" role="alert" ng-bind-html="msg" ng-if='msg'></div>
+	<form ng-submit="login()">
+		Login: <input type="text" name="username" ng-model="user.email">
+		Senha: <input type="password" name="password" ng-model="user.password">
+		<input type="submit" value="Logar">
+	</form>
 </tag-page>

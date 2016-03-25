@@ -2,6 +2,8 @@
 
 var app = angular.module('app', [
     'ngRoute',
+    'ngSanitize',
+    'ngStorage',
     'myDirectives'
 ]);
 
