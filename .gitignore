@@ -5,6 +5,5 @@ npm-debug.log
 /.sass-cache
 /bower_components
 *.swp
-all-js.js
-env.json
+properties.js
 /app/min

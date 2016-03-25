@@ -1,0 +1,12 @@
+app.constant('ENV', (function() {
+  var api = 'http://localhost:6660';
+
+  return {
+    API: {
+      LOGIN: api + '/login',
+      HOME: api + '/home',
+    }
+  }
+
+}()));
+

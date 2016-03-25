@@ -22,17 +22,6 @@ module.exports = function (grunt) {
 
     yeoman: appConfig,
 
-    envpreprocess: {
-      dev: {
-        files:{
-          src:  'env.json'
-        },
-        options:{
-          replacePath: ['app/min/**/*.*']
-        }
-      }
-    },
-
     watch: {
       bower: {
         files: ['bower.json'],
@@ -40,7 +29,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js','!<%= yeoman.app %>/min/all-js.js'],
-        tasks: ['newer:jshint:all','concat:js','envpreprocess'],
+        tasks: ['newer:jshint:all','concat:js'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -182,7 +171,7 @@ module.exports = function (grunt) {
         separator: '\n',
       },
       js: {
-        src: ['app/scripts/**/*.js'],
+        src: ['app/scripts/**/*.js', '!app/min/all-js.js'],
         dest: 'app/min/all-js.js'
       },
       css: {
@@ -197,7 +186,6 @@ module.exports = function (grunt) {
       'wiredep',
       'concat',
       'postcss:server',
-      'envpreprocess',
       'connect:livereload',
       'watch'
     ]);
@@ -212,7 +200,6 @@ module.exports = function (grunt) {
     'wiredep',
     'postcss',
     'concat',
-    'envpreprocess',
   ]);
 
   grunt.registerTask('default', [
