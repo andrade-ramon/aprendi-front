@@ -4,7 +4,7 @@ var app = angular.module('app', [
     'ngRoute',
     'ngSanitize',
     'ngStorage',
-    'myDirectives'
+    'zeusDirectives'
 ]);
 
 app.config(function ($routeProvider, $locationProvider) {

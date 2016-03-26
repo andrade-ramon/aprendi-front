@@ -1,6 +1,6 @@
-var myDirectives = angular.module('myDirectives',[]);
+var zeusDirectives = angular.module('zeusDirectives',[]);
 
-myDirectives.directive('tagPage',function() {
+zeusDirectives.directive('tagPage',function() {
     return {
         restrict: 'E',
         transclude: true, 
@@ -9,12 +9,12 @@ myDirectives.directive('tagPage',function() {
         link: function(scope, elem, attrs){
             scope.hasHeader = true;
             attrs.$observe('header', function(value){
-                scope.hasHeader = value != 'false';
+                scope.hasHeader = value !== 'false';
             });            
 
             scope.hasFooter = true;
             attrs.$observe('footer', function(value){
-                scope.hasFooter = value != 'false';        
+                scope.hasFooter = value !== 'false';        
             });
         }
     }; 
