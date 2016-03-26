@@ -34,25 +34,29 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         }
       },
-      compass: {
+      css: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'postcss:server','concat:css'],
+        tasks: ['compass', 'postcss','concat:css'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
       },
       gruntfile: {
-        files: ['Gruntfile.js']
-      },
-      livereload: {
+        files: ['Gruntfile.js'],
+        tasks: ['default'],
         options: {
           livereload: '<%= connect.options.livereload %>'
-        },
+        }
+      },
+      livereload: {
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
+        ],
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        }
       }
     },
 
@@ -85,6 +89,15 @@ module.exports = function (grunt) {
       }
     },
 
+    // Custom Tasks
+
+    // Automatically inject Bower components into the app
+    wiredep: {
+      target: {
+        src: ['<%= yeoman.app %>/index.html']
+      }
+    }, 
+
     // Make sure there are no obvious mistakes
     jshint: {
       options: {
@@ -94,49 +107,10 @@ module.exports = function (grunt) {
       all: {
         src: [
           'Gruntfile.js',
-          '<%= yeoman.app %>/min/all-js.js'
+          '<%= yeoman.app %>/scripts/{,*/}*.js'
         ]
       }
     },
-    // Add vendor prefixed styles
-    postcss: {
-      options: {
-        processors: [
-          require('autoprefixer-core')({browsers: ['last 1 version']})
-        ]
-      },
-      server: {
-        options: {
-          map: true
-        },
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      }
-    },
-
-    // Automatically inject Bower components into the app
-    wiredep: {
-      app: {
-        src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
-      },
-      sass: {
-        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        ignorePath: /(\.\.\/){1,2}bower_components\//
-      }
-    }, 
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -166,6 +140,27 @@ module.exports = function (grunt) {
         }
       }
     },
+
+    // Add vendor prefixed styles
+    postcss: {
+      options: {
+        processors: [
+          require('autoprefixer-core')({browsers: ['last 1 version']})
+        ]
+      },
+      server: {
+        options: {
+          map: false
+        },
+        files: [{
+          expand: true,
+          cwd: '.tmp/styles/',
+          src: '{,*/}*.css',
+          dest: '.tmp/styles/'
+        }]
+      },
+    },
+
     concat: {
       options: {
         separator: '\n',
@@ -179,32 +174,26 @@ module.exports = function (grunt) {
         dest: 'app/min/all-css.css'
       }
     },
+
   });
 
-  grunt.registerTask('s', 'Compile then start a connect web server', function () {
+  grunt.registerTask('server', 'Compile then start a connect web server', function () {
     grunt.task.run([
-      'wiredep',
-      'concat',
-      'postcss:server',
-      'connect:livereload',
+      'build',
+      'connect',
       'watch'
     ]);
   });
 
-  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function () {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['s']);
-  });
-
   grunt.registerTask('build', [
     'wiredep',
+    'jshint',
+    'compass',
     'postcss',
     'concat',
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
     'build'
   ]);
-
 };

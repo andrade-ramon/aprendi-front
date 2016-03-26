@@ -1,3 +1,3 @@
-app.controller('PageCtrl', function ($scope) {
+app.controller('PageCtrl', function () {
 	
 });
