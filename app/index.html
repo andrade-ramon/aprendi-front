@@ -7,22 +7,35 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
+        <!-- bower:js -->
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/jquery-ui/jquery-ui.js"></script>
+        <script src="../bower_components/admin-lte/dist/js/app.js"></script>
+        <script src="../bower_components/angular/angular.js"></script>
+        <script src="../bower_components/angular-resource/angular-resource.js"></script>
+        <script src="../bower_components/angular-route/angular-route.js"></script>
+        <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <!-- endbower -->
+
+        <script src="min/all-js.js"></script>
+
+
         <link rel="stylesheet" href="bower_components/admin-lte/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="bower_components/admin-lte/dist/css/AdminLTE.min.css">
+        
+        <!-- bower:css -->
+        <link rel="stylesheet" href="../bower_components/admin-lte/dist/css/AdminLTE.css" />
+        <!-- endbower --> 
+        
         <link rel="stylesheet" href="bower_components/admin-lte/dist/css/skins/skin-blue.min.css">
         <link rel="stylesheet" href="min/all-css.css">
     </head>
+
     <body class='skin-blue layout-top-nav'>
         
         <div ng-cloak>
             <div ng-view></div>
         </div>
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/jquery-ui/jquery-ui.js"></script>
-        <script src="bower_components/admin-lte/bootstrap/js/bootstrap.min.js"></script>
-        <script src="bower_components/admin-lte/dist/js/app.min.js"></script>
-        <script src="min/all-js.js"></script>
+
     </body>
+    
 </html>
