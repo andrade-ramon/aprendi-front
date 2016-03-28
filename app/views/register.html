@@ -1,0 +1,50 @@
+<div class="register-box">
+    <div class="register-logo">
+        <b>Qual</b>Facul<b>?</b>
+    </div>
+    <div class="register-box-body border-light">
+        <p class="login-box-msg">Registre-se</p>
+        <form ng-submit="" method="post" novalidate>
+
+            <label class="text-danger" ng-bind-html="msg" ng-if="msg"></label>
+
+            <div class="form-group has-feedback">
+                <label>Nome</label>
+                <input type="text" class="form-control" placeholder="Nome">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <label>Email</label>
+                <input type="email" class="form-control" placeholder="Email">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <label>Senha</label>
+                <input type="password" class="form-control" placeholder="Senha">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <label>Senha novamente</label>
+                <input type="password" class="form-control" placeholder="Senha novamente">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <label>
+                        Ao clicar em "registrar", você concorda com os 
+                        <a href="/termos-de-uso" target="_blank">termos de uso</a>
+                    </label>
+                </div>
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Registrar</button>
+                </div>
+            </div>
+        </form>
+        <div class="social-auth-links text-center">
+            <p>- OU -</p>
+            <a href="#" class="btn btn-social btn-facebook btn-flat">
+                <i class="fa fa-facebook"></i> Registre-se usando o facebook</a>
+        </div>
+        <a href="/login" class="text-center">Eu já tenho registro</a>
+    </div><!-- /register-box-body -->
+</div><!-- /register-box -->

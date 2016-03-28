@@ -17,6 +17,10 @@ app.config(function ($routeProvider, $locationProvider) {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
     })
+    .when('/cadastro', {
+        templateUrl: 'views/register.html',
+        controller: 'RegisterCtrl'
+    })
     .otherwise({
         templateUrl: '404.html',
         controller: 'ErrorCtrl'

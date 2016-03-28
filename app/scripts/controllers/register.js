@@ -1,0 +1,2 @@
+app.controller('RegisterCtrl', function () {
+});
