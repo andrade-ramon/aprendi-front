@@ -1,5 +1,5 @@
 app.constant('ENV', (function() {
-  var api = 'http://localhost:6660';
+  var api = 'https://localhost:6660';
 
   return {
     API: {
