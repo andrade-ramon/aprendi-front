@@ -14,7 +14,7 @@
     }
 
     &:hover .login .title {
-      left: 4em;
+      left: 4.5em;
     }
     .option-account {
       display: none;
@@ -28,7 +28,7 @@
       }
 
       &:checked ~ .login .title {
-        left: 4em;
+        left: 4.5em;
       }
     }
 
@@ -53,6 +53,7 @@
         left: 8em;
         white-space: nowrap;
         cursor: pointer;
+        font-weight: 700;
       }
     }
 
@@ -72,13 +73,10 @@
         margin: auto;
         text-align: center;
         border-bottom:1px solid white;
+        color: $light-blue;
 
         &:hover{
           border-color: $light-blue;
-        }
-        a {
-          color: $light-blue;
-
         }
       }
     }

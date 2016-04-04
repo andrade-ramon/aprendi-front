@@ -21,21 +21,16 @@
             <div class="nav-login">
                 <input id='option-account' class='option-account' type='checkbox' />
                 <section class='login-form'>
-                    <div class='option'>
-                        <a href='/configuration' >Configurações</a>
-                    </div>
-                    <div class='option'>
-                        <a href='/opções'>Opções</a>
-                    </div>
-                    <div class='option'>
-                        <a href='/logout'>Sair</a>
-                    </div>
+                    <a class='option' href='/configuration' >Configurações</a>
+                    <a class='option'href='/opções'>Opções</a>
+                    <a class='option' href='/logout'>Sair</a>
                 </section>
                 <div class='login'>
                     <div class='avatar'>
                         <image src='/images/avatar.png'>
                     </div>
-                    <label for='option-account' class='title' >Minha conta</label>
+                    <a href='/login' class='title' ng-if="!isLogged">Login</a>
+                    <label for='option-account' class='title' ng-if="isLogged" >Minha conta</label>
                 </div>
                 
             </div>
