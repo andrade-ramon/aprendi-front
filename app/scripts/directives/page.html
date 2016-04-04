@@ -13,16 +13,33 @@
                 <li><a href="#">Ranking</a></li>
                 <li><a href="#">Participe</a></li>
             </ul>
-            
-            <ul class="nav navbar-nav navbar-right">                
-                <a class='btn btn-info navbar-btn' href="/cadastro">Cadastre-se</a>
-                <a class='btn btn-info navbar-btn' href="/login">login</a>
-            </ul>
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" id="navbar-search-input" placeholder="Busque algo">
                 </div>
             </form>
+            <div class="nav-login">
+                <input id='option-account' class='option-account' type='checkbox' />
+                <section class='login-form'>
+                    <div class='option'>
+                        <a href='/configuration' >Configurações</a>
+                    </div>
+                    <div class='option'>
+                        <a href='/opções'>Opções</a>
+                    </div>
+                    <div class='option'>
+                        <a href='/logout'>Sair</a>
+                    </div>
+                </section>
+                <div class='login'>
+                    <div class='avatar'>
+                        <image src='/images/avatar.png'>
+                    </div>
+                    <label for='option-account' class='title' >Minha conta</label>
+                </div>
+                
+            </div>
+            
         </div>
     </nav>
 </header>
