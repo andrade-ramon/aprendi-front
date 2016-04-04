@@ -8,17 +8,19 @@
 		
 		<form ng-submit="login()" class="transition-all">
 			
-			<label class="text-danger" ng-bind-html="msg" ng-if="msg"></label>
+			<label class="text-danger error-message" ng-bind-html="error.generic" ng-if="error.generic"></label>
 			
 			<div class="form-group has-feedback">
-				<label>Email</label>
-				<input type="text" class="form-control" placeholder="Email" ng-model="user.login" autofocus>
+				<label>Login</label>
+				<input type="text" class="form-control" placeholder="Login" ng-model="user.login" autofocus>
 				<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+				<label class="text-danger error-message" ng-bind-html="error.login" ng-if="error.login"></label>
 			</div>
 			<div class="form-group has-feedback">
 				<label>Senha</label>
 				<input type="password" class="form-control ramon" placeholder="Senha" ng-model="user.password">
 				<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+				<label class="text-danger error-message" ng-bind-html="error.password" ng-if="error.password"></label>
 			</div>
 			<div class="row">
 				<div class="col-xs-8"></div>

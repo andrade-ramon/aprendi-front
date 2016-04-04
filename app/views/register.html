@@ -6,22 +6,25 @@
         <p class="login-box-msg">Registre-se</p>
         <form ng-submit="register()" method="post" novalidate>
 
-            <label class="text-danger" ng-bind-html="msg" ng-if="msg"></label>
+            <label class="text-danger error-message" ng-bind-html="error.generic" ng-if="error.generic"></label>
 
             <div class="form-group has-feedback">
                 <label>Nome</label>
                 <input type="text" class="form-control" placeholder="Nome" ng-model="user.name">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                <label class="text-danger error-message" ng-bind-html="error.name" ng-if="error.name"></label>
             </div>
             <div class="form-group has-feedback">
                 <label>Email</label>
-                <input type="email" class="form-control" placeholder="Email" ng-model="user.email">
+                <input type="text" class="form-control" placeholder="Email" ng-model="user.email">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                <label class="text-danger error-message" ng-bind-html="error.email" ng-if="error.email"></label>
             </div>
             <div class="form-group has-feedback">
                 <label>Senha</label>
                 <input type="password" class="form-control" placeholder="Senha" ng-model="user.password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                <label class="text-danger error-message" ng-bind-html="error.password" ng-if="error.password"></label>
             </div>
             <!-- <div class="form-group has-feedback">
                 <label>Senha novamente</label>

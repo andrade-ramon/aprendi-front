@@ -1,5 +1,9 @@
 app.controller('RegisterCtrl', function ($scope, $http, $localStorage, $location, ENV) {
-
+	if($localStorage.token){
+        $location.path('/');
+        return;
+    }
+    
 	$scope.user = {};
 
 	$scope.register = function() {
@@ -7,7 +11,20 @@ app.controller('RegisterCtrl', function ($scope, $http, $localStorage, $location
 	        $localStorage.token = response.data.token;
             $location.path('/');
 	    }, function(response) {
-	    	$scope.msg = response.data.message;
+	    	console.log(response);
+	    	if(response.data) {
+	    		$scope.error = {};
+
+	    		if(response.data.fieldErrors) {
+		    		response.data.fieldErrors.forEach(function(fieldError){
+		    			$scope.error[fieldError.field] = fieldError.message;
+		    		});
+		    	}
+
+		    	if(response.data.message) {
+		    	 	$scope.error.generic = response.data.message;
+		    	}
+	    	}
 	    });
 	};
 });

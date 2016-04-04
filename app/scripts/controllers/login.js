@@ -11,11 +11,22 @@ app.controller('LoginCtrl', function ($scope, $http, $localStorage, $location, E
             $localStorage.token = response.data.token;
             $location.path('/');
         }, function(response) {
-            $scope.msg = response.data.message;
-            $('input[type=password]').focus();
-            setTimeout(function() {
-                $scope.msg = null;
-            },3000);
+            console.log(response);
+            if(response.data) {
+                $scope.error = {};
+
+                if(response.data.fieldErrors) {
+                    response.data.fieldErrors.forEach(function(fieldError){
+                        $scope.error[fieldError.field] = fieldError.message;
+                    });
+                }
+
+                if(response.data.message) {
+                    $scope.error.generic = response.data.message;
+                    $('input[type=password]').focus();
+                }
+            }
+            
         });
     };
     $scope.logout = function() {
