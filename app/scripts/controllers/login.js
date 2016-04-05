@@ -18,4 +18,8 @@ app.controller('LoginCtrl', function ($scope, $http, $localStorage, $location, E
             },3000);
         });
     };
+    $scope.logout = function() {
+        $localStorage.token = '';
+        $location.path('/');
+    };
 });

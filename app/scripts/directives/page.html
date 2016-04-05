@@ -1,6 +1,6 @@
 <header ng-if='hasHeader' class="main-header">
     <nav class="navbar navbar-static-top">
-        <div class="container">
+        <div class="container marginless">
             
             <div class="navbar-header">
                 <a href="/" class="navbar-brand">
@@ -21,9 +21,9 @@
             <div class="nav-login">
                 <input id='option-account' class='option-account' type='checkbox' />
                 <section class='login-form'>
-                    <a class='option' href='/configuration' >Configurações</a>
-                    <a class='option'href='/opções'>Opções</a>
-                    <a class='option' href='/logout'>Sair</a>
+                    <a class='option' href='/configuracao' >Configurações</a>
+                    <a class='option'href='/opcoes'>Opções</a>
+                    <span ng-click="logout()" class='option' >Sair</span>
                 </section>
                 <div class='login'>
                     <div class='avatar'>

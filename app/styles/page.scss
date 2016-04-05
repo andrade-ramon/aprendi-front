@@ -1,6 +1,6 @@
 @import 'colors';
 
-.container {
+.marginless {
   margin-right: 0;
   padding: 0;
 
@@ -53,7 +53,7 @@
         left: 8em;
         white-space: nowrap;
         cursor: pointer;
-        font-weight: 700;
+        font-weight: 400;
       }
     }
 
