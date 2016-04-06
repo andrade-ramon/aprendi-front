@@ -9,9 +9,8 @@ app.controller('RegisterCtrl', function ($scope, $http, $localStorage, $location
 	$scope.register = function() {
 	    $http.post(ENV.API.REGISTER, $scope.user).then(function(response) {
 	        $localStorage.token = response.data.token;
-            $location.path('/');
+			$location.path('/');
 	    }, function(response) {
-	    	console.log(response);
 	    	if(response.data) {
 	    		$scope.error = {};
 

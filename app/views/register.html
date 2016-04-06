@@ -1,4 +1,4 @@
-<div class="register-box">
+<section class="register-box">
     <div class="register-logo">
         <b>Qual</b>Facul<b>?</b>
     </div>
@@ -9,28 +9,23 @@
             <label class="text-danger error-message" ng-bind-html="error.generic" ng-if="error.generic"></label>
 
             <div class="form-group has-feedback">
-                <label>Nome</label>
-                <input type="text" class="form-control" placeholder="Nome" ng-model="user.name">
+                <label for="name">Nome</label>
+                <input type="text" id="name" class="form-control" autofocus placeholder="Nome" ng-model="user.name">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 <label class="text-danger error-message" ng-bind-html="error.name" ng-if="error.name"></label>
             </div>
             <div class="form-group has-feedback">
-                <label>Email</label>
-                <input type="text" class="form-control" placeholder="Email" ng-model="user.email">
+                <label for="email">Email</label>
+                <input type="text" id="email" class="form-control" placeholder="Email" ng-model="user.email">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 <label class="text-danger error-message" ng-bind-html="error.email" ng-if="error.email"></label>
             </div>
             <div class="form-group has-feedback">
-                <label>Senha</label>
-                <input type="password" class="form-control" placeholder="Senha" ng-model="user.password">
+                <label for="password">Senha</label>
+                <input type="password" id="password" class="form-control" placeholder="Senha" ng-model="user.password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 <label class="text-danger error-message" ng-bind-html="error.password" ng-if="error.password"></label>
             </div>
-            <!-- <div class="form-group has-feedback">
-                <label>Senha novamente</label>
-                <input type="password" class="form-control" placeholder="Senha novamente">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div> -->
             <div class="row">
                 <div class="col-xs-8">
                     <label>
@@ -39,15 +34,17 @@
                     </label>
                 </div>
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Registrar</button>
+                    <input type="submit" class="btn btn-primary btn-block btn-flat" value="Registrar" />
                 </div>
             </div>
         </form>
         <div class="social-auth-links text-center">
             <p>- OU -</p>
             <a href="#" class="btn btn-social btn-facebook btn-flat">
-                <i class="fa fa-facebook"></i> Registre-se usando o facebook</a>
+                <i class="fa fa-facebook"></i> 
+                Registre-se usando o facebook
+            </a>
         </div>
         <a href="/login" class="text-center">Eu já tenho registro</a>
     </div><!-- /register-box-body -->
-</div><!-- /register-box -->
+</section><!-- /register-box -->

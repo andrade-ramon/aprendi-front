@@ -11,7 +11,6 @@ app.controller('LoginCtrl', function ($scope, $http, $localStorage, $location, E
             $localStorage.token = response.data.token;
             $location.path('/');
         }, function(response) {
-            console.log(response);
             if(response.data) {
                 $scope.error = {};
 
@@ -23,14 +22,10 @@ app.controller('LoginCtrl', function ($scope, $http, $localStorage, $location, E
 
                 if(response.data.message) {
                     $scope.error.generic = response.data.message;
-                    $('input[type=password]').focus();
+                    $('#password').focus();
                 }
             }
             
         });
-    };
-    $scope.logout = function() {
-        $localStorage.token = '';
-        $location.path('/');
     };
 });

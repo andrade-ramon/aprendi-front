@@ -1,7 +1,8 @@
 $icon-font-path: "../bower_components/admin-lte/bootstrap/fonts/";
+$images-path: "../images";
 
 .fa-facebook {
-	background-image: url('../images/facebook.png');
+	background-image: url($images-path + '/facebook.png');
 	background-size: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
