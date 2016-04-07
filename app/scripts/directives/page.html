@@ -1,6 +1,6 @@
 <header ng-if='hasHeader' class="main-header">
     <nav class="navbar navbar-static-top">
-        <div class="container">
+        <div class="container marginless">
             
             <div class="navbar-header">
                 <a href="/" class="navbar-brand">
@@ -13,16 +13,28 @@
                 <li><a href="#">Ranking</a></li>
                 <li><a href="#">Participe</a></li>
             </ul>
-            
-            <ul class="nav navbar-nav navbar-right">                
-                <a class='btn btn-info navbar-btn' href="/cadastro">Cadastre-se</a>
-                <a class='btn btn-info navbar-btn' href="/login">login</a>
-            </ul>
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" id="navbar-search-input" placeholder="Busque algo">
                 </div>
             </form>
+            <div class="nav-login">
+                <input id='option-account' class='option-account' type='checkbox' />
+                <section class='login-form'>
+                    <a class='option' href='/configuracao' >Configurações</a>
+                    <a class='option'href='/opcoes'>Opções</a>
+                    <span ng-click="logout()" class='option' >Sair</span>
+                </section>
+                <div class='login'>
+                    <div class='avatar'>
+                        <image src='/images/avatar.png'>
+                    </div>
+                    <a href='/login' class='title' ng-if="!isLogged">Login</a>
+                    <label for='option-account' class='title' ng-if="isLogged" >Minha conta</label>
+                </div>
+                
+            </div>
+            
         </div>
     </nav>
 </header>
