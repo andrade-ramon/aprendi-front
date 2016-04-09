@@ -6,7 +6,7 @@ app.controller('PageCtrl', function ($scope, $localStorage, $location) {
     }
     
     $scope.logout = function() {
-        $localStorage.token = '';
+        delete $localStorage.token;
         $location.path('/');
         location.reload();
     };
