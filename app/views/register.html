@@ -4,28 +4,49 @@
     </div>
     <div class="register-box-body border-light">
         <p class="login-box-msg">Registre-se</p>
-        <form ng-submit="register()" method="post" novalidate>
 
-            <label class="text-danger error-message" ng-bind-html="error.generic" ng-if="error.generic"></label>
+        <form angular-validator-submit="register()" name="registerForm" method="post" novalidate angular-validator>
+            <label class="form-error-text" ng-bind-html="error.generic" ng-if="error.generic"></label>
 
             <div class="form-group has-feedback">
-                <label for="name">Nome</label>
-                <input type="text" id="name" class="form-control" autofocus placeholder="Nome" ng-model="user.name">
-                <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                <label class="text-danger error-message" ng-bind-html="error.name" ng-if="error.name"></label>
-            </div>
-            <div class="form-group has-feedback">
-                <label for="email">Email</label>
-                <input type="text" id="email" class="form-control" placeholder="Email" ng-model="user.email">
+                <label for="user-name" class="text-default">Nome</label>
+                <input type="text" name="user-name" id="login" class="form-control" placeholder="Nome" autofocus
+                    ng-model="user.name" 
+                    validate-on="dirty"
+                    required-message="'Informe seu nome'"
+                    required>
+                
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                <label class="text-danger error-message" ng-bind-html="error.email" ng-if="error.email"></label>
+                <label class="text-danger form-error-text" ng-bind-html="error.login" ng-if="error.login"></label>
             </div>
+
             <div class="form-group has-feedback">
-                <label for="password">Senha</label>
-                <input type="password" id="password" class="form-control" placeholder="Senha" ng-model="user.password">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                <label class="text-danger error-message" ng-bind-html="error.password" ng-if="error.password"></label>
+                <label for="email" class="text-default">Email</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email" 
+                    ng-model="user.email"
+                    validate-on="dirty"
+                    required-message="'Preencha seu email'"
+                    invalid-message="'Email inválido'"
+                    required>
+
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                <label class="text-danger form-error-text" ng-bind-html="error.email" ng-if="error.email"></label>
             </div>
+
+            <div class="form-group has-feedback">
+                <label for="password" class="text-default">Senha</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Senha" 
+                    ng-model="user.password"
+                    validate-on="dirty"
+                    required-message="'Preencha o campo senha'"
+                    invalid-message="'Digite uma senha com 4 caracteres ou mais'"
+                    required
+                    minlength="4">
+                
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                <label class="text-danger form-error-text" ng-bind-html="error.password" ng-if="error.password"></label>
+            </div>
+            
             <div class="row">
                 <div class="col-xs-8">
                     <label>
@@ -34,10 +55,11 @@
                     </label>
                 </div>
                 <div class="col-xs-4">
-                    <input type="submit" class="btn btn-primary btn-block btn-flat" value="Registrar" />
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
                 </div>
             </div>
         </form>
+
         <div class="social-auth-links text-center">
             <p>- OU -</p>
             <a href="#" class="btn btn-social btn-facebook btn-flat">
@@ -45,6 +67,8 @@
                 Registre-se usando o facebook
             </a>
         </div>
+        
         <a href="/login" class="text-center">Eu já tenho registro</a>
+
     </div><!-- /register-box-body -->
 </section><!-- /register-box -->

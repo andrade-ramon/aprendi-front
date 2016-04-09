@@ -4,7 +4,8 @@ var app = angular.module('app', [
     'ngRoute',
     'ngSanitize',
     'ngStorage',
-    'zeusDirectives'
+    'zeusDirectives',
+    'angularValidator'
 ]);
 
 app.config(function ($routeProvider, $locationProvider) {
