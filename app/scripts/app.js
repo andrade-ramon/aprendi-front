@@ -4,7 +4,8 @@ var app = angular.module('app', [
     'ngRoute',
     'ngSanitize',
     'ngStorage',
-    'zeusDirectives'
+    'zeusDirectives',
+    'angularValidator'
 ]);
 
 app.config(function ($routeProvider, $locationProvider) {
@@ -16,6 +17,10 @@ app.config(function ($routeProvider, $locationProvider) {
     .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
+    })
+    .when('/cadastro', {
+        templateUrl: 'views/register.html',
+        controller: 'RegisterCtrl'
     })
     .otherwise({
         templateUrl: '404.html',

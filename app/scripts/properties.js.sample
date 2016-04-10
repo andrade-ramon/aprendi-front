@@ -4,6 +4,7 @@ app.constant('ENV', (function() {
   return {
     API: {
       LOGIN: api + '/login',
+      REGISTER: api + '/register',
       HOME: api + '/home',
     }
   }
