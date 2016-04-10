@@ -22,9 +22,10 @@
 
             <div class="form-group has-feedback">
                 <label for="email" class="text-default">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="Email" 
+                <input type="text" name="email" id="email" class="form-control" placeholder="Email" 
                     ng-model="user.email"
                     validate-on="dirty"
+                    validator = "emailValidator(user.email)"
                     required-message="'Preencha seu email'"
                     invalid-message="'Email inválido'"
                     required>
@@ -55,7 +56,7 @@
                     </label>
                 </div>
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+                    <input type="submit" class="btn btn-primary btn-block btn-flat" value="Registrar" />
                 </div>
             </div>
         </form>
