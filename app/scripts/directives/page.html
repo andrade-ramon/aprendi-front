@@ -1,49 +1,89 @@
-<header ng-if='hasHeader' class="main-header">
-    <nav class="navbar navbar-static-top">
-        <div class="container marginless">
-            
+<header ng-if='hasHeader'>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
                 <a href="/" class="navbar-brand">
                     <b>Qual</b>Facul<b>?</b>
                 </a>
             </div>
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="#">Entenda o ranking</a></li>
-                <li><a href="#">Ranking</a></li>
-                <li><a href="#">Participe</a></li>
-            </ul>
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="navbar-search-input" placeholder="Busque algo">
+                    
+            <div class="container">
+                <div class="collapse navbar-collapse" id="header-menu">
+                    <ul class="nav navbar-nav navbar-right header-menu">
+                        <li class=""><a href="/">HOME</a></li>
+                        <li><a href="/ranking">RANKING</a></li>
+                        <li><a href="/entenda-o-ranking">ENTENDA O RANKING</a></li>
+                        <li class="bordered-button" ng-if="!isLogged"><a href="/login">ACESSE O SISTEMA</a></li>
+                        <li class="bordered-button" ng-if="isLogged">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ramon<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/configuracoes" class="config">Configurações</a></li>
+                                <li><a href="/perfil" class="profile">Meu perfil</a></li>
+                                <li><a href="#" class="logout" ng-click="logout();">Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>                
                 </div>
-            </form>
-            <div class="nav-login">
-                <input id='option-account' class='option-account' type='checkbox' />
-                <section class='login-form'>
-                    <a class='option' href='/configuracao' >Configurações</a>
-                    <a class='option'href='/opcoes'>Opções</a>
-                    <span ng-click="logout()" class='option' >Sair</span>
-                </section>
-                <div class='login'>
-                    <div class='avatar'>
-                        <image src='/images/avatar.png'>
-                    </div>
-                    <a href='/login' class='title' ng-if="!isLogged">Login</a>
-                    <label for='option-account' class='title' ng-if="isLogged" >Minha conta</label>
-                </div>
-                
-            </div>
-            
-        </div>
+            </div><!--/container-->
+
+        </div><!--/container-fluid-->
     </nav>
 </header>
+
 <growl-notifications/>
 
 <growl-notification  ng-if="showMessage" ng-class="growlType" class="box-growl fade-out" >{{growlMessage}}</growl-notification>
 
 <ng-transclude/>
 
-<footer ng-if='hasFooter'>
-    footer
+
+
+<footer class="footer row" ng-if='hasFooter'>
+    <div class="container">
+        <ul class="col-xs-4 footer-column">
+            <h1 class="title">Institucional</h1>
+            <li><a href="/sobre-nos">Sobre nós</a></li>
+            <li><a href="/rankings">Rankings</a></li>
+            <li><a href="/termos-de-uso">Termos de uso</a></li>
+            <li><a href="/entenda-o-ranking">Entenda o ranking</a></li>
+        </ul>
+
+        <ul class="col-xs-4 footer-column footer-social">
+            <h1 class="title">Siga a gente</h1>
+            <div class="social-box">
+                <a href="#"><span class="facebook"></span></a>
+                <a href="#"><span class="twitter"></span></a>
+                <a href="#"><span class="googleplus"></span></a>
+                <a href="#"><span class="instagran"></span></a>
+            </div>
+            <h1 class="title">Fale conosco</h1>
+            <li><a href="/contato"><button class="btn btn-primary">Entre em contato</button></a></li>
+        </ul>
+        
+        
+        <ul class="col-xs-4 footer-column">
+            <h1 class="title">Login da faculdade</h1>
+            <form class="">
+                <div class="form-group has-feedback university-login">
+                    <label class="text-danger form-error-text" ng-bind-html="error.generic" ng-if="error.generic"></label>
+
+                    <input type="text" name="login" class="form-control" placeholder="Login">
+                    <input type="password" name="password" class="form-control" placeholder="Senha">
+
+                    <input type="submit" class="btn btn-primary btn-flat " value="Entrar" />
+
+                    <a href="">esqueci minha senha</a>
+                    <p><a href="">quero me cadastrar</a></p>
+                </div>
+            </form>
+        </ul>
+    </div>
 </footer>
