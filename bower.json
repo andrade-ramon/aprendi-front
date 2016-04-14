@@ -10,8 +10,13 @@
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "ngstorage": "^0.3.10",
-    "tg-angular-validator": "^1.2.8"
+    "tg-angular-validator": "^1.2.8",
+    "angular-growl-notifications": "2.3.0",
+    "angular-animate": "^1.4.0"
   },
   "appPath": "app",
-  "moduleName": "zeusApp"
+  "moduleName": "zeusApp",
+  "resolutions": {
+    "angular": "1.5.3"
+  }
 }

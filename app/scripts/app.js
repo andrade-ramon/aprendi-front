@@ -5,7 +5,9 @@ var app = angular.module('app', [
     'ngSanitize',
     'ngStorage',
     'zeusDirectives',
-    'angularValidator'
+    'angularValidator',
+    'growlNotifications',
+    'ngAnimate'
 ]);
 
 app.config(function ($routeProvider, $locationProvider) {

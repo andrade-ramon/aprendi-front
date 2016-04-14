@@ -38,8 +38,11 @@
         </div>
     </nav>
 </header>
+<growl-notifications/>
 
-<ng-transclude></ng-transclude>
+<growl-notification  ng-if="showMessage" ng-class="growlType" class="box-growl fade-out" >{{growlMessage}}</growl-notification>
+
+<ng-transclude/>
 
 <footer ng-if='hasFooter'>
     footer

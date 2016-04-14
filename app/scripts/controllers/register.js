@@ -1,4 +1,4 @@
-app.controller('RegisterCtrl', function ($scope, $http, $localStorage, $location, ENV) {
+app.controller('RegisterCtrl', function ($scope, $http, $localStorage, $location, ENV, messagesContainer) {
 	if($localStorage.token){
         $location.path('/');
         return;
@@ -17,7 +17,8 @@ app.controller('RegisterCtrl', function ($scope, $http, $localStorage, $location
 	$scope.register = function() {
 	    $http.post(ENV.API.REGISTER, $scope.user).then(function(response) {
 	        $localStorage.token = response.data.token;
-			$location.path('/');
+            $location.path('/');
+            messagesContainer.addSuccess("Bem-vindo ao QualFacul!");
 	    }, function(response) {
 	    	if(response.data) {
 	    		$scope.error = {};

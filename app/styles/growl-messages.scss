@@ -1,0 +1,33 @@
+@import 'colors';
+
+growl-notification.box-growl {
+    width: 15em;
+    margin: 1.5em;
+    padding: 1em;
+    position: absolute;
+    right: 0;
+    box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.75);
+    border-radius: 0.2em;
+    transition: 200ms;
+}
+
+growl-notification.fade-out.ng-leave {
+    opacity: 1;
+    transition: 1s linear all;
+}
+growl-notification.fade-out.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+growl-notification.success {
+    border: 1px solid $message-green;
+    border-left: 10px solid $message-green;
+}
+growl-notification.error {
+    border: 1px solid $message-red;
+    border-left: 10px solid $message-red;
+}
+growl-notification.warning {
+    border: 1px solid $message-yellow;
+    border-left: 10px solid $message-yellow;
+}
