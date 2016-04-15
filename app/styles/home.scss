@@ -1,6 +1,6 @@
 @import 'colors';
 @import 'fonts';
-$images-path: "../images/";
+@import 'images';
 
 .home-box {
 	font-family: $font-default;
@@ -32,7 +32,7 @@ $images-path: "../images/";
 
 		h2.link {
 			font-weight: bold;
-			font-size: 1.4em;
+			font-size: 1.4em;			
 		}
 
 		.form-search {
@@ -107,6 +107,18 @@ $images-path: "../images/";
 		overflow: hidden;
 		background-color: #efefef;
 		border-bottom: 1px solid #ccc;
+
+		.list-icon {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		.gold-icon {background-image: url($images-path + 'trophy-gold.png');}
+		.silver-icon {background-image: url($images-path + 'trophy-silver.png');}
+		.bronze-icon {background-image: url($images-path + 'trophy-bronze.png');}
+		.number-4-icon {background-image: url($images-path + '4.png');}
+		.number-5-icon {background-image: url($images-path + '5.png');}
 
 		.thumb {
 			float: left;
@@ -187,12 +199,11 @@ $images-path: "../images/";
 			border: 2px solid $dark-gray;
 			color: $dark-gray;
 			transition: all 500ms;
-		}
 
-		.btn:hover {
-			background-color: $dark-gray;
-			color: $white;
-			
+			&:hover {
+				background-color: $dark-gray;
+				color: $white;
+			}
 		}
 	}
 
@@ -217,7 +228,27 @@ $images-path: "../images/";
 				background-color: $light-gray;
 			}
 
-			.opinion-box{
+			.star-rating {	
+			    height:20px;    
+			    overflow: hidden;
+
+			    .rating-values {
+					list-style:none;
+					background:url($images-path + 'star-sprite.png') no-repeat 0 0;
+					width: 105px;
+					display:block;
+					height:20px;
+					text-indent:-999em;
+					overflow:hidden;
+				}
+			}
+			.rating-1 .rating-values {background-position:0 -20px;}
+			.rating-2 .rating-values {background-position:0 -40px;}
+			.rating-3 .rating-values {background-position:0 -60px;}
+			.rating-4 .rating-values {background-position:0 -80px;}
+			.rating-5 .rating-values {background-position:0 -100px;}
+
+			.opinion-box {
 				border-right: 1px solid #ccc;				
 				padding: 20px 10px;
 
@@ -236,7 +267,7 @@ $images-path: "../images/";
 				.opinion {
 					margin-top: 10px;
 				}
-				.rate-values {					
+				.rating-values {					
 					margin: 0 auto;
 				}
 			}
@@ -248,13 +279,13 @@ $images-path: "../images/";
 				width: 33.33% !important;
 			}
 		}
-		@media (min-width: 600px) and (max-width: 840px){ 
+		@media (min-width: 450px) and (max-width: 840px){ 
 			.opinion-box {
 				width: 50% !important;
 				
 			}
 		}
-		@media (max-width: 600px) {
+		@media (max-width: 450px) {
 			.opinion-box {
 				width: 100% !important;
 			}

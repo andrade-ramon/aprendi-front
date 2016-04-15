@@ -21,9 +21,13 @@
                         <li class=""><a href="/">HOME</a></li>
                         <li><a href="/ranking">RANKING</a></li>
                         <li><a href="/entenda-o-ranking">ENTENDA O RANKING</a></li>
+                        <li class="bordered-button" ng-if="!isLogged"><a href="/login/faculdade">ACESSO FACULDADE</a></li>
                         <li class="bordered-button" ng-if="!isLogged"><a href="/login">ACESSE O SISTEMA</a></li>
                         <li class="bordered-button" ng-if="isLogged">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ramon<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Minha conta
+                                <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu">
                                 <li><a href="/configuracoes" class="config">Configurações</a></li>
                                 <li><a href="/perfil" class="profile">Meu perfil</a></li>
@@ -45,18 +49,33 @@
 <ng-transclude/>
 
 
-
 <footer class="footer row" ng-if='hasFooter'>
-    <div class="container">
-        <ul class="col-xs-4 footer-column">
+    <div class="row">
+        <ul class="col-xs-3 footer-column">
             <h1 class="title">Institucional</h1>
             <li><a href="/sobre-nos">Sobre nós</a></li>
-            <li><a href="/rankings">Rankings</a></li>
+            <li><a href="/nosso-time">Nosso time</a></li>
             <li><a href="/termos-de-uso">Termos de uso</a></li>
+            <li><a href="/privacidade-e-seguranca">Privacidade e segurança</a></li>
+        </ul>
+
+        <ul class="col-xs-3 footer-column">
+            <h1 class="title">Rankings</h1>
+            <li><a href="/ranking/geral">Ranking geral</a></li>
+            <li><a href="/ranking/personalizado">Ranking personalizado</a></li>
+            <li><a href="/ranking/por-curso">Ranking por curso</a></li>
             <li><a href="/entenda-o-ranking">Entenda o ranking</a></li>
         </ul>
 
-        <ul class="col-xs-4 footer-column footer-social">
+        <ul class="col-xs-3 footer-column">
+            <h1 class="title">Dúvidas frequentes</h1>
+            <li><a href="/duvidas/nao-achei-uma-faculdade">Não achei uma faculdade</a></li>
+            <li><a href="/duvidas/nao-achei-um-curso">Não achei um curso</a></li>
+            <li><a href="/esqueci-minha-senha">Esqueci minha senha</a></li>
+            <li><a href="/duvidas/todas">Ver todas</a></li>
+        </ul>
+
+        <ul class="col-xs-3 footer-column footer-social">
             <h1 class="title">Siga a gente</h1>
             <div class="social-box">
                 <a href="#"><span class="facebook"></span></a>
@@ -66,24 +85,6 @@
             </div>
             <h1 class="title">Fale conosco</h1>
             <li><a href="/contato"><button class="btn btn-primary">Entre em contato</button></a></li>
-        </ul>
-        
-        
-        <ul class="col-xs-4 footer-column">
-            <h1 class="title">Login da faculdade</h1>
-            <form class="">
-                <div class="form-group has-feedback university-login">
-                    <label class="text-danger form-error-text" ng-bind-html="error.generic" ng-if="error.generic"></label>
-
-                    <input type="text" name="login" class="form-control" placeholder="Login">
-                    <input type="password" name="password" class="form-control" placeholder="Senha">
-
-                    <input type="submit" class="btn btn-primary btn-flat " value="Entrar" />
-
-                    <a href="">esqueci minha senha</a>
-                    <p><a href="">quero me cadastrar</a></p>
-                </div>
-            </form>
         </ul>
     </div>
 </footer>
