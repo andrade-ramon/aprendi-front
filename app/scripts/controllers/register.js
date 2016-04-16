@@ -1,9 +1,4 @@
 app.controller('RegisterCtrl', function ($scope, $http, $location, ENV, messagesContainer, User) {
-	if(User.isLogged()){
-        $location.path('/');
-        return;
-    }
-    
 	$scope.user = {};
 
 	$scope.emailValidator = function(email){
