@@ -1,0 +1,16 @@
+{
+    "index.title":"Qual Facul?",
+	"home.title":"Qual Facul?",
+
+    "login.inform.credentials":"Informe suas credênciais",
+    "login.login":"Login",
+    "login.inform.login":"Informe seu login",
+    "login.inform.credentials":"Informe suas credênciais",
+    "login.password":"Senha",
+    "login.inform.password":"Informe sua senha",
+    "login.forgot.password":"Esqueci minha senha",
+    "login.create.account":"Criar uma conta",
+    "login.confirm":"Entrar",
+    "login.or":"OU",
+    "login.facebook.login":"Entre usando o facebook"
+}

@@ -7,7 +7,9 @@ var app = angular.module('app', [
     'zeusDirectives',
     'angularValidator',
     'growlNotifications',
-    'ngAnimate'
+    'ngAnimate',
+    'pascalprecht.translate',
+    'ngCookies'
 ]);
 
 window.routes = {
@@ -33,6 +35,21 @@ app.config(function ($routeProvider, $locationProvider) {
     }
     $routeProvider.otherwise({redirectTo: '/404'});
     $locationProvider.html5Mode(true);
+
+    $translateProvider.useStaticFilesLoader({
+        prefix: 'scripts/i18n/messages-',
+        suffix: '.json'
+    });
+    $translateProvider.useMissingTranslationHandlerLog();
+    $translateProvider.preferredLanguage('pt_BR');
+    $translateProvider.useLocalStorage();
+});
+
+app.constant('LOCALES', {
+    'locales': {
+        'pt_BR': 'Português'
+    },
+    'preferredLocale':'pt_BR'
 });
 
 app.run(function($rootScope, $location, User, ENV) {
