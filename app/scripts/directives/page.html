@@ -18,27 +18,27 @@
             <div class="container">
                 <div class="collapse navbar-collapse" id="header-menu">
                     <ul class="nav navbar-nav navbar-right header-menu">
-                        <li class=""><a href="/">HOME</a></li>
-                        <li><a href="/ranking">RANKING</a></li>
-                        <li><a href="/entenda-o-ranking">ENTENDA O RANKING</a></li>
-                        <li class="bordered-button" ng-if="!isLogged"><a href="/login/faculdade">ACESSO FACULDADE</a></li>
-                        <li class="bordered-button" ng-if="!isLogged"><a href="/login">ACESSE O SISTEMA</a></li>
+                        <li><a href="/">{{"page.menu.home"|translate}}</a></li>
+                        <li><a href="/ranking">{{"page.menu.ranking"|translate}}</a></li>
+                        <li><a href="/entenda-o-ranking">{{"page.menu.understand.ranking"|translate}}</a></li>
+                        <li class="bordered-button" ng-if="!isLogged"><a href="/login/faculdade">{{"page.menu.access.college"|translate}}</a></li>
+                        <li class="bordered-button" ng-if="!isLogged"><a href="/login">{{"page.menu.access.system"|translate}}</a></li>
                         <li class="bordered-button" ng-if="isLogged">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                Minha conta
+                                {{"page.my.account"|translate}}
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="/configuracoes" class="config">Configurações</a></li>
-                                <li><a href="/perfil" class="profile">Meu perfil</a></li>
-                                <li><a href="#" class="logout" ng-click="logout();" ng-controller="LoginCtrl">Sair</a></li>
+                                <li><a href="/configuracoes" class="config">{{"page.account.configuration"|translate}}</a></li>
+                                <li><a href="/perfil" class="profile">{{"page.account.my.profile"|translate}}</a></li>
+                                <li><a href="#" class="logout" ng-click="logout();" ng-controller="LoginCtrl">{{"page.account.exit"|translate}}</a></li>
                             </ul>
                         </li>
-                    </ul>                
+                    </ul> 
                 </div>
-            </div><!--/container-->
+            </div>
 
-        </div><!--/container-fluid-->
+        </div>
     </nav>
 </header>
 
@@ -47,7 +47,6 @@
 <growl-notification  ng-if="showMessage" ng-class="growlType" class="box-growl fade-out" >{{growlMessage}}</growl-notification>
 
 <ng-transclude/>
-
 
 <footer class="footer row" ng-if='hasFooter'>
     <div class="row">

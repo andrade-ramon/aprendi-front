@@ -1,5 +1,15 @@
 {
     "index.title":"Qual Facul?",
+
+    "page.menu.home":"HOME",
+    "page.menu.ranking":"RANKING",
+    "page.menu.understand.ranking":"ENTENDA O RANKING",
+    "page.menu.access.college":"ACESSO FACULDADE",
+    "page.menu.access.system":"ACESSE O SISTEMA",
+    "page.my.account":"Minha conta",
+    "page.account.configuration":"Configurações",
+    "page.account.my.profile":"Meu perfil",
+
 	"home.title":"Qual Facul?",
 
     "login.inform.credentials":"Informe suas credênciais",
@@ -12,5 +22,21 @@
     "login.create.account":"Criar uma conta",
     "login.confirm":"Entrar",
     "login.or":"OU",
-    "login.facebook.login":"Entre usando o facebook"
+    "login.facebook.login":"Entre usando o facebook",
+
+    "register.title":"Registre-se",
+    "register.user.name":"Nome",
+    "register.user.empty.name":"Onforme seu nome",
+    "register.user.password":"Senha",
+    "register.user.empty.password":"Preencha sua senha",
+    "register.user.invalid.password":"Digite uma senha com 4 caracteres ou mais",
+    "register.user.email":"Email",
+    "register.user.empty.email":"Preencha seu email",
+    "register.user.invalid.email":"Email inválido",
+    "register.terms.explanation":"Ao clicar em \"registrar\", voçê concorda com os ",
+    "register.terms":"termos de uso",
+    "register.confirm":"Registrar",
+    "register.or":"OU",
+    "register.facebook.confirm":"Registre-se usando o facebook",
+    "register.already.registrated":"Eu já tenho registro"
 }
