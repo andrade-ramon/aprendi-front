@@ -9,6 +9,23 @@
     "page.my.account":"Minha conta",
     "page.account.configuration":"Configurações",
     "page.account.my.profile":"Meu perfil",
+    "page.account.exit":"Sair",
+    "page.footer.institucional":"Institucional",
+    "page.footer.about.us":"Sobre nós",
+    "page.footer.our.team":"Nosso time",
+    "page.footer.terms":"Termos de uso",
+    "page.footer.privacy.and.security":"Privacidade e segurança",
+    "page.footer.rankings":"Rankings",
+    "page.footer.rankings.global":"Ranking geral",
+    "page.footer.rankings.custom":"Ranking personalizado",
+    "page.footer.rankings.understand":"Entenda o ranking",
+    "page.footer.faq":"Dúvidas frequentes",
+    "page.footer.faq.college.not.found":"Não achei uma faculdade",
+    "page.footer.faq.course.not.found":"Não achei um curso",
+    "page.footer.faq.all":"Ver todas",
+    "page.footer.follow.us":"Siga a gente",
+    "page.footer.contact.us":"Fale conosco",
+    "page.footer.contact":"Entre em contato",
 
 	"home.title":"Qual Facul?",
 
@@ -26,7 +43,7 @@
 
     "register.title":"Registre-se",
     "register.user.name":"Nome",
-    "register.user.empty.name":"Onforme seu nome",
+    "register.user.empty.name":"Informe seu nome",
     "register.user.password":"Senha",
     "register.user.empty.password":"Preencha sua senha",
     "register.user.invalid.password":"Digite uma senha com 4 caracteres ou mais",
@@ -39,4 +56,5 @@
     "register.or":"OU",
     "register.facebook.confirm":"Registre-se usando o facebook",
     "register.already.registrated":"Eu já tenho registro"
+
 }
