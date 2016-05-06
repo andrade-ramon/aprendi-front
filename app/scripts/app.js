@@ -38,7 +38,7 @@ app.config(function ($routeProvider, $locationProvider) {
 app.run(function($rootScope, $location, User, ENV) {
     $rootScope.$on("$locationChangeStart", function(event, nextRoute) {
         
-        nextRoute = nextRoute.replace(ENV.URL,"");
+        nextRoute = nextRoute.replace(ENV.BASE_URL,"");
 
         if(typeof window.routes[nextRoute] !== 'undefined') {
             if(window.routes[nextRoute].onlyLogged && !User.isLogged()) {

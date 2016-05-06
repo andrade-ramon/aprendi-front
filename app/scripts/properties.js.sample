@@ -8,7 +8,7 @@ app.constant('ENV', (function() {
       HOME: api + '/home',
     },
 
-    URL: 'http://localhost:9000'
+    BASE_URL: 'http://localhost:9000'
   }
 
 }()));
