@@ -1,9 +1,4 @@
-app.controller('RegisterCtrl', function ($scope, $http, $localStorage, $location, ENV, messagesContainer) {
-	if($localStorage.token){
-        $location.path('/');
-        return;
-    }
-    
+app.controller('RegisterCtrl', function ($scope, $http, $location, ENV, messagesContainer, User) {
 	$scope.user = {};
 
 	$scope.emailValidator = function(email){
@@ -16,9 +11,9 @@ app.controller('RegisterCtrl', function ($scope, $http, $localStorage, $location
 
 	$scope.register = function() {
 	    $http.post(ENV.API.REGISTER, $scope.user).then(function(response) {
-	        $localStorage.token = response.data.token;
-            $location.path('/');
+	    	User.loggedIn(response.data.token);
             messagesContainer.addSuccess("Bem-vindo ao QualFacul!");
+            $location.path('/');
 	    }, function(response) {
 	    	if(response.data) {
 	    		$scope.error = {};
