@@ -50,7 +50,7 @@
     "register.user.email":"Email",
     "register.user.empty.email":"Preencha seu email",
     "register.user.invalid.email":"Email inválido",
-    "register.terms.explanation":"Ao clicar em \"registrar\", voçê concorda com os ",
+    "register.terms.explanation":"Ao clicar em \"registrar\", você concorda com os ",
     "register.terms":"termos de uso",
     "register.confirm":"Registrar",
     "register.or":"OU",

@@ -29,7 +29,7 @@ window.routes = {
     }
 };
 
-app.config(function ($routeProvider, $locationProvider) {
+app.config(function ($routeProvider, $locationProvider, $translateProvider) {
     for(var path in window.routes) {
         $routeProvider.when(path, window.routes[path]);
     }
@@ -43,6 +43,9 @@ app.config(function ($routeProvider, $locationProvider) {
     $translateProvider.useMissingTranslationHandlerLog();
     $translateProvider.preferredLanguage('pt_BR');
     $translateProvider.useLocalStorage();
+
+    //FIXME - http://angular-translate.github.io/docs/#/guide/19_security
+    $translateProvider.useSanitizeValueStrategy(null);
 });
 
 app.constant('LOCALES', {
