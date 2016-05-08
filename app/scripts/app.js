@@ -7,7 +7,9 @@ var app = angular.module('app', [
     'zeusDirectives',
     'angularValidator',
     'growlNotifications',
-    'ngAnimate'
+    'ngAnimate',
+    'pascalprecht.translate',
+    'ngCookies'
 ]);
 
 window.routes = {
@@ -27,12 +29,30 @@ window.routes = {
     }
 };
 
-app.config(function ($routeProvider, $locationProvider) {
+app.config(function ($routeProvider, $locationProvider, $translateProvider) {
     for(var path in window.routes) {
         $routeProvider.when(path, window.routes[path]);
     }
     $routeProvider.otherwise({redirectTo: '/404'});
     $locationProvider.html5Mode(true);
+
+    $translateProvider.useStaticFilesLoader({
+        prefix: 'scripts/i18n/messages-',
+        suffix: '.json'
+    });
+    $translateProvider.useMissingTranslationHandlerLog();
+    $translateProvider.preferredLanguage('pt_BR');
+    $translateProvider.useLocalStorage();
+
+    //FIXME - http://angular-translate.github.io/docs/#/guide/19_security
+    $translateProvider.useSanitizeValueStrategy(null);
+});
+
+app.constant('LOCALES', {
+    'locales': {
+        'pt_BR': 'Português'
+    },
+    'preferredLocale':'pt_BR'
 });
 
 app.run(function($rootScope, $location, User, ENV) {

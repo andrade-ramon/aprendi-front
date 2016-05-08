@@ -3,17 +3,17 @@
         <b>Qual</b>Facul<b>?</b>
     </div>
     <div class="register-box-body border-light">
-        <p class="login-box-msg">Registre-se</p>
+        <p class="login-box-msg">{{"register.title"|translate}}</p>
 
         <form angular-validator-submit="register()" name="registerForm" method="post" novalidate angular-validator>
             <label class="form-error-text" ng-bind-html="error.generic" ng-if="error.generic"></label>
 
             <div class="form-group has-feedback">
-                <label for="user-name" class="text-default">Nome</label>
-                <input type="text" name="user-name" id="login" class="form-control" placeholder="Nome" autofocus
+                <label for="user-name" class="text-default">{{"register.user.name"|translate}}</label>
+                <input type="text" name="user-name" id="login" class="form-control" placeholder='{{"register.user.name"|translate}}' autofocus
                     ng-model="user.name" 
                     validate-on="dirty"
-                    required-message="'Informe seu nome'"
+                    required-message='"{{"register.user.empty.name"|translate}}"'
                     required>
                 
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -21,13 +21,13 @@
             </div>
 
             <div class="form-group has-feedback">
-                <label for="email" class="text-default">Email</label>
-                <input type="text" name="email" id="email" class="form-control" placeholder="Email" 
+                <label for="email" class="text-default">{{"register.user.email"|translate}}</label>
+                <input type="text" name="email" id="email" class="form-control" placeholder='{{"register.user.email"|translate}}' 
                     ng-model="user.email"
                     validate-on="dirty"
                     validator = "emailValidator(user.email)"
-                    required-message="'Preencha seu email'"
-                    invalid-message="'Email inválido'"
+                    required-message='"{{"register.user.empty.email"|translate}}"'
+                    invalid-message='"{{"register.user.invalid.email"|translate}}"'
                     required>
 
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -35,12 +35,12 @@
             </div>
 
             <div class="form-group has-feedback">
-                <label for="password" class="text-default">Senha</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Senha" 
+                <label for="password" class="text-default">{{"register.user.password"|translate}}</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder='{{"register.user.password"|translate}}'
                     ng-model="user.password"
                     validate-on="dirty"
-                    required-message="'Preencha o campo senha'"
-                    invalid-message="'Digite uma senha com 4 caracteres ou mais'"
+                    required-message='"{{"register.user.empty.password"|translate}}"'
+                    invalid-message='"{{"register.user.invalid.password"|translate}}"'
                     required
                     minlength="4">
                 
@@ -51,25 +51,25 @@
             <div class="row">
                 <div class="col-xs-8">
                     <label>
-                        Ao clicar em "registrar", você concorda com os 
-                        <a href="/termos-de-uso" target="_blank">termos de uso</a>
+                        {{"register.terms.explanation"|translate}}
+                        <a href="/termos-de-uso" target="_blank">{{"register.terms"|translate}}</a>
                     </label>
                 </div>
                 <div class="col-xs-4">
-                    <input type="submit" class="btn btn-primary btn-block btn-flat" value="Registrar" />
+                    <input type="submit" class="btn btn-primary btn-block btn-flat" value='{{"register.confirm"|translate}}' />
                 </div>
             </div>
         </form>
 
         <div class="social-auth-links text-center">
-            <p>- OU -</p>
+            <p>- {{"register.or"|translate}} -</p>
             <a href="#" class="btn btn-social btn-facebook btn-flat">
                 <i class="fa fa-facebook"></i> 
-                Registre-se usando o facebook
+                {{"register.facebook.confirm"|translate}}
             </a>
         </div>
         
-        <a href="/login" class="text-center">Eu já tenho registro</a>
+        <a href="/login" class="text-center">{{"register.already.registrated"|translate}}</a>
 
-    </div><!-- /register-box-body -->
-</section><!-- /register-box -->
+    </div>
+</section>
