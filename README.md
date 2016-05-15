@@ -1,4 +1,4 @@
-<img align="right"  src="/../images/images/zeus.png?raw=true" width="96"/>
+<img align="right"  src="/../images/images/zeus.png?raw=true" width="144"/>
 # Zeus 
 
 _Projeto de front-end de TCC da USJT_
