@@ -1,8 +1,8 @@
-# Projeto zeus
+# Zeus ![](/../images/images/zeus.png?raw=true "Zeus :O")
 
 _Projeto de front-end de TCC da USJT_
 
-__Este projeto é dependente do [hades](https://github.com/andrade-ramon/hades)__
+__Este projeto é dependente do [hades](https://github.com/qualfacul/hades)__
 
 ## Arquitetura
 
