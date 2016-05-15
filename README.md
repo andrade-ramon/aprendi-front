@@ -1,4 +1,5 @@
-# Zeus ![](/../images/image/zeus.png?raw=true "Zeus :O") 
+# Zeus 
+<img  src="/../images/images/zeus.png?raw=true" width="72"/>
 
 _Projeto de front-end de TCC da USJT_
 
