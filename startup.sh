@@ -8,7 +8,7 @@ service google-fluentd restart &
 
 # Install dependencies from apt
 apt-get update
-apt-get install -yq ca-certificates git build-essential supervisor nginx
+apt-get install -yq ca-certificates git build-essential nginx ruby-compass
 
 # Install nodejs
 sudo mkdir /opt/nodejs
@@ -27,29 +27,27 @@ cd /opt/app/zeus
 npm install
 npm install -g grunt-cli grunt bower
 ln -s /opt/nodejs/bin/bower /usr/bin/bower
-
-export NODE_ENV="production"
-bower install
-grunt build
+ln -s /opt/nodejs/bin/grunt /usr/bin/grunt
 
 cat >/etc/nginx/sites-available/default << EOF
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+    listen 80;
     root /opt/app/zeus/app;
     index index.html;
     server_name zeus;
     location / {
-        try_files $uri $uri/ =404;
+        try_files $uri$args $uri$args/ index.html;
     }
 }
 EOF
 
-service nginx restart
-service supervisor restart
-supervisorctl reread
-supervisorctl update
+#Copy properties
+cp -rf /opt/app/zeus/app/scripts/properties.js.sample /opt/app/zeus/app/scripts/properties.js
 
+service nginx restart
+export NODE_ENV="production"
+bower install
+grunt build
 mv /opt/app/zeus/bower_components /opt/app/zeus/app
 
 
