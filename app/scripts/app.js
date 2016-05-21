@@ -9,7 +9,9 @@ var app = angular.module('app', [
     'growlNotifications',
     'ngAnimate',
     'pascalprecht.translate',
-    'ngCookies'
+    'ngCookies',
+    'ezfb',
+    'hljs'
 ]);
 
 window.routes = {
@@ -46,6 +48,15 @@ app.config(function ($routeProvider, $locationProvider, $translateProvider) {
 
     //FIXME - http://angular-translate.github.io/docs/#/guide/19_security
     $translateProvider.useSanitizeValueStrategy(null);
+
+
+});
+
+app.config(function (ezfbProvider) {
+  ezfbProvider.setInitParams({
+    appId: '232698013764988',
+    version: 'v2.6'
+  });  
 });
 
 app.constant('LOCALES', {

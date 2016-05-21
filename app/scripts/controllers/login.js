@@ -1,4 +1,4 @@
-app.controller('LoginCtrl', function ($scope, $http, $location, ENV, User) {
+app.controller('LoginCtrl', function ($scope, $http, $location, ENV, User, ezfb) {
     $scope.user = {};
 
     $scope.login = function() {
@@ -21,6 +21,17 @@ app.controller('LoginCtrl', function ($scope, $http, $location, ENV, User) {
                 }
             }
         });
+    };
+
+    $scope.loginFacebook = function () {
+        ezfb.login(function (res) {
+          if (res.status === "connected") {
+            $http.post(ENV.API.FACEBOOKLOGIN, res.authResponse.accessToken).then(function(response){
+                User.loggedIn(response.data.token);
+                $location.path('/');
+            });
+          }
+        }, {scope: 'email'});
     };
 
     $scope.logout = function() {
