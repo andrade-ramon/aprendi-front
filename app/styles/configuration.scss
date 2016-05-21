@@ -1,0 +1,46 @@
+.configuration-box {
+	margin-top: -20px;
+
+	.user-info-breadcrumb{
+		padding: 20px 0;
+		font-size: 1.4em;
+
+		.user-photo {
+			width: 60px;
+			border-radius: 100%;
+			border: 1px solid #ccc;
+		}
+
+		.user-name {
+			margin-left: 10px;
+		}
+
+		.separator {
+			color: #ccc;	
+		}
+
+	}
+
+
+	.left-menu {
+		padding-left: 0;
+	}
+
+	.data-box {
+		padding: 0px 40px;
+
+		.panel-title {
+			font-weight: bold;
+		}
+
+		.panel-body {
+			.user-photo {
+				width:80px;
+				border-radius: 100%;
+				margin:0 0 5px 0;
+			}
+		}
+	}
+
+	
+}

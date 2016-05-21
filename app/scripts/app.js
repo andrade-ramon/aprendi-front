@@ -26,6 +26,11 @@ window.routes = {
         templateUrl: 'views/register.html',
         controller: 'RegisterCtrl',
         onlyGuest: true
+    },
+    "/configuracoes": {
+        templateUrl: 'views/configuration.html',
+        controller: 'ConfigCtrl',
+        onlyLogged: true  
     }
 };
 

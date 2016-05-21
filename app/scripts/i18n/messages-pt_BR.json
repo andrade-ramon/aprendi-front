@@ -55,6 +55,12 @@
     "register.confirm":"Registrar",
     "register.or":"OU",
     "register.facebook.confirm":"Registre-se usando o facebook",
-    "register.already.registrated":"Eu já tenho registro"
+    "register.already.registrated":"Eu já tenho registro",
+
+    "config.menu.my.info":"Minhas Informações",
+    "config.menu.account":"Minha Conta",
+    "config.menu.my.college":"Minha Faculdade",
+    "config.menu.email.notifications":"Notificações por email"
+
 
 }

@@ -6,6 +6,7 @@ app.constant('ENV', (function() {
       LOGIN: api + '/login',
       REGISTER: api + '/register',
       HOME: api + '/home',
+      USER: api + '/user',
     },
 
     BASE_URL: 'http://localhost:9000'
