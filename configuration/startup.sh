@@ -50,4 +50,4 @@ mv /opt/app/bower_components /opt/app/app
 rm -f /etc/nginx/sites-enabled/default
 ln -s /opt/app/configuration/nginx.conf /etc/nginx/sites-enabled/
 
-nginx -s reload
+service nginx restart
