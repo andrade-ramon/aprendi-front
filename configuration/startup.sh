@@ -23,10 +23,10 @@ ln -s /opt/nodejs/bin/npm /usr/bin/npm
 # git requires $HOME and it's not set during the startup script.
 export HOME=/root
 git config --global credential.helper gcloud.sh
-git clone https://github.com/qualfacul/zeus.git /opt/app/zeus
+git clone https://github.com/qualfacul/zeus.git /opt/app
 
 # Install app dependencies
-cd /opt/app/zeus
+cd /opt/app
 npm install
 npm install -g grunt-cli grunt bower
 ln -s /opt/nodejs/bin/bower /usr/bin/bower
@@ -38,12 +38,12 @@ mkdir /etc/nginx/ssl
 gcsfuse qual-facul.appspot.com /mnt/bucket
 cp /mnt/bucket/ssl/qualfacul.com.key /etc/nginx/ssl
 cp /mnt/bucket/ssl/qualfacul.com.crt /etc/nginx/ssl
-cp /mnt/bucket/zeus/production.js /opt/app/zeus/app/scripts/properties.js
+cp /mnt/bucket/zeus/production.js /opt/app/app/scripts/properties.js
 
 export NODE_ENV="production"
 bower install
 grunt build
 
-mv /opt/app/zeus/bower_components /opt/app/zeus/app
+mv /opt/app/bower_components /opt/app/app
 
 nginx -s reload
