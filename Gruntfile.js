@@ -96,7 +96,7 @@ module.exports = function (grunt) {
       target: {
         src: ['<%= yeoman.app %>/index.html']
       }
-    }, 
+    },
 
     // Make sure there are no obvious mistakes
     jshint: {
