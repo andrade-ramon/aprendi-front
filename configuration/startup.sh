@@ -5,7 +5,7 @@ set -v
 curl -s "https://storage.googleapis.com/signals-agents/logging/google-fluentd-install.sh" | bash
 service google-fluentd restart &
 
-export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
+export GCSFUSE_REPO=gcsfuse-wily
 echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | sudo tee /etc/apt/sources.list.d/gcsfuse.list
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
