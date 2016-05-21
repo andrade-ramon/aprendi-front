@@ -47,7 +47,6 @@ grunt build
 mv /opt/app/bower_components /opt/app/app
 
 # Nginx conf
-rm -f /etc/nginx/sites-enabled/default
-ln -s /opt/app/configuration/nginx.conf /etc/nginx/sites-enabled/
+ln -sf /opt/app/configuration/nginx.conf /etc/nginx/nginx.conf
 
-service nginx restart
+systemctl restart nginx
