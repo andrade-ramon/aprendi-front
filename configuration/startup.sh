@@ -11,10 +11,10 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
 # Install dependencies from apt
 apt-get update
-apt-get install -yq ca-certificates git build-essential nginx ruby-compass gcsfuse
+apt-get install -yq nginx ruby-compass gcsfuse
 
 # Install nodejs
-sudo mkdir /opt/nodejs
+mkdir /opt/nodejs
 curl https://nodejs.org/dist/v4.2.2/node-v4.2.2-linux-x64.tar.gz | tar xvzf - -C /opt/nodejs --strip-components=1
 ln -s /opt/nodejs/bin/node /usr/bin/node
 ln -s /opt/nodejs/bin/npm /usr/bin/npm
@@ -41,9 +41,13 @@ cp /mnt/bucket/ssl/qualfacul.com.crt /etc/nginx/ssl
 cp /mnt/bucket/zeus/production.js /opt/app/app/scripts/properties.js
 
 export NODE_ENV="production"
-bower install
+bower install --allow-root --config.interactive=false
 grunt build
 
 mv /opt/app/bower_components /opt/app/app
+
+# Nginx conf
+rm -f /etc/nginx/sites-enabled/default
+ln -s /opt/app/configuration/nginx.conf /etc/nginx/sites-enabled/
 
 nginx -s reload

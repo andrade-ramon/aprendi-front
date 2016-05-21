@@ -5,7 +5,7 @@
     "jquery": "^1.11",
     "jquery-ui": "^1.11",
     "admin-lte": "^2.3.1",
-    "angular": "^1.4.0",
+    "angular": "1.5.5",
     "angular-resource": "^1.4.0",
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
@@ -21,6 +21,6 @@
   "appPath": "app",
   "moduleName": "zeusApp",
   "resolutions": {
-    "angular": "1.5.3"
+    "angular": "1.5.5"
   }
 }
