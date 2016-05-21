@@ -1,14 +1,17 @@
 #!/bin/bash
 set -v
 
-# Install logging monitor. The monitor will automatically pick up logs sent to
-# syslog.
+# Install logging monitor. The monitor will automatically pick up logs sent to syslog.
 curl -s "https://storage.googleapis.com/signals-agents/logging/google-fluentd-install.sh" | bash
 service google-fluentd restart &
 
+export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
+echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | sudo tee /etc/apt/sources.list.d/gcsfuse.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
 # Install dependencies from apt
 apt-get update
-apt-get install -yq ca-certificates git build-essential nginx ruby-compass
+apt-get install -yq ca-certificates git build-essential nginx ruby-compass gcsfuse
 
 # Install nodejs
 sudo mkdir /opt/nodejs
@@ -29,25 +32,18 @@ npm install -g grunt-cli grunt bower
 ln -s /opt/nodejs/bin/bower /usr/bin/bower
 ln -s /opt/nodejs/bin/grunt /usr/bin/grunt
 
-cat >/etc/nginx/sites-available/default << EOF
-server {
-    listen 80;
-    root /opt/app/zeus/app;
-    index index.html;
-    server_name zeus;
-    location / {
-        try_files $uri$args $uri$args/ index.html;
-    }
-}
-EOF
+# Get bucket files
+mkdir /mnt/bucket
+mkdir /etc/nginx/ssl
+gcsfuse qual-facul.appspot.com /mnt/bucket
+cp /mnt/bucket/ssl/qualfacul.com.key /etc/nginx/ssl
+cp /mnt/bucket/ssl/qualfacul.com.crt /etc/nginx/ssl
+cp /mnt/bucket/zeus/production.js /opt/app/zeus/app/scripts/properties.js
 
-#Copy properties
-cp -rf /opt/app/zeus/app/scripts/properties.js.sample /opt/app/zeus/app/scripts/properties.js
-
-service nginx restart
 export NODE_ENV="production"
 bower install
 grunt build
+
 mv /opt/app/zeus/bower_components /opt/app/zeus/app
 
-
+nginx -s reload
