@@ -16,7 +16,9 @@
     "angular-translate":"^2.11.0",
     "angular-translate-storage-local":"^2.11.0",
     "angular-translate-loader-static-files":"^2.11.0",
-    "angular-cookies":"^1.5.6"
+    "angular-cookies":"^1.5.6",
+    "angular-easyfb":"^1.4.3",
+    "angular-highlightjs":"^0.6.1"
   },
   "appPath": "app",
   "moduleName": "zeusApp",

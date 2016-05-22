@@ -9,7 +9,9 @@ var app = angular.module('app', [
     'growlNotifications',
     'ngAnimate',
     'pascalprecht.translate',
-    'ngCookies'
+    'ngCookies',
+    'ezfb',
+    'hljs'
 ]);
 
 window.routes = {
@@ -29,7 +31,7 @@ window.routes = {
     }
 };
 
-app.config(function ($routeProvider, $locationProvider, $translateProvider) {
+app.config(function ($routeProvider, $locationProvider, $translateProvider, ezfbProvider, ENV) {
     for(var path in window.routes) {
         $routeProvider.when(path, window.routes[path]);
     }
@@ -46,6 +48,13 @@ app.config(function ($routeProvider, $locationProvider, $translateProvider) {
 
     //FIXME - http://angular-translate.github.io/docs/#/guide/19_security
     $translateProvider.useSanitizeValueStrategy(null);
+
+    ezfbProvider.setInitParams({
+        appId: ENV.FACEBOOK.APPLICATION.ID,
+        version: ENV.FACEBOOK.APPLICATION.VERSION
+    }); 
+
+
 });
 
 app.constant('LOCALES', {
