@@ -64,7 +64,7 @@ module.exports = function (grunt) {
     connect: {
       options: {
         port: 9000,
-        hostname: 'localhost',
+        hostname: 'dev.qualfacul.com',
         livereload: 35730
       },
       livereload: {

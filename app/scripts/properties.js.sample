@@ -1,5 +1,5 @@
 app.constant('ENV', (function() {
-  var api = 'https://localhost:6660';
+  var api = 'https://dev.api.qualfacul.com:6660';
 
   return {
     API: {
@@ -16,7 +16,7 @@ app.constant('ENV', (function() {
       }
     },
 
-    BASE_URL: 'http://localhost:9000'
+    BASE_URL: 'http://dev.qualfacul.com:9000'
   };
 
 }()));
