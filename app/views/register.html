@@ -52,8 +52,31 @@
                 <div class="col-xs-8">
                     <label>
                         {{"register.terms.explanation"|translate}}
-                        <a href="/termos-de-uso" target="_blank">{{"register.terms"|translate}}</a>
+                        <a data-target="#terms" data-toggle="modal" target="_blank">{{"register.terms"|translate}}</a>
                     </label>
+                    <!-- Termos e condições modal -->
+                    <section class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="Terms and conditions" aria-hidden="true">
+                        <section class="modal-dialog modal-lg">
+                            <section class="modal-content">
+                                <section class="modal-header">
+                                    <h3 class="modal-title"><u>{{"register.Terms"|translate}}</u></h3>
+                                </section>
+                                <section class="modal-body text-justify pre-scrollable">
+                                    <p>{{"register.terms.line1"|translate}}</p>
+                                    <p><b>{{"register.terms.line2"|translate}}</b></p>
+                                    <p>{{"register.terms.line3"|translate}}</p>
+                                    <p>{{"register.terms.line4"|translate}}</p>
+                                    <p>{{"register.terms.line5"|translate}}</p>
+                                    <p>{{"register.terms.line6"|translate}}</p>
+                                    <p>{{"register.terms.line7"|translate}}</p>
+                                    <p><b><u>{{"register.terms.line8"|translate}}</u></b></p>
+                                </section>
+                                <section class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
                 </div>
                 <div class="col-xs-4">
                     <input type="submit" class="btn btn-primary btn-block btn-flat" value='{{"register.confirm"|translate}}' />

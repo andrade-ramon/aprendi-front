@@ -52,9 +52,19 @@
     "register.user.invalid.email":"Email inválido",
     "register.terms.explanation":"Ao clicar em \"registrar\", você concorda com os ",
     "register.terms":"termos de uso",
+    "register.Terms":"Termos de uso",
     "register.confirm":"Registrar",
     "register.or":"OU",
     "register.facebook.confirm":"Registre-se usando o facebook",
-    "register.already.registrated":"Eu já tenho registro"
+    "register.already.registrated":"Eu já tenho registro",
 
+    "register.terms.line1":"O website QualFacul?  é um serviço interativo oferecido por meio de página eletrônica na internet, que oferece informações sobre Faculdades e Cursos de todo país, e ainda opniões de alunos e ex-alunos sobre os mesmo, a partir da integração de diversas fontes de informação. O acesso ao QualFacul? representa a aceitação expressa e irrestrita dos termos de uso abaixo descritos.",
+    "register.terms.line2":"Se você não concorda com os termos, por favor, não acesse nem utilize este website.",
+    "register.terms.line3":"O visitante poderá usar este site apenas para finalidades lícitas. Este espaço não poderá ser utilizado para publicar, enviar, distribuir ou divulgar conteúdos ou informação de caráter difamatório, obsceno ou ilícito, inclusive informações de propriedade exclusiva pertencentes a outras pessoas ou empresas, bem como marcas registradas ou informações protegidas por direitos autorais, sem a expressa autorização do detentor desses direitos.",
+    "register.terms.line4":"O QualFacul?  empenha-se em manter a qualidade, atualidade e autenticidade das informações do site, mas seus criadores e colaboradores não se responsabilizam por eventuais falhas nos serviços ou inexatidão das informações oferecidas. O usuário não deve ter como pressuposto que tais serviços e informações são isentos de erros ou serão adequados aos seus objetivos particulares. Os criadores e colaboradores tampouco assumem o compromisso de atualizar as informações, e reservam-se o direito de alterar as condições de uso a qualquer momento. Os criadores e colaboradores do site poderão a seu exclusivo critério e em qualquer tempo, modificar ou desativar o site, bem como limitar, cancelar ou suspender seu uso ou o acesso.",
+    "register.terms.line5":"Erros e falhas: Os documentos, informações, imagens e gráficos publicados neste site podem conter imprecisões técnicas ou erros tipográficos. Em nenhuma hipótese o QualFacul?  e/ou seus respectivos fornecedores serão responsáveis por qualquer dano direto ou indireto decorrente da impossibilidade de uso, perda de dados ou lucros, resultante do acesso e desempenho do site, dos serviços oferecidos ou de informações disponíveis neste site.",
+    "register.terms.line6":"Informações enviadas pelos usuários e colaboradores: Qualquer material, informação, artigos ou outras comunicações que forem transmitidas, enviadas  ou publicadas neste site serão considerados informação não confidencial, e qualquer violação aos direitos dos seus criadores não será de responsabilidade do QualFacul?. É terminantemente proibido transmitir, trocar ou publicar, através deste website, qualquer material de cunho obsceno, difamatório ou ilegal, bem como textos ou criações de terceiros sem a autorização do autor.",
+    "register.terms.line7":"Reclamações sobre violação de direitos autorais: O QualFacul?  respeita a propriedade intelectual de outras pessoas ou empresas e solicitamos aos nossos membros que façam o mesmo. Toda e qualquer violação de direitos autorais deverá ser notificada ao QualFacul?  e acompanhada dos documentos e informações que confirmam a autoria.",
+    "register.terms.line8":"O acesso ao QualFacul?  representa a aceitação expressa e irrestrita dos termos de uso acima descritos."
+    
 }
