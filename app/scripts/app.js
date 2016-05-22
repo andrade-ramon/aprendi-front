@@ -31,7 +31,7 @@ window.routes = {
     }
 };
 
-app.config(function ($routeProvider, $locationProvider, $translateProvider) {
+app.config(function ($routeProvider, $locationProvider, $translateProvider, ezfbProvider, ENV) {
     for(var path in window.routes) {
         $routeProvider.when(path, window.routes[path]);
     }
@@ -49,14 +49,12 @@ app.config(function ($routeProvider, $locationProvider, $translateProvider) {
     //FIXME - http://angular-translate.github.io/docs/#/guide/19_security
     $translateProvider.useSanitizeValueStrategy(null);
 
+    ezfbProvider.setInitParams({
+        appId: ENV.FACEBOOK.APPLICATION.ID,
+        version: ENV.FACEBOOK.APPLICATION.VERSION
+    }); 
 
-});
 
-app.config(function (ezfbProvider) {
-  ezfbProvider.setInitParams({
-    appId: '232698013764988',
-    version: 'v2.6'
-  });  
 });
 
 app.constant('LOCALES', {
