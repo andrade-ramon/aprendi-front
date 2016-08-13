@@ -24,6 +24,16 @@ window.routes = {
         controller: 'LoginCtrl',
         onlyGuest: true
     },
+    "/esqueci-minha-senha": {
+        templateUrl: 'views/password_recovery.html',
+        controller: 'PasswordRecoveryCtrl',
+        onlyGuest: true
+    },
+    "/redefinirsenha/:token": {
+        templateUrl: 'views/password_change.html',
+        controller: 'PasswordRecoveryCtrl',
+        onlyGuest: true
+    },
     "/cadastro": {
         templateUrl: 'views/register.html',
         controller: 'RegisterCtrl',

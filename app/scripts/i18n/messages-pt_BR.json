@@ -35,11 +35,17 @@
     "login.inform.credentials":"Informe suas credênciais",
     "login.password":"Senha",
     "login.inform.password":"Informe sua senha",
+    "login.inform.newpassword":"Informe sua nova senha",
+    "login.confirm.password":"Confirme sua senha",
     "login.forgot.password":"Esqueci minha senha",
     "login.create.account":"Criar uma conta",
     "login.confirm":"Entrar",
     "login.or":"OU",
     "login.facebook.login":"Entre usando o facebook",
+    
+    "msg.send":"Enviar",
+
+    "passwordrecovery.button.recovery":"Recuperar Senha",
 
     "register.title":"Registre-se",
     "register.user.name":"Nome",
