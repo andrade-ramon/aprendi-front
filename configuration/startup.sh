@@ -1,5 +1,5 @@
 #!/bin/bash
-set -v
+set -ve
 
 # Install logging monitor. The monitor will automatically pick up logs sent to syslog.
 curl -s "https://storage.googleapis.com/signals-agents/logging/google-fluentd-install.sh" | bash
@@ -33,12 +33,12 @@ ln -s /opt/nodejs/bin/bower /usr/bin/bower
 ln -s /opt/nodejs/bin/grunt /usr/bin/grunt
 
 # Get bucket files
-mkdir /mnt/bucket
+mkdir /opt/bucket
 mkdir /etc/nginx/ssl
-gcsfuse qual-facul.appspot.com /mnt/bucket
-cp /mnt/bucket/ssl/qualfacul.com.key /etc/nginx/ssl
-cp /mnt/bucket/ssl/qualfacul.com.crt /etc/nginx/ssl
-cp /mnt/bucket/zeus/production.js /opt/app/app/scripts/properties.js
+gcsfuse qual-facul.appspot.com /opt/bucket
+cp /opt/bucket/ssl/qualfacul.com.key /etc/nginx/ssl
+cp /opt/bucket/ssl/qualfacul.com.crt /etc/nginx/ssl
+cp /opt/bucket/zeus/production.js /opt/app/app/scripts/properties.js
 
 export NODE_ENV="production"
 bower install --allow-root --config.interactive=false
@@ -50,3 +50,4 @@ mv /opt/app/bower_components /opt/app/app
 ln -sf /opt/app/configuration/nginx.conf /etc/nginx/nginx.conf
 
 systemctl restart nginx
+
