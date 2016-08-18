@@ -1,7 +1,7 @@
 app.service('User', function($localStorage, $rootScope) {
 
 	this.loggedIn = function(token) {
-		$localStorage.token = token;
+		this.setToken(token);
 		$rootScope.isLogged = true;
 	};
 
@@ -16,6 +16,10 @@ app.service('User', function($localStorage, $rootScope) {
 
 	this.getToken = function() {
 		return $localStorage.token;
+	};
+
+	this.setToken = function(token){
+		$localStorage.token = token;
 	};
 
 	$rootScope.isLogged = this.isLogged();
