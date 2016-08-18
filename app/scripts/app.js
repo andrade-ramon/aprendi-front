@@ -38,6 +38,10 @@ window.routes = {
         templateUrl: 'views/register.html',
         controller: 'RegisterCtrl',
         onlyGuest: true
+    },
+    "/search/:query": {
+        templateUrl: 'views/search.html',
+        controller: 'SearchCtrl',
     }
 };
 

@@ -1,0 +1,74 @@
+<tag-page>
+    <main class="search">
+        <h1>Ranking geral</h1>
+        <p class="results-count">({{response.count}} resultados)</p>
+        <aside class="advanced">
+            
+            <input id="filter" type="radio" name="tab-group" checked/>
+            <label for="filter">Filtro</label>
+
+            <input id="search" type="radio" name="tab-group" />
+            <label for="search">Busca</label>
+
+            <section class="aside-content">
+                <article class="filter-content">
+                  asd
+                </article>
+                <article class="search-content">
+                    bla
+                </article>
+            </section>
+        </aside>
+        <section class="results">
+            <label class="order">
+                Ordenar:
+                <select>
+                    <option>Posição geral</option>
+                </select>
+            </label>
+            <article ng-repeat="college in response.searchResult" class="card">
+                <header>
+                    <p class="name">{{college.name}}</p>
+                    <a href="/colleges/{{college.id}}/grades" class="grades">ver avaliações</a>
+                </header>
+                <main>
+                    <figure class="college-picture">
+                        <img src="">
+                    </figure>
+                    <summary class="details">
+                        <div>
+                            <dl class="grades">
+                                <div>
+                                    <dt>Infraestrutura</dt>
+                                    <dd>66º</dd>    
+                                </div>
+                                <div>
+                                    <dt>Ensino</dt>
+                                    <dd>13º</dd>
+                                </div>
+                                <div>
+                                    <dt>MEC</dt>
+                                    <dd>10º</dd>    
+                                </div>
+                                <div>
+                                    <dt>Geral</dt>
+                                    <dd>22º</dd>
+                                </div>
+                            </dl>
+                            <div class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+                            </div>    
+                        </div>
+                        <div class="links">
+                            <a href="/colleges/{{college.id}}" class="link">visitar perfil</a>
+                            <a href="/colleges/{{college.id}}/courses" class="link">cursos</a>
+                        </div>
+                    </summary>
+                    <address class="address">
+                        <p></p>
+                    </address>
+                </main>
+            </article>
+        </section>
+    </main>
+</tag-page>

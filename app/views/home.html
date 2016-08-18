@@ -1,187 +1,184 @@
 <tag-page>
-	<section class="home-box">
+    <section class="home-box">
 
-		<div class="main-banner">
-			<h1 class="container">AVALIE MILHARES DE FACULDADES POR TODO O BRASIL</h1>
+        <div class="main-banner">
+            <h1 class="container">AVALIE MILHARES DE FACULDADES POR TODO O BRASIL</h1>
 
-			<div class="container">
-				<h2>
-					Nós sabemos que hoje a escolha de uma faculdade é algo muito complicado e por isso decidimos te ajudar. Aqui você encontra os mais diversos rankings de faculdades em diversas áreas, e o mais importante, você consegue interagir diretamente com dúvidas e perguntas, e ainda ver a opinião de quem já estuda na faculdade. <a href="/quem-somos">Saiba mais.</a>
-				</h2>
-				<h2 class="link">Não perca tempo, pesquise uma faculdade ou curso.</h2>
-			</div>			
+            <div class="container">
+                <h2>
+                    Nós sabemos que hoje a escolha de uma faculdade é algo muito complicado e por isso decidimos te ajudar. Aqui você encontra os mais diversos rankings de faculdades em diversas áreas, e o mais importante, você consegue interagir diretamente com dúvidas e perguntas, e ainda ver a opinião de quem já estuda na faculdade. <a href="/quem-somos">Saiba mais.</a>
+                </h2>
+                <h2 class="link">Não perca tempo, pesquise uma faculdade ou curso.</h2>
+            </div>          
 
-			<div class="col-xs-4 col-xs-offset-4 box-form-search">
-				<form class="input-group form-search">
-	      			
-	      			<input type="text" class="form-control" aria-label="..." placeholder="Pesquise por uma faculdade ou curso ">
-	      			
-	      			<div class="input-group-btn">
-	        			<button class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
-	      			</div>
-	    		</form>
+            <div class="col-xs-4 col-xs-offset-4 box-form-search">
+                <form angular-validator angular-validator-submit="search()" name="homeForm" method="POST" class="input-group form-search">
+                    <input autofocus ng-model="search.query" placeholder="Pesquise por uma faculdade ou curso" class="form-control">
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+                    </div>
+                </form>
 
-	    		<a href="/busca-avancada" class="advanced-search">Faça uma pesquisa avançada</a>
-    		</div>
-		</div><!--/main-banner-->
+                <a href="/busca-avancada" class="advanced-search">Faça uma pesquisa avançada</a>
+            </div>
+        </div>
 
-
-		<div class="thumbs">
-			<div class="thumb">	
-				<img src="../images/opinion.png" />
-				<h1>Avaliação de estudantes</h1>
-				<p>Aqui os alunos das faculdades conseguem atribuir notas baseados em diversos quisitos, tais como qualidade de ensino, infra estrutura, preço, segurança, etc. <a href="/entenda-o-ranking/#avalicao-dos-alunos">Saiba mais.</a></p>
-			</div>
-			<div class="thumb">
-				<img src="../images/MEC.png" />
-				<h1>Notas do MEC</h1>
-				<p>
-					Nossos rankings levam em conta as notas das faculdades nas avaliações do MEC, caso deseje não levar em conta esse critério, faça uma <a href="/busca-avancada">busca avançada</a> ou <a href="/entenda-o-ranking/#notas-do-MEC">saiba mais</a>.
-				</p>
-			</div>
-			<div class="thumb">
-				<img src="../images/info.png" />
-				<h1>Informações de Curso</h1>
-				<p>
-					Aqui você encontra as informações necessárias para entender mais sobre cada curso, preços, conteúdo e ainda consegue ver as faculdades que o oferecem. <a href="/sobre-nos/#cursos">Saiba mais</a>.
-				</p>
-			</div>
-			<div class="thumb">
-				<img src="../images/ranks.png" />
-				<h1>Rankings</h1>
-				<p>
-					Aqui você encontra os mais diversos rankings que te ajudarão a escolher a faculdade certa. Nossos rankings são personalizados e levam em conta diversos fatores, tomando como principal critério a avaliação dos alunos da própria faculdade. <a href="/entenda-o-ranking/#criterios">Saiba mais</a>.
-				</p>
-			</div>
-		</div><!--/thumbs-->
+        <div class="thumbs">
+            <div class="thumb"> 
+                <img src="../images/opinion.png" />
+                <h1>Avaliação de estudantes</h1>
+                <p>Aqui os alunos das faculdades conseguem atribuir notas baseados em diversos quisitos, tais como qualidade de ensino, infra estrutura, preço, segurança, etc. <a href="/entenda-o-ranking/#avalicao-dos-alunos">Saiba mais.</a></p>
+            </div>
+            <div class="thumb">
+                <img src="../images/MEC.png" />
+                <h1>Notas do MEC</h1>
+                <p>
+                    Nossos rankings levam em conta as notas das faculdades nas avaliações do MEC, caso deseje não levar em conta esse critério, faça uma <a href="/busca-avancada">busca avançada</a> ou <a href="/entenda-o-ranking/#notas-do-MEC">saiba mais</a>.
+                </p>
+            </div>
+            <div class="thumb">
+                <img src="../images/info.png" />
+                <h1>Informações de Curso</h1>
+                <p>
+                    Aqui você encontra as informações necessárias para entender mais sobre cada curso, preços, conteúdo e ainda consegue ver as faculdades que o oferecem. <a href="/sobre-nos/#cursos">Saiba mais</a>.
+                </p>
+            </div>
+            <div class="thumb">
+                <img src="../images/ranks.png" />
+                <h1>Rankings</h1>
+                <p>
+                    Aqui você encontra os mais diversos rankings que te ajudarão a escolher a faculdade certa. Nossos rankings são personalizados e levam em conta diversos fatores, tomando como principal critério a avaliação dos alunos da própria faculdade. <a href="/entenda-o-ranking/#criterios">Saiba mais</a>.
+                </p>
+            </div>
+        </div><!--/thumbs-->
 
 
-		<div class="black-banner">
-			<h1>Conheça as 5 primeiras em algumas áreas</h1>
-		</div>
+        <div class="black-banner">
+            <h1>Conheça as 5 primeiras em algumas áreas</h1>
+        </div>
 
-		<div class="ranking-box">
-			<div class="thumb col-xs-4">
-				<h1 class="title">Avaliação dos alunos</h1>
-				
-				<ul class="list">
-					<li>
-						<i class="list-icon gold-icon"></i>
-						<a href="">ES - Universidade Federal do Espírito Santo</a>
-					</li>
-					<li>
-						<i class="list-icon silver-icon"></i>
-						<a href="">MG - Universidade Federal de Itajubá</a>
-					</li>
-					<li>
-						<i class="list-icon bronze-icon"></i>
-						<a href="">RJ - Universidade do Estado do Rio de Janeiro</a>
-					</li>
-					<li>
-						<i class="list-icon number-4-icon"></i>
-						<a href="">PI - Universidade Federal do Piauí </a>
-					</li>
-					<li>
-						<i class="list-icon number-5-icon"></i>
-						<a href="">SP - Universidade São Francisco</a>
-					</li>
-				</ul>
+        <div class="ranking-box">
+            <div class="thumb col-xs-4">
+                <h1 class="title">Avaliação dos alunos</h1>
+                
+                <ul class="list">
+                    <li>
+                        <i class="list-icon gold-icon"></i>
+                        <a href="">ES - Universidade Federal do Espírito Santo</a>
+                    </li>
+                    <li>
+                        <i class="list-icon silver-icon"></i>
+                        <a href="">MG - Universidade Federal de Itajubá</a>
+                    </li>
+                    <li>
+                        <i class="list-icon bronze-icon"></i>
+                        <a href="">RJ - Universidade do Estado do Rio de Janeiro</a>
+                    </li>
+                    <li>
+                        <i class="list-icon number-4-icon"></i>
+                        <a href="">PI - Universidade Federal do Piauí </a>
+                    </li>
+                    <li>
+                        <i class="list-icon number-5-icon"></i>
+                        <a href="">SP - Universidade São Francisco</a>
+                    </li>
+                </ul>
 
-				<button class="btn btn-xs btn-primary pull-right">Ranking completo</button>
-			</div>
+                <button class="btn btn-xs btn-primary pull-right">Ranking completo</button>
+            </div>
 
-			<div class="thumb col-xs-4">
-				<h1 class="title">Avaliação do MEC</h1>
-				
-				<ul class="list">
-					<li>
-						<i class="list-icon gold-icon"></i>
-						<a href="">ES - Universidade Federal do Espírito Santo</a>
-					</li>
-					<li>
-						<i class="list-icon silver-icon"></i>
-						<a href="">MG - Universidade Federal de Itajubá</a>
-					</li>
-					<li>
-						<i class="list-icon bronze-icon"></i>
-						<a href="">RJ - Universidade do Estado do Rio de Janeiro</a>
-					</li>
-					<li>
-						<i class="list-icon number-4-icon"></i>
-						<a href="">PI - Universidade Federal do Piauí </a>
-					</li>
-					<li>
-						<i class="list-icon number-5-icon"></i>
-						<a href="">SP - Universidade São Francisco</a>
-					</li>
-				</ul>
+            <div class="thumb col-xs-4">
+                <h1 class="title">Avaliação do MEC</h1>
+                
+                <ul class="list">
+                    <li>
+                        <i class="list-icon gold-icon"></i>
+                        <a href="">ES - Universidade Federal do Espírito Santo</a>
+                    </li>
+                    <li>
+                        <i class="list-icon silver-icon"></i>
+                        <a href="">MG - Universidade Federal de Itajubá</a>
+                    </li>
+                    <li>
+                        <i class="list-icon bronze-icon"></i>
+                        <a href="">RJ - Universidade do Estado do Rio de Janeiro</a>
+                    </li>
+                    <li>
+                        <i class="list-icon number-4-icon"></i>
+                        <a href="">PI - Universidade Federal do Piauí </a>
+                    </li>
+                    <li>
+                        <i class="list-icon number-5-icon"></i>
+                        <a href="">SP - Universidade São Francisco</a>
+                    </li>
+                </ul>
 
-				<button class="btn btn-xs btn-primary pull-right">Ranking completo</button>
-			</div>
+                <button class="btn btn-xs btn-primary pull-right">Ranking completo</button>
+            </div>
 
-			<div class="thumb col-xs-4">
-				<h1 class="title">Faculdades por estado</h1>
-				<ul class="list-group list">
-					
-					<a href="">
-						<li class="list-group-item">
-				    		<span class="badge">89</span>SP - São Paulo
-				  		</li>
-				  	</a>
-				  	<a href="">
-				  		<li class="list-group-item">
-				    		<span class="badge">67</span>MG - Minas Gerais
-				  		</li>
-				  	</a>
-				  	<a href="">
-				  		<li class="list-group-item">
-				    		<span class="badge">56</span>RJ - Rio de Janeiro
-				  		</li>
-				  	</a>
-				  	<a href="">
-				  		<li class="list-group-item">
-				    		<span class="badge">43</span>RS - Rio Grande do Sul
-				  		</li>
-				  	</a>
-				  	<a href="">
-				  		<li class="list-group-item">
-				    		<span class="badge">22</span>PE - Pernambuco
-				  		</li>
-				  	</a>
-				</ul>
+            <div class="thumb col-xs-4">
+                <h1 class="title">Faculdades por estado</h1>
+                <ul class="list-group list">
+                    
+                    <a href="">
+                        <li class="list-group-item">
+                            <span class="badge">89</span>SP - São Paulo
+                        </li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item">
+                            <span class="badge">67</span>MG - Minas Gerais
+                        </li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item">
+                            <span class="badge">56</span>RJ - Rio de Janeiro
+                        </li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item">
+                            <span class="badge">43</span>RS - Rio Grande do Sul
+                        </li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item">
+                            <span class="badge">22</span>PE - Pernambuco
+                        </li>
+                    </a>
+                </ul>
 
-				<button class="btn btn-xs btn-primary pull-right">Ranking completo</button>
-			</div>
-		</div><!--/ranking-box-->
+                <button class="btn btn-xs btn-primary pull-right">Ranking completo</button>
+            </div>
+        </div><!--/ranking-box-->
 
-		<div class="graph-banner">
-			<label class="title">Conheça nossos gráficos</label>
+        <div class="graph-banner">
+            <label class="title">Conheça nossos gráficos</label>
 
-			<p class="description container">Também contamos com vários gráficos que ajudarão você a analisar com todo o cuidado qual curso fazer e em qual faculdade estudar. Analisamos a cada curso comparando o número de visitas, perguntas, média de preços, boas avaliações. Tudo isso de forma simples e organizada.</p>
+            <p class="description container">Também contamos com vários gráficos que ajudarão você a analisar com todo o cuidado qual curso fazer e em qual faculdade estudar. Analisamos a cada curso comparando o número de visitas, perguntas, média de preços, boas avaliações. Tudo isso de forma simples e organizada.</p>
 
-			<a href="/graficos"><button class="btn btn-lg">Conheça mais</button></a>
-		</div>
+            <a href="/graficos"><button class="btn btn-lg">Conheça mais</button></a>
+        </div>
 
-		<div class="students-rate">
-			<h1>Veja a opinião de alguns alunos</h1>
+        <div class="students-rate">
+            <h1>Veja a opinião de alguns alunos</h1>
 
-			<div class="opinions">
-				<div class="col-xs-2 opinion-box" ng-repeat="n in [1,2,3,4,5,6] track by $index">
-					<img src="../images/blue-user.png" />					
-					<label class="name">Ramon Andrade Antunes</label>
-					<a href="" class="university">Universidade São Judas Tadeu</a>	
-					
-					<div class="star-rating rating-{{$index}}">
-				    	<ul class="rating-values"></ul>
-				    </div>
+            <div class="opinions">
+                <div class="col-xs-2 opinion-box" ng-repeat="n in [1,2,3,4,5,6] track by $index">
+                    <img src="../images/blue-user.png" />                   
+                    <label class="name">Ramon Andrade Antunes</label>
+                    <a href="" class="university">Universidade São Judas Tadeu</a>  
+                    
+                    <div class="star-rating rating-{{$index}}">
+                        <ul class="rating-values"></ul>
+                    </div>
 
-				    <p class="opinion">
-				    	Lorem ipsum dolor sit amet, ut nam nulla antiopam, aeque admodum et pri. Unum eruditi vel an. Cum ne fierent vulputate, sed ea alienum gubergren...
-				    	<a href="">continue lendo</a>
-				    </p>
-				</div>
-			</div>			
-		</div><!--/students-rating-->
+                    <p class="opinion">
+                        Lorem ipsum dolor sit amet, ut nam nulla antiopam, aeque admodum et pri. Unum eruditi vel an. Cum ne fierent vulputate, sed ea alienum gubergren...
+                        <a href="">continue lendo</a>
+                    </p>
+                </div>
+            </div>          
+        </div>
 
-	</section><!--/home-box-->
+    </section>
 </tag-page>
