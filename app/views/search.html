@@ -26,6 +26,8 @@
                     <option>Posição geral</option>
                 </select>
             </label>
+            <pagination query="{{query}}" page="{{page}}" total-pages="{{response.totalPages}}" class="right-pagination"/>
+
             <article ng-repeat="college in response.searchResult" class="card">
                 <header>
                     <p class="name">{{college.name}}</p>
@@ -65,10 +67,12 @@
                         </div>
                     </summary>
                     <address class="address">
-                        <p></p>
+                        
                     </address>
+                    <img src="../images/star.svg" class="favorite-college">
                 </main>
             </article>
+            <pagination query="{{query}}" page="{{page}}" total-pages="{{response.totalPages}}" class="pagination-center"/>
         </section>
     </main>
 </tag-page>

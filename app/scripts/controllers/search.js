@@ -1,7 +1,8 @@
 app.controller('SearchCtrl', function ($scope, $http, $routeParams, ENV) {
-    var query = $routeParams.query;
+    $scope.query = $routeParams.query;
+    $scope.page = $routeParams.page === undefined ? '1' : $routeParams.page;
 
-    $http.get(ENV.API.SEARCH.ALL + query).then(function(response) {
+    $http.get(ENV.API.SEARCH.ALL + $scope.query + '?page=' + $scope.page).then(function(response) {
         $scope.response = response.data;
     }, function(response) {
         if(response.data) {
@@ -14,5 +15,4 @@ app.controller('SearchCtrl', function ($scope, $http, $routeParams, ENV) {
             }
         }
     });
-
 });

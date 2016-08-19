@@ -1,0 +1,16 @@
+@import 'colors';
+
+.pagination {
+    margin-bottom: 0;
+
+    .page {
+        background: none;
+        color: $dark-gray;
+        border: none;
+        margin: 0 .4em;
+    }
+    .selected-page{
+        color: black;
+        font-size: 1.2em;
+    }
+}
