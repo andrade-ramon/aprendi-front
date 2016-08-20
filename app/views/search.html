@@ -1,18 +1,26 @@
 <tag-page>
     <main class="search">
-        <h1>Ranking geral</h1>
+        <h1>Pesquisa Geral</h1>
         <p class="results-count">({{response.count}} resultados)</p>
         <aside class="advanced">
             
-            <input id="filter" type="radio" name="tab-group" checked/>
-            <label for="filter">Filtro</label>
+            <input id="filter" type="radio" name="tab-group" class="pane" checked/>
+            <label for="filter" class="tab-label">Filtro</label>
 
-            <input id="search" type="radio" name="tab-group" />
-            <label for="search">Busca</label>
+            <input id="search" type="radio" name="tab-group" class="pane"/>
+            <label for="search" class="tab-label">Busca</label>
 
             <section class="aside-content">
                 <article class="filter-content">
-                  asd
+                    <form angular-validator angular-validator-submit="searchFilter()" name="searchFilterForm" method="GET" class="filters">
+                        <label for="filter-state">Estado</label>
+                        <input id="filter-state" placeholder="Ex: SP" ng-model="filter.state">
+                        
+                        <label for="filter-ranking" >Ranking mínimo</label>
+                        <input id="filter-ranking" placeholder="Ex: 20" ng-model="filter.ranking">
+                        
+                        <button class="btn btn-warning btn-filter">Filtrar</button>
+                    </form>
                 </article>
                 <article class="search-content">
                     bla
@@ -42,7 +50,7 @@
                             <dl class="grades">
                                 <div>
                                     <dt>Infraestrutura</dt>
-                                    <dd>66º</dd>    
+                                    <dd>66º</dd>
                                 </div>
                                 <div>
                                     <dt>Ensino</dt>
@@ -50,7 +58,7 @@
                                 </div>
                                 <div>
                                     <dt>MEC</dt>
-                                    <dd>10º</dd>    
+                                    <dd>10º</dd>
                                 </div>
                                 <div>
                                     <dt>Geral</dt>
@@ -58,7 +66,7 @@
                                 </div>
                             </dl>
                             <div class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                             </div>    
                         </div>
                         <div class="links">

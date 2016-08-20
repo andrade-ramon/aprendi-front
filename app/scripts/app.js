@@ -42,6 +42,7 @@ window.routes = {
     "/search/:query": {
         templateUrl: 'views/search.html',
         controller: 'SearchCtrl',
+        reloadOnSearch: false
     }
 };
 
@@ -93,4 +94,15 @@ app.run(function($rootScope, $location, User, ENV) {
             }
         }
     });
+});
+
+app.filter('addParam', function() {
+  return function(key, value, url ) {
+    if (value === undefined || key === undefined) { return ''; }
+    if (url === undefined) { return '?' + key + '=' + value; }
+
+    return url.includes('?') ?
+            url + '&' + key + '=' + value :
+            url + '?' + key + '=' + value ;
+  };
 });
