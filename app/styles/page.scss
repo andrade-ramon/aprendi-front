@@ -2,171 +2,121 @@
 @import 'fonts';
 @import 'images';
 
-.navbar-brand {
-    .no-border {
-        border: none;
-    }
-}
+.shadow {
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+    -moz-box-shadow: 0 0 3px rgba(0,0,0,.1);
+    -ms-box-shadow: 0 0 3px rgba(0,0,0,.1);
+    -webkit-box-shadow: 0 0 3px rgba(0,0,0,.1);
+    -o-box-shadow: 0 0 3px rgba(0,0,0,.1);
 
-
-.navbar-default {
-    
-    .navbar-toggle {
-        margin:3px 3px 0 0 ;
-    }
-
-    .header-menu {
-        font-family: $font-default;
-
-        li, a {
-            transition: all 400ms;
-        }
-        
-        li {
-            margin-left: 0.4em;
-            a {
-                padding-top: 5px;
-                padding-bottom: 5px;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                border-radius: 2px;
-            }
-
-            &:hover {
-                cursor: pointer;
-                a {
-                    background-color: $dark-gray;
-                    color: $white;
-                }    
-            }
-        }
-
-        .bordered-button {
-            a {
-                border:1px solid $dark-gray;            
-            }
-            a[aria-expanded=true] {
-                border-color: $lighter-gray;
-                background-color: $dark-gray;
-                color: $white;
-            }
-        }
-
-        .dropdown-menu {
-            background-color: $light-gray;
-            padding: 0;
-            border: 1px solid $gray;
-            margin-top: -0.4em;
-
-            li {
-                margin: 0;
-            }
-            a {
-                width: 100%;
-                text-align: left;
-                border: none !important;
-                margin:0;
-                color: $dark-gray !important;
-                float: left;
-                background-color: transparent !important;
-
-                &:hover {
-                    background-color: $gray !important;
-                }
-            }
-        }
+    &:hover {
+        border: 1px solid #b5b5b5;
+        box-shadow: 0 0 3px rgba(0,0,0,.6);
+        -moz-box-shadow: 0 0 3px rgba(0,0,0,.6);
+        -ms-box-shadow: 0 0 3px rgba(0,0,0,.6);
+        -webkit-box-shadow: 0 0 3px rgba(0,0,0,.6);
+        -o-box-shadow: 0 0 3px rgba(0,0,0,.6);
     }
 }
 
 
 .footer {
-    font-family: $font-default;
-    overflow: hidden;
-    background-color: $dark-gray;
-    color: $white;
-    margin-top: -2.2em;
+    background-color: #1F1F1F;
+    min-height: 350px;
+    padding: 20px 0;
 
-    .row {
-        margin: 0;
-    }
+    .column {
+        color: $dark-gray;
 
-    .title {
-        font-size: 1.5em;
-    }
+        .widget {
+            margin-bottom: 30px;
 
-    ul {
-        font-size: 1.3em;
-        list-style: none;
-        height: 100%;
-        padding: 20px 50px;
-
-        li {
-            height:30px;
-            display: block;
-            width: 100%;
-        }
-
-        .social-box{
-            width:100%;
-            float:left;
-            span {
-                width: 48px;
-                height: 48px;
-                background-image: url($images-path + 'social-sprite.png');
-                background-repeat: no-repeat;
-                cursor: pointer;
-                transition: all 200ms;
-                margin: 0 auto;
-                text-align: center;
-                float: none;
-                display: inline-block;
-            }
-            
-            .twitter {background-position: 0px 0px;}
-            .twitter:hover {background-position:0px -48px;}
-
-            .facebook {background-position: -48px 0px;}
-            .facebook:hover {background-position: -48px -48px;}
-
-            .googleplus {background-position: -96px 0px;}
-            .googleplus:hover {background-position: -96px -48px;}
-
-            .linkedin {background-position: -144px 0px;}
-            .linkedin:hover {background-position: -144px -48px;}
-
-            .pintrest {background-position: -192px 0px;}
-            .pintrest:hover {background-position: -192px -48px;}
-
-            .instagran {background-position: -240px 0px;}
-            .instagran:hover {background-position: -240px -48px;}
-        }
-
-        .university-login {
-            input {
-                margin-top: 10px;
-                border-radius: 3px;
+            .title {
+                font-weight: bold;
+                text-transform: uppercase;
+                color: $gray;
+                font-size: 22px;
+                padding: 0;
+                background: none;
+                line-height: normal;
+                margin-bottom: 20px;
             }
 
-            .btn {
-                float: right;
+            ul {
+                margin: 0;
+                list-style: none;
+                padding: 0;
+
+                li {
+                    padding-left: 12px;
+                    position: relative;
+                    margin-bottom: 6px;
+
+                    &:before {
+                        content: "";
+                        display: block;
+                        background: url($images-path + "arrow-right.png") no-repeat left top;
+                        position: absolute;
+                        top: 8px;
+                        left: 0;
+                        width: 4px;
+                        height: 6px;
+                    }                    
+                }
             }
-        }
 
-    }
+            .socials {
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
 
-    @media (min-width: 450px) and (max-width: 900px) {
-        .footer-column {
-            width:50% !important;            
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 5px !important;
-        }
-    }
-    @media (max-width: 450px) {
-        .footer-column {
-            width: 100% !important; 
-            text-align: center;
-            padding: 0 5px !important;
+                    li {
+                        display: inline-block;
+                        vertical-align: top;
+                        margin-right: 2px;
+                        padding: 0;
+
+                        a {
+                            display: block;
+                            height: 48px;
+                            width: 48px;
+                            background-image: url($images-path + 'social-sprite.png');
+                            background-repeat: no-repeat;
+                            cursor: pointer;
+                            transition: all 200ms;
+                            display: inline-block;
+                        }
+
+                        .icon-facebook {
+                            background-position: -48px 0px;
+                            &:hover {background-position: -48px -48px;}
+                        }
+                        .icon-twitter {
+                            background-position: 0px 0px;
+                            &:hover {background-position:0px -48px;}
+                        }
+                        .icon-googleplus {
+                            background-position: -96px 0px;
+                            &:hover {background-position: -96px -48px;}
+                        }
+                        .icon-instagran {
+                            background-position: -240px 0px;
+                            &:hover {background-position: -240px -48px;}
+                        }
+                        
+
+                        &:before {
+                            background: none;
+                            top: 0px;
+                            left: 0;
+                            width: 0px;
+                            height: 0px;
+                        }
+                    }
+                }
+            }
         }
     }
 }

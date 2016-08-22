@@ -1,55 +1,72 @@
-<header ng-if='hasHeader'>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-menu" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a href="/" class="navbar-brand">
-                    <b>Qual</b>Facul<b>?</b>
-                </a>
-            </div>
-                    
-            <div class="container">
-                <div class="collapse navbar-collapse" id="header-menu">
-                    <ul class="nav navbar-nav navbar-right header-menu">
-                        <li><a href="/">{{"page.menu.home"|translate}}</a></li>
-                        <li><a href="/ranking">{{"page.menu.ranking"|translate}}</a></li>
-                        <li><a href="/entenda-o-ranking">{{"page.menu.understand.ranking"|translate}}</a></li>
-                        <li class="bordered-button" ng-if="!isLogged"><a href="/login/faculdade">{{"page.menu.access.college"|translate}}</a></li>
-                        <li class="bordered-button" ng-if="!isLogged"><a href="/login">{{"page.menu.access.system"|translate}}</a></li>
-                        <li class="bordered-button" ng-if="isLogged">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                {{"page.my.account"|translate}}
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/configuracoes" class="config">{{"page.account.configuration"|translate}}</a></li>
-                                <li><a href="/perfil" class="profile">{{"page.account.my.profile"|translate}}</a></li>
-                                <li><a href="#" class="logout" ng-click="logout();" ng-controller="LoginCtrl">{{"page.account.exit"|translate}}</a></li>
-                            </ul>
-                        </li>
-                    </ul> 
-                </div>
-            </div>
-
-        </div>
-    </nav>
-</header>
+<header-menu ng-if="hasHeader" transparent="false"/>
 
 <growl-notifications/>
-
 <growl-notification  ng-if="showMessage" ng-class="growlType" class="box-growl fade-out" >{{growlMessage}}</growl-notification>
 
 <ng-transclude/>
 
-<footer class="footer row" ng-if='hasFooter'>
-    <div class="row">
+<footer class="footer" ng-if='hasFooter'>
+    <div class="container">
+        <div class="column col-md-3 col-sm-6">
+            <div class="widget">
+                <h3 class="title">Quem somos</h3>
+                <p>Lorem ipsum dolor sit amet, quo suscipit consetetur ne, everti audiam eu vim. Usu ei movet exerci semper. Vix alia dicunt in. Usu natum epicurei et, sea ei inani zril. Commodo delenit an vis, mei no menandri indoctum appellantur. Ad pri quot vivendum, delenit accumsan no vis, id aliquip perfecto his. Pro te percipit iudicabit, ius tota aliquip ea.</p>
+            </div>
+        </div>
+        <div class="column col-md-3 col-sm-6">
+            <div class="widget">
+                <h3 class="title">Rankings</h3>
+                <ul>
+                    <li><a href="#">Ranking faculdades</a></li>
+                    <li><a href="#">Ranking cursos</a></li>
+                    <li><a href="#">Ranking do MEC</a></li>
+                    <li><a href="#">Entenda o ranking</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="column col-md-3 col-sm-6">
+            <div class="widget">
+                <h3 class="title">All Courses</h3>
+                <ul>
+                    <li><a href="#">Accounting Technologies</a></li>
+                    <li><a href="#">Business Law</a></li>
+                    <li><a href="#">Entrepreneurship</a></li>
+                    <li><a href="#">Marketing Online</a></li>
+                    <li><a href="#">Business Economics</a></li>
+                    <li><a href="#">Public Health</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="column col-md-3 col-sm-6">
+            <div class="widget">
+                <h3 class="title">Socials</h3>
+                <p>Siga a gente</p>
+                <div class="socials">
+                    <ul>
+                        <li>
+                            <a href="#" target="_blank" class="icon-facebook"></a>
+                        </li>
+
+                        <li>
+                            <a href="#" target="_blank" class="icon-twitter"></a>
+                        </li>
+
+                        <li>
+                            <a href="#" target="_blank" class="icon-instagran"></a>
+                        </li>
+
+                        <li>
+                            <a href="#" target="_blank" class="icon-googleplus"></a>
+                        </li>
+                    </ul>
+                </div>
+                <p>Fale com a gente</p>
+                <a href="#" class="btn btn-primary">Enviar mensagem</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="row">
         <ul class="col-xs-3 footer-column">
             <h1 class="title">{{"page.footer.institucional"|translate}}</h1>
             <li><a href="/sobre-nos">{{"page.footer.about.us"|translate}}</a></li>
@@ -83,5 +100,5 @@
             <h1 class="title">{{"page.footer.contact.us"|translate}}</h1>
             <li><a href="/contato"><button class="btn btn-primary">{{"page.footer.contact"|translate}}</button></a></li>
         </ul>
-    </div>
+    </div> -->
 </footer>

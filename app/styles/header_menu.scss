@@ -1,0 +1,70 @@
+@import 'colors';
+
+.header_menu {
+	padding-top: 5px;
+
+	&.white-background {
+		background-color: $white;
+		li, a {
+			color: $dark-gray;
+		}
+		.logo {
+			b {
+				color: $light-blue;
+			}
+
+			&:hover {
+				color: $light-blue;
+				b {
+					color: $dark-gray;
+				}
+			}
+		}
+	}
+
+	li, a {
+		color: $white;
+		text-decoration: none;
+	}	
+
+	a:hover {
+		color: $gray;
+		background-color: transparent !important;	
+	}
+
+	a[aria-expanded=true] {
+        background-color: $white !important;
+        color: $dark-gray;
+
+        &:hover {
+        	background-color: $white !important;
+        }
+    }
+
+    .dropdown-menu {
+    	a {
+    		&:hover {
+    			color: $light-blue;
+    		}
+    	}
+    }
+
+	.logo {
+		color: $light-blue;
+		font-size: 2em;
+		b {
+			color: $white;
+		}
+
+		&:hover {
+			color: $white;
+			b {
+				color: $light-blue;
+			}
+		}
+	}
+}
+
+.bg {
+	background-color: $white;
+}

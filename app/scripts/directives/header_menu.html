@@ -1,0 +1,24 @@
+<div ng-attr-class="row header_menu {{transparentMenu ? '' : 'white-background'}}">
+	<div class="col-md-10 col-md-offset-1">
+		<a href="/" class="logo">
+	        <b>Qual</b>Facul<b>?</b>
+	    </a>
+
+	    <ul class="nav navbar-nav navbar-right header-menu">
+	        <li ng-if="!isLogged"><a href="/login">Entre</a></li>
+	        <li ng-if="!isLogged"><a href="/cadastro">Cadastre-se</a></li>
+	        
+	        <li ng-if="isLogged">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	                {{"page.my.account"|translate}}
+	                <span class="caret"></span>
+	            </a>
+	            <ul class="dropdown-menu">
+	                <li><a href="/configuracoes">{{"page.account.configuration"|translate}}</a></li>
+	                <li><a href="/perfil">{{"page.account.my.profile"|translate}}</a></li>
+	                <li><a href="#" ng-click="logout();" ng-controller="LoginCtrl">{{"page.account.exit"|translate}}</a></li>
+	            </ul>
+	        </li>
+	    </ul> 
+	</div>
+</div>
