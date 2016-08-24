@@ -1,14 +1,6 @@
 app.controller('RegisterCtrl', function ($scope, $http, $location, ENV, messagesContainer, User) {
 	$scope.user = {};
 
-	$scope.emailValidator = function(email){
-		if(email === undefined) {
-			return false;
-		}
-		var emailRegex = /^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/;
-    	return emailRegex.test(email);
-	};
-
 	$scope.register = function() {
 	    $http.post(ENV.API.REGISTER, $scope.user).then(function(response) {
 	    	User.loggedIn(response.data.token);

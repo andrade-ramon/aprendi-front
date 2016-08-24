@@ -2,25 +2,6 @@
 @import 'fonts';
 @import 'images';
 
-.shadow {
-    border: 1px solid #e5e5e5;
-    box-shadow: 0 0 3px rgba(0,0,0,.1);
-    -moz-box-shadow: 0 0 3px rgba(0,0,0,.1);
-    -ms-box-shadow: 0 0 3px rgba(0,0,0,.1);
-    -webkit-box-shadow: 0 0 3px rgba(0,0,0,.1);
-    -o-box-shadow: 0 0 3px rgba(0,0,0,.1);
-
-    &:hover {
-        border: 1px solid #b5b5b5;
-        box-shadow: 0 0 3px rgba(0,0,0,.6);
-        -moz-box-shadow: 0 0 3px rgba(0,0,0,.6);
-        -ms-box-shadow: 0 0 3px rgba(0,0,0,.6);
-        -webkit-box-shadow: 0 0 3px rgba(0,0,0,.6);
-        -o-box-shadow: 0 0 3px rgba(0,0,0,.6);
-    }
-}
-
-
 .footer {
     background-color: #1F1F1F;
     min-height: 350px;
