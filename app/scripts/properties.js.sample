@@ -8,7 +8,11 @@ app.constant('ENV', (function() {
       HOME: api + '/home',
       FACEBOOKLOGIN: api + "/facebook/login",
       PASSWORDRECOVERY_REQUEST: api + "/password/reset",
-      PASSWORDRECOVERY_CHANGE: api + "/password/change"
+      PASSWORDRECOVERY_CHANGE: api + "/password/change",
+
+      SEARCH: {
+        ALL: api + '/search/',
+      }
     },
 
     FACEBOOK: {
