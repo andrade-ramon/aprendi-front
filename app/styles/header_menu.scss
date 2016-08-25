@@ -1,7 +1,7 @@
 @import 'colors';
 
-.header_menu {
-	padding-top: 5px;
+.header-menu {
+	padding-top: .3em;
 
 	&.white-background {
 		background-color: $white;
@@ -23,22 +23,19 @@
 	}
 
 	li, a {
-		color: $white;
+		color: $dark-gray;
 		text-decoration: none;
+		background-color: $white;
 	}	
 
 	a:hover {
-		color: $gray;
+		color: $black;
 		background-color: transparent !important;	
 	}
 
 	a[aria-expanded=true] {
         background-color: $white !important;
         color: $dark-gray;
-
-        &:hover {
-        	background-color: $white !important;
-        }
     }
 
     .dropdown-menu {
@@ -52,8 +49,11 @@
 	.logo {
 		color: $light-blue;
 		font-size: 2em;
+		transition: color 0.2s;
+
 		b {
 			color: $white;
+			transition: color 0.2s;
 		}
 
 		&:hover {
@@ -63,8 +63,4 @@
 			}
 		}
 	}
-}
-
-.bg {
-	background-color: $white;
 }

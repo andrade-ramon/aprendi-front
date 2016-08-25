@@ -3,25 +3,23 @@
 @import 'images';
 
 .footer {
-    background-color: #1F1F1F;
-    min-height: 350px;
-    padding: 20px 0;
+    background-color: $black-gray;
+    min-height: 28em;
+    padding: 1em 0;
 
     .column {
         color: $dark-gray;
 
         .widget {
-            margin-bottom: 30px;
-
             .title {
                 font-weight: bold;
                 text-transform: uppercase;
                 color: $gray;
-                font-size: 22px;
+                font-size: 1.8em;
                 padding: 0;
                 background: none;
                 line-height: normal;
-                margin-bottom: 20px;
+                margin-bottom: 0.8em;
             }
 
             ul {

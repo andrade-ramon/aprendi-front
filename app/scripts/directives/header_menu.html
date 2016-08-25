@@ -1,12 +1,12 @@
-<div ng-attr-class="row header_menu {{transparentMenu ? '' : 'white-background'}}">
-	<div class="col-md-10 col-md-offset-1">
+<header ng-attr-class="row header-menu {{transparentMenu ? '' : 'white-background'}}">
+	<nav class="col-md-10 col-md-offset-1">
 		<a href="/" class="logo">
 	        <b>Qual</b>Facul<b>?</b>
 	    </a>
 
 	    <ul class="nav navbar-nav navbar-right header-menu">
-	        <li ng-if="!isLogged"><a href="/login">Entre</a></li>
-	        <li ng-if="!isLogged"><a href="/cadastro">Cadastre-se</a></li>
+	        <li ng-if="!isLogged"><a href="/login">{{"page.menu.enter"|translate}}</a></li>
+	        <li ng-if="!isLogged"><a href="/cadastro">{{"page.menu.register"|translate}}</a></li>
 	        
 	        <li ng-if="isLogged">
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -20,5 +20,5 @@
 	            </ul>
 	        </li>
 	    </ul> 
-	</div>
-</div>
+	</nav>
+</header>

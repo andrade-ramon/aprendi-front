@@ -2,10 +2,6 @@ app.controller('LoginCtrl', function ($scope, $http, $location, ENV, User, ezfb)
     $scope.user = {};
 
     $scope.login = function() {
-        if($scope.error) {
-            delete $scope.error;
-        }
-
         $http.post(ENV.API.LOGIN, $scope.user).then(function(response) {
             User.loggedIn(response.data.token);
             $location.path('/');

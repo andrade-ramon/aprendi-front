@@ -6,6 +6,8 @@
     "page.menu.understand.ranking":"ENTENDA O RANKING",
     "page.menu.access.college":"ACESSO FACULDADE",
     "page.menu.access.system":"ACESSE O SISTEMA",
+    "page.menu.enter":"Entre",
+    "page.menu.register":"Cadastre-se",
     "page.my.account":"Minha conta",
     "page.account.configuration":"Configurações",
     "page.account.my.profile":"Meu perfil",
@@ -28,6 +30,13 @@
     "page.footer.contact":"Entre em contato",
 
 	"home.title":"Qual Facul?",
+    "home.search.text.line1":"Achar uma faculdade nunca foi tão fácil",
+    "home.search.text.line2":"Encontre as melhores faculdades por todo o Brasil e veja a avaliação de quem estuda ou já estudou lá",
+    "home.search.form.college.title":"Busque por uma faculdade",
+    "home.search.form.course.title":"Busque por um curso",
+    "home.search.form.college.btn.search":"Buscar",
+    "home.search.form.course.btn.search":"Buscar",
+
 
     "login.inform.credentials":"Informe suas credênciais",
     "login.login":"Login",
