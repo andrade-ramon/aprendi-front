@@ -72,6 +72,23 @@
     "register.terms.line6":"Informações enviadas pelos usuários e colaboradores: Qualquer material, informação, artigos ou outras comunicações que forem transmitidas, enviadas  ou publicadas neste site serão considerados informação não confidencial, e qualquer violação aos direitos dos seus criadores não será de responsabilidade do QualFacul?. É terminantemente proibido transmitir, trocar ou publicar, através deste website, qualquer material de cunho obsceno, difamatório ou ilegal, bem como textos ou criações de terceiros sem a autorização do autor.",
     "register.terms.line7":"Reclamações sobre violação de direitos autorais: O QualFacul?  respeita a propriedade intelectual de outras pessoas ou empresas e solicitamos aos nossos membros que façam o mesmo. Toda e qualquer violação de direitos autorais deverá ser notificada ao QualFacul?  e acompanhada dos documentos e informações que confirmam a autoria.",
     "register.terms.line8":"O acesso ao QualFacul?  representa a aceitação expressa e irrestrita dos termos de uso acima descritos.",
+
+    "colleges.search.title":"Pesquisa Geral",
+    "colleges.search.results":"resultados",
+    "colleges.search.menu.filter":"Filtro",
+    "colleges.search.menu.search":"Busca",
+    "colleges.search.menu.state":"Estado",
+    "colleges.search.menu.min.ranking":"Ranking mínimo",
+    "colleges.search.menu.button":"Filtrar",
+    "colleges.search.order":"Ordenar",
+    "colleges.search.order.geral":"Posição geral",
+    "colleges.search.grades":"ver avaliações",
+    "colleges.search.grades.infra":"Infraestrutura",
+    "colleges.search.grades.teach":"Ensino",
+    "colleges.search.grades.mec":"MEC",
+    "colleges.search.grades.geral":"Geral",
+    "colleges.search.profile":"visitar perfil",
+    "colleges.search.courses":"cursos",
     
     "hades.facebookaccount.notallowed":"Contas criadas via Facebook não podem ser utilizadas nesta operação"
 }

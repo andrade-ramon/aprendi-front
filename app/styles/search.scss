@@ -215,7 +215,7 @@ body {
                         display: inline-block;
                         margin: 0 0.5em;
                     }
-                    dt { color: #999}
+                    dt { color: $text-gray}
                     dd { 
                         text-align: center;
                         font-weight: bold;
@@ -233,7 +233,7 @@ body {
                 .link {
                     margin: 0 1em;
                     font-weight: bold;
-                    color: #3568FC;
+                    color: $flat-blue;
                 }
             }
             .address {

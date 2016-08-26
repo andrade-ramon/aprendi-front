@@ -39,7 +39,7 @@ window.routes = {
         controller: 'RegisterCtrl',
         onlyGuest: true
     },
-    "/search/:query": {
+    "/pesquisa/:query": {
         templateUrl: 'views/search.html',
         controller: 'SearchCtrl',
         reloadOnSearch: false

@@ -4,7 +4,7 @@ app.controller('SearchCtrl', function ($scope, $http, $location, $routeParams, $
     $scope.filter = {};
 
     var searchApi = function (filters) {
-        $http.get(ENV.API.SEARCH.ALL + $scope.query + filters).then(function(response) {
+        $http.get(ENV.API.SEARCH.COLLEGE + $scope.query + filters).then(function(response) {
             $scope.response = response.data;
         }, function(response) {
             if(response.data) {

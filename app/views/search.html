@@ -1,37 +1,37 @@
 <tag-page>
     <main class="search">
-        <h1>Pesquisa Geral</h1>
-        <p class="results-count">({{response.count}} resultados)</p>
+        <h1>{{"colleges.search.title" | translate}}</h1>
+        <p class="results-count">({{response.count}} {{"colleges.search.results" | translate}})</p>
         <aside class="advanced">
             
             <input id="filter" type="radio" name="tab-group" class="pane" checked/>
-            <label for="filter" class="tab-label">Filtro</label>
+            <label for="filter" class="tab-label">{{"colleges.search.menu.filter" | translate}}</label>
 
             <input id="search" type="radio" name="tab-group" class="pane"/>
-            <label for="search" class="tab-label">Busca</label>
+            <label for="search" class="tab-label">{{"colleges.search.menu.search" | translate}}</label>
 
             <section class="aside-content">
                 <article class="filter-content">
                     <form angular-validator angular-validator-submit="searchFilter()" name="searchFilterForm" method="GET" class="filters">
-                        <label for="filter-state">Estado</label>
+                        <label for="filter-state">{{"colleges.search.menu.state" | translate}}</label>
                         <input id="filter-state" placeholder="Ex: SP" ng-model="filter.state">
                         
-                        <label for="filter-ranking" >Ranking mínimo</label>
+                        <label for="filter-ranking">{{"colleges.search.menu.min.ranking" | translate}}</label>
                         <input id="filter-ranking" placeholder="Ex: 20" ng-model="filter.ranking">
                         
-                        <button class="btn btn-warning btn-filter">Filtrar</button>
+                        <button class="btn btn-warning btn-filter">{{"colleges.search.menu.button" | translate}}</button>
                     </form>
                 </article>
                 <article class="search-content">
-                    bla
+                    
                 </article>
             </section>
         </aside>
         <section class="results">
             <label class="order">
-                Ordenar:
+                {{"colleges.search.order" | translate}}:
                 <select>
-                    <option>Posição geral</option>
+                    <option>{{"colleges.search.order.geral" | translate}}</option>
                 </select>
             </label>
             <pagination query="{{query}}" page="{{page}}" total-pages="{{response.totalPages}}" class="right-pagination"/>
@@ -39,7 +39,7 @@
             <article ng-repeat="college in response.searchResult" class="card">
                 <header>
                     <p class="name">{{college.name}}</p>
-                    <a href="/colleges/{{college.id}}/grades" class="grades">ver avaliações</a>
+                    <a href="/colleges/{{college.id}}/grades" class="grades">{{"colleges.search.grades" | translate}}</a>
                 </header>
                 <main>
                     <figure class="college-picture">
@@ -49,19 +49,19 @@
                         <div>
                             <dl class="grades">
                                 <div>
-                                    <dt>Infraestrutura</dt>
+                                    <dt>{{"colleges.search.grades.infra" | translate}}</dt>
                                     <dd>66º</dd>
                                 </div>
                                 <div>
-                                    <dt>Ensino</dt>
+                                    <dt>{{"colleges.search.grades.teach" | translate}}</dt>
                                     <dd>13º</dd>
                                 </div>
                                 <div>
-                                    <dt>MEC</dt>
+                                    <dt>{{"colleges.search.grades.mec" | translate}}</dt>
                                     <dd>10º</dd>
                                 </div>
                                 <div>
-                                    <dt>Geral</dt>
+                                    <dt>{{"colleges.search.grades.geral" | translate}}</dt>
                                     <dd>22º</dd>
                                 </div>
                             </dl>
@@ -70,8 +70,8 @@
                             </div>    
                         </div>
                         <div class="links">
-                            <a href="/colleges/{{college.id}}" class="link">visitar perfil</a>
-                            <a href="/colleges/{{college.id}}/courses" class="link">cursos</a>
+                            <a href="/colleges/{{college.id}}" class="link">{{"colleges.search.profile" | translate}}</a>
+                            <a href="/colleges/{{college.id}}/courses" class="link">{{"colleges.search.courses" | translate}}</a>
                         </div>
                     </summary>
                     <address class="address">

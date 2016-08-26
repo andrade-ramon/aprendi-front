@@ -12,7 +12,7 @@
 			
 			<div class="form-group has-feedback">
                 <label for="login" class="text-default">{{"login.login"|translate}}</label>
-				<input type="text" id="login" class="form-control" placeholder='{{"login.login"|translate}}' autofocus
+				<input type="text" name="login" id="login" class="form-control" placeholder='{{"login.login"|translate}}' autofocus
 					ng-model="user.login" 
 					validate-on="dirty"
                     required-message='"{{"login.inform.login"|translate}}"'
@@ -24,7 +24,7 @@
 
 			<div class="form-group has-feedback">
                 <label for="password" class="text-default">{{"login.password"|translate}}</label>
-                <input type="password" id="password" class="form-control" placeholder='{{"login.password"|translate}}'
+                <input type="password" name="password" id="password" class="form-control" placeholder='{{"login.password"|translate}}'
 					ng-model="user.password"
 					validate-on="dirty"
      required-message='"{{"login.inform.password"|translate}}"'
