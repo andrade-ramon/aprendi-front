@@ -29,7 +29,7 @@ window.routes = {
         controller: 'PasswordRecoveryCtrl',
         onlyGuest: true
     },
-    "/redefinirsenha/:token": {
+    "/redefinir-senha/:token": {
         templateUrl: 'views/password_change.html',
         controller: 'PasswordRecoveryCtrl',
         onlyGuest: true
