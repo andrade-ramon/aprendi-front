@@ -1,4 +1,5 @@
 @import 'images';
+@import 'fonts';
 
 .fa-facebook {
 	background-image: url($images-path + 'facebook.png');
@@ -37,3 +38,8 @@
 .form-error-text {
 	color: #dd4b39;
 }
+
+body {
+    font-family: $font-default;
+}
+
