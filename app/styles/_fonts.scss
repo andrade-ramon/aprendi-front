@@ -1,6 +1,39 @@
 @font-face {
-	font-family: "ProximaNova";
-	src: font-files("../fonts/proximanova-regular-webfont.woff2"); 
+    font-family: 'museo_sans';
+    src:
+        url('/fonts/museo-sans-300-webfont.eot');
+    src:
+        url('/fonts/museo-sans-300-webfont-iefix.eot')
+        format('embedded-opentype'),
+        url('/fonts/museo-sans-300-webfont.woff2')
+        format('woff2'),
+        url('/fonts/museo-sans-300-webfont.woff')
+        format('woff'),
+        url('/fonts/museo-sans-300-webfont.ttf')
+        format('truetype'),
+        url('/fonts/museo-sans-300-webfont.svg')
+        format('svg');
+    font-weight: 300;
+    font-style: normal;
 }
 
-$font-default: ProximaNova;
+@font-face {
+    font-family: 'museo_sans';
+    src:
+        url('/fonts/museo-sans-500-webfont.eot');
+    src:
+        url('/fonts/museo-sans-500-webfont-iefix.eot')
+        format('embedded-opentype'),
+        url('/fonts/museo-sans-500-webfont.woff2')
+        format('woff2'),
+        url('/fonts/museo-sans-500-webfont.woff')
+        format('woff'),
+        url('/fonts/museo-sans-500-webfont.ttf')
+        format('truetype'),
+        url('/fonts/museo-sans-500-webfont.svg')
+        format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+$font-default: museo_sans;

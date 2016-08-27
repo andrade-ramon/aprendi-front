@@ -1,0 +1,341 @@
+@import 'colors';
+@import 'fonts';
+@import 'images';
+
+body {
+    background-color: $light-gray;
+}
+
+.search {
+    position: relative;
+
+    h1 {
+        color: $dark-gray;
+        display: block;
+        text-align: center;
+    }
+
+    .results-count {
+        font-size: 1.2em;
+        display: block;
+        text-align: center;
+    }
+
+}
+
+.advanced {
+    display: none;
+    position: absolute;
+    top: 5em;
+    left: 0;
+    width: 20%;
+    margin: 2%;
+    height: 30em;
+
+    h2 {
+        font-family: $font-default;
+    }
+
+    .pane {
+        height: 2em;
+        width: 0;
+        visibility: hidden;
+
+        &:hover {
+            + .tab-label {
+                color: $dark-gray;
+            }
+        }
+        &:checked {
+            + .tab-label {
+                font-size: 1.2em;
+                background-color: white;
+                color: #444;
+                position: relative;
+                z-index: 3;
+                margin: 0;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+                -webkit-transition: .1s;
+                -moz-transition: .1s;
+                -o-transition: .1s;
+                -ms-transition: .1s;
+            }
+        }
+    }
+
+    .tab-label {
+        width: 49%;
+        color: #2361F8;
+        cursor: pointer;
+        display: block;
+        float: left;
+        font-size: 1em;
+        height: 2.5em;
+        line-height: 2.5em;
+        margin-top: 0.4em;
+        vertical-align: bottom;
+        padding: 0 1.5em;
+        text-align: center;
+    }
+
+    .aside-content {
+        background: white;
+        border-radius: 0 .25em .25em .25em;
+        min-height: 20em;
+        position: relative;
+        width: 100%;
+        z-index: 4;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+        .filter-content,
+        .search-content {
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            padding: .75em;
+            -padding: 2em 1em 0;
+            position: absolute;
+            z-index: -1;
+            transition: all linear 0.1s;
+        }
+    }
+
+    input#filter:checked ~ .aside-content .filter-content,
+    input#search:checked ~ .aside-content .search-content {
+        opacity: 1;
+        z-index: 2;
+    }
+
+    input.visible {
+      visibility: visible !important;
+    }
+
+    .filters{
+        min-width: 10em;
+
+        label {
+            min-width: 10em;
+            margin-bottom: 1em;
+        }
+
+        input {
+            width: 4em;
+            text-align: center;    
+        }
+    }
+
+    .btn-filter{
+        display: block;
+        width: calc(100% - 1.5em);
+        margin: auto;
+        position: absolute;
+        bottom: 1em;
+        font-size: 1.2em;
+        background-color: $orange;
+    }
+}
+
+.results {
+    display: inline-block;
+    width: 98%;
+    margin-left: 2%;
+
+    .order {
+        margin-top: 0.7em;
+        display: inline-block;
+
+        select {
+            background: white;
+            padding:0.2em 0;
+            margin-left: 1em;
+            width: 12em;
+        }
+    }
+
+    .right-pagination {
+        display: inline-block;
+        float: right;
+    }
+
+    .card {
+        background: white;
+        border: 1px outset $light-gray;
+        display: inline-block;
+        position: relative;
+        padding: 0.5em;
+        width: 100%;
+        height: 16em;
+        margin: 1% 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+        header {
+            display: block;
+            font-family: $font-default;
+            height: 2em;
+            margin-top: 0.5em;
+            
+            .name {
+                font-weight: bold;
+                display: block;
+                text-align: center;
+            }
+            .grades {
+                display: block;
+                text-align: center;
+                font-weight: bold;
+                color: $orange;
+            }
+        }
+
+        main {
+            height: calc(100% - 2.5em);
+            position: relative;
+
+            .college-picture {
+                position: absolute;
+                left: 0;
+                display: none;
+                height: 100%;
+                width: 30%;
+            }
+
+           .image{
+               opacity: 0.3;
+            }
+
+            .details {
+                width: 100%;
+                position: absolute;
+                height: 100%;
+
+                .grades {
+                    margin: 2em 1em 0;
+
+                    div {
+                        display: inline-block;
+                        margin: 0 0.5em;
+                    }
+                    dt { color: $text-gray}
+                    dd { 
+                        text-align: center;
+                        font-weight: bold;
+                    }
+                }
+                .description {
+                    margin-bottom: 2em;
+                    padding: 0 1em;
+                }
+
+                .links {
+                    position: absolute;
+                    bottom: 1em;
+                }
+                .link {
+                    margin: 0 1em;
+                    font-weight: bold;
+                    color: $flat-blue;
+                }
+            }
+            .address {
+                display: none;
+                position: absolute;
+                height: 70%;
+                width: 18%;
+                border-left: 1px solid $light-gray;
+                right: 0;
+            }
+
+            .favorite-college {
+                width: 2em;
+                height: 2em;
+                position: absolute;
+                right: .5em;
+                bottom: .5em;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .pagination-center{
+        display: block;
+        text-align: center;
+        margin-bottom: 2em;
+    }
+}
+@media (min-width: 420px) {
+    .search {
+        h1 {
+            margin-left: 1em;
+            display: inline-block;
+        }
+
+        .results-count {
+            display: inline-block;
+            margin-left: 1em;
+        }
+
+        .card {
+
+            header {
+                .name {
+                    display: inline-block;
+                }
+                .grades {
+                    float: right;
+                    display: inline-block;
+                    margin-right: 2em;
+                }
+            }
+
+            main {
+                .college-picture {
+                    display: inline-block;
+                }
+                .details {
+                    left: 30%;
+                    width: 70%;
+
+                    .grades {
+                        margin: 1em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 930px) {
+
+    .results .card main {
+        .details {
+            width: 50%;
+        }
+        .address {
+            display: inline-block;
+        }
+    }
+}
+
+@media (min-width: 700px) {
+    .advanced {
+        display: inline-block;
+    }
+
+    .results {
+        margin-left: 24%;
+        width: 75%;
+
+        .right-pagination {
+            margin-top: 1em;
+        }
+    }
+}
+
+
+@media (min-width: 1100px) {
+    .results {
+        width: 60%;
+    }
+}

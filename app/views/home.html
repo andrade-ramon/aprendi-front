@@ -12,10 +12,11 @@
 			</div>			
 
 			<div class="col-xs-4 col-xs-offset-4 box-form-search">
-				<form class="input-group form-search">
-	      			
-	      			<input type="text" class="form-control" aria-label="..." placeholder="Pesquise por uma faculdade ou curso ">
-	      			
+				<form angular-validator angular-validator-submit="search()" name="homeForm" method="POST" class="input-group form-search">
+                	<input autofocus ng-model="search.query" 
+							placeholder="Pesquise por uma faculdade ou curso" 
+							class="form-control">
+
 	      			<div class="input-group-btn">
 	        			<button class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
 	      			</div>
