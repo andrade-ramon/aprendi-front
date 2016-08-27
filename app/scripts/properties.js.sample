@@ -6,7 +6,9 @@ app.constant('ENV', (function() {
       LOGIN: api + '/login',
       REGISTER: api + '/register',
       HOME: api + '/home',
-      FACEBOOKLOGIN: api + "/facebook/login"
+      FACEBOOKLOGIN: api + "/facebook/login",
+      PASSWORDRECOVERY_REQUEST: api + "/password/reset",
+      PASSWORDRECOVERY_CHANGE: api + "/password/change"
     },
 
     FACEBOOK: {
