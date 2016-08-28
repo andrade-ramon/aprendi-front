@@ -8,6 +8,15 @@ app.config(['$httpProvider', function ($httpProvider) {
                 }
                 return config;
             },
+            response: function(response){
+                if (response.status === 200){
+                    var authorization = response.headers("Authorization");
+                    if (typeof authorization !== undefined && authorization !== null){
+                        User.setToken(authorization);
+                    }
+                }
+                return response;
+            },
             responseError: function(response) {
                 if (response.status === 401) {
                     User.loggedOut();
@@ -17,5 +26,4 @@ app.config(['$httpProvider', function ($httpProvider) {
             }
         };      
     });
-    
 }]);
