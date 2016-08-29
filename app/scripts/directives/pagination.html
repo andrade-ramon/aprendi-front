@@ -1,5 +1,19 @@
-<nav class="pagination">
-    <a ng-if="page != 1" class="page"><</a>
-    <a ng-href="/search/{{query}}?page={{n+1}}" ng-repeat="n in [] | range:totalPages" ng-class=" page == n+1 ? 'selected-page' : ''" class="page page-{{n+1}}">{{n+1}}</a>
-    <a ng-if="page != totalPages" class="page">></a>
+<nav>
+  <ul class="pagination" ng-if="totalPages > 0">
+    <li>
+      <a href="#" ng-disabled="!page != 1">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    
+    <li ng-repeat="n in [] | range:totalPages">
+    	<a ng-disabled="page == n+1" ng-href="/pesquisa/{{query}}?page={{n+1}}" ng-class="page == n+1 ? 'selected-page' : ''">{{n+1}}</a>
+    </li>
+
+    <li>
+      <a href="#" ng-disabled="!page < totalPages">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
 </nav>

@@ -8,6 +8,7 @@ body {
 
 .search {
     position: relative;
+    min-height: 800px;
 
     h1 {
         color: $dark-gray;
@@ -147,14 +148,27 @@ body {
         select {
             background: white;
             padding:0.2em 0;
-            margin-left: 1em;
-            width: 12em;
+            margin-left: .5em;
+            margin-right: 1em;
+
+            &.medium {
+              width: 10em;  
+            }
+
+            &.small {
+                width: 5em;
+            }
         }
     }
 
     .right-pagination {
         display: inline-block;
-        float: right;
+    }
+
+    .loading-gif {
+        width: 60px;
+        height: 60px;
+        margin-top: 2em;
     }
 
     .card {
@@ -173,6 +187,7 @@ body {
             font-family: $font-default;
             height: 2em;
             margin-top: 0.5em;
+            padding-left: .5em;
             
             .name {
                 font-weight: bold;

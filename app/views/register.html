@@ -1,98 +1,89 @@
-<section class="register-box">
-    <div class="register-logo">
-        <b>Qual</b>Facul<b>?</b>
+<div class="box-login-register">
+    <div class="header">
+        <a href="/" class="logo"><div class="text-center">Qual<b>Facul</b>?</div></a>
     </div>
-    <div class="register-box-body border-light">
-        <p class="login-box-msg">{{"register.title"|translate}}</p>
+    <div class="form-box">
+        <div class="message-box">
+            <div class="message-icon glyphicon glyphicon-chevron-right"></div>
+            <span class="message-text">Informe suas credênciais.</span>
+        </div>
 
-        <form angular-validator-submit="register()" name="registerForm" method="post" novalidate angular-validator>
-            <label class="form-error-text" ng-bind-html="error.generic" ng-if="error.generic"></label>
+        <div class="message-box" ng-if="error.generic">
+            <div class="message-icon glyphicon glyphicon-remove"></div>
+            <span class="message-text text-danger form-error-text" ng-bind-html="error.generic"></span>
+        </div>
 
-            <div class="form-group has-feedback">
-                <label for="user-name" class="text-default">{{"register.user.name"|translate}}</label>
-                <input type="text" name="user-name" id="login" class="form-control" placeholder='{{"register.user.name"|translate}}' autofocus
-                    ng-model="user.name" 
-                    validate-on="dirty"
-                    required-message='"{{"register.user.empty.name"|translate}}"'
-                    required>
-                
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                <label class="text-danger form-error-text" ng-bind-html="error.login" ng-if="error.login"></label>
-            </div>
-
-            <div class="form-group has-feedback">
-                <label for="email" class="text-default">{{"register.user.email"|translate}}</label>
-                <input type="text" name="email" id="email" class="form-control" placeholder='{{"register.user.email"|translate}}' 
-                    ng-model="user.email"
-                    validate-on="dirty"
-                    validator = "emailValidator(user.email)"
-                    required-message='"{{"register.user.empty.email"|translate}}"'
-                    invalid-message='"{{"register.user.invalid.email"|translate}}"'
-                    required>
-
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                <label class="text-danger form-error-text" ng-bind-html="error.email" ng-if="error.email"></label>
-            </div>
-
-            <div class="form-group has-feedback">
-                <label for="password" class="text-default">{{"register.user.password"|translate}}</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder='{{"register.user.password"|translate}}'
-                    ng-model="user.password"
-                    validate-on="dirty"
-                    required-message='"{{"register.user.empty.password"|translate}}"'
-                    invalid-message='"{{"register.user.invalid.password"|translate}}"'
-                    required
-                    minlength="4">
-                
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                <label class="text-danger form-error-text" ng-bind-html="error.password" ng-if="error.password"></label>
-            </div>
-            
-            <div class="row">
-                <div class="col-xs-8">
-                    <label>
-                        {{"register.terms.explanation"|translate}}
-                        <a data-target="#terms" data-toggle="modal" target="_blank">{{"register.terms"|translate}}</a>
-                    </label>
-                    <!-- Termos e condições modal -->
-                    <section class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="Terms and conditions" aria-hidden="true">
-                        <section class="modal-dialog modal-lg">
-                            <section class="modal-content">
-                                <section class="modal-header">
-                                    <h3 class="modal-title"><u>{{"register.Terms"|translate}}</u></h3>
-                                </section>
-                                <section class="modal-body text-justify pre-scrollable">
-                                    <p>{{"register.terms.line1"|translate}}</p>
-                                    <p><b>{{"register.terms.line2"|translate}}</b></p>
-                                    <p>{{"register.terms.line3"|translate}}</p>
-                                    <p>{{"register.terms.line4"|translate}}</p>
-                                    <p>{{"register.terms.line5"|translate}}</p>
-                                    <p>{{"register.terms.line6"|translate}}</p>
-                                    <p>{{"register.terms.line7"|translate}}</p>
-                                    <p><b><u>{{"register.terms.line8"|translate}}</u></b></p>
-                                </section>
-                                <section class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
-                                </section>
-                            </section>
-                        </section>
-                    </section>
-                </div>
-                <div class="col-xs-4">
-                    <input type="submit" class="btn btn-primary btn-block btn-flat" value='{{"register.confirm"|translate}}' />
-                </div>
-            </div>
-        </form>
-
-        <div class="social-auth-links text-center">
-            <p>- {{"register.or"|translate}} -</p>
-            <a href="#" class="btn btn-social btn-facebook btn-flat">
-                <i class="fa fa-facebook"></i> 
-                {{"register.facebook.confirm"|translate}}
-            </a>
+        <div class="message-box" ng-if="error.name">
+            <div class="message-icon glyphicon glyphicon-remove"></div>
+            <span class="message-text text-danger form-error-text" ng-bind-html="error.name"></span>
         </div>
         
-        <a href="/login" class="text-center">{{"register.already.registrated"|translate}}</a>
+        <div class="message-box" ng-if="error.email">
+            <div class="message-icon glyphicon glyphicon-remove"></div>
+            <span class="message-text text-danger form-error-text" ng-bind-html="error.email"></span>
+        </div>
+        
+        <div class="message-box" ng-if="error.password">
+            <div class="message-icon glyphicon glyphicon-remove"></div>
+            <span class="message-text text-danger form-error-text" ng-bind-html="error.password"></span>
+        </div>
 
+        <form angular-validator-submit="register()" name="registerForm" method="post" novalidate angular-validator>
+            <input type="text" name="user-name" class="form-control" placeholder='{{"register.user.name"|translate}}' autofocus 
+                ng-model="user.name">
+
+            <input type="text" name="email" class="form-control" placeholder='{{"register.user.email"|translate}}' 
+                ng-model="user.email">
+
+            <input type="password" name="password" class="form-control" placeholder='{{"register.user.password"|translate}}'
+                ng-model="user.password">
+        
+            <div class="checkbox pull-left">
+                <a href="#" data-target="#terms" data-toggle="modal" target="_blank" class="link">Termos de uso</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-md btn-form pull-right">Registrar</button>
+        </form>
+            
+        <span class="separator"></span>
+        
+        <div class="col-md-12 pull-left text-center">
+            <div class="text-center row">
+                <button type="submit" class="btn btn-primary btn-facebook">Registrar com o Facebook</button>
+            </div>
+        </div>
+        
     </div>
-</section>
+</div>
+
+<div class="container text-center">
+    <a  href="/login">Já tenho cadastro</a>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-8">
+        <section class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="Terms and conditions" aria-hidden="true">
+            <section class="modal-dialog modal-lg">
+                <section class="modal-content">
+                    <section class="modal-header">
+                        <h3 class="modal-title"><u>{{"register.Terms"|translate}}</u></h3>
+                    </section>
+                    <section class="modal-body text-justify pre-scrollable">
+                        <p>{{"register.terms.line1"|translate}}</p>
+                        <p><b>{{"register.terms.line2"|translate}}</b></p>
+                        <p>{{"register.terms.line3"|translate}}</p>
+                        <p>{{"register.terms.line4"|translate}}</p>
+                        <p>{{"register.terms.line5"|translate}}</p>
+                        <p>{{"register.terms.line6"|translate}}</p>
+                        <p>{{"register.terms.line7"|translate}}</p>
+                        <p><b><u>{{"register.terms.line8"|translate}}</u></b></p>
+                    </section>
+                    <section class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </div>
+</div>

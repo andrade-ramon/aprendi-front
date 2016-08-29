@@ -2,171 +2,100 @@
 @import 'fonts';
 @import 'images';
 
-.navbar-brand {
-    .no-border {
-        border: none;
-    }
-}
+.footer {
+    background-color: $black-gray;
+    min-height: 25em;
+    padding: 1em 0;
 
+    .column {
+        color: $text-gray;
 
-.navbar-default {
-    
-    .navbar-toggle {
-        margin:3px 3px 0 0 ;
-    }
-
-    .header-menu {
-        font-family: $font-default;
-
-        li, a {
-            transition: all 400ms;
-        }
-        
-        li {
-            margin-left: 0.4em;
-            a {
-                padding-top: 5px;
-                padding-bottom: 5px;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                border-radius: 2px;
+        .widget {
+            .title {
+                font-weight: bold;
+                text-transform: uppercase;
+                color: $gray;
+                font-size: 1.8em;
+                padding: 0;
+                background: none;
+                line-height: normal;
+                margin-bottom: 0.8em;
             }
 
-            &:hover {
-                cursor: pointer;
-                a {
-                    background-color: $dark-gray;
-                    color: $white;
-                }    
-            }
-        }
-
-        .bordered-button {
-            a {
-                border:1px solid $dark-gray;            
-            }
-            a[aria-expanded=true] {
-                border-color: $lighter-gray;
-                background-color: $dark-gray;
-                color: $white;
-            }
-        }
-
-        .dropdown-menu {
-            background-color: $light-gray;
-            padding: 0;
-            border: 1px solid $gray;
-            margin-top: -0.4em;
-
-            li {
+            ul {
                 margin: 0;
-            }
-            a {
-                width: 100%;
-                text-align: left;
-                border: none !important;
-                margin:0;
-                color: $dark-gray !important;
-                float: left;
-                background-color: transparent !important;
+                list-style: none;
+                padding: 0;
 
-                &:hover {
-                    background-color: $gray !important;
+                li {
+                    padding-left: 12px;
+                    position: relative;
+                    margin-bottom: 6px;
+
+                    &:before {
+                        content: "";
+                        display: block;
+                        background: url($images-path + "arrow-right.png") no-repeat left top;
+                        position: absolute;
+                        top: 8px;
+                        left: 0;
+                        width: 4px;
+                        height: 6px;
+                    }                    
                 }
             }
-        }
-    }
-}
 
+            .socials {
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
 
-.footer {
-    font-family: $font-default;
-    overflow: hidden;
-    background-color: $dark-gray;
-    color: $white;
-    margin-top: -2.2em;
+                    li {
+                        display: inline-block;
+                        vertical-align: top;
+                        margin-right: 2px;
+                        padding: 0;
 
-    .row {
-        margin: 0;
-    }
+                        a {
+                            display: block;
+                            height: 48px;
+                            width: 48px;
+                            background-image: url($images-path + 'social-sprite.png');
+                            background-repeat: no-repeat;
+                            cursor: pointer;
+                            transition: all 200ms;
+                            display: inline-block;
+                        }
 
-    .title {
-        font-size: 1.5em;
-    }
+                        .icon-facebook {
+                            background-position: -48px 0px;
+                            &:hover {background-position: -48px -48px;}
+                        }
+                        .icon-twitter {
+                            background-position: 0px 0px;
+                            &:hover {background-position:0px -48px;}
+                        }
+                        .icon-googleplus {
+                            background-position: -96px 0px;
+                            &:hover {background-position: -96px -48px;}
+                        }
+                        .icon-instagran {
+                            background-position: -240px 0px;
+                            &:hover {background-position: -240px -48px;}
+                        }
+                        
 
-    ul {
-        font-size: 1.3em;
-        list-style: none;
-        height: 100%;
-        padding: 20px 50px;
-
-        li {
-            height:30px;
-            display: block;
-            width: 100%;
-        }
-
-        .social-box{
-            width:100%;
-            float:left;
-            span {
-                width: 48px;
-                height: 48px;
-                background-image: url($images-path + 'social-sprite.png');
-                background-repeat: no-repeat;
-                cursor: pointer;
-                transition: all 200ms;
-                margin: 0 auto;
-                text-align: center;
-                float: none;
-                display: inline-block;
+                        &:before {
+                            background: none;
+                            top: 0px;
+                            left: 0;
+                            width: 0px;
+                            height: 0px;
+                        }
+                    }
+                }
             }
-            
-            .twitter {background-position: 0px 0px;}
-            .twitter:hover {background-position:0px -48px;}
-
-            .facebook {background-position: -48px 0px;}
-            .facebook:hover {background-position: -48px -48px;}
-
-            .googleplus {background-position: -96px 0px;}
-            .googleplus:hover {background-position: -96px -48px;}
-
-            .linkedin {background-position: -144px 0px;}
-            .linkedin:hover {background-position: -144px -48px;}
-
-            .pintrest {background-position: -192px 0px;}
-            .pintrest:hover {background-position: -192px -48px;}
-
-            .instagran {background-position: -240px 0px;}
-            .instagran:hover {background-position: -240px -48px;}
-        }
-
-        .university-login {
-            input {
-                margin-top: 10px;
-                border-radius: 3px;
-            }
-
-            .btn {
-                float: right;
-            }
-        }
-
-    }
-
-    @media (min-width: 450px) and (max-width: 900px) {
-        .footer-column {
-            width:50% !important;            
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 5px !important;
-        }
-    }
-    @media (max-width: 450px) {
-        .footer-column {
-            width: 100% !important; 
-            text-align: center;
-            padding: 0 5px !important;
         }
     }
 }

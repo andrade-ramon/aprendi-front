@@ -26,7 +26,8 @@ app.controller('LoginCtrl', function ($scope, $http, $location, ENV, User, ezfb)
     $scope.loginFacebook = function () {
         ezfb.login(function (res) {
           if (res.status === "connected") {
-            $http.post(ENV.API.FACEBOOKLOGIN, res.authResponse.accessToken).then(function(response){
+            var data = {accessToken: res.authResponse.accessToken };
+            $http.post(ENV.API.FACEBOOKLOGIN, data).then(function(response){
                 User.loggedIn(response.data.token);
                 $location.path('/');
             });

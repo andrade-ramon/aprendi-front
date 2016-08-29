@@ -1,11 +1,10 @@
 var zeusDirectives = angular.module('zeusDirectives',[]);
 
-zeusDirectives.directive('tagPage',function() {
+zeusDirectives.directive('page',function() {
     return {
         restrict: 'E',
         transclude: true, 
         templateUrl: 'scripts/directives/page.html',
-        controller: 'PageCtrl',
         link: function(scope, elem, attrs){
             scope.hasHeader = true;
             attrs.$observe('header', function(value){
@@ -20,6 +19,28 @@ zeusDirectives.directive('tagPage',function() {
     }; 
 });
 
+zeusDirectives.directive('headerMenu', function () {
+    return {
+        restrict: 'E',
+        transclude: false,
+        templateUrl: 'scripts/directives/header_menu.html', 
+        link: function(scope, elem, attrs) {
+            scope.transparentMenu = true;
+            attrs.$observe('transparent', function(value){
+                scope.transparentMenu = value !== 'false';
+            });
+        }
+    };
+});
+
+
+zeusDirectives.directive('navigationMenu', function () {
+    return {
+        restrict: 'E',
+        transclude: false,
+        templateUrl: 'scripts/directives/navigation_menu.html'
+    };
+});
 zeusDirectives.directive('pagination',function($filter) {
     $filter('range')('argument');
     return {

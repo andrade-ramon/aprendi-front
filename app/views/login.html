@@ -1,57 +1,53 @@
-<section class="login-box">
-	<div class="login-logo">
-        <b>Qual</b>Facul<b>?</b> <!-- I18N = corrigir marcação,pois a estilizacao da fonte deve ser feita no css -->
-	</div>
+<div class="box-login-register">
+    <div class="header">
+        <a href="/" class="logo"><div class="text-center">Qual<b>Facul</b>?</div></a>
+    </div>
+    
+    <div class="form-box">
+        <div class="message-box">
+            <div class="message-icon glyphicon glyphicon-chevron-right"></div>
+            <span class="message-text">Informe suas credênciais.</span>
+        </div>
 
-	<div class="login-box-body box border-light">
-        <p class="login-box-msg">{{"login.inform.credentials"  | translate}}</p>
-		
-		<form angular-validator-submit="login()" name="loginForm" method="post" novalidate angular-validator>
+        <div class="message-box" ng-if="error.generic">
+            <div class="message-icon glyphicon glyphicon-remove"></div>
+            <span class="message-text text-danger form-error-text" ng-bind-html="error.generic"></span>
+        </div>
 
-			<label class="text-danger form-error-text" ng-bind-html="error.generic" ng-if="error.generic"></label>
-			
-			<div class="form-group has-feedback">
-                <label for="login" class="text-default">{{"login.login"|translate}}</label>
-				<input type="text" name="login" id="login" class="form-control" placeholder='{{"login.login"|translate}}' autofocus
-					ng-model="user.login" 
-					validate-on="dirty"
-                    required-message='"{{"login.inform.login"|translate}}"'
-					required>
-				
-				<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-				<label class="text-danger form-error-text" ng-bind-html="error.login" ng-if="error.login"></label>
-			</div>
+        <div class="message-box" ng-if="error.login">
+            <div class="message-icon glyphicon glyphicon-remove"></div>
+            <span class="message-text text-danger form-error-text" ng-bind-html="error.login"></span>
+        </div>
 
-			<div class="form-group has-feedback">
-                <label for="password" class="text-default">{{"login.password"|translate}}</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder='{{"login.password"|translate}}'
-					ng-model="user.password"
-					validate-on="dirty"
-     required-message='"{{"login.inform.password"|translate}}"'
-					required>
-				
-				<span class="glyphicon glyphicon-lock form-control-feedback"></span>
-				<label class="text-danger form-error-text" ng-bind-html="error.password" ng-if="error.password"></label>
-			</div>
+        <div class="message-box" ng-if="error.password">
+            <div class="message-icon glyphicon glyphicon-remove"></div>
+            <span class="message-text text-danger form-error-text" ng-bind-html="error.password"></span>
+        </div>
+        <form angular-validator-submit="login()" name="loginForm" method="post" novalidate angular-validator>
+            <input type="text" name="login" class="form-control" placeholder='{{"login.login"|translate}}' autofocus 
+                ng-model="user.login">
 
-			<div class="row">
-				<div class="col-xs-8">
-                    <a href="/esqueci-minha-senha">{{"login.forgot.password"|translate}}</a></br>
-                    <a href="/cadastro" class="text-center">{{"login.create.account"|translate}}</a>
-				</div>
-				<div class="col-xs-4">
-                    <input type="submit" class="btn btn-primary btn-block btn-flat" value='{{"login.confirm"|translate}}' />
-				</div>
-			</div>
-		</form>
-		
-		<div class="social-auth-links text-center">
-            <p>- {{"login.or"|translate}} -</p>
-			<a ng-click="loginFacebook()" class="btn btn-social btn-facebook btn-flat">
-				<i class="fa fa-facebook"></i>
-                {{"login.facebook.login"|translate}}
-			</a>
-		</div>
+            <input type="password" id="password" name="password" class="form-control"  placeholder='{{"login.password"|translate}}'
+                ng-model="user.password">
 
-	</div>
-</section>
+            <div class="col-md-12">
+                <div class="checkbox pull-left">
+                    <label>
+                        <input type="checkbox">Permanecer logado
+                    </label>
+                    <a href="/esqueci-minha-senha" class="link">Esqueci a senha</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-md btn-form pull-right">Entrar</button>            
+            </div>
+
+            <span class="separator"></span>    
+        </form>
+        <div class="text-center row">
+            <button type="submit" ng-click="loginFacebook()" class="btn btn-primary btn-facebook">Entrar com o Facebook</button>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center">
+    <a  href="/cadastro">Criar uma conta</a>
+</div>

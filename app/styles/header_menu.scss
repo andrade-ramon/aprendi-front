@@ -1,0 +1,65 @@
+@import 'colors';
+
+.header-menu {
+
+	&.white-background {
+		background-color: $white;
+		li, a {
+			color: $dark-gray;
+		}
+		.logo {
+			b {
+				color: $light-blue;
+			}
+
+			&:hover {
+				color: $light-blue;
+				b {
+					color: $dark-gray;
+				}
+			}
+		}
+	}
+
+	li, a {
+		color: $dark-gray;
+		text-decoration: none;
+		background-color: $white;
+	}	
+
+	a:hover {
+		color: $black;
+		background-color: transparent !important;	
+	}
+
+	a[aria-expanded=true] {
+        background-color: $white !important;
+        color: $dark-gray;
+    }
+
+    .dropdown-menu {
+    	a {
+    		&:hover {
+    			color: $light-blue;
+    		}
+    	}
+    }
+
+	.logo {
+		color: $light-blue;
+		font-size: 2em;
+		transition: color 0.2s;
+
+		b {
+			color: $white;
+			transition: color 0.2s;
+		}
+
+		&:hover {
+			color: $white;
+			b {
+				color: $light-blue;
+			}
+		}
+	}
+}
