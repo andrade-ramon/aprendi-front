@@ -1,7 +1,7 @@
 <page>
     <main class="search">
         <h1>{{"colleges.search.title" | translate}}</h1>
-        <p class="results-count">({{response.count}} {{"colleges.search.results" | translate}})</p>
+        <p ng-if="response.totalResults" class="results-count">({{response.totalResults}} {{"colleges.search.results" | translate}})</p>
         <aside class="advanced">
             
             <input id="filter" type="radio" name="tab-group" class="pane" checked/>
@@ -13,11 +13,15 @@
             <section class="aside-content">
                 <article class="filter-content">
                     <form angular-validator angular-validator-submit="searchFilter()" name="searchFilterForm" method="GET" class="filters">
-                        <label for="filter-state">{{"colleges.search.menu.state" | translate}}</label>
-                        <input id="filter-state" placeholder="Ex: SP" ng-model="filter.state">
+                        <div class="col-md-12">
+                            <label for="filter-state">{{"colleges.search.menu.state" | translate}}</label>
+                            <input id="filter-state" placeholder="Ex: SP" ng-model="filter.state">
+                        </div>
                         
-                        <label for="filter-ranking">{{"colleges.search.menu.min.ranking" | translate}}</label>
-                        <input id="filter-ranking" placeholder="Ex: 20" ng-model="filter.ranking">
+                        <div class="col-md-12">
+                            <label for="filter-ranking">{{"colleges.search.menu.min.ranking" | translate}}</label>
+                            <input id="filter-ranking" placeholder="Ex: 20" ng-model="filter.ranking">
+                        </div>
                         
                         <button class="btn btn-warning btn-filter">{{"colleges.search.menu.button" | translate}}</button>
                     </form>
@@ -27,16 +31,31 @@
                 </article>
             </section>
         </aside>
-        <section class="results">
-            <label class="order">
-                {{"colleges.search.order" | translate}}:
-                <select>
-                    <option>{{"colleges.search.order.geral" | translate}}</option>
-                </select>
-            </label>
-            <pagination query="{{query}}" page="{{page}}" total-pages="{{response.totalPages}}" class="right-pagination"/>
 
-            <article ng-repeat="college in response.searchResult" class="card">
+        <section class="results">
+            <label class="order pull-left">
+                {{"colleges.search.order" | translate}}:
+                <select class="medium">
+                    <option>{{"colleges.search.order.general" | translate}}</option>
+                </select>
+
+                {{"colleges.search.resultsPerPage" | translate}}
+                <select classs="small">
+                    <option>10</option>
+                </select>
+
+            </label>
+            
+            <pagination query="{{query}}" page="{{page}}" total-pages="{{response.totalPages}}" class="right-pagination pull-right"/>
+
+            
+            <div class="col-md-12 text-center" ng-if="!response.result">
+                <img src="../images/loading.gif" class="loading-gif">
+                <p>{{"colleges.search.loading" | translate}}</p>
+            </div>
+
+
+            <article ng-repeat="college in response.result" class="card" ng-if="response.result">
                 <header>
                     <p class="name">{{college.name}}</p>
                     <a href="/colleges/{{college.id}}/grades" class="grades">{{"colleges.search.grades" | translate}}</a>

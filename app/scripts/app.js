@@ -41,8 +41,7 @@ window.routes = {
     },
     "/pesquisa/:query": {
         templateUrl: 'views/search.html',
-        controller: 'SearchCtrl',
-        reloadOnSearch: false
+        controller: 'SearchCtrl'
     }
 };
 
@@ -67,9 +66,7 @@ app.config(function ($routeProvider, $locationProvider, $translateProvider, ezfb
     ezfbProvider.setInitParams({
         appId: ENV.FACEBOOK.APPLICATION.ID,
         version: ENV.FACEBOOK.APPLICATION.VERSION
-    }); 
-
-
+    });
 });
 
 app.constant('LOCALES', {

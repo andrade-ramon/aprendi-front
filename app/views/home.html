@@ -4,16 +4,16 @@
 			
 			<header-menu transparent="false"/>
 
-			<div class="search-box col-md-6 col-md-offset-3">
+			<div class="search-box col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2">
 				<h1 class="text-center">Achar uma faculdade nunca foi tão fácil</h1>
 				<p class="text-center subtitle">Encontre as melhores faculdades por todo o Brasil e veja a avaliação de quem estuda ou já estudou lá</p>
 
-				<form class="col-md-8 col-md-offset-2 form-search">
+				<form class="col-md-8 col-md-offset-2 form-search" ng-submit="search()">
 					<label>Busque por uma faculdade</label>
 					<div class="input-group">
 						<input class="form-control" ng-model="search.query"/>
 						<span class="input-group-btn">
-							<button class="btn btn-primary" type="button" ng-click="search()">Buscar</button>
+							<button class="btn btn-primary" type="submit">Buscar</button>
 						</span>
 					</div>
 					<label>Busque por um curso</label>

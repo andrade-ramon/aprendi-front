@@ -90,7 +90,8 @@
     "colleges.search.menu.min.ranking":"Ranking mínimo",
     "colleges.search.menu.button":"Filtrar",
     "colleges.search.order":"Ordenar",
-    "colleges.search.order.geral":"Posição geral",
+    "colleges.search.resultsPerPage":"Resultados por página",
+    "colleges.search.order.general":"Posição geral",
     "colleges.search.grades":"ver avaliações",
     "colleges.search.grades.infra":"Infraestrutura",
     "colleges.search.grades.teach":"Ensino",
@@ -98,6 +99,8 @@
     "colleges.search.grades.geral":"Geral",
     "colleges.search.profile":"visitar perfil",
     "colleges.search.courses":"cursos",
+    "colleges.search.loading":"Buscando dados...",
+
     
     "hades.facebookaccount.notallowed":"Contas criadas via Facebook não podem ser utilizadas nesta operação"
 }
