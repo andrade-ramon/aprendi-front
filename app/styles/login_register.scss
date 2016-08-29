@@ -5,7 +5,7 @@
 .box-login-register {
     width: 350px;
     margin: 100px auto 10px auto;
-    border: 1px solid #ccc;
+    border: 1px solid $gray;
     padding: 30px 15px;
     
     .header {
@@ -14,6 +14,12 @@
 
         a {
             text-decoration: none;
+        }
+
+        .logo {
+            b {
+                color: $black;
+            }
         }
     }
 
@@ -51,7 +57,7 @@
             }  
         }
 
-        .btn-login {
+        .btn-form {
             padding: 7px 25px;
             margin-top: 15px;
         }

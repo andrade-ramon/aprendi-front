@@ -1,6 +1,5 @@
 app.controller('PasswordRecoveryCtrl', function ($scope, $routeParams, $http, $location, ENV, messagesContainer) {
-	$scope.passwordrecovery = {};
-
+	$scope.user = {};
 
 	var errorCallback = function(response) {
 		if(response.data) {
@@ -19,23 +18,19 @@ app.controller('PasswordRecoveryCtrl', function ($scope, $routeParams, $http, $l
 	};
 
 	$scope.recoverAccount = function() {
-	    $http.post(ENV.API.PASSWORDRECOVERY_REQUEST, $scope.passwordrecovery).then(function() {
+	    $http.post(ENV.API.PASSWORDRECOVERY_REQUEST, $scope.user).then(function() {
 	    	messagesContainer.addSuccess("Um e-mail com instruções para redefinir a senha foi enviado!");
-	    	$location.path('/');
 	    }, function(response) {
 	    	errorCallback(response);
-	    	messagesContainer.addError("Falha ao processar a solicitação de redefinição de senha, verifique o email digitado!");
 	    });
 	};
 
 	$scope.changePasswordByToken = function(){
-		var newPassword = {password: $scope.passwordrecovery.password, token: $routeParams.token};
-		$http.post(ENV.API.PASSWORDRECOVERY_CHANGE, newPassword).then(function() {
+		var data = {password: $scope.user.password, token: $routeParams.token};
+		$http.post(ENV.API.PASSWORDRECOVERY_CHANGE, data).then(function() {
 	    	messagesContainer.addSuccess("Senha alterada com sucesso!");
-        	$location.path('/');
-        	
+        	$location.path('/login');
 	    }, function(response) {
-	    	messagesContainer.addError("Falha ao alterar a senha");
 	    	errorCallback(response);
 	    });
 	};
