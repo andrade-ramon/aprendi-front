@@ -39,9 +39,9 @@ window.routes = {
         controller: 'RegisterCtrl',
         onlyGuest: true
     },
-    "/pesquisa/:query": {
-        templateUrl: 'views/search.html',
-        controller: 'SearchCtrl'
+    "/faculdades/pesquisa/:query": {
+        templateUrl: 'views/college_search.html',
+        controller: 'CollegeSearchCtrl'
     }
 };
 
