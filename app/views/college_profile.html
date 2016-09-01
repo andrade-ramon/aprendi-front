@@ -1,0 +1,74 @@
+<page main-class="college-profile" footer="false">
+    <div class="left-cards">
+        <article class="college-card box-shadow ">
+            <header>
+                <img src="../images/book.jpg" class="college-background">
+                <img src="../images/college.png" class="college-logo">
+            </header>
+            <main>
+                <h1 class="name">{{college.name}}</h1>
+                <dl class="details">
+                    <div>
+                        <dt>Alunos</dt>
+                        <dd>0</dd>
+                    </div>
+                    <div>
+                        <dt>Avaliações</dt>
+                        <dd>10M</dd>
+                    </div>
+                </dl>
+            </main>
+        </article>
+        <article class="about-card box-shadow ">
+            <header><h2>Sobre</h2></header>
+            <nav>
+                <div class="link"><a class="about-user" href="#">É um aluno?</a></div>
+                <div class="link"><a class="about-students" href="#">Avaliações de alunos</a></div>
+                <div class="link"><a class="about-courses" href="#">Conheça os cursos</a></div>
+                <div class="link"><a class="about-local" href="#">LOCAL</a></div>
+            </nav>
+        </article>
+    </div>
+    <div class="center-cards">
+        <article class="timeline-card box-shadow ">
+            <section ng-repeat="post in timeline.posts" class="post">
+                <img src="../images/college.png" class="logo">    
+                <h3 class="college-name">{{college.name}}</h3>
+                <time class="date">{{post.createdAt}}</time>
+                <p class="content">{{post.content}}</p>
+            </section>
+        </article>
+        
+    </div>
+    <div class="right-cards">
+        <article class="courses-card box-shadow ">
+            <header><h2>Cursos - <a href="#">ver todos</a></h2></header>
+            <hr/>
+            <nav>
+                <ul class="list">
+                    <li ng-repeat="course in courses">
+                        <a href="/faculdade/{{college.id}}/cursos/{{course.id}}">{{course.name}}</a>
+                    </li>
+                </ul>
+            </nav>
+            <footer class="question">
+                <p>Não decidiu qual curso fazer ? Que tal conhecer nosso <a href="#">teste vocacional</a> ?</p>
+            </footer>
+        </article>
+        <article class="comment-card box-shadow ">
+            <a href="#" class="btn-comment">Deixar um comentáro ou pergunta</a>
+        </article>
+        <article class="footer-card box-shadow ">
+            <p>© 2016 QualFacul?</p>
+            <nav class="links">
+                <a href="#">Sobre</a>
+                <a href="#">Ajuda</a>
+                <a href="#">Termos/Privacidade</a>
+                <a href="#">Rankings</a>
+                <a href="#">Teste vocacional</a>
+                <a href="#">Faculdades</a>
+            </nav>
+        </article>
+    </div>
+    <div class="clearfix"></div>
+</page>

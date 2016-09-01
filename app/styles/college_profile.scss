@@ -1,0 +1,222 @@
+@import 'colors';
+
+.college-profile {
+    margin-top: 0.5em;
+    
+    position: relative;
+
+    .left-cards {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 25%;
+        padding: 1%;
+    }
+
+    .center-cards {
+        position: absolute;
+        left: 25%;
+        height: 100%;
+        width: 50%;
+        padding: 1%;
+    }
+
+    .right-cards {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 25%;
+        padding: 1%;
+    }
+
+    .card {
+        background: white;
+        display: inline-block;
+        border: 0.1em solid $gray;
+        width: 100%;
+    }
+
+    .college-card {
+        @extend .card;
+        height: 24em;
+
+        header {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 50%;
+
+            .college-background {
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .college-logo {
+                position: absolute;
+                width: 5em;
+                height: 5em;
+                border: 1px solid white;
+                bottom: -2.5em;
+                left: calc(50% - 2.5em);
+                border-radius: 50%;
+                background-color: white;
+                background-repeat: no-repeat;
+                background-position: center;
+                box-shadow: 0 2px 3px rgba(233,239,243,0.52), 0 1px 3px rgba(233,239,243,0.64);
+            }
+        }
+        main {
+            margin-top: 4em;
+            display: block;
+            text-align: center;
+
+            .name {
+                font-size: 1.2em;
+            }
+
+            .details {
+                display: block;
+
+                div:first-of-type {
+                    margin-top: 1em;
+                    width: 50%;
+                    float: left;
+                    border-right: 1px solid #E9EFF3;
+                }
+                div:last-of-type {
+                    margin-top: 1em;
+                    float: right;
+                    width: 50%;
+                }
+            }
+        }
+    }
+
+    .about-card {
+        @extend .card;
+        margin-top: 2em;
+        padding: 1em;
+
+        h2 {
+            font-size: 1.2em;
+            margin-top: 0;
+        }
+
+        .about-user:before { background: white url("../images/about-user.svg") no-repeat bottom left;}
+        .about-students:before { background: white url("../images/about-students.svg") no-repeat bottom left;}
+        .about-courses:before { background: white url("../images/about-courses.svg") no-repeat bottom left;}
+        .about-local:before { background: white url("../images/about-local.svg") no-repeat bottom left;}
+
+        .link { 
+            display: block;
+
+            a {
+                cursor: pointer;
+
+                &:before {
+                    content: '';
+                    display: inline-block;
+                    width: 2em;
+                    height: 2em;
+                    background-size: 1.2em;
+                }
+            }
+        }        
+    }
+
+    .timeline-card {
+        @extend .card;
+        position: relative;
+
+        .post {
+            position: relative;
+            border-bottom: 0.2em solid $light-gray;
+            padding: 1em;
+
+            &:last-of-type { border: none;}
+
+            .logo {
+                border-radius: 50%;
+                width: 3em;
+                margin-right: 1em;
+            }
+
+            .college-name {
+                font-size: 1em;
+                font-weight: bold;
+                display: inline-block;
+            }
+
+            .date {
+                position: absolute;
+                color: $dark-gray;
+                right: 1em;
+                top: 1em;
+            }
+
+            .content {
+                margin-left: 4em;
+            }
+        }
+    }
+    .comment-card {
+        @extend .card;
+        padding: 1.5em 0.5em;
+        text-align: center;
+        margin-top: 2em;
+
+        .btn-comment {
+            padding: 0.5em;
+            text-decoration: none;
+        }
+    }
+
+
+    .courses-card {
+        @extend .card;
+
+        h2 {
+            text-align: center;
+            font-size: 1em;
+        }
+
+        hr {
+            margin: 0 1.5em;
+        }
+
+        .list {
+            list-style: none;
+            padding: 0;
+
+            li {
+                margin: 1em;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        .question {
+            background-color: $light-gray;
+            height: 100%;
+            padding: 1em 1em 0;
+            border-top: 0.1em solid $gray;
+            text-align: center;
+        }
+    }
+    .footer-card {
+        @extend .card;
+        margin-top: 2em;
+        padding: 1em;
+
+        p { 
+            display: block;
+            text-align: center;
+        }
+
+        .links {
+            a {margin: 0 0.3em;}
+        }
+    }
+}

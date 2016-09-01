@@ -9,7 +9,11 @@ zeusDirectives.directive('page',function() {
             scope.hasHeader = true;
             attrs.$observe('header', function(value){
                 scope.hasHeader = value !== 'false';
-            });            
+            });
+
+            attrs.$observe('mainClass', function(value){
+                scope.mainClass = value;
+            });
 
             scope.hasFooter = true;
             attrs.$observe('footer', function(value){

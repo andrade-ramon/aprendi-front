@@ -3,7 +3,10 @@
 <growl-notifications/>
 <growl-notification  ng-if="showMessage" ng-class="growlType" class="box-growl fade-out" >{{growlMessage}}</growl-notification>
 
-<ng-transclude/>
+<main class="{{mainClass}}">
+    <ng-transclude/>
+</main>
+
 
 <footer class="footer" ng-if='hasFooter'>
     <div class="container">

@@ -1,2 +1,2 @@
-app.controller('PageCtrl', function () {    
+app.controller('PageCtrl', function () {
 });
