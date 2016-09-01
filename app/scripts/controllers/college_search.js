@@ -10,7 +10,6 @@ app.controller('CollegeSearchCtrl', function ($scope, $http, $location, $routePa
 
         $http.get(ENV.API.SEARCH.COLLEGE + $scope.search.query + filters).then(function(response) {
             $scope.response = response.data;
-            console.log($scope.search.query);
         }, function(response) {
             if(response.data) {
                 $scope.error = {};
