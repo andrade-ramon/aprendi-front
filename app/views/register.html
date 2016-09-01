@@ -1,12 +1,12 @@
 <page header="false" footer="false">
-    <div class="box-login-register">
-        <div class="header text-center">
-            <logo size="small"/>
-        </div>
-        <div class="form-box">
+    <article class="box-login-register">
+        <header class="header text-center">
+            <logo size="medium"/>
+        </header>
+        <section class="form-box">
             <div class="message-box">
                 <div class="message-icon glyphicon glyphicon-chevron-right"></div>
-                <span class="message-text">Informe suas credênciais.</span>
+                <span class="message-text">{{"register.title"|translate}}</span>
             </div>
 
             <div class="message-box" ng-if="error.generic">
@@ -40,52 +40,51 @@
                     ng-model="user.password">
             
                 <div class="checkbox pull-left">
-                    <a href="#" data-target="#terms" data-toggle="modal" target="_blank" class="link">Termos de uso</a>
+                    <a href="#" data-target="#terms" data-toggle="modal" target="_blank" class="link">{{"register.Terms"|translate}}</a>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-md btn-form pull-right">Registrar</button>
+                <button type="submit" class="btn btn-primary btn-md btn-form pull-right">{{"register.confirm"|translate}}</button>
             </form>
                 
             <span class="separator"></span>
             
             <div class="col-md-12 pull-left text-center">
                 <div class="text-center row">
-                    <button type="submit" class="btn btn-primary btn-facebook">Registrar com o Facebook</button>
+                    <button type="submit" class="btn btn-primary btn-facebook">{{"register.facebook.confirm"|translate}}</button>
                 </div>
             </div>
-            
-        </div>
-    </div>
+        </section>
+    </article>
 
     <div class="container text-center">
-        <a  href="/login">Já tenho cadastro</a>
+        <a  href="/login">{{"register.already.registrated"|translate}}</a>
     </div>
 
 
     <div class="row">
         <div class="col-xs-8">
-            <section class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="Terms and conditions" aria-hidden="true">
+            <artivle class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="Terms and conditions" aria-hidden="true">
                 <section class="modal-dialog modal-lg">
-                    <section class="modal-content">
-                        <section class="modal-header">
+                    <div class="modal-content">
+                        <header class="modal-header">
                             <h3 class="modal-title"><u>{{"register.Terms"|translate}}</u></h3>
-                        </section>
-                        <section class="modal-body text-justify pre-scrollable">
+                        </header>
+                        <main class="modal-body text-justify pre-scrollable">
                             <p>{{"register.terms.line1"|translate}}</p>
-                            <p><b>{{"register.terms.line2"|translate}}</b></p>
+                            <p><strong>{{"register.terms.line2"|translate}}</strong></p>
                             <p>{{"register.terms.line3"|translate}}</p>
                             <p>{{"register.terms.line4"|translate}}</p>
                             <p>{{"register.terms.line5"|translate}}</p>
                             <p>{{"register.terms.line6"|translate}}</p>
                             <p>{{"register.terms.line7"|translate}}</p>
-                            <p><b><u>{{"register.terms.line8"|translate}}</u></b></p>
-                        </section>
-                        <section class="modal-footer">
+                            <p><strong><u>{{"register.terms.line8"|translate}}</u></strong></p>
+                        </main>
+                        <footer class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
-                        </section>
-                    </section>
+                        </footer>
+                    </div>
                 </section>
-            </section>
+            </article>
         </div>
     </div>
 </page>

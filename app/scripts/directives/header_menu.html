@@ -1,5 +1,5 @@
 <header class="header-menu row">
-	<div class="col-md-10 col-md-offset-1 col-sm-12">
+	<article class="col-md-10 col-md-offset-1 col-sm-12">
 		
 		<section class="col-md-2 col-sm-12 form-logo">
 			<logo size="big"/>
@@ -24,20 +24,22 @@
 			</form>
 		</section>
 
-		<ul class="nav navbar-nav navbar-right col-md-3 navbar">
-			<li ng-if="!isLogged"><a href="/cadastro">{{"page.menu.register"|translate}}</a></li>
-			<li ng-if="!isLogged"><a href="/login">{{"page.menu.enter"|translate}}</a></li>
-			<li ng-if="isLogged">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-	                {{"page.my.account"|translate}}
-	                <span class="caret"></span>
-	            </a>
-	            <ul class="dropdown-menu">
-	                <li><a href="/configuracoes">{{"page.account.configuration"|translate}}</a></li>
-	                <li><a href="/perfil">{{"page.account.my.profile"|translate}}</a></li>
-	                <li><a href="#" ng-click="logout();" ng-controller="LoginCtrl">{{"page.account.exit"|translate}}</a></li>
-	            </ul>
-	        </li>
-		</ul>
-	</div>
+		<nav>
+			<ul class="nav navbar-nav navbar-right col-md-3 navbar">
+				<li ng-if="!isLogged"><a href="/cadastro">{{"page.menu.register"|translate}}</a></li>
+				<li ng-if="!isLogged"><a href="/login">{{"page.menu.enter"|translate}}</a></li>
+				<li ng-if="isLogged">
+		            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+		                {{"page.my.account"|translate}}
+		                <span class="caret"></span>
+		            </a>
+		            <ul class="dropdown-menu">
+		                <li><a href="/configuracoes">{{"page.account.configuration"|translate}}</a></li>
+		                <li><a href="/perfil">{{"page.account.my.profile"|translate}}</a></li>
+		                <li><a href="#" ng-click="logout();" ng-controller="LoginCtrl">{{"page.account.exit"|translate}}</a></li>
+		            </ul>
+		        </li>
+			</ul>
+		</nav>
+	</article>
 </header>

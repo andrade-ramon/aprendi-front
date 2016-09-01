@@ -17,7 +17,7 @@ zeusDirectives.directive('page',function() {
             });
 
             scope.headerWithForm = true;
-            attrs.$observe('search', function(value){                
+            attrs.$observe('showSearch', function(value){                
                 scope.headerWithForm = value !== 'false';
             });
         }
@@ -44,9 +44,9 @@ zeusDirectives.directive('logo',function() {
         transclude: false, 
         templateUrl: 'scripts/directives/logo.html',
         link: function(scope, elem, attrs){
-            scope.samllLogo = scope.mediumLogo = scope.bigLogo = false;
+            scope.smallLogo = scope.mediumLogo = scope.bigLogo = false;
             attrs.$observe('size', function(value){
-                scope.samllLogo = value === 'small';
+                scope.smallLogo = value === 'small';
                 scope.mediumLogo = value === 'medium';
                 scope.bigLogo = value === 'big';
             });            

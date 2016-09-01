@@ -23,7 +23,7 @@ app.controller('CollegeSearchCtrl', function ($scope, $http, $location, $routePa
         });
     };
 
-    searchApi('?page=' + $scope.page);
+    // searchApi('?page=' + $scope.page);
 
     $scope.searchFilter = function() {
         var params = $filter('addParam')('state', $scope.filter.state);
