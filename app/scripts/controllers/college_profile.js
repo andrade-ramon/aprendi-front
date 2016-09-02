@@ -1,6 +1,12 @@
-app.controller('CollegeProfileCtrl', function ($scope) {
-	var college = $scope.college = {};
-	college.name = "NOME DA FACULDADE";
+app.controller('CollegeProfileCtrl', function ($scope, $http, $routeParams, ENV) {
+
+	$http({
+		method: 'GET',
+		url: ENV.API.COLLEGE.PROFILE + $routeParams.collegeId
+	}).then(function successCallback(response) {
+	    $scope.college = response.data;
+	});
+
 	$scope.timeline = {};
 	$scope.timeline.posts = [
 		{createdAt: "4min", content: "In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam id dolor. Class aptent taciti sociosqu ad litora"},
