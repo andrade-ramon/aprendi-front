@@ -1,33 +1,9 @@
 @import 'colors';
+@import 'images';
 
 .college-profile {
     margin-top: 0.5em;
-    
     position: relative;
-
-    .left-cards {
-        position: absolute;
-        left: 0;
-        height: 100%;
-        width: 25%;
-        padding: 1%;
-    }
-
-    .center-cards {
-        position: absolute;
-        left: 25%;
-        height: 100%;
-        width: 50%;
-        padding: 1%;
-    }
-
-    .right-cards {
-        position: absolute;
-        right: 0;
-        height: 100%;
-        width: 25%;
-        padding: 1%;
-    }
 
     .card {
         background: white;
@@ -104,10 +80,10 @@
             margin-top: 0;
         }
 
-        .about-user:before { background: white url("../images/about-user.svg") no-repeat bottom left;}
-        .about-students:before { background: white url("../images/about-students.svg") no-repeat bottom left;}
-        .about-courses:before { background: white url("../images/about-courses.svg") no-repeat bottom left;}
-        .about-local:before { background: white url("../images/about-local.svg") no-repeat bottom left;}
+        .about-user:before { background: white url($images-path + "about-user.svg") no-repeat bottom left;}
+        .about-students:before { background: white url($images-path + "about-students.svg") no-repeat bottom left;}
+        .about-courses:before { background: white url($images-path + "about-courses.svg") no-repeat bottom left;}
+        .about-local:before { background: white url($images-path + "about-local.svg") no-repeat bottom left;}
 
         .link { 
             display: block;
@@ -117,7 +93,7 @@
 
                 &:before {
                     content: '';
-                    display: inline-block;
+                    display: none;
                     width: 2em;
                     height: 2em;
                     background-size: 1.2em;
@@ -219,4 +195,126 @@
             a {margin: 0 0.3em;}
         }
     }
+
+    .left-cards {
+        left: 0;
+        width: 96%;
+        margin-left: 2%;
+        padding: 1%;
+    }
+
+    .center-cards {
+        width: 96%;
+        padding: 1%;
+        margin-left: 2%;
+    }
+
+    .right-cards {
+        width: 96%;
+        margin-left: 2%;
+        padding: 1%;
+    }
+}
+
+@media (min-width: 450px) {
+    .college-profile {
+
+        .left-cards {
+            width: 80%;
+            margin-left: 10%;
+        }
+
+        .center-cards {
+            width: 80%;
+            margin-left: 10%;
+        }
+
+        .right-cards {
+            width: 80%;
+            margin-left: 10%;
+        }
+    }
+}
+
+@media (min-width: 700px) {
+
+    .college-profile {
+
+        .left-cards {
+            position: absolute;
+            left: 0;
+            margin: 0;
+            width: 40%;
+            padding: 1%;
+        }
+
+        .center-cards {
+            width: 60%;
+            margin-left: 40%;
+            padding: 1%;
+        }
+
+        .right-cards {
+            position: absolute;
+            right: 0;
+            width: 60%;
+            padding: 1%;
+        }
+    }    
+}
+
+@media (min-width: 800px) {
+
+    .college-profile {
+
+        .left-cards {
+            position: absolute;
+            left: 0;
+            margin: 0;
+            width: 30%;
+            padding: 1%;
+        }
+
+        .center-cards {
+            width: 70%;
+            margin-left: 30%;
+            padding: 1%;
+        }
+
+        .right-cards {
+            position: absolute;
+            right: 0;
+            width: 70%;
+            padding: 1%;
+        }
+    }    
+}
+
+@media (min-width: 1000px) {
+
+    .college-profile {
+
+        .left-cards {
+
+            width: 25%;
+            padding: 1%;
+        }
+
+
+        .center-cards {
+            position: absolute;
+            left: 25%;
+            width: 50%;
+            margin-left: 0;
+        }
+
+        .right-cards {
+            right: 0;
+            width: 25%;
+        }
+
+        .about-card .link a:before {
+            display: inline-block;
+        }
+    }    
 }
