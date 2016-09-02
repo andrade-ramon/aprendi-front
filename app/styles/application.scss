@@ -49,6 +49,10 @@ body {
     font-family: $font-default;
 }
 
+#loading-bar .bar {
+  background: $light-blue;
+}
+
 ::-webkit-scrollbar {
     width: 0.7em;
 }

@@ -11,7 +11,8 @@ var app = angular.module('app', [
     'pascalprecht.translate',
     'ngCookies',
     'ezfb',
-    'hljs'
+    'hljs',
+    'angular-loading-bar'
 ]);
 
 window.routes = {
@@ -45,7 +46,7 @@ window.routes = {
     }
 };
 
-app.config(function ($routeProvider, $locationProvider, $translateProvider, ezfbProvider, ENV) {
+app.config(function ($routeProvider, $locationProvider, $translateProvider, ezfbProvider, cfpLoadingBarProvider, ENV) {
     for(var path in window.routes) {
         $routeProvider.when(path, window.routes[path]);
     }
@@ -67,6 +68,9 @@ app.config(function ($routeProvider, $locationProvider, $translateProvider, ezfb
         appId: ENV.FACEBOOK.APPLICATION.ID,
         version: ENV.FACEBOOK.APPLICATION.VERSION
     });
+
+    cfpLoadingBarProvider.includeSpinner = false;
+    cfpLoadingBarProvider.latencyThreshold = 0;
 });
 
 app.constant('LOCALES', {
