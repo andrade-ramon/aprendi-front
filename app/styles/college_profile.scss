@@ -9,12 +9,12 @@
         background: white;
         display: inline-block;
         border: 0.1em solid $gray;
-        width: 100%;
     }
 
     .college-card {
         @extend .card;
         height: 24em;
+        width: 100%;
 
         header {
             position: relative;
@@ -70,41 +70,23 @@
         }
     }
 
-    .about-card {
+    .campus-card {
         @extend .card;
         margin-top: 2em;
+        width: 100%;
         padding: 1em;
 
         h2 {
             font-size: 1.2em;
-            margin-top: 0;
+            margin: 0;
+            text-align: center;
         }
-
-        .about-user:before { background: white url($images-path + "about-user.svg") no-repeat bottom left;}
-        .about-students:before { background: white url($images-path + "about-students.svg") no-repeat bottom left;}
-        .about-courses:before { background: white url($images-path + "about-courses.svg") no-repeat bottom left;}
-        .about-local:before { background: white url($images-path + "about-local.svg") no-repeat bottom left;}
-
-        .link { 
-            display: block;
-
-            a {
-                cursor: pointer;
-
-                &:before {
-                    content: '';
-                    display: none;
-                    width: 2em;
-                    height: 2em;
-                    background-size: 1.2em;
-                }
-            }
-        }        
     }
 
     .timeline-card {
         @extend .card;
         position: relative;
+        margin-bottom: 2em;
 
         .post {
             position: relative;
@@ -137,21 +119,10 @@
             }
         }
     }
-    .comment-card {
-        @extend .card;
-        padding: 1.5em 0.5em;
-        text-align: center;
-        margin-top: 2em;
-
-        .btn-comment {
-            padding: 0.5em;
-            text-decoration: none;
-        }
-    }
-
-
     .courses-card {
         @extend .card;
+        width: 47%;
+        margin-right: 3%;
 
         h2 {
             text-align: center;
@@ -181,6 +152,54 @@
             text-align: center;
         }
     }
+
+    .comment-card {
+        @extend .card;
+        position: absolute;
+        width: 47%;
+        margin-left: 2%;
+        padding: 1.5em 0.5em;
+        text-align: center;
+
+        .btn-comment {
+            padding: 0.5em;
+            text-decoration: none;
+        }
+    }
+
+    .about-card {
+        @extend .card;
+        padding: 1em;
+        width: 100%;
+
+        h2 {
+            font-size: 1.2em;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .about-user:before { background: white url($images-path + "about-user.svg") no-repeat bottom left;}
+        .about-students:before { background: white url($images-path + "about-students.svg") no-repeat bottom left;}
+        .about-courses:before { background: white url($images-path + "about-courses.svg") no-repeat bottom left;}
+        .about-local:before { background: white url($images-path + "about-local.svg") no-repeat bottom left;}
+
+        .link { 
+            display: block;
+
+            a {
+                cursor: pointer;
+
+                &:before {
+                    content: '';
+                    display: none;
+                    width: 2em;
+                    height: 2em;
+                    background-size: 1.2em;
+                }
+            }
+        }        
+    }
+
     .footer-card {
         @extend .card;
         margin-top: 2em;
