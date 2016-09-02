@@ -1,12 +1,14 @@
-app.controller('SearchCtrl', function ($scope, $http, $location, $routeParams, $filter, ENV) {
-    $scope.query = $routeParams.query;
-    $scope.page = $routeParams.page === undefined ? '1' : $routeParams.page;
+app.controller('CollegeSearchCtrl', function ($scope, $http, $location, $routeParams, $filter, ENV) {
+    $scope.search = {};
     $scope.filter = {};
+
+    $scope.search.query = $routeParams.query;
+    $scope.page = $routeParams.page === undefined ? '1' : $routeParams.page;
 
     var searchApi = function (filters) {
         delete $scope.response;
 
-        $http.get(ENV.API.SEARCH.COLLEGE + $scope.query + filters).then(function(response) {
+        $http.get(ENV.API.SEARCH.COLLEGE + $scope.search.query + filters).then(function(response) {
             $scope.response = response.data;
         }, function(response) {
             if(response.data) {
@@ -21,7 +23,7 @@ app.controller('SearchCtrl', function ($scope, $http, $location, $routeParams, $
         });
     };
 
-    searchApi('?page=' + $scope.page);
+    // searchApi('?page=' + $scope.page);
 
     $scope.searchFilter = function() {
         var params = $filter('addParam')('state', $scope.filter.state);

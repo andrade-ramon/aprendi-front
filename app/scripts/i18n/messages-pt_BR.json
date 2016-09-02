@@ -8,6 +8,9 @@
     "page.menu.access.system":"ACESSE O SISTEMA",
     "page.menu.enter":"Entre",
     "page.menu.register":"Cadastre-se",
+    "page.menu.search.colleges":"Faculdades",
+    "page.menu.search.courses":"Cursos",
+    "page.menu.search.button":"Buscar",
     "page.my.account":"Minha conta",
     "page.account.configuration":"Configurações",
     "page.account.my.profile":"Meu perfil",
@@ -56,7 +59,7 @@
 
     "passwordrecovery.button.recovery":"Recuperar Senha",
 
-    "register.title":"Registre-se",
+    "register.title":"Informe suas credênciais.",
     "register.user.name":"Nome",
     "register.user.empty.name":"Informe seu nome",
     "register.user.password":"Senha",
@@ -70,7 +73,7 @@
     "register.Terms":"Termos de uso",
     "register.confirm":"Registrar",
     "register.or":"OU",
-    "register.facebook.confirm":"Registre-se usando o facebook",
+    "register.facebook.confirm":"Registrar com o Facebook",
     "register.already.registrated":"Eu já tenho registro",
 
     "register.terms.line1":"O website QualFacul?  é um serviço interativo oferecido por meio de página eletrônica na internet, que oferece informações sobre Faculdades e Cursos de todo país, e ainda opniões de alunos e ex-alunos sobre os mesmo, a partir da integração de diversas fontes de informação. O acesso ao QualFacul? representa a aceitação expressa e irrestrita dos termos de uso abaixo descritos.",

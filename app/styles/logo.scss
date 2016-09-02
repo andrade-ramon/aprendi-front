@@ -1,0 +1,23 @@
+@import 'colors';
+@import 'fonts';
+
+.logo {
+    text-decoration: none !important;
+    cursor: pointer;
+    background-color: transparent;
+    color: black;
+
+    &.small {font-size: 1.2em;}
+    &.medium {font-size: 1.8em;}
+    &.big {font-size: 2.2em}
+
+    &:hover {
+        color: $light-blue;
+        span {color: black !important;}
+    }
+
+    span {
+        transition: color 0.2s;
+        color: $light-blue;
+    }
+}

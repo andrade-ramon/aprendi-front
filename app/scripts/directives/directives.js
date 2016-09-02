@@ -15,6 +15,11 @@ zeusDirectives.directive('page',function() {
             attrs.$observe('footer', function(value){
                 scope.hasFooter = value !== 'false';        
             });
+
+            scope.headerWithForm = true;
+            attrs.$observe('showSearch', function(value){                
+                scope.headerWithForm = value !== 'false';
+            });
         }
     }; 
 });
@@ -25,14 +30,29 @@ zeusDirectives.directive('headerMenu', function () {
         transclude: false,
         templateUrl: 'scripts/directives/header_menu.html', 
         link: function(scope, elem, attrs) {
-            scope.transparentMenu = true;
-            attrs.$observe('transparent', function(value){
-                scope.transparentMenu = value !== 'false';
+            scope.searchForm = true;
+            attrs.$observe('searchForm', function(value){
+                scope.searchForm = value !== 'false';
             });
         }
     };
 });
 
+zeusDirectives.directive('logo',function() {
+    return {
+        restrict: 'E',
+        transclude: false, 
+        templateUrl: 'scripts/directives/logo.html',
+        link: function(scope, elem, attrs){
+            scope.smallLogo = scope.mediumLogo = scope.bigLogo = false;
+            attrs.$observe('size', function(value){
+                scope.smallLogo = value === 'small';
+                scope.mediumLogo = value === 'medium';
+                scope.bigLogo = value === 'big';
+            });            
+        }
+    }; 
+});
 
 zeusDirectives.directive('navigationMenu', function () {
     return {
@@ -41,6 +61,7 @@ zeusDirectives.directive('navigationMenu', function () {
         templateUrl: 'scripts/directives/navigation_menu.html'
     };
 });
+
 zeusDirectives.directive('pagination',function($filter) {
     $filter('range')('argument');
     return {
@@ -50,10 +71,6 @@ zeusDirectives.directive('pagination',function($filter) {
         link: function(scope, elem, attrs){
             attrs.$observe('totalPages', function(value){
                 scope.totalPages = value;
-            });
-
-            attrs.$observe('query', function(value){
-                scope.query = value;
             });
 
             attrs.$observe('page', function(value){

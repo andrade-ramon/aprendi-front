@@ -46,8 +46,7 @@
 
             </label>
             
-            <pagination query="{{query}}" page="{{page}}" total-pages="{{response.totalPages}}" class="right-pagination pull-right"/>
-
+            <pagination page="{{page}}" total-pages="{{response.totalPages}}" class="right-pagination pull-right"/>
             
             <div class="col-md-12 text-center" ng-if="!response.result">
                 <img src="../images/loading.gif" class="loading-gif">
@@ -99,7 +98,7 @@
                     <img src="../images/star.svg" class="favorite-college">
                 </main>
             </article>
-            <pagination query="{{query}}" page="{{page}}" total-pages="{{response.totalPages}}" class="pagination-center"/>
+            <pagination page="{{page}}" total-pages="{{response.totalPages}}" class="pagination-center"/>
         </section>
     </main>
 </page>
