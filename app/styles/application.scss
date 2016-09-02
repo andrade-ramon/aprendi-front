@@ -1,5 +1,6 @@
 @import 'images';
 @import 'fonts';
+@import 'colors';
 
 .row {
     margin-right: 0 !important;
@@ -48,3 +49,14 @@ body {
     font-family: $font-default;
 }
 
+::-webkit-scrollbar {
+    width: 0.7em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $light-gray;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $light-blue;
+}
