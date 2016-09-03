@@ -1,9 +1,8 @@
 app.controller('CollegeProfileCtrl', function ($scope, $http, $routeParams, ENV) {
 
 	$http({
-		method: 'GET',
 		url: ENV.API.COLLEGE.PROFILE + $routeParams.collegeId
-	}).then(function successCallback(response) {
+	}).then(function success(response) {
 	    $scope.college = response.data;
 	});
 

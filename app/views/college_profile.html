@@ -6,7 +6,7 @@
                 <img src="../images/college.png" class="college-logo">
             </header>
             <main>
-                <h1 class="name">{{college.name}}</h1>
+                <h2 class="name">{{college.initials}}</h2>
                 <dl class="details">
                     <div>
                         <dt>Alunos</dt>
@@ -25,6 +25,7 @@
 
     </div>
     <div class="center-cards">
+        <h1 class="initials">{{college.name}}</h1>
         <article class="timeline-card box-shadow ">
             <section ng-repeat="post in timeline.posts" class="post">
                 <img src="../images/college.png" class="logo">    
