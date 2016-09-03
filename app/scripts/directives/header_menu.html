@@ -1,45 +1,42 @@
-<header class="header-menu row">
-	<article class="col-md-10 col-md-offset-1 col-sm-12">
-		
-		<section class="col-md-2 col-sm-12 form-logo">
-			<logo size="big"/>
-		</section>
-		
-		<section ng-if="searchForm" class="col-md-7 col-sm-12">
-			<form class="form-search" ng-submit="search()" ng-controller="HeaderMenuCtrl">
-				<div class="input-group">
-					<div class="input-group-btn">
-						<select class="form-control search-type">
-							<option value="college" selected>{{"page.menu.search.colleges"|translate}}</option>
-							<option value="course">{{"page.menu.search.courses"|translate}}</option>
-						</select>
-					</div>
-					
-					<input type="text" class="form-control" ng-model="search.query">
-					
-					<span class="input-group-btn">
-			        	<button type="submit" class="btn btn-default btn-search">{{"page.menu.search.button"|translate}}</button>
-			      	</span>
+<header class="header-menu">
+	<section class="form-logo">
+		<logo size="big"/>
+	</section>
+	
+	<section class="search-container">
+		<form ng-if="searchForm"  ng-submit="search()" ng-controller="HeaderMenuCtrl" >
+			<div class="input-group">
+				<div class="input-group-btn">
+					<select class="form-control search-type">
+						<option value="college" selected>{{"page.menu.search.colleges"|translate}}</option>
+						<option value="course">{{"page.menu.search.courses"|translate}}</option>
+					</select>
 				</div>
-			</form>
-		</section>
+				
+				<input type="text" class="form-control" ng-model="search.query">
+				
+				<span class="input-group-btn">
+		        	<button type="submit" class="btn btn-default btn-search">{{"page.menu.search.button"|translate}}</button>
+		      	</span>
+			</div>
+		</form>
+	</section>
 
-		<nav>
-			<ul class="nav navbar-nav navbar-right col-md-3 navbar">
-				<li ng-if="!isLogged"><a href="/cadastro">{{"page.menu.register"|translate}}</a></li>
-				<li ng-if="!isLogged"><a href="/login">{{"page.menu.enter"|translate}}</a></li>
-				<li ng-if="isLogged">
-		            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-		                {{"page.my.account"|translate}}
-		                <span class="caret"></span>
-		            </a>
-		            <ul class="dropdown-menu">
-		                <li><a href="/configuracoes">{{"page.account.configuration"|translate}}</a></li>
-		                <li><a href="/perfil">{{"page.account.my.profile"|translate}}</a></li>
-		                <li><a href="#" ng-click="logout();" ng-controller="LoginCtrl">{{"page.account.exit"|translate}}</a></li>
-		            </ul>
-		        </li>
-			</ul>
-		</nav>
-	</article>
+	<navigation class="navigation">
+		<ul class="nav">
+			<li ng-if="!isLogged"><a href="/cadastro">{{"page.menu.register"|translate}}</a></li>
+			<li ng-if="!isLogged"><a href="/login">{{"page.menu.enter"|translate}}</a></li>
+			<li ng-if="isLogged">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	                {{"page.my.account"|translate}}
+	                <span class="caret"></span>
+	            </a>
+	            <ul class="dropdown-menu">
+	                <li><a href="/configuracoes">{{"page.account.configuration"|translate}}</a></li>
+	                <li><a href="/perfil">{{"page.account.my.profile"|translate}}</a></li>
+	                <li><a href="#" ng-click="logout();" ng-controller="LoginCtrl">{{"page.account.exit"|translate}}</a></li>
+	            </ul>
+	        </li>
+		</ul>
+	</navigation>
 </header>
