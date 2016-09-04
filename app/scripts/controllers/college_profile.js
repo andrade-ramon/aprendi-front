@@ -1,10 +1,13 @@
-app.controller('CollegeProfileCtrl', function ($scope, $http, $routeParams, ENV) {
+app.controller('CollegeProfileCtrl', function ($scope, $http, $routeParams,$location, messagesContainer, ENV) {
 
 	$http({
 		url: ENV.API.COLLEGE.PROFILE + $routeParams.collegeId
 	}).then(function success(response) {
 	    var college = $scope.college = response.data;
 	    $scope.commentsUrl = '/colleges/' + college.id + '/comments';
+	}, function error() {
+		messagesContainer.addError("Faculdade não encontrada");
+		$location.path('/');
 	});
 
 	$scope.timeline = {};
