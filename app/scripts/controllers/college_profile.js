@@ -3,7 +3,8 @@ app.controller('CollegeProfileCtrl', function ($scope, $http, $routeParams, ENV)
 	$http({
 		url: ENV.API.COLLEGE.PROFILE + $routeParams.collegeId
 	}).then(function success(response) {
-	    $scope.college = response.data;
+	    var college = $scope.college = response.data;
+	    $scope.commentsUrl = '/colleges/' + college.id + '/comments';
 	});
 
 	$scope.timeline = {};

@@ -34,6 +34,19 @@
                 <p class="content">{{post.content}}</p>
             </section>
         </article>
+        <label for="comment-switch" class="comment-label">
+            <input id="comment-switch" type="checkbox">
+            <article class="comment-card box-shadow ">
+                <p class="btn-comment">Deixar um comentáro ou pergunta</p>
+                <form action="{{commentsUrl}}" method="POST" class="hided-content">
+                    <textarea class="comment-field"></textarea>
+                    <input value="" type="submit" class="btn-comment-confirm">
+                </form>
+            </article>
+        </label>
+        <div id="comment-switch"></div>
+    </div>
+    <div class="right-cards">
         <article class="courses-card box-shadow ">
             <header><h2>Cursos - <a href="#">ver todos</a></h2></header>
             <hr/>
@@ -48,12 +61,6 @@
                 <p>Não decidiu qual curso fazer ? Que tal conhecer nosso <a href="#">teste vocacional</a> ?</p>
             </footer>
         </article>
-        <article class="comment-card box-shadow ">
-            <a href="#" class="btn-comment">Deixar um comentáro ou pergunta</a>
-        </article>
-        
-    </div>
-    <div class="right-cards">
         <article class="about-card box-shadow ">
             <header><h2>Sobre</h2></header>
             <nav>

@@ -65,7 +65,7 @@ body {
 
     .tab-label {
         width: 49%;
-        color: #2361F8;
+        color: $light-blue;
         cursor: pointer;
         display: block;
         float: left;
@@ -247,7 +247,7 @@ body {
                 .link {
                     margin: 0 1em;
                     font-weight: bold;
-                    color: $flat-blue;
+                    color: $light-blue;
                 }
             }
             .address {

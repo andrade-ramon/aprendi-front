@@ -131,8 +131,8 @@
     }
     .courses-card {
         @extend .card;
-        width: 47%;
-        margin-right: 3%;
+        width: 100%;
+        margin-bottom: 2em;
 
         h2 {
             text-align: center;
@@ -163,18 +163,74 @@
         }
     }
 
+    .comment-label { 
+        display: block;
+
+        input[type='checkbox'] {
+            display: none;
+
+            &:checked {
+                ~ .comment-card {
+                    position: relative;
+                    
+                    .hided-content {
+                        max-height: 10em ;
+                    }
+                }
+            }
+        }
+    }
+    
     .comment-card {
         @extend .card;
-        position: absolute;
-        width: 47%;
-        margin-left: 2%;
+        cursor: pointer;
+        width: 100%;
         padding: 1.5em 0.5em;
         text-align: center;
+        transition: border 0.2s;
+
+        &:hover { border: 0.1em solid $light-blue; }
 
         .btn-comment {
-            padding: 0.5em;
+            color: $light-blue;
             text-decoration: none;
+            cursor: pointer;
+            margin: 0;
         }
+
+        .hided-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s;
+
+            .comment-field {
+                width: 80%;
+                border: 1px solid $gray;
+                text-align: center;
+                margin-top: 1em;
+                font-size: 1.2em;
+                height: 5em;
+                font-weight: 300;
+            }
+
+            .btn-comment-confirm {
+                border: none;
+                background: transparent url($images-path + 'check.svg') no-repeat right center;
+                background-size: 3em;
+                width: 4em;
+                height: 6em;
+                -webkit-filter: grayscale(80%);
+                filter: grayscale(80%);
+                transition: -webkit-filter 0.3s;
+                transition: filter 0.3s;
+
+                &:hover {
+                    -webkit-filter: grayscale(0);
+                    filter: grayscale(0);
+                }
+            }
+        }
+        
     }
 
     .about-card {
