@@ -9,18 +9,18 @@
                 <h2 class="name">{{college.initials}}</h2>
                 <dl class="details">
                     <div>
-                        <dt>Alunos</dt>
+                        <dt>{{"colleges.profile.students" | translate}}</dt>
                         <dd>0</dd>
                     </div>
                     <div>
-                        <dt>Avaliações</dt>
+                        <dt>{{"colleges.profile.grades" | translate}}</dt>
                         <dd>10M</dd>
                     </div>
                 </dl>
             </main>
         </article>
         <article class="courses-card box-shadow ">
-            <header><h2>{{college.coursesCount}} Curso/s - <a href="#">ver todos</a></h2></header>
+            <header><h2>{{college.coursesCount}} {{"colleges.profile.courses" | translate}} - <a href="#">{{"colleges.profile.courses.see.all" | translate}}</a></h2></header>
             <hr/>
             <nav>
                 <ul class="list">
@@ -30,7 +30,7 @@
                 </ul>
             </nav>
             <footer class="question">
-                <p>Não decidiu qual curso fazer ? Que tal conhecer nosso <a href="#">teste vocacional</a> ?</p>
+                <p>{{"colleges.profile.courses.not.decided" | translate}} <a href="#">{{"colleges.profile.courses.not.decided.test" | translate}}</a> ?</p>
             </footer>
         </article>
     </div>
@@ -39,10 +39,10 @@
 
         <section class="informations">
             <input id="posts-tab" type="radio" name="tab-group" class="tab" checked/>
-            <label for="posts-tab" class="tab-label">Posts</label>
+            <label for="posts-tab" class="tab-label">{{"colleges.profile.timeline.posts" | translate}}</label>
 
             <input id="comments-tab" type="radio" name="tab-group" class="tab"/>
-            <label for="comments-tab" class="tab-label">Comentários</label>
+            <label for="comments-tab" class="tab-label">{{"colleges.profile.timeline.comments" | translate}}</label>
 
             <div class="timeline-card box-shadow">
                 <article class="posts">
@@ -62,7 +62,7 @@
             <article id="campus" class="campus-card box-shadow ">
                 <header>
                     <form angular-validator angular-validator-submit="listCampus()" name="listCampusForm" method="GET">
-                        <button class="btn-campus">Campus disponíveis</button>
+                        <button class="btn-campus">{{"colleges.profile.campus.available" | translate}}</button>
                     </form>
                 </header>
                 <main>
@@ -78,13 +78,13 @@
     </div>
     <div class="right-cards">
         <article class="contact-card box-shadow">
-            <header><h2>Contato</h2></header>
+            <header><h2>{{"colleges.profile.contact" | translate}}</h2></header>
             <main>
                 <div class="contact-row">
                     <p ng-if="college.site !== ''" >Site: </p><a ng-href="http://{{college.site}}">{{college.site}}</a>    
                 </div>
                 <div class="contact-row">
-                    <p ng-if="college.phone !== undefined" class="phone">Telefone:</p><p>{{college.phone}}</p>
+                    <p ng-if="college.phone !== undefined" class="phone">{{"colleges.profile.contact.phone" | translate}}:</p><p>{{college.phone}}</p>
                 </div>
             </main>
         </article>
@@ -92,7 +92,7 @@
             <input id="comment-switch" type="checkbox">
             <article class="comment-card box-shadow ">
                 <form action="{{commentsUrl}}" method="POST">
-                    <p class="btn-comment">Deixar um comentáro ou pergunta</p>
+                    <p class="btn-comment">{{"colleges.profile.leave.comment" | translate}}</p>
                     <div class="hided-content">
                         <textarea class="comment-field"></textarea>
                     </div>
@@ -102,23 +102,23 @@
         </label>
         <div id="comment-switch"></div>
         <article class="about-card box-shadow ">
-            <header><h2>Sobre</h2></header>
+            <header><h2>{{"colleges.profile.about" | translate}}</h2></header>
             <nav>
-                <div class="link"><a class="about-user" href="#">Estuda nesta instituição?</a></div>
-                <div class="link"><a class="about-students" href="#">Avaliações de alunos</a></div>
-                <div class="link"><a class="about-courses" href="#">Conheça os cursos</a></div>
-                <div class="link"><a class="about-local" href="#">LOCAL</a></div>
+                <div class="link"><a class="about-user" href="#">{{"colleges.profile.about.user" | translate}}</a></div>
+                <div class="link"><a class="about-students" href="#">{{"colleges.profile.about.students" | translate}}</a></div>
+                <div class="link"><a class="about-courses" href="#">{{"colleges.profile.about.courses" | translate}}</a></div>
+                <div class="link"><a class="about-local" href="#">{{"colleges.profile.about.local" | translate}}</a></div>
             </nav>
         </article>
         <article class="footer-card box-shadow ">
             <p>© 2016 QualFacul?</p>
             <nav class="links">
-                <a href="#">Sobre</a>
-                <a href="#">Ajuda</a>
-                <a href="#">Termos/Privacidade</a>
-                <a href="#">Rankings</a>
-                <a href="#">Teste vocacional</a>
-                <a href="#">Faculdades</a>
+                <a href="#">{{"colleges.profile.footer.about" | translate}}</a>
+                <a href="#">{{"colleges.profile.footer.help" | translate}}</a>
+                <a href="#">{{"colleges.profile.footer.terms" | translate}}</a>
+                <a href="#">{{"colleges.profile.footer.ranking" | translate}}</a>
+                <a href="#">{{"colleges.profile.footer.test" | translate}}</a>
+                <a href="#">{{"colleges.profile.footer.colleges" | translate}}</a>
             </nav>
         </article>
     </div>

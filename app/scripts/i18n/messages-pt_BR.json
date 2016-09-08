@@ -104,6 +104,29 @@
     "colleges.search.courses":"cursos",
     "colleges.search.loading":"Buscando dados...",
 
-    
+    "colleges.profile.students":"Alunos",
+    "colleges.profile.grades":"Avaliações",
+    "colleges.profile.courses":"Curso/s",
+    "colleges.profile.courses.see.all":"ver todoss",
+    "colleges.profile.courses.not.decided":"Não decidiu qual curso fazer ? Que tal conhecer nosso",
+    "colleges.profile.courses.not.decided.test":"teste vocacional",
+    "colleges.profile.timeline.posts":"Posts",
+    "colleges.profile.timeline.comments":"Comentários",
+    "colleges.profile.campus.available":"Campus disponíveis",
+    "colleges.profile.contact":"Contato",
+    "colleges.profile.contact.phone":"Telefone",
+    "colleges.profile.leave.comment":"Deixar um comentáro ou pergunta",
+    "colleges.profile.about":"Sobre",
+    "colleges.profile.about.user":"Estuda nesta instituição?",
+    "colleges.profile.about.students":"Avaliações de alunos",
+    "colleges.profile.about.courses":"Conheça os cursos",
+    "colleges.profile.about.local":"Local",
+    "colleges.profile.footer.about":"Sobre",
+    "colleges.profile.footer.help":"Ajuda",
+    "colleges.profile.footer.terms":"Termos/Privacidade",
+    "colleges.profile.footer.ranking":"Rankings",
+    "colleges.profile.footer.test":"Teste vocacional",
+    "colleges.profile.footer.colleges":"Faculdades",
+
     "hades.facebookaccount.notallowed":"Contas criadas via Facebook não podem ser utilizadas nesta operação"
 }
