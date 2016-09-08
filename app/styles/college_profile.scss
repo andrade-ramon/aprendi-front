@@ -117,15 +117,66 @@
                     margin-bottom: 0;
                     font-weight: 300;
                 }
-                .state {
-
-                }
             }
         }
     }
 
+    .informations {
+        .tab {
+            display: none;
+            width: 0;
+            visibility: hidden;
+
+            &:hover + .tab-label {
+                color: $dark-gray;
+            }
+            &:checked + .tab-label {
+                background-color: white;
+                color: #444;
+                position: relative;
+                z-index: 3;
+                margin: 0;
+                -webkit-transition: .1s;
+                -moz-transition: .1s;
+                -o-transition: .1s;
+                -ms-transition: .1s;
+            }
+        }
+        .tab-label {
+            width: 50%;
+            color: $light-blue;
+            cursor: pointer;
+            display: block;
+            float: left;
+            font-size: 1em;
+            height: 2.5em;
+            line-height: 2.5em;
+            margin-bottom: 0;
+            vertical-align: bottom;
+            padding: 0 1.5em;
+            border: 0.1em solid $gray;
+            border-bottom: none;
+            text-align: center;
+        }
+
+        .posts,
+        .contents {
+            opacity: 0;
+            z-index: -1;
+            transition: all linear 0.1s;
+        }
+
+        input#posts-tab:checked ~ .timeline-card .posts,
+        input#comments-tab:checked ~ .timeline-card .comments {
+            opacity: 1;
+            z-index: 2;
+        }
+
+    }
+
     .timeline-card {
         @extend .card;
+        border-top: none;
         position: relative;
         margin-bottom: 2em;
 

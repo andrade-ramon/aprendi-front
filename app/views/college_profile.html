@@ -36,14 +36,28 @@
     </div>
     <div class="center-cards">
         <h1 class="initials">{{college.name}}</h1>
-        <article class="timeline-card box-shadow ">
-            <section ng-repeat="post in timeline.posts" class="post">
-                <img src="../images/college.png" class="college-logo">    
-                <h3 class="college-name">{{college.name}}</h3>
-                <time class="date">{{post.createdAt}}</time>
-                <p class="content">{{post.content}}</p>
-            </section>
-        </article>
+
+        <section class="informations">
+            <input id="posts-tab" type="radio" name="tab-group" class="tab" checked/>
+            <label for="posts-tab" class="tab-label">Posts</label>
+
+            <input id="comments-tab" type="radio" name="tab-group" class="tab"/>
+            <label for="comments-tab" class="tab-label">Comentários</label>
+
+            <div class="timeline-card box-shadow">
+                <article class="posts">
+                    <section ng-repeat="post in timeline.posts" class="post">
+                        <img src="../images/college.png" class="college-logo">    
+                        <h3 class="college-name">{{college.name}}</h3>
+                        <time class="date">{{post.createdAt}}</time>
+                        <p class="content">{{post.content}}</p>
+                    </section>
+                </article>
+                <article class="comments">
+                    
+                </article>
+            </div>
+        </section>
         <label class="selectable">
             <article id="campus" class="campus-card box-shadow ">
                 <header>
