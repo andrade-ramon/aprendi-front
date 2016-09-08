@@ -56,6 +56,7 @@
         <article ng-repeat="college in response.result" class="card box-shadow box-shadow-fade" ng-if="response.result">
             <header>
                 <p class="name">{{college.name}}</p>
+                <p class="initials">{{college.initials}}</p>
                 <a href="/colleges/{{college.id}}/grades" class="grades">{{"colleges.search.grades" | translate}}</a>
             </header>
             <main>

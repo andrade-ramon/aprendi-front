@@ -19,36 +19,8 @@
                 </dl>
             </main>
         </article>
-        <article class="campus-card box-shadow ">
-            <header><h2><a href="#">Campus disponíveis</a></h2></header>
-        </article>
-
-    </div>
-    <div class="center-cards">
-        <h1 class="initials">{{college.name}}</h1>
-        <article class="timeline-card box-shadow ">
-            <section ng-repeat="post in timeline.posts" class="post">
-                <img src="../images/college.png" class="logo">    
-                <h3 class="college-name">{{college.name}}</h3>
-                <time class="date">{{post.createdAt}}</time>
-                <p class="content">{{post.content}}</p>
-            </section>
-        </article>
-        <label for="comment-switch" class="comment-label">
-            <input id="comment-switch" type="checkbox">
-            <article class="comment-card box-shadow ">
-                <p class="btn-comment">Deixar um comentáro ou pergunta</p>
-                <form action="{{commentsUrl}}" method="POST" class="hided-content">
-                    <textarea class="comment-field"></textarea>
-                    <input value="" type="submit" class="btn-comment-confirm">
-                </form>
-            </article>
-        </label>
-        <div id="comment-switch"></div>
-    </div>
-    <div class="right-cards">
         <article class="courses-card box-shadow ">
-            <header><h2>Cursos - <a href="#">ver todos</a></h2></header>
+            <header><h2>{{college.coursesCount}} Curso/s - <a href="#">ver todos</a></h2></header>
             <hr/>
             <nav>
                 <ul class="list">
@@ -61,6 +33,60 @@
                 <p>Não decidiu qual curso fazer ? Que tal conhecer nosso <a href="#">teste vocacional</a> ?</p>
             </footer>
         </article>
+    </div>
+    <div class="center-cards">
+        <h1 class="initials">{{college.name}}</h1>
+        <article class="timeline-card box-shadow ">
+            <section ng-repeat="post in timeline.posts" class="post">
+                <img src="../images/college.png" class="college-logo">    
+                <h3 class="college-name">{{college.name}}</h3>
+                <time class="date">{{post.createdAt}}</time>
+                <p class="content">{{post.content}}</p>
+            </section>
+        </article>
+        <label class="selectable">
+            <article id="campus" class="campus-card box-shadow ">
+                <header>
+                    <form angular-validator angular-validator-submit="listCampus()" name="listCampusForm" method="GET">
+                        <button class="btn-campus">Campus disponíveis</button>
+                    </form>
+                </header>
+                <main>
+                    <ol class="campus-list">
+                        <li ng-repeat="address in campus">
+                            <p class="address">{{address.address}}</p>
+                            <p class="state">{{address.state}} -{{address.city}}</p>
+                        </li>
+                    </ol>
+                </main>
+            </article>
+        </label>
+    </div>
+    <div class="right-cards">
+        <article class="contact-card box-shadow">
+            <header><h2>Contato</h2></header>
+            <main>
+                <div class="contact-row">
+                    <p ng-if="college.site !== ''" >Site: </p><a ng-href="http://{{college.site}}">{{college.site}}</a>    
+                </div>
+                <div class="contact-row">
+                    <p ng-if="college.phone !== undefined" class="phone">Telefone:</p><p>{{college.phone}}</p>
+                </div>
+            </main>
+        </article>
+        <label for="comment-switch" class="comment-label">
+            <input id="comment-switch" type="checkbox">
+            <article class="comment-card box-shadow ">
+                <form action="{{commentsUrl}}" method="POST">
+                    <p class="btn-comment">Deixar um comentáro ou pergunta</p>
+                    <div class="hided-content">
+                        <textarea class="comment-field"></textarea>
+                    </div>
+                    <input value="" type="submit" class="btn-comment-confirm">
+                </form>
+            </article>
+        </label>
+        <div id="comment-switch"></div>
         <article class="about-card box-shadow ">
             <header><h2>Sobre</h2></header>
             <nav>

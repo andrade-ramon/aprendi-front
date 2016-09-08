@@ -19,6 +19,12 @@
         display: inline-block;
         border: 0.1em solid $gray;
     }
+    .selectable-card {
+        transition: border 0.2s;
+        cursor: pointer;
+
+        &:hover { border: 0.1em solid $light-blue; }
+    }
 
     .college-card {
         @extend .card;
@@ -80,16 +86,41 @@
         }
     }
 
+    .selectable {
+        display: block;
+        margin: 0;
+    }
+
     .campus-card {
         @extend .card;
-        margin-top: 2em;
+        @extend .selectable-card;
         width: 100%;
-        padding: 1em;
+        padding: 1em 1em 0;
 
-        h2 {
-            font-size: 1.2em;
-            margin: 0;
+        .btn-campus {
+            background: none;
+            border: none;
+            width: 100%;
             text-align: center;
+            color: $light-blue;
+            &:focus {outline: none;}
+        }
+
+        .campus-list {
+            list-style: none;
+            margin-top: 1em;
+
+            li {
+                margin-bottom: 1em;
+
+                .address {
+                    margin-bottom: 0;
+                    font-weight: 300;
+                }
+                .state {
+
+                }
+            }
         }
     }
 
@@ -105,7 +136,7 @@
 
             &:last-of-type { border: none;}
 
-            .logo {
+            .college-logo {
                 border-radius: 50%;
                 width: 3em;
                 margin-right: 1em;
@@ -132,7 +163,7 @@
     .courses-card {
         @extend .card;
         width: 100%;
-        margin-bottom: 2em;
+        margin-top: 2em;
 
         h2 {
             text-align: center;
@@ -176,6 +207,9 @@
                     .hided-content {
                         max-height: 10em ;
                     }
+                    .btn-comment-confirm {
+                        display: block;
+                    }
                 }
             }
         }
@@ -183,18 +217,22 @@
     
     .comment-card {
         @extend .card;
-        cursor: pointer;
+        @extend .selectable-card;
         width: 100%;
         padding: 1.5em 0.5em;
         text-align: center;
-        transition: border 0.2s;
+        position: relative;
+        margin-bottom: 2em;
 
-        &:hover { border: 0.1em solid $light-blue; }
+        &:hover {
+            .btn-comment-confirm {
+                -webkit-filter: grayscale(0);
+                filter: grayscale(0);
+            }
+        }
 
         .btn-comment {
             color: $light-blue;
-            text-decoration: none;
-            cursor: pointer;
             margin: 0;
         }
 
@@ -204,7 +242,7 @@
             transition: max-height 0.2s;
 
             .comment-field {
-                width: 80%;
+                width: 90%;
                 border: 1px solid $gray;
                 text-align: center;
                 margin-top: 1em;
@@ -212,31 +250,52 @@
                 height: 5em;
                 font-weight: 300;
             }
-
-            .btn-comment-confirm {
-                border: none;
-                background: transparent url($images-path + 'check.svg') no-repeat right center;
-                background-size: 3em;
-                width: 4em;
-                height: 6em;
-                -webkit-filter: grayscale(80%);
-                filter: grayscale(80%);
-                transition: -webkit-filter 0.3s;
-                transition: filter 0.3s;
-
-                &:hover {
-                    -webkit-filter: grayscale(0);
-                    filter: grayscale(0);
-                }
-            }
+        }
+        .btn-comment-confirm {
+            display: none;
+            position: absolute;
+            bottom: -2em;
+            left: calc(50% - 2em);
+            border: none;
+            background: transparent url($images-path + 'check.svg') no-repeat center center;
+            background-size: 3em;
+            width: 4em;
+            height: 4em;
+            -webkit-filter: grayscale(80%);
+            filter: grayscale(80%);
+            transition: -webkit-filter 0.3s;
+            transition: filter 0.3s;
         }
         
+    }
+
+    .contact-card {
+        @extend .card;
+        padding: 1em;
+        width: 100%;
+        margin-bottom: 2em;
+
+        h2 {
+            font-size: 1.2em;
+            margin-top: 0;
+            text-align: center;
+        }
+        .contact-row {
+            display: block;
+            
+            p {
+                display: inline-block;
+
+                &:first-of-type {width: 6em;}
+            }
+        }
     }
 
     .about-card {
         @extend .card;
         padding: 1em;
         width: 100%;
+        margin-bottom: 2em;
 
         h2 {
             font-size: 1.2em;
@@ -268,7 +327,6 @@
 
     .footer-card {
         @extend .card;
-        margin-top: 2em;
         padding: 1em;
 
         p { 

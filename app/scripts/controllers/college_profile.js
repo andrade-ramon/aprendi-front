@@ -1,13 +1,17 @@
 app.controller('CollegeProfileCtrl', function ($scope, $http, $routeParams,$location, messagesContainer, ENV) {
 
+	var collegeId = $routeParams.collegeId;
+
 	$http({
-		url: ENV.API.COLLEGE.PROFILE + $routeParams.collegeId
+		url: ENV.API.COLLEGE.PROFILE + collegeId
 	}).then(function success(response) {
-	    var college = $scope.college = response.data;
-	    $scope.commentsUrl = '/colleges/' + college.id + '/comments';
-	}, function error() {
-		messagesContainer.addError("Faculdade não encontrada");
-		$location.path('/');
+	    $scope.college = response.data;
+	    $scope.commentsUrl = '/colleges/' + collegeId + '/comments';
+	}, function error(response) {
+		if (response.status === 404) {
+			messagesContainer.addError("Faculdade não encontrada");
+			$location.path('/');
+		}
 	});
 
 	$scope.timeline = {};
@@ -17,4 +21,10 @@ app.controller('CollegeProfileCtrl', function ($scope, $http, $routeParams,$loca
 	];
 	
 	$scope.courses = [{id: 123, name: "NOME DO CURSO"}, {id: 456, name: "OUTRO CURSO"}];
+
+	$scope.listCampus = function () {
+		$http.get(ENV.API.COLLEGE.CAMPUS.replace(ENV.ARG1, collegeId)).then(function(response) {
+            $scope.campus = response.data;
+        });
+	};
 });
