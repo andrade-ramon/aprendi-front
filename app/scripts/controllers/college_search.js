@@ -8,7 +8,7 @@ app.controller('CollegeSearchCtrl', function ($scope, $http, $location, $routePa
     var searchApi = function (filters) {
         delete $scope.response;
 
-        $http.get(ENV.API.SEARCH.COLLEGE + $scope.search.query + filters).then(function(response) {
+        $http.get(ENV.API.COLLEGE.SEARCH + $scope.search.query + filters).then(function(response) {
             $scope.response = response.data;
         }, function(response) {
             if(response.data) {

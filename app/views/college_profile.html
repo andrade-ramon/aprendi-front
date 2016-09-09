@@ -1,0 +1,126 @@
+<page main-class="college-profile" footer="false">
+    <div class="left-cards">
+        <article class="college-card box-shadow ">
+            <header>
+                <img src="../images/book.jpg" class="college-background">
+                <img src="../images/college.png" class="college-logo">
+            </header>
+            <main>
+                <h2 class="name">{{college.initials}}</h2>
+                <dl class="details">
+                    <div>
+                        <dt>{{"colleges.profile.students" | translate}}</dt>
+                        <dd>0</dd>
+                    </div>
+                    <div>
+                        <dt>{{"colleges.profile.grades" | translate}}</dt>
+                        <dd>10M</dd>
+                    </div>
+                </dl>
+            </main>
+        </article>
+        <article class="courses-card box-shadow ">
+            <header><h2>{{college.coursesCount}} {{"colleges.profile.courses" | translate}} - <a href="#">{{"colleges.profile.courses.see.all" | translate}}</a></h2></header>
+            <hr/>
+            <nav>
+                <ul class="list">
+                    <li ng-repeat="course in courses">
+                        <a href="/faculdade/{{college.id}}/cursos/{{course.id}}">{{course.name}}</a>
+                    </li>
+                </ul>
+            </nav>
+            <footer class="question">
+                <p>{{"colleges.profile.courses.not.decided" | translate}} <a href="#">{{"colleges.profile.courses.not.decided.test" | translate}}</a> ?</p>
+            </footer>
+        </article>
+    </div>
+    <div class="center-cards">
+        <h1 class="initials">{{college.name}}</h1>
+
+        <section class="informations">
+            <input id="posts-tab" type="radio" name="tab-group" class="tab" checked/>
+            <label for="posts-tab" class="tab-label">{{"colleges.profile.timeline.posts" | translate}}</label>
+
+            <input id="comments-tab" type="radio" name="tab-group" class="tab"/>
+            <label for="comments-tab" class="tab-label">{{"colleges.profile.timeline.comments" | translate}}</label>
+
+            <div class="timeline-card box-shadow">
+                <article class="posts">
+                    <section ng-repeat="post in timeline.posts" class="post">
+                        <img src="../images/college.png" class="college-logo">    
+                        <h3 class="college-name">{{college.name}}</h3>
+                        <time class="date">{{post.createdAt}}</time>
+                        <p class="content">{{post.content}}</p>
+                    </section>
+                </article>
+                <article class="comments">
+                    
+                </article>
+            </div>
+        </section>
+        <label class="selectable">
+            <article id="campus" class="campus-card box-shadow ">
+                <header>
+                    <form angular-validator angular-validator-submit="listCampus()" name="listCampusForm" method="GET">
+                        <button class="btn-campus">{{"colleges.profile.campus.available" | translate}}</button>
+                    </form>
+                </header>
+                <main>
+                    <ol class="campus-list">
+                        <li ng-repeat="address in campus">
+                            <p class="address">{{address.address}}</p>
+                            <p class="state">{{address.state}} -{{address.city}}</p>
+                        </li>
+                    </ol>
+                </main>
+            </article>
+        </label>
+    </div>
+    <div class="right-cards">
+        <article class="contact-card box-shadow">
+            <header><h2>{{"colleges.profile.contact" | translate}}</h2></header>
+            <main>
+                <div class="contact-row">
+                    <p ng-if="college.site !== ''" >Site: </p><a ng-href="http://{{college.site}}">{{college.site}}</a>    
+                </div>
+                <div class="contact-row">
+                    <p ng-if="college.phone !== undefined" class="phone">{{"colleges.profile.contact.phone" | translate}}:</p><p>{{college.phone}}</p>
+                </div>
+            </main>
+        </article>
+        <label for="comment-switch" class="comment-label">
+            <input id="comment-switch" type="checkbox">
+            <article class="comment-card box-shadow ">
+                <form action="{{commentsUrl}}" method="POST">
+                    <p class="btn-comment">{{"colleges.profile.leave.comment" | translate}}</p>
+                    <div class="hided-content">
+                        <textarea class="comment-field"></textarea>
+                    </div>
+                    <input value="" type="submit" class="btn-comment-confirm">
+                </form>
+            </article>
+        </label>
+        <div id="comment-switch"></div>
+        <article class="about-card box-shadow ">
+            <header><h2>{{"colleges.profile.about" | translate}}</h2></header>
+            <nav>
+                <div class="link"><a class="about-user" href="#">{{"colleges.profile.about.user" | translate}}</a></div>
+                <div class="link"><a class="about-students" href="#">{{"colleges.profile.about.students" | translate}}</a></div>
+                <div class="link"><a class="about-courses" href="#">{{"colleges.profile.about.courses" | translate}}</a></div>
+                <div class="link"><a class="about-local" href="#">{{"colleges.profile.about.local" | translate}}</a></div>
+            </nav>
+        </article>
+        <article class="footer-card box-shadow ">
+            <p>© 2016 QualFacul?</p>
+            <nav class="links">
+                <a href="#">{{"colleges.profile.footer.about" | translate}}</a>
+                <a href="#">{{"colleges.profile.footer.help" | translate}}</a>
+                <a href="#">{{"colleges.profile.footer.terms" | translate}}</a>
+                <a href="#">{{"colleges.profile.footer.ranking" | translate}}</a>
+                <a href="#">{{"colleges.profile.footer.test" | translate}}</a>
+                <a href="#">{{"colleges.profile.footer.colleges" | translate}}</a>
+            </nav>
+        </article>
+    </div>
+    <div class="clearfix"></div>
+</page>

@@ -43,6 +43,10 @@ window.routes = {
     "/faculdades/pesquisa/:query": {
         templateUrl: 'views/college_search.html',
         controller: 'CollegeSearchCtrl'
+    },
+    "/faculdades/:collegeId": {
+        templateUrl: 'views/college_profile.html',
+        controller: 'CollegeProfileCtrl'
     }
 };
 

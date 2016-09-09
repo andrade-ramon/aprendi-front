@@ -10,9 +10,10 @@ app.constant('ENV', (function() {
       PASSWORDRECOVERY_REQUEST: api + "/password/reset",
       PASSWORDRECOVERY_CHANGE: api + "/password/change",
 
-      SEARCH: {
-        COLLEGE: api + '/colleges/search/',
-      }
+      COLLEGE: {
+        SEARCH: api + '/colleges/search/',
+        PROFILE: api + '/colleges/'
+      },
     },
 
     FACEBOOK: {
