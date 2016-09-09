@@ -164,6 +164,7 @@
             opacity: 0;
             z-index: -1;
             transition: all linear 0.1s;
+            width: 100%;
         }
 
         input#posts-tab:checked ~ .timeline-card .posts,
@@ -179,6 +180,7 @@
         border-top: none;
         position: relative;
         margin-bottom: 2em;
+        z-index: 3;
 
         .post {
             position: relative;
@@ -209,6 +211,10 @@
             .content {
                 margin-left: 4em;
             }
+        }
+        .conversation {
+            border-bottom: 0.2em solid $light-gray;
+            padding: 1em;
         }
     }
     .courses-card {
