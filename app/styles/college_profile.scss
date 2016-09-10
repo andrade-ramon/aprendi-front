@@ -1,5 +1,6 @@
 @import 'colors';
 @import 'images';
+@import 'mixins';
 
 .college-profile {
     margin-top: 0.5em;
@@ -20,7 +21,7 @@
         border: 0.1em solid $gray;
     }
     .selectable-card {
-        transition: border 0.2s;
+        @include transition(border 0.2s);
         cursor: pointer;
 
         &:hover { border: 0.1em solid $light-blue; }
@@ -134,12 +135,9 @@
                 background-color: white;
                 color: #444;
                 position: relative;
-                z-index: 3;
+                z-index: 2;
                 margin: 0;
-                -webkit-transition: .1s;
-                -moz-transition: .1s;
-                -o-transition: .1s;
-                -ms-transition: .1s;
+                @include transition(.1s);
             }
         }
         .tab-label {
@@ -160,17 +158,24 @@
         }
 
         .posts,
-        .contents {
+        .comments {
             opacity: 0;
             z-index: -1;
-            transition: all linear 0.1s;
+            @include transition(all linear 0.1s);
             width: 100%;
+            height: 30em;
+            overflow-y: scroll;
         }
 
         input#posts-tab:checked ~ .timeline-card .posts,
         input#comments-tab:checked ~ .timeline-card .comments {
             opacity: 1;
-            z-index: 2;
+            z-index: 1;
+        }
+        .comments {
+            position: absolute;
+            left: 0;
+            top:0;
         }
 
     }
@@ -180,7 +185,7 @@
         border-top: none;
         position: relative;
         margin-bottom: 2em;
-        z-index: 3;
+        z-index: 1;
 
         .post {
             position: relative;
@@ -213,8 +218,90 @@
             }
         }
         .conversation {
-            border-bottom: 0.2em solid $light-gray;
-            padding: 1em;
+            padding: 0 1em;
+            margin-bottom: 0.1em solid $light-gray;
+
+            .switch {display: none;}
+            .switch:checked + main {
+                border-bottom: 1px solid $gray;
+                padding-bottom: 1em;
+                opacity: 1;
+                max-height: 20em;
+            }
+
+            .box-message {
+                display: inline-block;
+                background: $light-gray;
+                border-radius: 5px;
+                border: 1px solid $gray;
+                padding: 1em 0.5em;
+                position: relative;
+            }
+
+            .sent-date {
+                position: absolute;
+                right: 0.5em;
+                bottom: calc(-50% + 0.4em);
+                font-weight: 300;
+                color: $dark-gray;
+                font-size: 0.8em;
+            }
+
+            header {
+                margin-top: 1em;
+
+
+                .question {
+                    @extend .box-message;
+                    @include triangle(.7em, 0);
+                    cursor: pointer;
+                    position: relative;
+                    color: $light-blue;
+                    margin-bottom: 0;
+                    text-decoration: none;
+                    
+                    @include transition(color linear 0.2s);
+
+                    h3 {
+                        font-size: 1.2em;
+                        margin: 0;
+                    }
+                }    
+            }
+
+            main {
+                opacity: 0;
+                max-height: 0;
+                @include transition( opacity linear 0.2s);
+
+                .message {
+                    display: block;
+                    margin: 1em 0;
+
+                    .content {
+                        @extend .box-message;
+
+                        .text {margin-bottom: 0}
+                    }
+                    
+                }
+
+                .STUDENT_TO_COLLEGE {
+                    text-align: left;
+
+                    .content {
+                        @include triangle(.7em, 0);
+                    }
+                }
+                .COLLEGE_TO_STUDENT {
+                    text-align: right;
+
+                    .content {
+                        @include triangle(none, 1em);
+                    }
+                }
+            }
+            
         }
     }
     .courses-card {
@@ -296,7 +383,7 @@
         .hided-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.2s;
+            @include transition( max-height 0.2s);
 
             .comment-field {
                 width: 90%;
@@ -320,8 +407,7 @@
             height: 4em;
             -webkit-filter: grayscale(80%);
             filter: grayscale(80%);
-            transition: -webkit-filter 0.3s;
-            transition: filter 0.3s;
+            @include transition(filter 0.3s);
         }
         
     }

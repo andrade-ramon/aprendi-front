@@ -38,26 +38,43 @@
         <h1 class="initials">{{college.name}}</h1>
 
         <section class="informations">
-            <input id="posts-tab" type="radio" name="tab-group" class="tab" checked/>
+            <input id="posts-tab" type="radio" name="tab-group" class="tab" />
             <label for="posts-tab" class="tab-label">{{"colleges.profile.timeline.posts" | translate}}</label>
 
-            <input id="comments-tab" type="radio" name="tab-group" class="tab"/>
+            <input id="comments-tab" type="radio" name="tab-group" class="tab" checked/>
             <label for="comments-tab" class="tab-label">{{"colleges.profile.timeline.comments" | translate}}</label>
 
             <div class="timeline-card box-shadow">
-                <article class="posts">
-                    <section ng-repeat="post in timeline.posts" class="post">
+                <div class="posts">
+                    <article ng-repeat="post in timeline.posts" class="post">
                         <img src="../images/college.png" class="college-logo">    
                         <h3 class="college-name">{{college.name}}</h3>
                         <time class="date">{{post.createdAt}}</time>
                         <p class="content">{{post.content}}</p>
-                    </section>
-                </article>
-                <article class="comments">
-                    <section ng-repeat="conversation in timeline.conversations" class="conversation">
-                        asd
-                    </section>
-                </article>
+                    </article>
+                </div>
+                <div class="comments">
+                    <article ng-repeat="conversation in timeline.conversations" class="conversation">
+                        <header>
+                            <p class="student-name">{{conversation.studentName}}</p>
+                            <label for="messages-box-{{conversation.id}}" class="question">
+                                <h3>{{conversation.messages[0].message}}</h3>
+                                <time class="sent-date">{{conversation.createdAt}}</time>
+                            </label>
+                        </header>
+                        <input id="messages-box-{{conversation.id}}" type="checkbox" class="switch">
+                        <main>
+                            <div ng-repeat="message in conversation.messages" ng-if="$index >= 1" class="message {{message.direction}}">
+                                <p ng-if="message.direction === 'STUDENT_TO_COLLEGE'">{{conversation.studentName}}</p>
+                                <p ng-if="message.direction === 'COLLEGE_TO_STUDENT'">{{college.initials}}</p>
+                                <div class="content">
+                                    <p class="text">{{message.message}}</p>    
+                                    <time class="sent-date">{{message.sentAt}}</time>
+                                </div>
+                            </div>
+                        </main>
+                    </article>
+                </div>
             </div>
         </section>
         <label class="selectable">
