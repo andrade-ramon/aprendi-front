@@ -99,6 +99,10 @@ app.run(function($rootScope, $location, User, ENV) {
             }
         }
     });
+
+    $rootScope.deleteNotification = function() {
+        $rootScope.showMessage = false;
+    };
 });
 
 app.filter('addParam', function() {

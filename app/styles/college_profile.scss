@@ -1,6 +1,8 @@
 @import 'colors';
 @import 'images';
 @import 'mixins';
+@import 'buttons';
+@import 'conversation';
 
 .college-profile {
     margin-top: 0.5em;
@@ -217,92 +219,6 @@
                 margin-left: 4em;
             }
         }
-        .conversation {
-            padding: 0 1em;
-            margin-bottom: 0.1em solid $light-gray;
-
-            .switch {display: none;}
-            .switch:checked + main {
-                border-bottom: 1px solid $gray;
-                padding-bottom: 1em;
-                opacity: 1;
-                max-height: 20em;
-            }
-
-            .box-message {
-                display: inline-block;
-                background: $light-gray;
-                border-radius: 5px;
-                border: 1px solid $gray;
-                padding: 1em 0.5em;
-                position: relative;
-            }
-
-            .sent-date {
-                position: absolute;
-                right: 0.5em;
-                bottom: calc(-50% + 0.4em);
-                font-weight: 300;
-                color: $dark-gray;
-                font-size: 0.8em;
-            }
-
-            header {
-                margin-top: 1em;
-
-
-                .question {
-                    @extend .box-message;
-                    @include triangle(.7em, 0);
-                    cursor: pointer;
-                    position: relative;
-                    color: $light-blue;
-                    margin-bottom: 0;
-                    text-decoration: none;
-                    
-                    @include transition(color linear 0.2s);
-
-                    h3 {
-                        font-size: 1.2em;
-                        margin: 0;
-                    }
-                }    
-            }
-
-            main {
-                opacity: 0;
-                max-height: 0;
-                @include transition( opacity linear 0.2s);
-
-                .message {
-                    display: block;
-                    margin: 1em 0;
-
-                    .content {
-                        @extend .box-message;
-
-                        .text {margin-bottom: 0}
-                    }
-                    
-                }
-
-                .STUDENT_TO_COLLEGE {
-                    text-align: left;
-
-                    .content {
-                        @include triangle(.7em, 0);
-                    }
-                }
-                .COLLEGE_TO_STUDENT {
-                    text-align: right;
-
-                    .content {
-                        @include triangle(none, 1em);
-                    }
-                }
-            }
-            
-        }
     }
     .courses-card {
         @extend .card;
@@ -370,8 +286,7 @@
 
         &:hover {
             .btn-comment-confirm {
-                -webkit-filter: grayscale(0);
-                filter: grayscale(0);
+                @include filter(grayscale(0));
             }
         }
 
@@ -396,18 +311,11 @@
             }
         }
         .btn-comment-confirm {
+            @extend .btn-comment-check;
             display: none;
             position: absolute;
             bottom: -2em;
             left: calc(50% - 2em);
-            border: none;
-            background: transparent url($images-path + 'check.svg') no-repeat center center;
-            background-size: 3em;
-            width: 4em;
-            height: 4em;
-            -webkit-filter: grayscale(80%);
-            filter: grayscale(80%);
-            @include transition(filter 0.3s);
         }
         
     }

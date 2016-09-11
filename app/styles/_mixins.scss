@@ -5,6 +5,13 @@
     transition:         $transition;
 }
 
+@mixin filter($filter...) {
+    -moz-transition:    $filter;
+    -o-filter:      $filter;
+    -webkit-filter: $filter;
+    filter:         $filter;
+}
+
 @mixin triangle($left, $right) {
 	&:after {
         border: 8px solid transparent;

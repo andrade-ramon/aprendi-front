@@ -1,10 +1,15 @@
-app.controller('LoginCtrl', function ($scope, $http, $location, ENV, User, ezfb) {
+app.controller('LoginCtrl', function ($scope, $http, $location, ENV, User, ezfb, $routeParams) {
     $scope.user = {};
 
     $scope.login = function() {
         $http.post(ENV.API.LOGIN, $scope.user).then(function(response) {
             User.loggedIn(response.data.token);
-            $location.path('/');
+            if ($routeParams.redirectAfterLogin !== undefined) {
+                $location.path($routeParams.redirectAfterLogin);
+                $location.search('redirectAfterLogin', null);
+            } else {
+                $location.path('/');
+            }
         }, function(response) {
             if(response.data) {
                 $scope.error = {};

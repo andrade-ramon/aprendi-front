@@ -1,0 +1,10 @@
+.btn-comment-check {
+    border: none;
+    display: inline-block;
+    background: transparent url($images-path + 'check.svg') no-repeat center center;
+    background-size: 3em;
+    width: 4em;
+    height: 4em;
+    @include filter(grayscale(80%));
+    @include transition(filter 0.3s);
+}

@@ -1,7 +1,7 @@
 <header-menu ng-if="hasHeader" search-form="{{headerWithForm}}"/>
 
 <growl-notifications/>
-<growl-notification  ng-if="showMessage" ng-class="growlType" class="box-growl fade-out" >{{growlMessage}}</growl-notification>
+<growl-notification  ng-if="showMessage" ttl="1000" on-close="deleteNotification()" ng-class="growlType" class="box-growl fade-out" >{{growlMessage}}</growl-notification>
 
 <main class="{{mainClass}}">
     <ng-transclude/>

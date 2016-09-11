@@ -57,8 +57,12 @@
                     <article ng-repeat="conversation in timeline.conversations" class="conversation">
                         <header>
                             <p class="student-name">{{conversation.studentName}}</p>
-                            <label for="messages-box-{{conversation.id}}" class="question">
-                                <h3>{{conversation.messages[0].message}}</h3>
+                            <div class="question" ng-if="!canLoggedUserReply(conversation.studentId)">
+                                <h3>{{conversation.messages[0].content}}</h3>
+                                <time class="sent-date">{{conversation.createdAt}}</time>
+                            </div>
+                            <label for="messages-box-{{conversation.id}}" class="question-with-answer" ng-if="canLoggedUserReply(conversation.studentId)">
+                                <h3>{{conversation.messages[0].content}}</h3>
                                 <time class="sent-date">{{conversation.createdAt}}</time>
                             </label>
                         </header>
@@ -68,10 +72,17 @@
                                 <p ng-if="message.direction === 'STUDENT_TO_COLLEGE'">{{conversation.studentName}}</p>
                                 <p ng-if="message.direction === 'COLLEGE_TO_STUDENT'">{{college.initials}}</p>
                                 <div class="content">
-                                    <p class="text">{{message.message}}</p>    
+                                    <p class="text">{{message.content}}</p>    
                                     <time class="sent-date">{{message.sentAt}}</time>
                                 </div>
                             </div>
+                            <form angular-validator-submit="replyComment(conversation.id)" name="replyCommentForm" novalidate angular-validator method="POST" class="answer">
+                                <p >Responder</p>
+                                <div class="reply-field">
+                                    <textarea name="reply" ng-model="reply.text"></textarea>
+                                    <input value="" type="submit" class="btn-reply">
+                                </div>
+                            </form>
                         </main>
                     </article>
                 </div>
@@ -107,19 +118,21 @@
                 </div>
             </main>
         </article>
-        <label for="comment-switch" class="comment-label">
+        <label for="comment-switch" class="comment-label" ng-if="isLogged">
             <input id="comment-switch" type="checkbox">
             <article class="comment-card box-shadow ">
-                <form action="{{commentsUrl}}" method="POST">
+                <form angular-validator-submit="leaveComment()" name="leaveCommentForm" novalidate angular-validator method="POST">
                     <p class="btn-comment">{{"colleges.profile.leave.comment" | translate}}</p>
                     <div class="hided-content">
-                        <textarea class="comment-field"></textarea>
+                        <textarea name="comment" ng-model="comment.text" class="comment-field"></textarea>
                     </div>
                     <input value="" type="submit" class="btn-comment-confirm">
                 </form>
             </article>
         </label>
-        <div id="comment-switch"></div>
+        <article class="comment-card box-shadow" ng-if="!isLogged">
+            <a ng-href="{{loginThenCommentsUrl}}">{{"colleges.profile.leave.comment" | translate}}</a>
+        </article>
         <article class="about-card box-shadow ">
             <header><h2>{{"colleges.profile.about" | translate}}</h2></header>
             <nav>
