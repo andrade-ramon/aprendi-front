@@ -38,10 +38,10 @@
         <h1 class="initials">{{college.name}}</h1>
 
         <section class="informations">
-            <input id="posts-tab" type="radio" name="tab-group" class="tab" />
+            <input id="posts-tab" type="radio" name="tab-group" class="tab" checked />
             <label for="posts-tab" class="tab-label">{{"colleges.profile.timeline.posts" | translate}}</label>
 
-            <input id="comments-tab" type="radio" name="tab-group" class="tab" checked/>
+            <input id="comments-tab" type="radio" name="tab-group" class="tab"/>
             <label for="comments-tab" class="tab-label">{{"colleges.profile.timeline.comments" | translate}}</label>
 
             <div class="timeline-card box-shadow">
@@ -59,11 +59,11 @@
                             <p class="student-name">{{conversation.studentName}}</p>
                             <div class="question" ng-if="!canLoggedUserReply(conversation.studentId)">
                                 <h3>{{conversation.messages[0].content}}</h3>
-                                <time class="sent-date">{{conversation.createdAt}}</time>
+                                <time class="sent-date" am-time-ago="conversation.createdAt | amParse:'DD/MM/YYYY HH:mm:ss'"></time>
                             </div>
                             <label for="messages-box-{{conversation.id}}" class="question-with-answer" ng-if="canLoggedUserReply(conversation.studentId)">
                                 <h3>{{conversation.messages[0].content}}</h3>
-                                <time class="sent-date">{{conversation.createdAt}}</time>
+                                <time class="sent-date"  am-time-ago="conversation.createdAt | amParse:'DD/MM/YYYY HH:mm:ss'"></time>
                             </label>
                         </header>
                         <input id="messages-box-{{conversation.id}}" type="checkbox" class="switch">
@@ -73,7 +73,7 @@
                                 <p ng-if="message.direction === 'COLLEGE_TO_STUDENT'">{{college.initials}}</p>
                                 <div class="content">
                                     <p class="text">{{message.content}}</p>    
-                                    <time class="sent-date">{{message.sentAt}}</time>
+                                    <time class="sent-date" am-time-ago="message.sentAt | amParse:'DD/MM/YYYY HH:mm:ss'"></time>
                                 </div>
                             </div>
                             <form angular-validator-submit="replyComment(conversation.id)" name="replyCommentForm" novalidate angular-validator method="POST" class="answer">

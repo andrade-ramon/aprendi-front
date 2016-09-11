@@ -12,7 +12,8 @@ var app = angular.module('app', [
     'ngCookies',
     'ezfb',
     'hljs',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'angularMoment'
 ]);
 
 window.routes = {
@@ -84,7 +85,7 @@ app.constant('LOCALES', {
     'preferredLocale':'pt_BR'
 });
 
-app.run(function($rootScope, $location, User, ENV) {
+app.run(function($rootScope, $location, User, amMoment, ENV) {
     $rootScope.$on("$locationChangeStart", function(event, nextRoute) {
         
         nextRoute = nextRoute.replace(ENV.BASE_URL,"");
@@ -103,6 +104,8 @@ app.run(function($rootScope, $location, User, ENV) {
     $rootScope.deleteNotification = function() {
         $rootScope.showMessage = false;
     };
+
+    amMoment.changeLocale('pt-br');
 });
 
 app.filter('addParam', function() {

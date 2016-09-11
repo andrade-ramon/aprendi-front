@@ -1,10 +1,9 @@
 .conversation {
     padding: 0 1em;
-    margin-bottom: 0.1em solid $light-gray;
+    border-bottom: 0.1em solid $gray;
 
     .switch {display: none;}
     .switch:checked + main {
-        border-bottom: 1px solid $gray;
         padding-bottom: 1em;
         opacity: 1;
         max-height: 20em;
@@ -20,8 +19,9 @@
     }
 
     .sent-date {
+        white-space: nowrap;
         position: absolute;
-        right: 0.5em;
+        left: 0.5em;
         bottom: calc(-50% + 0.4em);
         font-weight: 300;
         color: $dark-gray;
@@ -37,7 +37,7 @@
             margin-bottom: 0;
 
             h3 {
-                font-size: 1.2em;
+                font-size: 1em;
                 margin: 0;
             }
         }
@@ -54,7 +54,7 @@
             @include transition(color linear 0.2s);
 
             h3 {
-                font-size: 1.2em;
+                font-size: 1em;
                 margin: 0;
             }
         }    
@@ -67,7 +67,7 @@
 
         .message {
             display: block;
-            margin: 1em 0;
+            margin: 1.5em 0;
 
             .content {
                 @extend .box-message;
