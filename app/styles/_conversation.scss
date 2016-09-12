@@ -1,12 +1,75 @@
+.no-conversations {
+    width: 100%;
+    height: 30em;
+    text-align: center;
+    background: transparent url($images-path + 'no-comments.svg') no-repeat center center;
+
+    h2 {
+        margin: 0;
+        padding: 0;
+        line-height: 15em;
+        vertical-align: bottom;
+        font-size: 1.6em;
+        color: $dark-gray;
+    }
+}
+
 .conversation {
-    padding: 0 1em;
+    padding: 0 1em 1em;
     border-bottom: 0.1em solid $gray;
 
+    .arrow-down-blue {
+
+        &:hover {
+
+            &:after {
+                @include filter(grayscale(0));
+            }
+        }
+
+        &:after {
+            position: absolute;
+            left: calc(50% - 0.5em);
+            bottom: 0;
+            content: '';
+            display: inline-block;
+            background: red;
+            width: 1em;
+            height: 1em;
+            background: transparent url($images-path + 'arrow-down-blue.svg') no-repeat center center;
+            @include filter(grayscale(80%));
+        }
+    }
+
+    .switch-conversation {
+        cursor: pointer;
+        display: block;
+        margin: 0;
+        font-weight: none;
+    }
+
+    .non-selectable{
+        cursor: default;
+    }
+
     .switch {display: none;}
-    .switch:checked + main {
-        padding-bottom: 1em;
-        opacity: 1;
-        max-height: 20em;
+    .switch:checked {
+        ~ .open-conversation {
+            &:after {
+                display: none;
+            }
+        }
+
+        ~ main {
+            @extend .arrow-down-blue;
+            display: block;
+            padding-bottom: 1em;
+            opacity: 1;
+
+            &:after {
+                @include transform(rotate(180deg));
+            }
+        }
     }
 
     .box-message {
@@ -28,30 +91,25 @@
         font-size: 0.8em;
     }
 
+    .open-conversation {
+        @extend .arrow-down-blue;
+        position: relative;
+        cursor: pointer;
+
+    }
+
     header {
         margin-top: 1em;
+        padding-bottom: 2em;
+
         .question {
             @extend .box-message;
-            @include triangle(.3em, 0);
-            position: relative;
-            margin-bottom: 0;
-
-            h3 {
-                font-size: 1em;
-                margin: 0;
-            }
-        }
-
-        .question-with-answer {
-            @extend .box-message;
-            @include triangle(.3em, 0);
+            @include triangle(.2em, 0);
+            @include transition(color linear 0.2s);
             cursor: pointer;
             position: relative;
-            color: $light-blue;
             margin-bottom: 0;
             text-decoration: none;
-            
-            @include transition(color linear 0.2s);
 
             h3 {
                 font-size: 1em;
@@ -61,18 +119,27 @@
     }
 
     main {
+        display: none;
+        position: relative;
         opacity: 0;
-        max-height: 0;
         @include transition( opacity linear 0.2s);
 
         .message {
             display: block;
             margin: 1.5em 0;
+            z-index: -2;
+
+            .reply-user {
+                font-weight: 300;
+            }
 
             .content {
                 @extend .box-message;
 
-                .text {margin-bottom: 0}
+                .text {
+                    margin-bottom: 0;
+                    font-weight: 300;
+                }
             }
         }
         .answer {
@@ -101,7 +168,7 @@
             text-align: left;
 
             .content {
-                @include triangle(.3em, 0);
+                @include triangle(.2em, 0);
             }
         }
         .COLLEGE_TO_STUDENT {

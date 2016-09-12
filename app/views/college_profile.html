@@ -38,10 +38,10 @@
         <h1 class="initials">{{college.name}}</h1>
 
         <section class="informations">
-            <input id="posts-tab" type="radio" name="tab-group" class="tab" checked />
+            <input id="posts-tab" type="radio" name="tab-group" class="tab"  checked/>
             <label for="posts-tab" class="tab-label">{{"colleges.profile.timeline.posts" | translate}}</label>
 
-            <input id="comments-tab" type="radio" name="tab-group" class="tab"/>
+            <input id="comments-tab" type="radio" name="tab-group" class="tab" />
             <label for="comments-tab" class="tab-label">{{"colleges.profile.timeline.comments" | translate}}</label>
 
             <div class="timeline-card box-shadow">
@@ -54,37 +54,39 @@
                     </article>
                 </div>
                 <div class="comments">
-                    <article ng-repeat="conversation in timeline.conversations" class="conversation">
-                        <header>
-                            <p class="student-name">{{conversation.studentName}}</p>
-                            <div class="question" ng-if="!canLoggedUserReply(conversation.studentId)">
-                                <h3>{{conversation.messages[0].content}}</h3>
-                                <time class="sent-date" am-time-ago="conversation.createdAt | amParse:'DD/MM/YYYY HH:mm:ss'"></time>
-                            </div>
-                            <label for="messages-box-{{conversation.id}}" class="question-with-answer" ng-if="canLoggedUserReply(conversation.studentId)">
-                                <h3>{{conversation.messages[0].content}}</h3>
-                                <time class="sent-date"  am-time-ago="conversation.createdAt | amParse:'DD/MM/YYYY HH:mm:ss'"></time>
-                            </label>
-                        </header>
-                        <input id="messages-box-{{conversation.id}}" type="checkbox" class="switch">
-                        <main>
-                            <div ng-repeat="message in conversation.messages" ng-if="$index >= 1" class="message {{message.direction}}">
-                                <p ng-if="message.direction === 'STUDENT_TO_COLLEGE'">{{conversation.studentName}}</p>
-                                <p ng-if="message.direction === 'COLLEGE_TO_STUDENT'">{{college.initials}}</p>
-                                <div class="content">
-                                    <p class="text">{{message.content}}</p>    
-                                    <time class="sent-date" am-time-ago="message.sentAt | amParse:'DD/MM/YYYY HH:mm:ss'"></time>
-                                </div>
-                            </div>
-                            <form angular-validator-submit="replyComment(conversation.id)" name="replyCommentForm" novalidate angular-validator method="POST" class="answer">
-                                <p >Responder</p>
-                                <div class="reply-field">
-                                    <textarea name="reply" ng-model="reply.text"></textarea>
-                                    <input value="" type="submit" class="btn-reply">
-                                </div>
-                            </form>
-                        </main>
+                    <article ng-if="timeline.conversations.length === 0" class="no-conversations">
+                        <h2>Esta faculdade ainda não tem comentários</h2>
                     </article>
+                    <article ng-repeat="conversation in timeline.conversations" class="conversation" >
+                        <label for="messages-box-{{conversation.id}}" class="switch-conversation" ng-class="{'non-selectable': conversation.messages.length === 1 || !canLoggedUserReply(conversation.studentId)}">
+                            <input id="messages-box-{{conversation.id}}" type="checkbox" ng-if="conversation.messages.length > 1 || canLoggedUserReply(conversation.studentId)" class="switch">
+                            <header ng-class="{'open-conversation': conversation.messages.length > 1 || canLoggedUserReply(conversation.studentId)}">
+                                <p class="student-name">{{conversation.studentName}}</p>
+                                <div class="question">
+                                    <h3>{{conversation.messages[0].content}}</h3>
+                                    <time class="sent-date"  am-time-ago="conversation.createdAt | amParse:'DD/MM/YYYY HH:mm:ss'"></time>
+                                </div>
+                            </header>
+                            <main>
+                                <div ng-repeat="message in conversation.messages" ng-if="$index >= 1" class="message {{message.direction}}">
+                                    <p ng-if="message.direction === 'STUDENT_TO_COLLEGE'" class="reply-user">{{conversation.studentName}}</p>
+                                    <p ng-if="message.direction === 'COLLEGE_TO_STUDENT'" class="reply-user">{{college.initials}}</p>
+                                    <div class="content">
+                                        <p class="text">{{message.content}}</p>    
+                                        <time class="sent-date" am-time-ago="message.sentAt | amParse:'DD/MM/YYYY HH:mm:ss'"></time>
+                                    </div>
+                                </div>
+                                <form angular-validator-submit="replyComment(conversation.id)" name="replyCommentForm" novalidate angular-validator method="POST" ng-if="canLoggedUserReply(conversation.studentId)" class="answer">
+                                    <p >Responder</p>
+                                    <div class="reply-field">
+                                        <textarea name="reply" ng-model="reply.text"></textarea>
+                                        <input value="" type="submit" class="btn-reply">
+                                    </div>
+                                </form>
+                            </main>
+                        </label>
+                    </article>
+                    
                 </div>
             </div>
         </section>
