@@ -66,6 +66,21 @@ app.controller('CollegeProfileCtrl', function (User, $scope, $http, $route, $rou
         return user.id === studentId;
     };
 
+    $scope.isFromStudent = function(message) {
+        return message.direction === 'STUDENT_TO_COLLEGE';
+    };
+
+    $scope.isFromCollege = function(message) {
+        return message.direction === 'COLLEGE_TO_STUDENT';
+    };
+
+    $scope.isSequentialMessage = function(messages, index) {
+        if (index === 0){
+            return false;
+        }
+        return messages[index].direction === messages[index -1].direction;
+    };
+
     $scope.replyComment = function(conversationId) {
         $http({
             method: 'PATCH',
@@ -78,5 +93,9 @@ app.controller('CollegeProfileCtrl', function (User, $scope, $http, $route, $rou
             messagesContainer.addError("Não foi possivel responder um comentário, tente mais tarde");
             $route.reload();
         });
+    };
+
+    $scope.focusText = function() {
+        angular.element('textarea[name="comment"]').focus();
     };
 });
