@@ -19,10 +19,10 @@
     filter:         $filter;
 }
 
-@mixin triangle($left, $right) {
+@mixin triangle($left, $right, $color) {
 	&:after {
         border: 8px solid transparent;
-        border-bottom: 8px solid $light-gray;
+        border-bottom: 8px solid $color;
         bottom: 100%;
         right: $right;
         left: $left + 0.1em;
