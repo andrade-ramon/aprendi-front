@@ -12,27 +12,32 @@ var app = angular.module('app', [
     'ngCookies',
     'ezfb',
     'hljs',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'angularCSS'
 ]);
 
 window.routes = {
     "/": {
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl',
+        css: 'min/home.css'
     },
     "/login": {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
-        onlyGuest: true
+        onlyGuest: true,
+        css: 'min/login_register.css'
     },
     "/esqueci-minha-senha": {
         templateUrl: 'views/password_recovery.html',
         controller: 'PasswordRecoveryCtrl',
+        css: 'min/login_register.css',
         onlyGuest: true
     },
     "/redefinir-senha/:token": {
         templateUrl: 'views/password_change.html',
         controller: 'PasswordRecoveryCtrl',
+        css: 'min/login_register.css',
         onlyGuest: true
     },
     "/cadastro": {
@@ -42,11 +47,13 @@ window.routes = {
     },
     "/faculdades/pesquisa/:query": {
         templateUrl: 'views/college_search.html',
-        controller: 'CollegeSearchCtrl'
+        controller: 'CollegeSearchCtrl',
+        css: 'min/college_search.css'
     },
     "/faculdades/:collegeId": {
         templateUrl: 'views/college_profile.html',
-        controller: 'CollegeProfileCtrl'
+        controller: 'CollegeProfileCtrl',
+        css: 'min/college_profile.css'
     }
 };
 

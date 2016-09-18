@@ -36,7 +36,7 @@ module.exports = function (grunt) {
       },
       css: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass', 'postcss','concat:css'],
+        tasks: ['compass', 'postcss'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -168,10 +168,6 @@ module.exports = function (grunt) {
       js: {
         src: ['app/scripts/**/*.js', '!app/min/all-js.js'],
         dest: 'app/min/all-js.js'
-      },
-      css: {
-        src: ['app/min/**/*.css','!app/min/all-css.css'],
-        dest: 'app/min/all-css.css'
       }
     },
 

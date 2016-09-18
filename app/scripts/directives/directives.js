@@ -33,6 +33,7 @@ zeusDirectives.directive('headerMenu', function () {
         restrict: 'E',
         transclude: false,
         templateUrl: 'scripts/directives/header_menu.html', 
+        css: 'min/header_menu.css',
         link: function(scope, elem, attrs) {
             scope.searchForm = true;
             attrs.$observe('searchForm', function(value){
@@ -42,11 +43,21 @@ zeusDirectives.directive('headerMenu', function () {
     };
 });
 
+zeusDirectives.directive('footerMenu', function () {
+    return {
+        restrict: 'E',
+        transclude: false,
+        templateUrl: 'scripts/directives/footer_menu.html', 
+        css: 'min/footer_menu.css'
+    };
+});
+
 zeusDirectives.directive('logo',function() {
     return {
         restrict: 'E',
         transclude: false, 
         templateUrl: 'scripts/directives/logo.html',
+        css: 'min/logo.css',
         link: function(scope, elem, attrs){
             scope.smallLogo = scope.mediumLogo = scope.bigLogo = false;
             attrs.$observe('size', function(value){
@@ -62,7 +73,8 @@ zeusDirectives.directive('navigationMenu', function () {
     return {
         restrict: 'E',
         transclude: false,
-        templateUrl: 'scripts/directives/navigation_menu.html'
+        templateUrl: 'scripts/directives/navigation_menu.html',
+        css: 'min/navigation_menu.css',
     };
 });
 
@@ -72,6 +84,7 @@ zeusDirectives.directive('pagination',function($filter) {
         restrict: 'E',
         transclude: false, 
         templateUrl: 'scripts/directives/pagination.html',
+        css: 'min/pagination.css',
         link: function(scope, elem, attrs){
             attrs.$observe('totalPages', function(value){
                 scope.totalPages = value;

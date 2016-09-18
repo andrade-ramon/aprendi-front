@@ -30,6 +30,7 @@
         <script src="../bower_components/angular-highlightjs/build/angular-highlightjs.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <script src="../bower_components/angular-loading-bar/build/loading-bar.js"></script>
+        <script src="../bower_components/angular-css/angular-css.js"></script>
         <!-- endbower -->
 
         <script src="min/all-js.js"></script>
@@ -38,16 +39,10 @@
         <link rel="stylesheet" href="../bower_components/angular-loading-bar/build/loading-bar.css" />
         <!-- endbower --> 
         <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
-        
-        <link rel="stylesheet" type="text/css" href="min/all-css.css">
     </head>
 
-    <body >
-        
-        <div ng-cloak>
-            <div ng-view></div>
-        </div>
-
+    <body class="ng-cloak">
+        <div ng-view></div>
     </body>
     
 </html>
