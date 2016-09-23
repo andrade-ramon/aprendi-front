@@ -48,7 +48,12 @@ window.routes = {
     "/faculdades/:collegeId": {
         templateUrl: 'views/college_profile.html',
         controller: 'CollegeProfileCtrl'
+    },
+    "/404": {
+        templateUrl: '404.html',
+        controller: 'NotFoundCtrl'
     }
+
 };
 
 app.config(function ($routeProvider, $locationProvider, $translateProvider, ezfbProvider, cfpLoadingBarProvider, ENV) {

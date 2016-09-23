@@ -4,6 +4,10 @@
 .header-menu {
     background-color: white;
     border-bottom: 0.1em solid $gray;
+    height: 4em;
+    padding:0;    
+    width:100%;
+    position: absolute;
 
     .form-logo {
         display: block;

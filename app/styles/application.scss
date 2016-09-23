@@ -2,6 +2,10 @@
 @import 'fonts';
 @import 'colors';
 
+html{
+    height:100%;
+}
+
 .row {
     margin-right: 0 !important;
     margin-left: 0 !important;
@@ -43,6 +47,11 @@
 
 body {
     font-family: $font-default;
+    height: calc(100% - 0.1em);
+}
+
+.height-page{
+    height: 100%;
 }
 
 #loading-bar .bar {
