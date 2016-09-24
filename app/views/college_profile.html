@@ -38,10 +38,10 @@
         <h1 class="initials">{{college.name}}</h1>
 
         <section class="informations">
-            <input id="posts-tab" type="radio" name="tab-group" class="tab"  checked/>
+            <input id="posts-tab" type="radio" name="tab-group" class="tab"/>
             <label for="posts-tab" class="tab-label">{{"colleges.profile.timeline.posts" | translate}}</label>
 
-            <input id="comments-tab" type="radio" name="tab-group" class="tab" />
+            <input id="comments-tab" type="radio" name="tab-group" class="tab" checked/>
             <label for="comments-tab" class="tab-label">{{"colleges.profile.timeline.comments" | translate}}</label>
 
             <div class="timeline-card box-shadow">
@@ -87,7 +87,13 @@
                             </main>
                         </label>
                     </article>
-                    
+                    <form angular-validator-submit="leaveComment()" name="leaveCommentForm" novalidate angular-validator method="POST" class="leave-comment">
+                        <p class="btn-comment">{{"colleges.profile.leave.comment" | translate}}</p>
+                        <div class="hided-content">
+                            <textarea name="comment" ng-model="comment.text" class="comment-field"></textarea>
+                        </div>
+                        <input value="" type="submit" class="btn-comment-confirm">
+                    </form>
                 </div>
             </div>
         </section>
@@ -121,18 +127,6 @@
                 </div>
             </main>
         </article>
-        <label for="comment-switch" class="comment-label" ng-if="isLogged">
-            <input id="comment-switch" type="checkbox" ng-model="switch.value" ng-change="focusText()">
-            <article class="comment-card box-shadow ">
-                <form angular-validator-submit="leaveComment()" name="leaveCommentForm" novalidate angular-validator method="POST">
-                    <p class="btn-comment">{{"colleges.profile.leave.comment" | translate}}</p>
-                    <div class="hided-content">
-                        <textarea name="comment" ng-model="comment.text" class="comment-field"></textarea>
-                    </div>
-                    <input value="" type="submit" class="btn-comment-confirm">
-                </form>
-            </article>
-        </label>
         <article class="comment-card box-shadow" ng-if="!isLogged">
             <a ng-href="{{loginThenCommentsUrl}}">{{"colleges.profile.leave.comment" | translate}}</a>
         </article>
