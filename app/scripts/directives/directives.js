@@ -84,6 +84,17 @@ zeusDirectives.directive('pagination',function($filter) {
     }; 
 });
 
+zeusDirectives.directive('ngEnter', function() {
+        return function(scope, element) {
+            element.bind("keydown keypress", function(event) {
+                if(event.which === 13) {
+                    element.parents('form').submit();
+                    event.preventDefault();
+                }
+            });
+        };
+    });
+
 zeusDirectives.filter('range', function() {
   return function(numbers, total) {
     total = parseInt(total);
