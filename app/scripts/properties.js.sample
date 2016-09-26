@@ -12,10 +12,22 @@ app.constant('ENV', (function() {
 
       COLLEGE: {
         SEARCH: api + '/colleges/search/',
-        PROFILE: api + '/colleges/'
+        PROFILE: api + '/colleges/',
+        COMMENTS: {
+          ALL: api + '/colleges/{0}/conversations',
+          NEW: api + '/colleges/{0}/conversations',
+          REPLY: api + '/colleges/{0}/conversations/{1}'
+        },
+        CAMPUS: api + '/colleges/{0}/addresses'
       },
+      SEARCH: {
+        COLLEGE: api + '/colleges/search/'
+      },
+      USER: {
+        CURRENT: api + '/users/current'
+      }
     },
-
+    
     FACEBOOK: {
       APPLICATION: {
         ID: '232698013764988',
@@ -23,7 +35,9 @@ app.constant('ENV', (function() {
       }
     },
 
-    BASE_URL: 'https://dev.qualfacul.com:9000'
+    BASE_URL: 'http://dev.qualfacul.com:9000',
+    ARG1: '{0}',
+    ARG2: '{1}'
   };
 
 }()));

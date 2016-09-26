@@ -1,0 +1,51 @@
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin transform($transform...) {
+    -moz-transform:    $transform;
+    -o-transform:      $transform;
+    -webkit-transform: $transform;
+    transform:         $transform;
+}
+
+@mixin filter($filter...) {
+    -moz-transition:    $filter;
+    -o-filter:      $filter;
+    -webkit-filter: $filter;
+    filter:         $filter;
+}
+
+@mixin triangle($left, $right, $color) {
+	&:after {
+        border: 8px solid transparent;
+        border-bottom: 8px solid $color;
+        bottom: 100%;
+        right: $right;
+        left: $left + 0.1em;
+        -webkit-transform: translateX(3px);
+        -ms-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    &:before,
+    &:after {
+        content: "";
+        display: block;
+        height: 0;
+        width: 0;
+        position: absolute;
+    }
+    &:before {
+        border: 9px solid transparent;
+        border-bottom: 9px solid $gray;
+        bottom: 100%;
+        right: $right;
+        left: $left;
+        -webkit-transform: translateX(4px);
+        -ms-transform: translateX(4px);
+        transform: translateX(4px);       
+    }
+}

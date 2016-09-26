@@ -1,0 +1,240 @@
+.no-conversations {
+    width: 100%;
+    height: 30em;
+    text-align: center;
+    background: transparent url($images-path + 'no-comments.svg') no-repeat center center;
+
+    .no-comments-label {
+        color: $light-blue;
+        cursor: pointer; 
+        @include transition(color 0.2s);
+
+        &:hover {
+            color: $flat-blue;
+        }
+    }
+
+    h2 {
+        margin: 0;
+        padding: 5em 0 1em 0;
+        vertical-align: bottom;
+        font-size: 1.6em;
+        color: $dark-gray;
+    }
+}
+
+.conversation {
+    margin: 2em 1em;
+    border: 1px solid $gray;
+    background: $transparent-gray;
+    @include transition(border 0.1s);
+
+    &:hover {
+        border: 1px solid $light-blue;
+    }
+
+    .arrow-down-blue {
+
+        &:hover {
+
+            &:after {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        &:after {
+            position: absolute;
+            left: calc(50% - 0.5em);
+            bottom: 0;
+            content: '';
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            background: transparent url($images-path + 'arrow-down-blue.svg') no-repeat center center;
+            visibility: hidden;
+            opacity: 0;
+            @include transition(opacity 0.1s);
+        }
+    }
+
+    .switch-conversation {
+        cursor: pointer;
+        display: block;
+        margin: 0;
+        font-weight: none;
+    }
+
+    .conversation-selectable {
+        cursor: pointer;
+    }
+
+    .non-selectable{
+        cursor: default;
+    }
+
+    .switch {display: none;}
+    .switch:checked {
+
+        ~ .open-conversation {
+            &:after {
+                display: none;
+            }
+        }
+
+        ~ main {
+            @extend .arrow-down-blue;
+            display: block;
+            padding-bottom: 1em;
+            opacity: 1;
+
+            &:after {
+                @include transform(rotate(180deg));
+            }
+        }
+    }
+
+    .box-message {
+        display: inline-block;
+        background: white;
+        border-radius: 5px;
+        border: 1px solid $gray;
+        padding: 1em 0.5em;
+        position: relative;
+    }
+
+    .open-conversation {
+        @extend .arrow-down-blue;
+        position: relative;
+    }
+
+    header {
+        position: relative;
+        width: 100%;
+        padding: 1em 0.5em;
+
+        .sent-date {
+            white-space: nowrap;
+            position: absolute;
+            top: 0.5em;
+            right: 0.5em;
+            font-weight: 300;
+            color: $dark-gray;
+            font-size: 0.8em;
+        }
+
+        .question {
+            @extend .box-message;
+            @include triangle(.2em, 0, white);
+            position: relative;
+            margin-bottom: 0;
+            text-decoration: none;
+            @include transition(color linear 0.2s);
+
+            h3 {
+                font-size: 1em;
+                margin: 0;
+            }
+        }    
+    }
+
+    main {
+        display: none;
+        position: relative;
+        opacity: 0;
+        @include transition( opacity linear 0.2s);
+
+        .message {
+            display: block;
+            margin: 1.5em 0;
+            padding: 0 1em;
+            z-index: -2;
+
+            .sent-date {
+                white-space: nowrap;
+                position: absolute;
+                left: 0.5em;
+                bottom: calc(-50% + 0.4em);
+                font-weight: 300;
+                color: $dark-gray;
+                font-size: 0.8em;
+            }
+
+            .reply-user {
+                font-weight: 300;
+            }
+
+            .content {
+                @extend .box-message;
+
+                .text {
+                    margin-bottom: 0;
+                    font-weight: 300;
+                }
+            }
+        }
+        .answer {
+            padding: 0 1em;
+            margin: 1em 0;
+            text-align: center;
+
+            .reply-field {
+                width: 100%;
+
+                &:hover {
+                    .btn-reply {@include filter(grayscale(0));}
+                }
+
+                textarea {
+                    width: 85%;
+                    padding: 0.5em;
+                }
+                .btn-reply { 
+                    @extend .btn-comment-check;
+                    width: calc(15% - 4px);
+                    vertical-align: top;
+                }
+            }
+        }
+
+        .STUDENT_TO_COLLEGE {
+            text-align: left;
+
+            .not-sequential {
+                @include triangle(.2em, 0, white);
+            }
+        }
+        .COLLEGE_TO_STUDENT {
+            text-align: right;
+
+            .content {
+                background-color: $baby-blue;    
+            }
+
+            .not-sequential {
+                @include triangle(none, 1em, $baby-blue);
+
+            }
+            .sent-date {
+                right: 0.5em;
+            }
+            .text {
+                text-align: left;
+            }
+        }
+    }
+    
+}
+
+.leave-comment {
+    text-align: center;
+
+    textarea {
+        width: 85%;
+        padding: 0.5em;
+    }
+
+    .btn-comment-confirm {
+        @extend .btn-comment-check;       
+    }
+}
