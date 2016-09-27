@@ -313,6 +313,7 @@
     .footer-card {
         @extend .card;
         padding: 1em;
+        width: 100%;
 
         p { 
             display: block;
@@ -325,19 +326,21 @@
     }
 
     .left-cards {
-        left: 0;
+        display: inline-block;
         width: 96%;
         margin-left: 2%;
         padding: 1%;
     }
 
     .center-cards {
+        display: inline-block;
         width: 96%;
         padding: 1%;
         margin-left: 2%;
     }
 
     .right-cards {
+        display: inline-block;
         width: 96%;
         margin-left: 2%;
         padding: 1%;
@@ -369,51 +372,21 @@
     .college-profile {
 
         .left-cards {
-            position: absolute;
-            left: 0;
-            margin: 0;
-            width: 40%;
+            width: 38%;
             padding: 1%;
+            margin: 0;
         }
 
         .center-cards {
-            width: 60%;
-            margin-left: 40%;
+            width: 58%;
             padding: 1%;
-        }
-
-        .right-cards {
-            position: absolute;
-            right: 0;
-            width: 60%;
-            padding: 1%;
-        }
-    }    
-}
-
-@media (min-width: 800px) {
-
-    .college-profile {
-
-        .left-cards {
-            position: absolute;
-            left: 0;
             margin: 0;
-            width: 30%;
-            padding: 1%;
-        }
-
-        .center-cards {
-            width: 70%;
-            margin-left: 30%;
-            padding: 1%;
         }
 
         .right-cards {
-            position: absolute;
-            right: 0;
-            width: 70%;
+            width: 96%;
             padding: 1%;
+            margin: 0;
         }
     }    
 }
@@ -423,22 +396,19 @@
     .college-profile {
 
         .left-cards {
-
             width: 25%;
-            padding: 1%;
+            margin: 0;
         }
 
 
         .center-cards {
-            position: absolute;
-            left: 25%;
-            width: 50%;
-            margin-left: 0;
+            width: 49%;
+            margin: 0;
         }
 
         .right-cards {
-            right: 0;
             width: 25%;
+            margin: 0;
         }
 
         .about-card .link a:before {
