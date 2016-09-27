@@ -55,8 +55,15 @@
                 </div>
                 <div class="comments">
                     <article ng-if="timeline.conversations.length === 0" class="no-conversations">
-                        <h2>Esta faculdade ainda não tem comentários</h2>
-                        <label for="comment-switch" class="no-comments-label">Escreva um comentário ou faça uma pergunta</label>
+                        <h2>{{"colleges.profile.no.comments.yet" | translate}}</h2>
+                        <a ng-if="!isLogged" ng-href="{{loginThenCommentsUrl}}">{{"colleges.profile.leave.comment" | translate}}</a>
+                        <form angular-validator-submit="leaveComment()" name="leaveCommentForm" novalidate angular-validator method="POST" class="leave-comment" ng-if="isLogged">
+                            <p class="btn-comment">{{"colleges.profile.leave.comment" | translate}}</p>
+                            <div class="hided-content">
+                                <textarea name="comment" ng-model="comment.text" class="comment-field" ng-enter></textarea>
+                            </div>
+                            <input value="" type="submit" class="btn-comment-confirm">
+                        </form>
                     </article>
                     <article ng-repeat="conversation in timeline.conversations" class="conversation">
                         <label for="messages-box-{{conversation.id}}" class="switch-conversation" ng-class="{'non-selectable': conversation.messages.length === 1 }">
@@ -80,18 +87,17 @@
                                 <form angular-validator-submit="replyComment(conversation.id, $parent.$index)" name="replyCommentForm" novalidate angular-validator method="POST" ng-if="canLoggedUserReply(conversation.studentId)" class="answer">
                                     <p>Responder</p>
                                     <div class="reply-field">
-                                        <textarea name="reply" ng-model="reply.text"></textarea>
+                                        <textarea name="reply-{{conversation.id}}" ng-model="reply.text" ng-enter></textarea>
                                         <input value="" type="submit" class="btn-reply" >
                                     </div>
                                 </form>
                             </main>
                         </label>
-
                     </article>
-                    <form angular-validator-submit="leaveComment()" name="leaveCommentForm" novalidate angular-validator method="POST" class="leave-comment">
+                    <form angular-validator-submit="leaveComment()" name="leaveCommentForm" novalidate angular-validator method="POST" class="leave-comment" ng-if="timeline.conversations.length !== 0">
                         <p class="btn-comment">{{"colleges.profile.leave.comment" | translate}}</p>
                         <div class="hided-content">
-                            <textarea name="comment" ng-model="comment.text" class="comment-field"></textarea>
+                            <textarea name="comment" ng-model="comment.text" class="comment-field" ng-enter></textarea>
                         </div>
                         <input value="" type="submit" class="btn-comment-confirm">
                     </form>
@@ -127,9 +133,6 @@
                     <p ng-if="college.phone !== undefined" class="phone">{{"colleges.profile.contact.phone" | translate}}:</p><p>{{college.phone}}</p>
                 </div>
             </main>
-        </article>
-        <article class="comment-card box-shadow" ng-if="!isLogged">
-            <a ng-href="{{loginThenCommentsUrl}}">{{"colleges.profile.leave.comment" | translate}}</a>
         </article>
         <article class="about-card box-shadow ">
             <header><h2>{{"colleges.profile.about" | translate}}</h2></header>
