@@ -2,6 +2,10 @@
 @import 'fonts';
 @import 'colors';
 
+html{
+    height:100%;
+}
+
 .row {
     margin-right: 0 !important;
     margin-left: 0 !important;
@@ -43,6 +47,11 @@
 
 body {
     font-family: $font-default;
+    height: 100%;
+}
+
+.full-height{
+    height: 100%;
 }
 
 #loading-bar .bar {
@@ -59,4 +68,5 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background-color: $light-blue;
+    border-left: 1px solid $light-gray;
 }

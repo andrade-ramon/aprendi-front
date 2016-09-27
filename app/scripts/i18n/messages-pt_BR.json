@@ -40,6 +40,9 @@
     "home.search.form.college.btn.search":"Buscar",
     "home.search.form.course.btn.search":"Buscar",
 
+    "404.title":"404",
+    "404.subtitle":"A página que você procura não existe",
+    "404.form.title":"Que tal realizar uma busca?",
 
     "login.inform.credentials":"Informe suas credênciais",
     "login.login":"Login",

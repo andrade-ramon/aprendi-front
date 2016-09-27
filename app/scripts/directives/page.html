@@ -3,7 +3,7 @@
 <growl-notifications/>
 <growl-notification  ng-if="showMessage" ttl="2000" on-close="deleteNotification()" ng-class="growlType" class="box-growl fade-out" >{{growlMessage}}</growl-notification>
 
-<main class="{{mainClass}}">
+<main class="{{mainClass}} page-main">
     <ng-transclude/>
 </main>
 
