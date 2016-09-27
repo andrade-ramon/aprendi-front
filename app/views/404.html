@@ -1,0 +1,25 @@
+<page show-search="false" main-class="not-found-box">
+	<div class="col-md-8 col-md-offset-2 text-center">
+		<h1 class="text-center">{{"404.title"|translate}}</h1>
+		<h2 class="text-center">{{"404.subtitle"|translate}}</h2>
+
+		<form ng-submit="collegeSearch()" class="form-search col-md-10 col-md-offset-1">
+			<label class="title">{{"404.form.title"|translate}}</label>
+			<div class="input-group">
+				<div class="input-group-btn">
+					<select class="form-control search-type">
+						<option value="college" selected>{{"page.menu.search.colleges"|translate}}</option>
+						<option value="course">{{"page.menu.search.courses"|translate}}</option>
+					</select>
+				</div>
+				
+				<input type="text" class="form-control" ng-model="search.query">
+				
+				<span class="input-group-btn">
+		        	<button type="submit" class="btn btn-default btn-search">{{"page.menu.search.button"|translate}}</button>
+		      	</span>
+			</div>
+		</form>
+
+	</div>
+</page>

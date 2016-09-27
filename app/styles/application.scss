@@ -47,10 +47,10 @@ html{
 
 body {
     font-family: $font-default;
-    height: calc(100% - 0.1em);
+    height: 100%;
 }
 
-.height-page{
+.full-height{
     height: 100%;
 }
 
@@ -68,4 +68,5 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background-color: $light-blue;
+    border-left: 1px solid $light-gray;
 }

@@ -1,41 +1,56 @@
-@import 'colors';
-@import 'fonts';
 @import 'images';
 
-.back-box{
-	background-color: rgba(56, 82, 107, 0.85);
+.not-found-box{
 	height: 100%;
-    font-family: Candara;
-    color: #f9f3f3;	
-    margin-bottom:1em;
-    text-align: left;
-    overflow: hidden;
+	background:
+		linear-gradient(135deg, #4896D9 22px, #337AB7 22px, #337AB7 24px, transparent 24px, transparent 67px, #337AB7 67px, #337AB7 69px, transparent 69px),
+		linear-gradient(225deg, #4896D9 22px, #337AB7 22px, #337AB7 24px, transparent 24px, transparent 67px, #337AB7 67px, #337AB7 69px, transparent 69px)0 64px;
+	background-color:#4896D9;
+	background-size: 64px 128px;
 
-	.ops{
+
+	color: #fff;
+	h1, h2 {
+		font-weight: 300;
+	}
+
+	h1 {
 		font-size: 9.5em;
-	    font-weight: bolder;
-	    margin-left: 10%;
+		margin-top: .6em;
 	}
 
-	.page-not-found{
-	    margin-left: 10%;
-	}
+	h2 {
+		font-size: 2em;
+		margin-top: -.8em;
+	}	
 
 	.form-search {
-		font-family: $font-default;
-		margin-top: 1em;
+		font-weight: 300;
+		margin-top: 5em;
 
-		label {
-			margin-top: 2em;
+		.title {
+			margin-top: .5em;
+			font-size: 1.3em;
+			font-weight: 300;
 		}
-		input {
-			font-size: 1.4em;
-			padding: 20px 10px;
-		}
-		.btn {
-			padding-top: .7em;
-			padding-bottom: .7em;
-		}
+
+		input,button, select {height: 3em;}
+
+		.search-type {
+	        cursor: pointer;
+	        padding: .2em .4em;
+	        width: 8em;
+	        border-radius: 0;
+	        border-top-left-radius: 4px;
+	        border-bottom-left-radius: 4px;
+	        border-right: none;
+	        box-shadow: none;
+	        background-image: url($images-path + 'arrow-down.svg');
+	        background-repeat: no-repeat;
+	        background-position: 6.5em center;
+	        -webkit-appearance: none;
+	           -moz-appearance: none;
+	                appearance: none;
+        }
 	}
 }
-
