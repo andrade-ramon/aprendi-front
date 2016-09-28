@@ -1,0 +1,125 @@
+@import 'fonts';
+
+.modal.asign-student {
+
+    header {
+        text-align: center;
+    }
+
+    .modal-content   {
+        border-radius: 2px;
+        padding: 1em;
+
+        .modal-field {
+            padding: 0.5em;
+            width: 30%;
+            font-size: 1.2em;
+            letter-spacing: 0.1em;
+
+            &:focus {
+                outline: none;
+                box-shadow: 0px 0px 3px 2px rgba(51,122,183,0.75);
+                border: 2px solid transparent;
+            }
+        }
+
+        .addresses {
+            position: relative;
+            width: 30%;
+            @include transition(border 0.1s);
+            display: inline-block;
+
+            &:after {
+                content: '';
+                position: absolute;
+                right: 12px;
+                top: calc(50% - 3px);
+                width: 0;
+                height: 0;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-top: 6px solid $text-gray;
+                @include transition(border 0.1s);
+            }
+
+            &:hover {
+
+                &:after {
+                    border-top: 6px solid $light-blue;
+                }
+
+                select {
+                    border: 2px solid $light-blue;
+                }
+            }
+
+            select {
+                border: 2px solid $gray;
+                background: transparent;
+                width: 100%;
+                padding: 0.5em;
+                font-size: 1.2em;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0px 0px 3px 2px rgba(51,122,183,0.75);
+                    border: 2px solid transparent;
+                }
+            }
+        }
+    }
+
+    main {
+        padding: 2em;
+        text-align: center;
+
+        .information {
+            display: block;
+            width: 100%;
+
+            > p {
+                width: 30%;
+                font-size: 1.2em;
+                text-align: left;
+                display: inline-block;
+            }
+        }
+    }
+
+    footer {
+        text-align: right;
+    }
+
+    %btn-modal {
+        border: none;
+        border-radius: 3px;
+        color: white;
+        font-size: 1.4em;
+        padding: 0.3em 0.5em;
+        @include transition(border 0.1s);
+    }
+
+    .btn-back {
+        @extend %btn-modal;
+        background-color: $gray;
+        margin-right: 0.5em;
+        border-bottom: 2px solid $gray;
+
+        &:hover {
+            border-bottom: 2px solid $text-gray;
+        }
+    }
+    .btn-check {
+        @extend %btn-modal;
+        background-color: $message-green;
+        border-bottom: 2px solid $message-green;
+
+        &:hover {
+            border-bottom: 2px solid $flat-green;
+        }
+    }
+
+}

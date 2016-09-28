@@ -137,7 +137,7 @@
         <article class="about-card box-shadow ">
             <header><h2>{{"colleges.profile.about" | translate}}</h2></header>
             <nav>
-                <div class="link"><a class="about-user" href="#">{{"colleges.profile.about.user" | translate}}</a></div>
+                <div class="link"><a class="about-user" data-target="#asign-student" data-toggle="modal" target="_blank" href ng-click="listCampus()">{{"colleges.profile.about.user" | translate}}</a></div>
                 <div class="link"><a class="about-students" href="#">{{"colleges.profile.about.students" | translate}}</a></div>
                 <div class="link"><a class="about-courses" href="#">{{"colleges.profile.about.courses" | translate}}</a></div>
                 <div class="link"><a class="about-local" href="#">{{"colleges.profile.about.local" | translate}}</a></div>
@@ -155,5 +155,31 @@
             </nav>
         </article>
     </div>
-    <div class="clearfix"></div>
+    <article class="modal fade asign-student" id="asign-student" tabindex="-1" role="dialog" aria-labelledby="Confirmar matricula" aria-hidden="true">
+        <section class="modal-dialog modal-lg">
+            <form angular-validator-submit="asignStudent()" name="asignStudentForm" novalidate angular-validator method="POST" class="modal-content">
+                <header>
+                    <h3>Confirmar matrícula nesta faculdade</h3>
+                </header>
+                <main>
+                    <label class="information">
+                        <p>Identificador do aluno</p>
+                        <input name="studentRa" class="modal-field" placeholder="Ex: 201694020" ng-model="asign.ra" ui-number-mask="0" ui-hide-group-sep>
+                    </label>
+                    <label class="information">
+                        <p>Campus</p>
+                        <div class="addresses">
+                        <select>
+                            <option value="{{address.address}}" ng-repeat="address in campus">{{address.address}}</option>
+                        </select>
+                    </div>
+                    </label>
+                </main>
+                <footer>
+                    <button type="button" class="btn-back" data-dismiss="modal">Voltar</button>
+                    <input value="Confirmar" type="submit" class="btn-check">
+                </footer>
+            </form>
+        </section>
+    </article>
 </page>

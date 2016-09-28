@@ -106,4 +106,28 @@ app.controller('CollegeProfileCtrl', function (User, $scope, $http, $route, $rou
     $scope.focusText = function() {
         angular.element('textarea[name="comment"]').focus();
     };
+
+    $scope.asignStudent = function() {
+        $http({
+            method: 'POST',
+            url: ENV.API.COLLEGE.COMMENTS.REPLY.replace(ENV.ARG1, collegeId).replace(ENV.ARG2, conversationId),
+
+
+
+
+
+
+
+
+            
+            data: {'messageText': $scope.reply.text}
+        }).then(function success(response) {
+            var lastMessageIndex = response.data.messages.length - 1;
+            $scope.timeline.conversations[index].messages.push(response.data.messages[lastMessageIndex]);
+            $scope.reply.text = "";
+        }, function error() {
+            messagesContainer.addError("Não foi possível responder um comentário, tente mais tarde");
+            $route.reload();
+        });     
+    };
 });
