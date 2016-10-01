@@ -2,6 +2,7 @@ app.controller('CollegeProfileCtrl', function (User, $scope, $http, $route, $rou
 
     $scope.comment = {};
     $scope.reply = {};
+    $scope.asign = {};
 
     var collegeId = $routeParams.collegeId;
     $scope.loginThenCommentsUrl =  '/login?redirectAfterLogin=' + encodeURIComponent('/faculdades/' + collegeId);
@@ -108,26 +109,18 @@ app.controller('CollegeProfileCtrl', function (User, $scope, $http, $route, $rou
     };
 
     $scope.asignStudent = function() {
-        $http({
-            method: 'POST',
-            url: ENV.API.COLLEGE.COMMENTS.REPLY.replace(ENV.ARG1, collegeId).replace(ENV.ARG2, conversationId),
-
-
-
-
-
-
-
-
-            
-            data: {'messageText': $scope.reply.text}
-        }).then(function success(response) {
-            var lastMessageIndex = response.data.messages.length - 1;
-            $scope.timeline.conversations[index].messages.push(response.data.messages[lastMessageIndex]);
-            $scope.reply.text = "";
+        var asignData = {};
+        asignData.collegeAddressId = $scope.asign.collegeAddress.id;
+        asignData.studentRa = $scope.asign.ra;
+        asignData.collegeId = collegeId;
+        $http.post(ENV.API.COLLEGE.ASIGN.replace(ENV.ARG1, collegeId), asignData)
+        .then(function success() {
+            $('.modal').fadeOut();
+            $('.modal-backdrop').fadeOut();
+            messagesContainer.addSuccess("Registrado na faculdade");
         }, function error() {
             messagesContainer.addError("Não foi possível responder um comentário, tente mais tarde");
             $route.reload();
         });     
     };
-});
+}); 
