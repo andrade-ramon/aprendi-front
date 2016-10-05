@@ -134,5 +134,17 @@
     "colleges.profile.footer.test":"Teste vocacional",
     "colleges.profile.footer.colleges":"Faculdades",
 
+    "college.ranking.title":"Ranking de faculdades",
+    "college.ranking.filter.0":"Geral",
+    "college.ranking.filter.1":"Infraestrutura",
+    "college.ranking.filter.2":"Preço",
+    "college.ranking.filter.3":"Ensino",
+    "college.ranking.table.position":"Posição",
+    "college.ranking.table.college":"Faculdade",
+    "college.ranking.table.total":"Tot. Avaliações",
+    "college.ranking.table.grade":"Nota",
+    "college.ranking.table.update":"Última atualização",
+
+
     "hades.facebookaccount.notallowed":"Contas criadas via Facebook não podem ser utilizadas nesta operação"
 }

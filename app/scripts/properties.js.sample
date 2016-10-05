@@ -22,6 +22,9 @@ app.constant('ENV', (function() {
         ASSIGN: api + '/colleges/{0}/assign',
         RATINGS: api + '/colleges/{0}/ratings'
       },
+      RANK: {
+        COLLEGE: api + '/rank/colleges/{0}'
+      },
       SEARCH: {
         COLLEGE: api + '/colleges/search/'
       },

@@ -1,0 +1,38 @@
+<page main-class="ranking-box">
+	<header>
+		<div class="col-md-10 col-md-offset-1">
+			<h1>{{"college.ranking.title" | translate}}</h1>
+			<h2>com avaliações de alunos</h2>
+			<select class="ranking-type" ng-model="rank.type" ng-change="loadRank()">
+				<option value="GENERAL_RANK">{{"college.ranking.filter.0" | translate}}</option>
+				<option value="INFRA_RANK">{{"college.ranking.filter.1" | translate}}</option>
+				<option value="PRICE_RANK">{{"college.ranking.filter.2" | translate}}</option>
+				<option value="TEACH_RANK">{{"college.ranking.filter.3" | translate}}</option>
+			</select>
+		</div>
+	</header>
+
+
+	<div class="ranking col-md-10 col-md-offset-1">
+		<span class="title col-md-12"></span>
+
+		<table class="table">
+			<tr cols>
+				<th class="text-center">{{"college.ranking.table.position" | translate}} <i class=""></i></th>
+				<th>{{"college.ranking.table.college" | translate}}</th>
+				<th class="text-center">{{"college.ranking.table.total" | translate}}</th>
+				<th class="text-center">{{"college.ranking.table.grade" | translate}}</th>
+				<th class="text-center">{{"college.ranking.table.update" | translate}}</th>
+			</tr>
+			<tr ng-repeat="rank in rank.colleges">
+				<td class="text-center">{{rank.position}}</td>
+				<td><a href="/faculdades/{{rank.collegeId}}">{{rank.collegeName}}</a></td>
+				<td class="text-center">{{rank.totalGrades}}</td>
+				<td class="text-center">{{rank.grade | number}}</td>
+				<td class="text-center">{{rank.lastUpdate}}</td>
+			</tr>
+		</table>
+
+		<pagination page="{{rank.actualPage}}" total-pages="{{rank.totalPages}}" link="/ranking" class="pull-right"/>
+	</div>
+</page>

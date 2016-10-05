@@ -80,6 +80,10 @@ zeusDirectives.directive('pagination',function($filter) {
             attrs.$observe('page', function(value){
                 scope.page = value;
             });
+
+            attrs.$observe('link', function(value){
+                scope.paginationLink = value;
+            });
         }
     }; 
 });
