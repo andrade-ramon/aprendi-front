@@ -3,10 +3,9 @@
 @import 'mixins';
 @import 'buttons';
 @import 'conversation';
+@import 'modal-assign-student';
 
 .college-profile {
-    margin-top: 0.5em;
-    position: relative;
 
     .initials {
         font-size: 1.8em;

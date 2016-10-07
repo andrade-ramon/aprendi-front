@@ -10,7 +10,7 @@
                 <dl class="details">
                     <div>
                         <dt>{{"colleges.profile.students" | translate}}</dt>
-                        <dd>0</dd>
+                        <dd>{{college.studentsCount}}</dd>
                     </div>
                     <div>
                         <dt>{{"colleges.profile.grades" | translate}}</dt>
@@ -137,7 +137,9 @@
         <article class="about-card box-shadow ">
             <header><h2>{{"colleges.profile.about" | translate}}</h2></header>
             <nav>
-                <div class="link"><a class="about-user" href="#">{{"colleges.profile.about.user" | translate}}</a></div>
+                <div class="link">
+                    <a class="about-user" data-target="#assign-student" data-toggle="modal" target="_blank" href ng-click="listCampus()">{{"colleges.profile.about.user" | translate}}</a>
+                </div>
                 <div class="link"><a class="about-students" href="#">{{"colleges.profile.about.students" | translate}}</a></div>
                 <div class="link"><a class="about-courses" href="#">{{"colleges.profile.about.courses" | translate}}</a></div>
                 <div class="link"><a class="about-local" href="#">{{"colleges.profile.about.local" | translate}}</a></div>
@@ -155,5 +157,34 @@
             </nav>
         </article>
     </div>
-    <div class="clearfix"></div>
+    
+    <article class="modal fade assign-student" id="assign-student" tabindex="-1" role="dialog" aria-labelledby="Confirmar matricula" aria-hidden="true">
+        <section class="modal-dialog modal-lg">
+            <form angular-validator-submit="assignStudent()" name="assignStudentForm" novalidate angular-validator method="POST" class="modal-content">
+                <header>
+                    <h3>Confirmar matrícula nesta faculdade</h3>
+                </header>
+                <main>
+                    <label class="information text-right">
+                        <p>Identificador do aluno</p>
+                        <input name="studentRa" class="modal-field" placeholder="Ex: 201694020" ng-model="assign.ra">
+                    </label>
+                    <label class="information text-right">
+                        <p>Campus</p>
+                        <div class="addresses">
+                            <select name="collegeAddress" 
+                                ng-model="assign.collegeAddress" 
+                                ng-options="address.address for address in campus"
+                                ng-init="assign.collegeAddress=campus[1]"/>
+                        </div>
+                    </label>
+                </main>
+                <footer>
+                    <button type="button" class="btn-back" data-dismiss="modal">Voltar</button>
+                    <input value="Confirmar" type="submit" class="btn-check">
+                </footer>
+            </form>
+        </section>
+    </article>
+
 </page>

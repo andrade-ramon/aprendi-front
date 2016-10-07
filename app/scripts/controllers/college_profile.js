@@ -2,6 +2,7 @@ app.controller('CollegeProfileCtrl', function (User, $scope, $http, $route, $rou
 
     $scope.comment = {};
     $scope.reply = {};
+    $scope.assign = {};
 
     var collegeId = $routeParams.collegeId;
     $scope.loginThenCommentsUrl =  '/login?redirectAfterLogin=' + encodeURIComponent('/faculdades/' + collegeId);
@@ -106,4 +107,20 @@ app.controller('CollegeProfileCtrl', function (User, $scope, $http, $route, $rou
     $scope.focusText = function() {
         angular.element('textarea[name="comment"]').focus();
     };
-});
+
+    $scope.assignStudent = function() {
+        var assignData = {};
+        assignData.collegeAddressId = $scope.assign.collegeAddress.id;
+        assignData.studentRa = $scope.assign.ra;
+        assignData.collegeId = collegeId;
+        $http.post(ENV.API.COLLEGE.ASSIGN.replace(ENV.ARG1, collegeId), assignData)
+        .then(function success() {
+            $('.modal').fadeOut();
+            $('.modal-backdrop').fadeOut();
+            messagesContainer.addSuccess("Registrado na faculdade");
+        }, function error() {
+            messagesContainer.addError("Não foi possível responder um comentário, tente mais tarde");
+            $route.reload();
+        });     
+    };
+}); 

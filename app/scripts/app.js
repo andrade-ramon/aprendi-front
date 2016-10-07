@@ -13,7 +13,8 @@ var app = angular.module('app', [
     'ezfb',
     'hljs',
     'angular-loading-bar',
-    'angularMoment'
+    'angularMoment',
+    'ui.utils.masks'
 ]);
 
 window.routes = {
