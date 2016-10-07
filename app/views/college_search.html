@@ -1,8 +1,9 @@
 <page main-class="search">
-    <h1>{{"colleges.search.title" | translate}}</h1>
-    <p ng-if="response.totalResults" class="results-count">({{response.totalResults}} {{"colleges.search.results" | translate}})</p>
+    <div class="title-row">
+        <h1>{{"colleges.search.title" | translate}}</h1>
+        <p ng-if="response.totalResults" class="results-count">({{response.totalResults}} {{"colleges.search.results" | translate}})</p>
+    </div>
     <aside class="advanced">
-        
         <input id="filter" type="radio" name="tab-group" class="pane" checked/>
         <label for="filter" class="tab-label">{{"colleges.search.menu.filter" | translate}}</label>
 
