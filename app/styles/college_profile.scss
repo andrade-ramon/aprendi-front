@@ -3,90 +3,62 @@
 @import 'mixins';
 @import 'buttons';
 @import 'conversation';
+@import 'base-college-profile';
 
 .college-profile {
-    margin-top: 0.5em;
-    position: relative;
+    .tab {
+        display: none;
+        width: 0;
+        visibility: hidden;
 
-    .initials {
-        font-size: 1.8em;
-        text-align: center;
-        margin-bottom: 0.5em;
-        margin-top: 0;
-        width: 100%;
-        padding: 2%;
-    }
-
-    .card {
-        background: white;
-        display: inline-block;
-        border: 0.1em solid $gray;
-    }
-    .selectable-card {
-        @include transition(border 0.2s);
-        cursor: pointer;
-
-        &:hover { border: 0.1em solid $light-blue; }
-    }
-
-    .college-card {
-        @extend .card;
-        height: 24em;
-        width: 100%;
-
-        header {
+        &:hover + .tab-label {
+            color: $dark-gray;
+        }
+        &:checked + .tab-label {
+            background-color: white;
+            color: #444;
             position: relative;
-            display: block;
-            width: 100%;
-            height: 50%;
-
-            .college-background {
-                width: 100%;
-                height: 100%;
-                background-size: cover;
-                background-position: center;
-            }
-
-            .college-logo {
-                position: absolute;
-                width: 5em;
-                height: 5em;
-                border: 1px solid white;
-                bottom: -2.5em;
-                left: calc(50% - 2.5em);
-                border-radius: 50%;
-                background-color: white;
-                background-repeat: no-repeat;
-                background-position: center;
-                box-shadow: 0 2px 3px rgba(233,239,243,0.52), 0 1px 3px rgba(233,239,243,0.64);
-            }
+            z-index: 2;
+            margin: 0;
+            @include transition(.1s);
         }
-        main {
-            margin-top: 4em;
-            display: block;
-            text-align: center;
+    }
+    .tab-label {
+        width: 50%;
+        color: $light-blue;
+        cursor: pointer;
+        display: block;
+        float: left;
+        font-size: 1em;
+        height: 2.5em;
+        line-height: 2.5em;
+        margin-bottom: 0;
+        vertical-align: bottom;
+        padding: 0 1.5em;
+        border: 0.1em solid $gray;
+        border-bottom: none;
+        text-align: center;
+    }
 
-            .name {
-                font-size: 1.2em;
-                margin:0 0.5em;
-            }
+    .posts,
+    .comments {
+        opacity: 0;
+        z-index: -1;
+        @include transition(all linear 0.1s);
+        width: 100%;
+        height: 30em;
+        overflow-y: scroll;
+    }
 
-            .details {
-                display: block;
-
-                div:first-of-type {
-                    margin-top: 1em;
-                    width: 50%;
-                    float: left;
-                    border-right: 1px solid #E9EFF3;
-                }
-                div:last-of-type {
-                    margin-top: 1em;
-                    float: right;
-                    width: 50%;
-                }
-            }
-        }
+    input#posts-tab:checked ~ .timeline-card .posts,
+    input#comments-tab:checked ~ .timeline-card .comments {
+        opacity: 1;
+        z-index: 1;
+    }
+    .comments {
+        position: absolute;
+        left: 0;
+        top:0;
     }
 
     .selectable {
@@ -122,64 +94,6 @@
                 }
             }
         }
-    }
-
-    .informations {
-        .tab {
-            display: none;
-            width: 0;
-            visibility: hidden;
-
-            &:hover + .tab-label {
-                color: $dark-gray;
-            }
-            &:checked + .tab-label {
-                background-color: white;
-                color: #444;
-                position: relative;
-                z-index: 2;
-                margin: 0;
-                @include transition(.1s);
-            }
-        }
-        .tab-label {
-            width: 50%;
-            color: $light-blue;
-            cursor: pointer;
-            display: block;
-            float: left;
-            font-size: 1em;
-            height: 2.5em;
-            line-height: 2.5em;
-            margin-bottom: 0;
-            vertical-align: bottom;
-            padding: 0 1.5em;
-            border: 0.1em solid $gray;
-            border-bottom: none;
-            text-align: center;
-        }
-
-        .posts,
-        .comments {
-            opacity: 0;
-            z-index: -1;
-            @include transition(all linear 0.1s);
-            width: 100%;
-            height: 30em;
-            overflow-y: scroll;
-        }
-
-        input#posts-tab:checked ~ .timeline-card .posts,
-        input#comments-tab:checked ~ .timeline-card .comments {
-            opacity: 1;
-            z-index: 1;
-        }
-        .comments {
-            position: absolute;
-            left: 0;
-            top:0;
-        }
-
     }
 
     .timeline-card {
@@ -220,199 +134,4 @@
             }
         }
     }
-    .courses-card {
-        @extend .card;
-        width: 100%;
-        margin-top: 2em;
-
-        h2 {
-            text-align: center;
-            font-size: 1em;
-        }
-
-        hr {
-            margin: 0 1.5em;
-        }
-
-        .list {
-            list-style: none;
-            padding: 0;
-
-            li {
-                margin: 1em;
-                display: block;
-                text-align: center;
-            }
-        }
-
-        .question {
-            background-color: $light-gray;
-            height: 100%;
-            padding: 1em 1em 0;
-            border-top: 0.1em solid $gray;
-            text-align: center;
-        }
-    }
-
-    .contact-card {
-        @extend .card;
-        padding: 1em;
-        width: 100%;
-        margin-bottom: 2em;
-
-        h2 {
-            font-size: 1.2em;
-            margin-top: 0;
-            text-align: center;
-        }
-        .contact-row {
-            display: block;
-            
-            p {
-                display: inline-block;
-
-                &:first-of-type {width: 6em;}
-            }
-        }
-    }
-
-    .about-card {
-        @extend .card;
-        padding: 1em;
-        width: 100%;
-        margin-bottom: 2em;
-
-        h2 {
-            font-size: 1.2em;
-            margin-top: 0;
-            text-align: center;
-        }
-
-        .about-user:before { background: white url($images-path + "about-user.svg") no-repeat bottom left;}
-        .about-students:before { background: white url($images-path + "about-students.svg") no-repeat bottom left;}
-        .about-courses:before { background: white url($images-path + "about-courses.svg") no-repeat bottom left;}
-        .about-local:before { background: white url($images-path + "about-local.svg") no-repeat bottom left;}
-
-        .link { 
-            display: block;
-
-            a {
-                cursor: pointer;
-
-                &:before {
-                    content: '';
-                    display: none;
-                    width: 2em;
-                    height: 2em;
-                    background-size: 1.2em;
-                }
-            }
-        }        
-    }
-
-    .footer-card {
-        @extend .card;
-        padding: 1em;
-        width: 100%;
-
-        p { 
-            display: block;
-            text-align: center;
-        }
-
-        .links {
-            a {margin: 0 0.3em;}
-        }
-    }
-
-    .left-cards {
-        display: inline-block;
-        width: 96%;
-        margin-left: 2%;
-        padding: 1%;
-    }
-
-    .center-cards {
-        display: inline-block;
-        width: 96%;
-        padding: 1%;
-        margin-left: 2%;
-    }
-
-    .right-cards {
-        display: inline-block;
-        width: 96%;
-        margin-left: 2%;
-        padding: 1%;
-    }
-}
-
-@media (min-width: 450px) {
-    .college-profile {
-
-        .left-cards {
-            width: 80%;
-            margin-left: 10%;
-        }
-
-        .center-cards {
-            width: 80%;
-            margin-left: 10%;
-        }
-
-        .right-cards {
-            width: 80%;
-            margin-left: 10%;
-        }
-    }
-}
-
-@media (min-width: 700px) {
-
-    .college-profile {
-
-        .left-cards {
-            width: 38%;
-            padding: 1%;
-            margin: 0;
-        }
-
-        .center-cards {
-            width: 58%;
-            padding: 1%;
-            margin: 0;
-        }
-
-        .right-cards {
-            width: 96%;
-            padding: 1%;
-            margin: 0;
-        }
-    }    
-}
-
-@media (min-width: 1000px) {
-
-    .college-profile {
-
-        .left-cards {
-            width: 25%;
-            margin: 0;
-        }
-
-
-        .center-cards {
-            width: 49%;
-            margin: 0;
-        }
-
-        .right-cards {
-            width: 25%;
-            margin: 0;
-        }
-
-        .about-card .link a:before {
-            display: inline-block;
-        }
-    }    
 }
