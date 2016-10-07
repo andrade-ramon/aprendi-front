@@ -2,30 +2,30 @@
 @import 'fonts';
 @import 'images';
 
-body {
-    background-color: $light-gray;
-}
-
 .search {
+    background-color: $light-gray;
 
-    h1 {
-        color: $dark-gray;
+    .title-row {
         display: block;
-        text-align: center;
-    }
 
-    .results-count {
-        font-size: 1.2em;
-        display: block;
-        text-align: center;
-    }
+        h1 {
+            color: $dark-gray;
+            display: block;
+            text-align: center;
+        }
 
+        .results-count {
+            font-size: 1.2em;
+            display: block;
+            text-align: center;
+        }
+    }
 }
 
 .advanced {
     display: none;
     position: absolute;
-    top: 5em;
+    top: 6em;
     left: 0;
     width: 20%;
     margin: 2%;
@@ -138,6 +138,7 @@ body {
     display: inline-block;
     width: 98%;
     margin-left: 2%;
+    min-height: 36em;
 
     .order {
         margin-top: 0.7em;
