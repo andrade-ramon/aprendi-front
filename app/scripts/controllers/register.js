@@ -1,4 +1,4 @@
-app.controller('RegisterCtrl', function ($scope, $http, $location, ENV, messagesContainer, User) {
+app.controller('RegisterCtrl', function ($scope, $http, $location, ENV, messagesContainer, Facebook, User) {
 	$scope.user = {};
 
 	$scope.register = function() {
@@ -22,4 +22,8 @@ app.controller('RegisterCtrl', function ($scope, $http, $location, ENV, messages
 	    	}
 	    });
 	};
+
+	$scope.loginFacebook = function () {
+        Facebook.loginFacebook();
+    };
 });
