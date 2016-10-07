@@ -2,7 +2,7 @@ app.controller('CollegeProfileCtrl', function (User, $scope, $http, $route, $rou
 
     $scope.comment = {};
     $scope.reply = {};
-    $scope.asign = {};
+    $scope.assign = {};
 
     var collegeId = $routeParams.collegeId;
     $scope.loginThenCommentsUrl =  '/login?redirectAfterLogin=' + encodeURIComponent('/faculdades/' + collegeId);
@@ -108,12 +108,12 @@ app.controller('CollegeProfileCtrl', function (User, $scope, $http, $route, $rou
         angular.element('textarea[name="comment"]').focus();
     };
 
-    $scope.asignStudent = function() {
-        var asignData = {};
-        asignData.collegeAddressId = $scope.asign.collegeAddress.id;
-        asignData.studentRa = $scope.asign.ra;
-        asignData.collegeId = collegeId;
-        $http.post(ENV.API.COLLEGE.ASIGN.replace(ENV.ARG1, collegeId), asignData)
+    $scope.assignStudent = function() {
+        var assignData = {};
+        assignData.collegeAddressId = $scope.assign.collegeAddress.id;
+        assignData.studentRa = $scope.assign.ra;
+        assignData.collegeId = collegeId;
+        $http.post(ENV.API.COLLEGE.ASSIGN.replace(ENV.ARG1, collegeId), assignData)
         .then(function success() {
             $('.modal').fadeOut();
             $('.modal-backdrop').fadeOut();

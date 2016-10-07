@@ -1,6 +1,6 @@
 @import 'fonts';
 
-.modal.asign-student {
+.modal.assign-student {
 
     header {
         text-align: center;
@@ -16,7 +16,7 @@
 
         .modal-field {
             padding: 0.5em;
-            width: 30%;
+            width: 60%;
             font-size: 1.2em;
             letter-spacing: 0.1em;
 
@@ -29,7 +29,7 @@
 
         .addresses {
             position: relative;
-            width: 30%;
+            width: 60%;
             @include transition(border 0.1s);
             display: inline-block;
 
