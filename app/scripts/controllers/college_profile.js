@@ -1,8 +1,12 @@
-app.controller('CollegeProfileCtrl', function (User, College, $scope, $http, $route, $routeParams,$location, messagesContainer, ENV) {
+app.controller('CollegeProfileCtrl', function (User, College, Rating, $scope, $http, $route, $routeParams,$location, messagesContainer, ENV) {
 
     $scope.comment = {};
     $scope.reply = {};
     $scope.assign = {};
+    $scope.rating = {};
+
+    var ratingTypes = Rating.types;
+    $scope.rating.current = ratingTypes[0];
 
     var collegeId = $routeParams.collegeId;
     College.getBaseInfo(collegeId, $scope);
@@ -112,5 +116,20 @@ app.controller('CollegeProfileCtrl', function (User, College, $scope, $http, $ro
             messagesContainer.addError("Não foi possível responder um comentário, tente mais tarde");
             $route.reload();
         });     
+    };
+
+    $scope.saveRating = function() {
+        if (ratingTypes.length > 0) {
+            ratingTypes.shift();
+            $scope.rating.current = ratingTypes[0];
+            $http.post(ENV.API.COLLEGE.RATING.replace(ENV.ARG1, collegeId), $scope.rating.grade)
+            .then(function success() {
+                
+            });
+
+            if (ratingTypes.length === 0 ) {
+                $('.college-card .rating').hide();
+            }
+        }
     };
 }); 

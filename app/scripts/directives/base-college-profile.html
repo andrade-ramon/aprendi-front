@@ -1,23 +1,49 @@
 <div class="left-cards">
-    <article class="college-card box-shadow ">
-        <header>
-            <img src="../images/book.jpg" class="college-background">
-            <img src="../images/college.png" class="college-logo">
-        </header>
-        <main>
-            <h2 class="name">{{college.initials}}</h2>
-            <dl class="details">
-                <div>
-                    <dt>{{"colleges.profile.students" | translate}}</dt>
-                    <dd>{{college.studentsCount}}</dd>
-                </div>
-                <div>
-                    <dt>{{"colleges.profile.grades" | translate}}</dt>
-                    <dd>10M</dd>
-                </div>
-            </dl>
-        </main>
-    </article>
+    <input id="rating-switch" type="checkbox"/>
+    <div class="college-card-container">
+        <article class="college-card box-shadow front-card">
+            <header>
+                <img src="../images/book.jpg" class="college-background">
+                <img src="../images/college.png" class="college-logo">
+            </header>
+            <main>
+                <h2 class="name">{{college.initials}}</h2>
+                <dl class="details">
+                    <div>
+                        <dt>{{"colleges.profile.students" | translate}}</dt>
+                        <dd>{{college.studentsCount}}</dd>
+                    </div>
+                    <div>
+                        <dt>{{"colleges.profile.grades" | translate}}</dt>
+                        <dd>0</dd>
+                    </div>
+                </dl>
+                <label for="rating-switch" class="rating">
+                    <p><strong>Avaliar</strong> agora</p>
+                </label>
+            </main>
+        </article>
+        <article class="rating-card box-shadow back-card" ng-if="rating.current">
+            <header>
+                <h3 class="title">Avaliar sobre:</p>
+            </header>
+            <main>
+                <strong class="type">{{("colleges.profile.rating." + rating.current) | translate}}</strong>
+                <form angular-validator-submit="saveRating()" name="saveRatingForm" novalidate angular-validator method="POST" class="stars">
+                    <button value="1" ng-click="rating.grade = 1" class="star"><img src="../images/star.svg" ></button>
+                    <button value="2" ng-click="rating.grade = 2" class="star"><img src="../images/star.svg"></button>
+                    <button value="3" ng-click="rating.grade = 3" class="star"><img src="../images/star.svg"></button>
+                    <button value="4" ng-click="rating.grade = 4" class="star"><img src="../images/star.svg"></button>
+                    <button value="5" ng-click="rating.grade = 5" class="star"><img src="../images/star.svg"></button>
+                </form>
+                <label class="back" for="rating-switch">Voltar</label>
+            </main>
+        </article>
+        <article class="rating-card box-shadow back-card greetings" ng-if="!rating.current">
+            <header><h3 class="title">Obrigado pela avaliação</h3></header>
+            <main><label class="back" for="rating-switch">Voltar</label></main>
+        </article>
+    </div>
     <article class="courses-card box-shadow ">
         <header><h2>{{college.coursesCount}} {{"colleges.profile.courses" | translate}} - <a href="#">{{"colleges.profile.courses.see.all" | translate}}</a></h2></header>
         <hr/>
