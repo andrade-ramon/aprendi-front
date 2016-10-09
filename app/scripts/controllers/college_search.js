@@ -4,6 +4,7 @@ app.controller('CollegeSearchCtrl', function ($scope, $http, $location, $routePa
 
     $scope.search.query = $routeParams.query;
     $scope.page = $routeParams.page === undefined ? '1' : $routeParams.page;
+    $scope.limitPages = 5;
 
     var searchApi = function (filters) {
         delete $scope.response;
