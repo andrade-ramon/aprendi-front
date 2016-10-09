@@ -133,6 +133,15 @@
         background-color: $orange;
     }
 }
+.no-results {
+    text-align: left;
+    display: block;
+    margin-top: 2em;
+
+    h2 { font-size: 1.6em}
+
+    p {font-size: 1.3em}
+}
 
 .results {
     display: inline-block;
