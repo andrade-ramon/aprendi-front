@@ -15,10 +15,10 @@
                     </div>
                     <div>
                         <dt>{{"colleges.profile.grades" | translate}}</dt>
-                        <dd>0</dd>
+                        <dd>{{college.ratingsCount}}</dd>
                     </div>
                 </dl>
-                <label for="rating-switch" class="rating">
+                <label for="rating-switch" class="rating" ng-if="!college.alreadyRated">
                     <p><strong>Avaliar</strong> agora</p>
                 </label>
             </main>

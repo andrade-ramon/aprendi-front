@@ -120,16 +120,21 @@ app.controller('CollegeProfileCtrl', function (User, College, Rating, $scope, $h
 
     $scope.saveRating = function() {
         if (ratingTypes.length > 0) {
+
+            var rating = {value: $scope.rating.grade, origin: $scope.rating.current};
+            $http.post(ENV.API.COLLEGE.RATINGS.replace(ENV.ARG1, collegeId), rating);
+
             ratingTypes.shift();
             $scope.rating.current = ratingTypes[0];
-            $http.post(ENV.API.COLLEGE.RATING.replace(ENV.ARG1, collegeId), $scope.rating.grade)
-            .then(function success() {
-                
-            });
-
             if (ratingTypes.length === 0 ) {
                 $('.college-card .rating').hide();
+                $('#rating-switch').delay(2000).queue(function(next) {
+                    $(this).prop('checked', false);
+                    next();
+                });
+                $scope.college.ratingsCount = $scope.college.ratingsCount + 1;
             }
+
         }
     };
 }); 

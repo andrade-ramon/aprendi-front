@@ -1,6 +1,8 @@
 app.service('College', function($localStorage, $rootScope, $http, ENV) {
 
     this.getBaseInfo = function(collegeId, scope) {
+        scope.college = {};
+        scope.college.alreadyRated = true;
         $http({
             url: ENV.API.COLLEGE.PROFILE + collegeId
         }).then(function success(response) {
