@@ -44,7 +44,6 @@
     "404.subtitle":"A página que você procura não existe",
     "404.form.title":"Que tal realizar uma busca?",
 
-    "login.inform.credentials":"Informe suas credênciais",
     "login.login":"Login",
     "login.inform.login":"Informe seu login",
     "login.inform.credentials":"Informe suas credênciais",
@@ -52,6 +51,7 @@
     "login.inform.password":"Informe sua senha",
     "login.inform.newpassword":"Informe sua nova senha",
     "login.confirm.password":"Confirme sua senha",
+    "login.stay.logged":"Permanecer logado",
     "login.forgot.password":"Esqueci minha senha",
     "login.create.account":"Criar uma conta",
     "login.confirm":"Entrar",

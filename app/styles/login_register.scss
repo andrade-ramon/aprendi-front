@@ -10,6 +10,7 @@
     
     .form-box {
         overflow: hidden;
+        margin-top: 1.5em;
 
         .btn, .form-control {
             border-radius: 2px;
@@ -24,7 +25,7 @@
             height: 30px;
             line-height: 28px;
             transition: all ease-in-out 500ms;
-            margin-top: 2px;
+            margin-bottom: 2em;
 
             .message-icon {
                 width: 30px;

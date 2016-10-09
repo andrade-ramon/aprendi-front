@@ -7,7 +7,7 @@
         <div class="form-box">
             <div class="message-box">
                 <div class="message-icon glyphicon glyphicon-chevron-right"></div>
-                <span class="message-text">Informe suas credênciais.</span>
+                <span class="message-text">{{"login.inform.credentials" | translate}}</span>
             </div>
 
             <div class="message-box" ng-if="error.generic">
@@ -34,17 +34,17 @@
                 <div class="col-md-12">
                     <div class="checkbox pull-left">
                         <label>
-                            <input type="checkbox">Permanecer logado
+                            <input type="checkbox">{{"login.stay.logged" | translate}}
                         </label>
-                        <a href="/esqueci-minha-senha" class="link">Esqueci a senha</a>
+                        <a href="/esqueci-minha-senha" class="link">{{"login.forgot.password" | translate}}</a>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-md btn-form pull-right">Entrar</button>            
+                    <button type="submit" class="btn btn-primary btn-md btn-form pull-right">{{"login.confirm" | translate}}</button>            
                 </div>
 
                 <span class="separator"></span>    
             </form>
             <div class="text-center row">
-                <button type="submit" ng-click="loginFacebook()" class="btn btn-primary btn-facebook">Entrar com o Facebook</button>
+                <button type="submit" ng-click="loginFacebook()" class="btn btn-primary btn-facebook">{{"login.facebook.login" | translate}}</button>
             </div>
         </div>
     </div>
