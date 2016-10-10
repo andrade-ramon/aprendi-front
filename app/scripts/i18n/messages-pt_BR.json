@@ -107,6 +107,9 @@
     "colleges.search.loading":"Buscando dados...",
 
     "colleges.profile.students":"Alunos",
+    "colleges.profile.rating.STUDENT_INFRA":"Infraestrutura",
+    "colleges.profile.rating.STUDENT_PRICE":"Preço",
+    "colleges.profile.rating.STUDENT_TEACH":"Ensino",
     "colleges.profile.grades":"Avaliações",
     "colleges.profile.courses":"Curso/s",
     "colleges.profile.courses.see.all":"ver todoss",

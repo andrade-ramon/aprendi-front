@@ -3,6 +3,10 @@
 @import 'mixins';
 @import 'buttons';
 
+.left-cards {
+    @include perspective(1000px);
+}
+
 .college-profile {
     background-color: $light-gray;
 
@@ -25,6 +29,36 @@
         cursor: pointer;
 
         &:hover { border: 0.1em solid $light-blue; }
+    }
+
+    #rating-switch {
+        display: none;
+
+        &:checked {
+            
+            + .college-card-container {
+                @include transform(rotateY(180deg));
+                z-index: 0;
+            }
+        }
+    }
+
+    .college-card-container {
+        @include transition(transform 0.6s);
+        @include transform-style(preserve-3d);
+
+        .front-card {
+            z-index: 2;
+            backface-visibility: hidden;
+            @include transform(rotateY(0deg));
+        }
+        .back-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            @include transform(rotateY(180deg));
+        }
     }
 
     .college-card {
@@ -60,7 +94,9 @@
             }
         }
         main {
-            margin-top: 4em;
+            position: relative;
+            padding-top: 4em;
+            height: 50%;
             display: block;
             text-align: center;
 
@@ -84,6 +120,92 @@
                     width: 50%;
                 }
             }
+
+            .rating {
+                cursor: pointer;
+                margin: 0;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                padding: 0.2em 0;
+                font-size: 1.1em;
+                width: 100%;
+                color: white;
+                background-color: #2980b9;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+
+                p { margin: 0; }
+            }
+        }
+    }
+
+    .rating-card {
+        @extend .card;
+        height: 24em;
+        width: 100%;
+
+        .title {
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 2em;
+        }
+
+        .type {
+            display: block;
+            margin: 3em 0;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+        }
+        .stars {
+            display: block;
+            text-align: center;
+            unicode-bidi: bidi-override;
+            direction: rtl;
+
+            .star {
+                background: none; 
+                border: none;
+                @include filter(grayscale(100%));
+                @include transition(0.2s);
+
+                &:hover {
+                    @include filter(none);
+
+                    ~ .star {
+                        @include filter(none);
+                    }
+                }
+
+                &:focus {
+                    outline: none;
+                }
+
+                img {
+                    width: 2.6em;
+                    height: 2.6em;
+                }
+            }
+        }
+        
+    }
+    .back {
+        position: absolute;
+        bottom: 0;
+        right: 1em;
+        color: $light-blue;
+        cursor: pointer;
+    }
+
+    .greetings {
+        background: white url($images-path + 'claps.svg') no-repeat center center;
+
+        .title {
+
+            font-size: 1.6em;
         }
     }
     
