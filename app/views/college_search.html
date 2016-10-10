@@ -45,7 +45,7 @@
             </select>
         </label>
         
-        <pagination page="{{page}}" total-pages="{{response.totalPages}}" class="right-pagination pull-right"/>
+        <pagination page="{{page}}" total-pages="{{response.totalPages}}" class="right-pagination pull-right" ng-if="response.result && response.result.length != 0"/>
         
         <div class="col-md-12 text-center" ng-if="!response.result">
             <img src="../images/loading.gif" class="loading-gif">
@@ -101,6 +101,6 @@
             <h2>Nenhum resultado encontrado</h2>
             <p>Melhore sua pesquisa</p>
         </article>
-        <pagination page="{{page}}" total-pages="{{response.totalPages}}" class="pagination-center"/>
+        <pagination page="{{page}}" total-pages="{{response.totalPages}}" class="pagination-center" ng-if="response.result && response.result.length != 0"/>
     </section>
 </page>
