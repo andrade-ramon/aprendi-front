@@ -33,7 +33,7 @@
     </aside>
 
     <section class="results">
-        <label class="order pull-left">
+        <label class="order pull-left" ng-if="response.result && response.result.length != 0">
             {{"colleges.search.order" | translate}}:
             <select class="medium">
                 <option>{{"colleges.search.order.general" | translate}}</option>
@@ -45,14 +45,12 @@
             </select>
         </label>
         
-        <pagination page="{{page}}" total-pages="{{response.totalPages}}" class="right-pagination pull-right"/>
-
+        <pagination page="{{page}}" total-pages="{{response.totalPages}}" class="right-pagination pull-right" ng-if="response.result && response.result.length != 0"/>
         
         <div class="col-md-12 text-center" ng-if="!response.result">
             <img src="../images/loading.gif" class="loading-gif">
             <p>{{"colleges.search.loading" | translate}}</p>
         </div>
-
 
         <article ng-repeat="college in response.result" class="card box-shadow box-shadow-fade" ng-if="response.result">
             <header>
@@ -99,6 +97,10 @@
                 <img src="../images/star.svg" class="favorite-college">
             </main>
         </article>
-        <pagination page="{{page}}" total-pages="{{response.totalPages}}" class="pagination-center"/>
+        <article class="no-results" ng-if="response.result && response.result.length === 0">
+            <h2>Nenhum resultado encontrado</h2>
+            <p>Melhore sua pesquisa</p>
+        </article>
+        <pagination page="{{page}}" total-pages="{{response.totalPages}}" class="pagination-center" ng-if="response.result && response.result.length != 0"/>
     </section>
 </page>
