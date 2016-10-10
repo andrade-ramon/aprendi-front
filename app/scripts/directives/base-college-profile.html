@@ -18,7 +18,7 @@
                         <dd>{{college.ratingsCount}}</dd>
                     </div>
                 </dl>
-                <label for="rating-switch" class="rating" ng-if="!college.alreadyRated">
+                <label for="rating-switch" class="rating" ng-if="isLogged && college.alreadyRated === false">
                     <p><strong>Avaliar</strong> agora</p>
                 </label>
             </main>
@@ -30,11 +30,11 @@
             <main>
                 <strong class="type">{{("colleges.profile.rating." + rating.current) | translate}}</strong>
                 <form angular-validator-submit="saveRating()" name="saveRatingForm" novalidate angular-validator method="POST" class="stars">
-                    <button value="1" ng-click="rating.grade = 1" class="star"><img src="../images/star.svg" ></button>
-                    <button value="2" ng-click="rating.grade = 2" class="star"><img src="../images/star.svg"></button>
+                    <button value="1" ng-click="rating.grade = 5" class="star"><img src="../images/star.svg" ></button>
+                    <button value="2" ng-click="rating.grade = 4" class="star"><img src="../images/star.svg"></button>
                     <button value="3" ng-click="rating.grade = 3" class="star"><img src="../images/star.svg"></button>
-                    <button value="4" ng-click="rating.grade = 4" class="star"><img src="../images/star.svg"></button>
-                    <button value="5" ng-click="rating.grade = 5" class="star"><img src="../images/star.svg"></button>
+                    <button value="4" ng-click="rating.grade = 2" class="star"><img src="../images/star.svg"></button>
+                    <button value="5" ng-click="rating.grade = 1" class="star"><img src="../images/star.svg"></button>
                 </form>
                 <label class="back" for="rating-switch">Voltar</label>
             </main>
