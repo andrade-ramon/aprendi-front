@@ -1,4 +1,6 @@
 app.service('Rating', function() {
 
-	this.types = ["STUDENT_INFRA", "STUDENT_PRICE", "STUDENT_TEACH"];
+	this.types = function() {
+		return ["STUDENT_INFRA", "STUDENT_PRICE", "STUDENT_TEACH"];
+	};
 });
