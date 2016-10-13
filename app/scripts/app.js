@@ -53,6 +53,10 @@ window.routes = {
     "/404": {
         templateUrl: 'views/404.html',
         controller: 'NotFoundCtrl'
+    },
+    "/ranking": {
+        templateUrl: 'views/ranking.html',
+        controller: 'RankingCtrl'  
     }
 
 };
