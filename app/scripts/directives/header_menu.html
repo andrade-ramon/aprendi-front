@@ -1,10 +1,10 @@
-<header class="header-menu">
+<header class="header-menu" ng-controller="HeaderMenuCtrl">
 	<section class="form-logo">
 		<logo size="big"/>
 	</section>
 	
 	<section class="search-container">
-		<form ng-if="searchForm"  ng-submit="search()" ng-controller="HeaderMenuCtrl" >
+		<form ng-if="searchForm"  ng-submit="search()" >
 			<div class="input-group">
 				<div class="input-group-btn">
 					<select class="form-control search-type">
@@ -25,7 +25,7 @@
 	<navigation class="navigation">
 		<ul class="nav">
 			<li ng-if="!isLogged"><a href="/cadastro">{{"page.menu.register"|translate}}</a></li>
-			<li ng-if="!isLogged"><a href="/login">{{"page.menu.enter"|translate}}</a></li>
+			<li ng-if="!isLogged"><a ng-href="{{loginUrl}}">{{"page.menu.enter"|translate}}</a></li>
 			<li ng-if="isLogged">
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 	                {{"page.my.account"|translate}}

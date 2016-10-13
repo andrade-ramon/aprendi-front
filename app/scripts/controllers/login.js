@@ -34,7 +34,6 @@ app.controller('LoginCtrl', function ($scope, $http, $location, ENV, User, Faceb
 
     $scope.logout = function() {
         User.loggedOut();
-        $location.path('/');
         location.reload();
     };
 });
