@@ -3,15 +3,15 @@
 .not-found-box{
 	height: 100%;
 	background:
-		linear-gradient(135deg, #4896D9 22px, #337AB7 22px, #337AB7 24px, transparent 24px, transparent 67px, #337AB7 67px, #337AB7 69px, transparent 69px),
-		linear-gradient(225deg, #4896D9 22px, #337AB7 22px, #337AB7 24px, transparent 24px, transparent 67px, #337AB7 67px, #337AB7 69px, transparent 69px)0 64px;
-	background-color:#4896D9;
+		linear-gradient(135deg, #6AA9DE 22px, #337AB7 22px, #337AB7 24px, transparent 24px, transparent 67px, #337AB7 67px, #337AB7 69px, transparent 69px),
+		linear-gradient(225deg, #6AA9DE 22px, #337AB7 22px, #337AB7 24px, transparent 24px, transparent 67px, #337AB7 67px, #337AB7 69px, transparent 69px)0 64px;
+	background-color:#6AA9DE;
 	background-size: 64px 128px;
-
-
 	color: #fff;
+	
 	h1, h2 {
 		font-weight: 300;
+		text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
 	}
 
 	h1 {
@@ -32,6 +32,7 @@
 			margin-top: .5em;
 			font-size: 1.3em;
 			font-weight: 300;
+			text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
 		}
 
 		input,button, select {height: 3em;}
