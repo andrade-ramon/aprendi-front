@@ -7,7 +7,7 @@
     <ng-transclude/>
 </main>
 
-<footer class="footer" ng-if='hasFooter'>
+<footer class="footer" ng-if='hasFooter' >
     <div class="container">
         <div class="column col-md-3 col-sm-6">
             <div class="widget">
@@ -17,14 +17,13 @@
                     <li><a href="">Fale conosco</a></li>
                 </ul>
                 <a href="#" class="btn btn-primary">Enviar mensagem</a>
-
             </div>
         </div>
         <div class="column col-md-3 col-sm-6">
             <div class="widget">
                 <h3 class="title">Rankings</h3>
-                <ul>
-                    <li><a href="/ranking">Ranking faculdades</a></li>
+                <ul ng-controller='LinkCtrl'>
+                    <li><a href="/ranking" ng-click="goToBottom()">Ranking faculdades</a></li>
                     <li><a href="#">Ranking cursos</a></li>
                     <li><a href="#">Ranking do MEC</a></li>
                     <li><a href="#">Entenda o ranking</a></li>
