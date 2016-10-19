@@ -57,6 +57,9 @@ window.routes = {
     "/ranking": {
         templateUrl: 'views/ranking.html',
         controller: 'RankingCtrl'  
+    },
+    "/sobre-nos": {
+        templateUrl: 'views/about_us.html'
     }
 
 };

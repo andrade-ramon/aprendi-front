@@ -1,4 +1,4 @@
-<header-menu ng-if="hasHeader" search-form="{{headerWithForm}}"/>
+<header-menu ng-if="hasHeader" search-form="{{headerWithForm}}" />
 
 <growl-notifications/>
 <growl-notification  ng-if="showMessage" ttl="2000" on-close="deleteNotification()" ng-class="growlType" class="box-growl fade-out" >{{growlMessage}}</growl-notification>
@@ -7,19 +7,23 @@
     <ng-transclude/>
 </main>
 
-<footer class="footer" ng-if='hasFooter'>
+<footer class="footer" ng-if='hasFooter' >
     <div class="container">
         <div class="column col-md-3 col-sm-6">
             <div class="widget">
-                <h3 class="title">Quem somos</h3>
-                <p>Lorem ipsum dolor sit amet, quo suscipit consetetur ne, everti audiam eu vim. Usu ei movet exerci semper. Vix alia dicunt in. Usu natum epicurei et, sea ei inani zril. Commodo delenit an vis, mei no menandri indoctum appellantur. Ad pri quot vivendum, delenit accumsan no vis, id aliquip perfecto his. Pro te percipit iudicabit, ius tota aliquip ea.</p>
+                <h3 class="title">Sobre</h3>
+                <ul ng-controller='LinkCtrl'>
+                    <li><a href="/sobre-nos" ng-click="goToBottom()">Quem somos</a></li>
+                    <li><a href="">Fale conosco</a></li>
+                </ul>
+                <a href="#" class="btn btn-primary">Enviar mensagem</a>
             </div>
         </div>
         <div class="column col-md-3 col-sm-6">
             <div class="widget">
                 <h3 class="title">Rankings</h3>
-                <ul>
-                    <li><a href="/ranking">Ranking faculdades</a></li>
+                <ul ng-controller='LinkCtrl'>
+                    <li><a href="/ranking" ng-click="goToBottom()">Ranking faculdades</a></li>
                     <li><a href="#">Ranking cursos</a></li>
                     <li><a href="#">Ranking do MEC</a></li>
                     <li><a href="#">Entenda o ranking</a></li>
@@ -62,8 +66,6 @@
                         </li>
                     </ul>
                 </div>
-                <p>Fale com a gente</p>
-                <a href="#" class="btn btn-primary">Enviar mensagem</a>
             </div>
         </div>
     </div>
