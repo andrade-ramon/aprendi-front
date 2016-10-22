@@ -3,10 +3,6 @@
 @import 'mixins';
 @import 'buttons';
 
-.left-cards {
-    @include perspective(1000px);
-}
-
 .college-profile {
     background-color: $light-gray;
 
@@ -319,6 +315,8 @@
         width: 96%;
         margin-left: 2%;
         padding: 1%;
+
+        @include perspective(1000px);
     }
 
     .center-cards {
@@ -383,19 +381,26 @@
 @media (min-width: 1000px) {
 
     .college-profile {
+        height: 100%;
+        width: 100%;
 
         .left-cards {
+            position: absolute;
+            left: 0;
+            top: 5em;
             width: 25%;
             margin: 0;
         }
 
-
         .center-cards {
-            width: 49%;
-            margin: 0;
+            margin-left: 25%;
+            width: 50%;
         }
 
         .right-cards {
+            position: absolute;
+            right: 0;
+            top: 5em;
             width: 25%;
             margin: 0;
         }
@@ -403,5 +408,5 @@
         .about-card .link a:before {
             display: inline-block;
         }
-    }    
+    } 
 }
