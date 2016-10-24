@@ -87,7 +87,7 @@
     "register.terms.line7":"Reclamações sobre violação de direitos autorais: O QualFacul?  respeita a propriedade intelectual de outras pessoas ou empresas e solicitamos aos nossos membros que façam o mesmo. Toda e qualquer violação de direitos autorais deverá ser notificada ao QualFacul?  e acompanhada dos documentos e informações que confirmam a autoria.",
     "register.terms.line8":"O acesso ao QualFacul?  representa a aceitação expressa e irrestrita dos termos de uso acima descritos.",
 
-    "colleges.search.title":"Pesquisa Geral",
+    "colleges.search.title":"Pesquisa de faculdades",
     "colleges.search.results":"resultados",
     "colleges.search.menu.filter":"Filtro",
     "colleges.search.menu.search":"Busca",
@@ -105,6 +105,12 @@
     "colleges.search.profile":"visitar perfil",
     "colleges.search.courses":"cursos",
     "colleges.search.loading":"Buscando dados...",
+    "colleges.search.results.per.page":"Resultados por página:",
+    "colleges.search.courses":"Cursos",
+    "colleges.search.students":"Alunos",
+    "colleges.search.empty":"Nenhum resultado encontrado",
+    "colleges.search.improve.search":"Melhore sua pesquisa",
+
 
     "colleges.profile.students":"Alunos",
     "colleges.profile.rating.STUDENT_INFRA":"Infraestrutura",

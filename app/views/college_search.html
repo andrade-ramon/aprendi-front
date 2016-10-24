@@ -1,69 +1,48 @@
-<page main-class="search">
-    <div class="title-row">
-        <h1>{{"colleges.search.title" | translate}}</h1>
-        <p ng-if="response.totalResults" class="results-count">({{response.totalResults}} {{"colleges.search.results" | translate}})</p>
-    </div>
-    <aside class="advanced">
-        <input id="filter" type="radio" name="tab-group" class="pane" checked/>
-        <label for="filter" class="tab-label">{{"colleges.search.menu.filter" | translate}}</label>
-
-        <input id="search" type="radio" name="tab-group" class="pane"/>
-        <label for="search" class="tab-label">{{"colleges.search.menu.search" | translate}}</label>
-
-        <section class="aside-content">
-            <article class="filter-content">
-                <form angular-validator angular-validator-submit="searchFilter()" name="searchFilterForm" method="GET" class="filters">
-                    <div class="col-md-12">
-                        <label for="filter-state">{{"colleges.search.menu.state" | translate}}</label>
-                        <input id="filter-state" placeholder="Ex: SP" ng-model="filter.state">
-                    </div>
-                    
-                    <div class="col-md-12">
-                        <label for="filter-ranking">{{"colleges.search.menu.min.ranking" | translate}}</label>
-                        <input id="filter-ranking" placeholder="Ex: 20" ng-model="filter.ranking">
-                    </div>
-                    
-                    <button class="btn btn-warning btn-filter">{{"colleges.search.menu.button" | translate}}</button>
-                </form>
-            </article>
-            <article class="search-content">
-                
-            </article>
-        </section>
-    </aside>
-
-    <section class="results">
-        <label class="order pull-left" ng-if="response.result && response.result.length != 0">
-            {{"colleges.search.order" | translate}}:
-            <select class="medium">
-                <option>{{"colleges.search.order.general" | translate}}</option>
-            </select>
-
-            {{"colleges.search.resultsPerPage" | translate}}
-            <select classs="small">
-                <option>10</option>
-            </select>
-        </label>
-        
-        <pagination page="{{page}}" total-pages="{{response.totalPages}}" link="/faculdades/pesquisa/{{search.query}}" class="right-pagination pull-right" ng-if="response.result && response.result.length != 0"/>
-        
-        <div class="col-md-12 text-center" ng-if="!response.result">
-            <img src="../images/loading.gif" class="loading-gif">
-            <p>{{"colleges.search.loading" | translate}}</p>
+<page main-class="college-search">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="title-row col-lg-12">
+            <h1>{{"colleges.search.title" | translate}}</h1>
+            <p ng-if="response.totalResults" class="results-count">
+                Sua busca por: <span class="underline">{{search.query}}</span> retornou 
+                <span>{{response.totalResults}}</span> {{"colleges.search.results" | translate}}
+            </p>
         </div>
 
-        <article ng-repeat="college in response.result" class="card box-shadow box-shadow-fade" ng-if="response.result">
-            <header>
-                <p class="name">{{college.name}}</p>
-                <p class="initials">{{college.initials}}</p>
-                <a href="/colleges/{{college.id}}/grades" class="grades">{{"colleges.search.grades" | translate}}</a>
-            </header>
-            <main>
-                <figure class="college-picture">
-                    <img src="../images/chapeu.png" class="image">
-                </figure>
-                <summary class="details">
-                    <div>
+        <section class="results col-lg-12">
+            <div class="advanced col-lg-12">
+                <!-- TODO -->
+            </div>
+
+            <div ng-if="response.result && response.result.length > 0" class="order pull-left col-lg-6">
+                {{"colleges.search.results.per.page" | translate}}
+                <select>
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                </select>
+            </div>
+
+            <pagination page="{{page}}" total-pages="{{response.totalPages}}" link="/faculdades/pesquisa/{{search.query}}" class="right-pagination pull-right col-lg-6 text-right" ng-if="response.result && response.result.length != 0"/>
+            
+            <div class="col-lg-12 text-center" ng-if="!response.result">
+                <img src="../images/loading.gif" class="loading-gif">
+                <p>{{"colleges.search.loading" | translate}}</p>
+            </div>
+
+            <article ng-repeat="college in response.result" class="card box-shadow box-shadow-fade" ng-if="response.result">
+                <header>
+                    <span class="name pull-left">{{college.name}}</span>
+                    <a href="/colleges/{{college.id}}/grades" class="grades-link pull-right">{{"colleges.search.grades" | translate}}</a>
+                </header>
+
+                <main>
+                    <a href="/faculdades/{{college.id}}">
+                        <figure class="college-picture pull-left">
+                            <img src="../images/chapeu.png" class="image">
+                        </figure>
+                    </a>
+
+                    <summary class="details pull-left">
                         <dl class="grades">
                             <div>
                                 <dt>{{"colleges.search.grades.infra" | translate}}</dt>
@@ -81,28 +60,39 @@
                                 <dt>{{"colleges.search.grades.geral" | translate}}</dt>
                                 <dd>22º</dd>
                             </div>
+                            <div>
+                                <dt>{{"colleges.search.courses" | translate}}</dt>
+                                <dd>90</dd>
+                            </div>
+                            <div>
+                                <dt>{{"colleges.search.students" | translate}}</dt>
+                                <dd>9089</dd>
+                            </div>
+
+                            <div class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore lorem ipsum dolor sit amet, consectetur adipiscing amet, consectetur adipiscing
+                            </div>    
                         </dl>
-                        <div class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                        </div>    
-                    </div>
-                    <div class="links">
-                        <a href="/faculdades/{{college.id}}" class="link">{{"colleges.search.profile" | translate}}</a>
-                        <a href="/faculdades/{{college.id}}/courses" class="link">{{"colleges.search.courses" | translate}}</a>
-                    </div>
-                </summary>
-                <address class="address">
-                    
-                </address>
-                <img src="../images/star.svg" class="favorite-college">
-            </main>
-        </article>
-        <article class="no-results" ng-if="response.result && response.result.length === 0">
-            <h2>Nenhum resultado encontrado</h2>
-            <p>Melhore sua pesquisa</p>
-        </article>
 
-        <pagination page="{{page}}" total-pages="{{response.totalPages}}" link="/faculdades/pesquisa/{{search.query}}" class="pagination-center" ng-if="response.result && response.result.length != 0"/>
+                        <div class="links">
+                            <a ng-controller='LinkCtrl' ng-click="goToTop()" href="/faculdades/{{college.id}}" class="link">{{"colleges.search.profile" | translate}}</a>
+                            <a ng-controller='LinkCtrl' ng-click="goToTop()" href="/faculdades/{{college.id}}/courses" class="link">{{"colleges.search.courses" | translate}}</a>
+                        </div>
+                    </summary>
+                </main>
 
-    </section>
+                <span class="initials pull-left">
+                    {{college.initials}}
+                </span>
+
+            </article>
+
+            <article class="no-results col-lg-12" ng-if="response.result && response.result.length === 0">
+                <h2>{{"colleges.search.empty" | translate}}</h2>
+                <p>{{"colleges.search.improve.search" | translate}}</p>
+            </article>
+
+            <pagination page="{{page}}" total-pages="{{response.totalPages}}" link="/faculdades/pesquisa/{{search.query}}" class="pagination-center" ng-if="response.result && response.result.length != 0"/>
+        </section>
+    </div>
 </page>
