@@ -1,0 +1,93 @@
+<page main-class="course-search">
+	<div class="col-lg-8 col-lg-offset-2">
+        <div class="title-row col-lg-12">
+            <h1>{{"courses.search.title" | translate}}</h1>
+            <p ng-if="response.totalResults" class="results-count">
+                Sua busca por: <span class="underline">{{search.query}}</span> retornou 
+                <span>{{response.totalResults}}</span> {{"colleges.search.results" | translate}}
+            </p>
+        </div>
+
+        <section class="results col-lg-12">
+            <div class="advanced col-lg-12">
+                <!-- TODO -->
+            </div>
+
+            <div class="order pull-left col-lg-6" ng-if="courses.result && courses.result.length > 0">
+                {{"colleges.search.results.per.page" | translate}}
+                <select>
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                </select>
+            </div>
+
+            <pagination page="{{search.page}}" total-pages="{{courses.totalPages}}" link="/cursos/pesquisa/{{search.query}}" class="right-pagination pull-right col-lg-6 text-right" ng-if="courses.result && courses.result.length != 0"/>
+            
+            <div class="col-lg-12 text-center" ng-if="!courses.result">
+                <img src="../images/loading.gif" class="loading-gif">
+                <p>{{"colleges.search.loading" | translate}}</p>
+            </div>
+
+            <article class="courses-table col-lg-12 pull-left" ng-if="courses.result && courses.result.length > 0">
+                <header class="col-lg-12">
+                    <span class="col-lg-6">Curso</span>
+                    <span class="col-lg-2 text-center">Modalidade</span>
+                    <span class="col-lg-2 text-center">Tipo de curso</span>
+                    <span class="col-lg-2 text-center"></span>
+                </header>
+                <main>
+                    <section ng-repeat="course in courses.result" ng-if="courses.result">
+                        <span class="col-lg-6 column">{{course.name}}</span>
+                        <span class="col-lg-2 column text-center">{{course.modality}}</span>
+                        <span class="col-lg-2 column text-center">{{course.degree}}</span>
+                        <span class="col-lg-2 column text-center"><a href="" ng-click='showCollegesForCourse(course.id)'>Ver faculdades</a></span>
+
+                        <summary class="college-list col-lg-12 pull-left" id="course-{{course.id}}">
+                            <div class="college-list-data">
+                                <span class="col-lg-12 college" ng-repeat="college in colleges.result">
+                                    <a href="/faculdades/{{college.id}}" title="{{college.name}}" class="college-name">{{college.name}}</a>
+                                    <ul class="college-addresses">
+                                        <li ng-repeat="address in college.addresses" class="col-md-12" style="width:100%; float:left;">
+                                            {{address.state}} / {{address.city}} - {{address.address}}
+                                        </li>
+                                    </ul>
+                                </span>
+                            </div>
+
+                            <div class="col-lg-12 text-center" ng-if="!colleges.result">
+                                <img src="../images/loading.gif" class="loading-gif">
+                                <p>{{"colleges.search.loading" | translate}}</p>
+                            </div>
+
+                            <div class="college-list-pagination">
+                                <nav class="pull-right">
+                                    <ul class="pagination" ng-if="colleges.totalPages > 0">
+                                        <li>
+                                          <a ng-disabled="colleges.page <= 1" ng-click="showCollegesForCourse(course.id, colleges.page-1)">
+                                            <span aria-hidden="true" title="Página anterior" alt="Página anterior">&laquo;</span></a>
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a ng-disabled="colleges.page == colleges.    totalPages" ng-click="showCollegesForCourse(course.id, colleges.page+1)">
+                                            <span aria-hidden="true" title="Próxima página" alt="Próxima página">&raquo;</span></a>
+                                          </a>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </summary>
+                    </section>
+                </main>
+            </article>
+
+        	<article class="no-results col-lg-12" ng-if="courses.result && courses.result.length === 0">
+                <h2>{{"colleges.search.empty" | translate}}</h2>
+                <p>{{"colleges.search.improve.search" | translate}}</p>
+            </article>
+
+            <pagination page="{{search.page}}" total-pages="{{courses.totalPages}}" link="/cursos/pesquisa/{{search.query}}" class="pagination-center col-lg-12" ng-if="courses.result && courses.result.length != 0"/>
+        </section>
+    </div>
+</page>

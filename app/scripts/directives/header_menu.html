@@ -7,9 +7,7 @@
 		<form ng-if="searchForm"  ng-submit="search()" >
 			<div class="input-group">
 				<div class="input-group-btn">
-					<select class="form-control search-type">
-						<option value="college" selected>{{"page.menu.search.colleges"|translate}}</option>
-						<option value="course">{{"page.menu.search.courses"|translate}}</option>
+					<select id="header-search" class="form-control search-type" ng-model="searchType" ng-options="item as item.label for item in searchItems track by item.id">
 					</select>
 				</div>
 				

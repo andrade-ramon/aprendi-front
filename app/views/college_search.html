@@ -13,7 +13,7 @@
                 <!-- TODO -->
             </div>
 
-            <div class="order pull-left col-lg-6">
+            <div ng-if="response.result && response.result.length > 0" class="order pull-left col-lg-6">
                 {{"colleges.search.results.per.page" | translate}}
                 <select>
                     <option>10</option>

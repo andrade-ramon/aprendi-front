@@ -111,6 +111,8 @@
     "colleges.search.empty":"Nenhum resultado encontrado",
     "colleges.search.improve.search":"Melhore sua pesquisa",
 
+    "courses.search.title":"Pesquisa de cursos",
+
 
     "colleges.profile.students":"Alunos",
     "colleges.profile.rating.STUDENT_INFRA":"Infraestrutura",

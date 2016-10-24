@@ -1,0 +1,90 @@
+@import 'base-search';
+
+.course-search {
+	.results {
+		.courses-table {
+			border: 1px solid #bbb;
+			padding: 0;
+			background: white;
+			margin-bottom: 1em;
+			
+			header {
+				width: 100%;
+				overflow: hidden;
+				background: #354B64;
+				color: white;
+				padding: 1em;
+			}
+
+			main {
+				width: 100%;
+				overflow: hidden;
+
+				section {
+					border-bottom: .1em solid $gray;
+					overflow: hidden;
+
+					.column  {						
+						margin: 0;
+						line-height: 2.5em;
+					}
+
+					.college-list {
+						display: none;
+						background: $transparent-gray;
+						border-top: 1px solid $gray;
+						padding: 0em;
+						overflow: hidden;
+						width: 100%;
+
+						.college-list-data {
+							width: 100%;
+							overflow: hidden;
+							padding: 1.5em 1.5em 0 1.5em;
+
+							.college {
+								overflow: hidden;
+								padding: .5em;
+								margin: 0 0 1.5em 0;
+								display: block;
+								background: white;
+								
+								.college-name {
+									font-size: 1.1em;
+									display: inline;
+									display:inline-block;
+								    white-space: nowrap;
+								    overflow:hidden;
+								    text-overflow: ellipsis;
+								}
+
+								.college-addresses {
+									font-size: .9em;
+									width: 100%;
+									overflow: hidden;
+									list-style: none;
+									padding-left: 0em;
+									color: $dark-gray;
+								}
+							}
+						}
+						.college-list-pagination {
+							width: 100%;
+							margin: 0;
+							padding: 0 1em 0 0;
+							font-size: 1.5em;
+
+							li {
+								a {
+									border: none;
+									padding: 0 .8em;
+									cursor: pointer;
+								}
+							}
+						}
+					}
+				}
+			}
+		}		
+	}
+}
