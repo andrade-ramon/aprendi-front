@@ -5,7 +5,7 @@ app.controller('CollegeProfileCtrl', function (User, College, Rating, $scope, $h
     $scope.assign = {};
     $scope.rating = {};
 
-    var ratingTypes = Rating.types();
+    var ratingTypes = Object.keys(Rating.Types);
     $scope.rating.current = ratingTypes[0];
 
     var collegeId = $scope.collegeId = $routeParams.collegeId;

@@ -1,4 +1,4 @@
-app.controller('CollegeRatingsCtrl', function ($scope, $routeParams, $http, ENV) {
+app.controller('CollegeRatingsCtrl', function ($scope, $routeParams, $http, Rating, ENV) {
 
 	var collegeId = $routeParams.collegeId;
 
@@ -12,4 +12,8 @@ app.controller('CollegeRatingsCtrl', function ($scope, $routeParams, $http, ENV)
         });
     };
     listRatings();
+
+    $scope.formatOrigin = function(origin) {
+        return Rating.Types[origin];
+    };
 });

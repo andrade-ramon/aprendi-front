@@ -1,11 +1,17 @@
-<page main-class="college-profile" footer="false">
+<page main-class="college-profile college-ratings" footer="false">
     <base-college-profile>
+        <h2 class="ratings-title">Avaliações de alunos</h2>
         <article class="ratings-card" ng-controller="CollegeRatingsCtrl">
             <section class="student" ng-repeat="ratingByStudent in ratings">
                 <h3 class="college-name">{{ratingByStudent[0].studentName}}</h3>
                 <time class="date" am-time-ago="ratingByStudent[0].date | amParse:'DD/MM/YYYY HH:mm:ss'"></time>
-                <div ng-repeat="rating in ratingByStudent">
-                    <p class="content">{{rating.value}} - {{rating.origin}}</p>
+                <div ng-class="{'infra': rating.origin == 'STUDENT_INFRA', 'price': rating.origin == 'STUDENT_PRICE', 'teach': rating.origin == 'STUDENT_TEACH'}" ng-repeat="rating in ratingByStudent">
+                    <p class="content">{{formatOrigin(rating.origin)}}</p>
+                    <span class="small star" ng-class="{'is-selected': rating.value >= 1}"><img src="../images/star.svg"></span>
+                    <span class="small star" ng-class="{'is-selected': rating.value >= 2}"><img src="../images/star.svg"></span>
+                    <span class="small star" ng-class="{'is-selected': rating.value >= 3}"><img src="../images/star.svg"></span>
+                    <span class="small star" ng-class="{'is-selected': rating.value >= 4}"><img src="../images/star.svg"></span>
+                    <span class="small star" ng-class="{'is-selected': rating.value >= 5}"><img src="../images/star.svg" ></span>
                 </div>
             </section>
         </article>
