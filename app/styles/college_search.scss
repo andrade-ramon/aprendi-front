@@ -2,372 +2,210 @@
 @import 'fonts';
 @import 'images';
 
-.search {
+.college-search {
     background-color: $light-gray;
+    overflow: hidden;
+    min-height: 100%;
 
     .title-row {
-        display: block;
+        margin: 2em 0 0 0;
+        width: 100%;
+        padding: 0;
+        font-weight: 300;
+        color: $dark-gray;
 
         h1 {
-            color: $dark-gray;
+            font-weight: 300;
+            font-size: 1.8em;
             display: block;
-            text-align: center;
+            margin: 0;
         }
 
         .results-count {
             font-size: 1.2em;
+            font-weight: 300;
             display: block;
-            text-align: center;
+            margin: 0;
         }
-    }
-}
 
-.advanced {
-    display: none;
-    position: absolute;
-    top: 6em;
-    left: 0;
-    width: 20%;
-    margin: 2%;
-    height: 30em;
-
-    h2 {
-        font-family: $font-default;
-    }
-
-    .pane {
-        height: 2em;
-        width: 0;
-        visibility: hidden;
-
-        &:hover {
-            + .tab-label {
-                color: $dark-gray;
-            }
-        }
-        &:checked {
-            + .tab-label {
-                font-size: 1.2em;
-                background-color: white;
-                color: #444;
-                position: relative;
-                z-index: 3;
-                margin: 0;
-                -webkit-transition: .1s;
-                -moz-transition: .1s;
-                -o-transition: .1s;
-                -ms-transition: .1s;
+        span {
+            font-weight: bolder;
+            color: black;
+            &.underline {
+                text-decoration: underline;
             }
         }
     }
 
-    .tab-label {
-        width: 49%;
-        color: $light-blue;
-        cursor: pointer;
-        display: block;
-        float: left;
-        font-size: 1em;
-        height: 2.5em;
-        line-height: 2.5em;
-        margin-top: 0.4em;
-        vertical-align: bottom;
-        padding: 0 1.5em;
-        border: 0.1em solid $gray;
-        text-align: center;
+    .no-results {
+        display: inline;
+        text-align: center;      
+
+        h2 { font-size: 1.6em}
+
+        p {font-size: 1.3em}
     }
 
-    .aside-content {
-        background: white;
-        min-height: 20em;
-        position: relative;
-        border: 0.1em solid $gray;
-        border-top: 0;
-        width: 100%;
-        z-index: 4;
+    .results {        
+        padding: 0;
 
-        .filter-content,
-        .search-content {
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            padding: .75em;
-            padding: 2em 1em 0;
-            position: absolute;
-            z-index: -1;
-            transition: all linear 0.1s;
-        }
-    }
-
-    input#filter:checked ~ .aside-content .filter-content,
-    input#search:checked ~ .aside-content .search-content {
-        opacity: 1;
-        z-index: 2;
-    }
-
-    input.visible {
-      visibility: visible !important;
-    }
-
-    .filters{
-        min-width: 10em;
-
-        label {
-            min-width: 10em;
-            margin-bottom: 1em;
+        .advanced {
+            padding: 0;
+            margin: 1em 0;            
         }
 
-        input {
-            width: 4em;
-            text-align: center;    
-        }
-    }
-
-    .btn-filter{
-        display: block;
-        width: calc(100% - 1.5em);
-        margin: auto;
-        position: absolute;
-        bottom: 1em;
-        font-size: 1.2em;
-        background-color: $orange;
-    }
-}
-.no-results {
-    text-align: left;
-    display: block;
-    margin-top: 2em;
-
-    h2 { font-size: 1.6em}
-
-    p {font-size: 1.3em}
-}
-
-.results {
-    display: inline-block;
-    width: 98%;
-    margin-left: 2%;
-    min-height: 36em;
-
-    .order {
-        margin-top: 0.7em;
-        display: inline-block;
-
-        select {
-            background: white;
-            padding:0.2em 0;
-            margin-left: .5em;
-            margin-right: 1em;
-
-            &.medium {
-              width: 10em;  
-            }
-
-            &.small {
-                width: 5em;
-            }
-        }
-    }
-
-    .right-pagination {
-        display: inline-block;
-    }
-
-    .loading-gif {
-        width: 60px;
-        height: 60px;
-        margin-top: 2em;
-    }
-
-    .card {
-        background: white;
-        border: 0.1em solid $gray;
-        display: inline-block;
-        position: relative;
-        padding: 0.5em;
-        width: 100%;
-        height: 16em;
-        margin: 1% 0;
-
-        header {
-            display: block;
-            font-family: $font-default;
-            height: 2em;
-            margin-top: 0.5em;
-            padding-left: .5em;
-            
-            .name {
-                font-weight: bold;
-                display: block;
-                text-align: center;
-            }
-            .initials {
-                position: absolute;
-                bottom: 0;
-                left: 1em;
-                color: $dark-gray;
-            }
-            .grades {
-                display: block;
-                text-align: center;
-                font-weight: bold;
-                color: $orange;
-            }
+        .order {
+            padding: 0;
+            height: 3em;
+            line-height: 3em;
         }
 
-        main {
-            height: calc(100% - 2.5em);
-            position: relative;
-
-            .college-picture {
-                position: absolute;
-                left: 0;
-                display: none;
-                height: 100%;
-                width: 30%;
-            }
-
-           .image{
-               opacity: 0.3;
-            }
-
-            .details {
-                width: 100%;
-                position: absolute;
-                height: 100%;
-
-                .grades {
-                    margin: 2em 1em 0;
-
-                    div {
-                        display: inline-block;
-                        margin: 0 0.5em;
-                    }
-                    dt { color: $text-gray}
-                    dd { 
-                        text-align: center;
-                        font-weight: bold;
-                    }
-                }
-                .description {
-                    margin-bottom: 2em;
-                    padding: 0 1em;
-                }
-
-                .links {
-                    position: absolute;
-                    bottom: 1em;
-                }
-                .link {
-                    margin: 0 1em;
-                    font-weight: bold;
-                    color: $light-blue;
-                }
-            }
-            .address {
-                display: none;
-                position: absolute;
-                height: 70%;
-                width: 18%;
-                border-left: 1px solid $light-gray;
-                right: 0;
-            }
-
-            .favorite-college {
-                width: 2em;
-                height: 2em;
-                position: absolute;
-                right: .5em;
-                bottom: .5em;
-                -webkit-filter: grayscale(100%);
-                filter: grayscale(100%);
-                transition: -webkit-filter 0.3s;
-
-                &:hover {
-                    cursor: pointer;
-                    -webkit-filter: none;
-                }
-            }
-        }
-    }
-    .pagination-center{
-        display: block;
-        text-align: center;
-        margin-bottom: 2em;
-    }
-}
-@media (min-width: 420px) {
-    .search {
-        h1 {
-            margin-left: 1em;
+        .right-pagination {
             display: inline-block;
+            margin: 0;
+            padding: 0;
         }
 
-        .results-count {
-            display: inline-block;
-            margin-left: 1em;
+        .loading-gif {
+            width: 60px;
+            height: 60px;
+            margin-top: 2em;
         }
 
         .card {
+            background: white;
+            border: 0.1em solid $gray;
+            display: inline-block;
+            padding: 0 .5em .5em .5em;
+            width: 100%;
+            margin: 0 0 1% 0;
+            font-family: $font-default;
+            overflow: hidden;
 
             header {
+                display: block;
+                overflow: hidden;
+                padding: .5em 0;
+                
                 .name {
-                    display: inline-block;
+                    font-size: 1.2em;
+                    font-weight: 300;
+                    text-transform: uppercase;
                 }
-                .grades {
-                    float: right;
-                    display: inline-block;
-                    margin-right: 2em;
+
+                .grades-link {
+                    font-weight: bold;
+                    color: $orange;
+                    cursor: pointer;
                 }
             }
 
             main {
+                width: 100%;
+                // overflow-y: hidden;
+
                 .college-picture {
-                    display: inline-block;
+                    width: 12em;
+                    height: 11em;
+                    border: 1px solid $light-gray;
+                    .image{
+                        opacity: 0.3;
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
+
                 .details {
-                    left: 30%;
-                    width: 70%;
+                    width: calc(100% - 12em);
+                    padding: 0 1em;
+                    margin: 0;
 
                     .grades {
-                        margin: 1em;
+                        margin: 0;
+
+                        div {
+                            display: inline-block;
+                            margin: 0 .5em .5em 0;
+                            background: $transparent-gray;
+                            padding: .5em .8em;
+                            
+                            &.description, &.links { 
+                                border: none;
+                                padding-left: 0;
+                                background: none;
+                            }
+                        }
+                        dt { 
+                            font-size: 1.2em;
+                            font-weight: 300;
+                            color: $text-gray;
+                        }
+                        dd { 
+                            font-size: .9em;
+                            text-align: center;
+                            font-weight: bold;
+                            color: black;
+                        }
+                    }
+
+                    .links {
+                        .link {
+                            margin: 0 1em 0 0;
+                            font-weight: bold;
+                            color: $light-blue;
+                        }
+                    }   
+                }
+            }
+
+            .initials {
+                width: 100%;
+                padding:0;
+                margin-top: .2em;
+                text-transform: uppercase;
+                font-size: 1.2em;
+                font-weight: 300;
+            }
+        }
+
+        .pagination-center{
+            display: block;
+            text-align: center;
+            margin-bottom: 2em;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .title-row {
+            margin-top: 4em;
+            margin-bottom: 2em;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .results {
+            .advanced {
+                display: inline-block;
+            }
+            
+            .right-pagination {
+                margin-top: 1em;
+            }
+
+            .card {
+                .college-picture {
+                    display: none;
+                }
+
+                main{
+                    .details{
+                        width: 100%;
+                        .grades {
+                            width: 100%;
+                        }
                     }
                 }
             }
         }
-    }
-}
-
-@media (min-width: 930px) {
-
-    .results .card main {
-        .details {
-            width: 50%;
-        }
-        .address {
-            display: inline-block;
-        }
-    }
-}
-
-@media (min-width: 700px) {
-    .advanced {
-        display: inline-block;
-    }
-
-    .results {
-        margin-left: 24%;
-        width: 75%;
-
-        .right-pagination {
-            margin-top: 1em;
-        }
-    }
-}
-
-
-@media (min-width: 1100px) {
-    .results {
-        width: 60%;
     }
 }
