@@ -16,10 +16,10 @@
                         <p class="content">{{post.content}}</p>
                     </article>
                 </div>
-                <div class="comments">
+                <div class="comments" ng-controller="CollegeConversationCtrl">
                     <article ng-if="timeline.conversations.length === 0" class="no-conversations">
                         <h2>{{"colleges.profile.no.comments.yet" | translate}}</h2>
-                        <a ng-if="!isLogged" ng-href="{{loginThenCommentsUrl}}">{{"colleges.profile.leave.comment" | translate}}</a>
+                        <a ng-if="!isLogged" ng-href="/login?redirectAfterLogin=/faculdades/{{collegeId}}">{{"colleges.profile.leave.comment" | translate}}</a>
                         <form angular-validator-submit="leaveComment()" name="leaveCommentForm" novalidate angular-validator method="POST" class="leave-comment" ng-if="isLogged">
                             <p class="btn-comment">{{"colleges.profile.leave.comment" | translate}}</p>
                             <div class="hided-content">

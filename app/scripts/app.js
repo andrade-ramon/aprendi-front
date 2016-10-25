@@ -50,6 +50,10 @@ window.routes = {
         templateUrl: 'views/college_profile.html',
         controller: 'CollegeProfileCtrl'
     },
+    "/faculdades/:collegeId/avaliacoes": {
+        templateUrl: 'views/college_ratings.html',
+        controller: 'CollegeProfileCtrl'
+    },
     "/404": {
         templateUrl: 'views/404.html',
         controller: 'NotFoundCtrl'

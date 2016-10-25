@@ -1,0 +1,19 @@
+@import 'base-college-profile';
+
+.ratings-card {
+    @extend .card;
+    width: 100%;
+    padding: 1em 1em 0;
+
+    .student {
+        position: relative;
+
+        .date {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        
+    }
+
+}

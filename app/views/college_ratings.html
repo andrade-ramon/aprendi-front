@@ -1,0 +1,13 @@
+<page main-class="college-profile" footer="false">
+    <base-college-profile>
+        <article class="ratings-card" ng-controller="CollegeRatingsCtrl">
+            <section class="student" ng-repeat="ratingByStudent in ratings">
+                <h3 class="college-name">{{ratingByStudent[0].studentName}}</h3>
+                <time class="date" am-time-ago="ratingByStudent[0].date | amParse:'DD/MM/YYYY HH:mm:ss'"></time>
+                <div ng-repeat="rating in ratingByStudent">
+                    <p class="content">{{rating.value}} - {{rating.origin}}</p>
+                </div>
+            </section>
+        </article>
+    </base-college-profile>
+</page>
