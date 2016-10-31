@@ -1,6 +1,6 @@
 <page main-class="college-profile college-ratings" footer="false">
     <base-college-profile>
-        <h2 class="ratings-title">Avaliações de alunos</h2>
+        <h2 class="ratings-title">{{"college.ratings.title" | translate}}</h2>
         <article class="ratings-card" ng-controller="CollegeRatingsCtrl">
             <section class="student" ng-repeat="ratingByStudent in ratings">
                 <h3 class="college-name">{{ratingByStudent[0].studentName}}</h3>
