@@ -81,7 +81,9 @@
             <div class="link">
                  <a class="about-user" data-target="#assign-student" data-toggle="modal" target="_blank" href ng-click="listCampus()">{{"colleges.profile.about.user" | translate}}</a>
             </div>
-            <div class="link"><a class="about-students" href="#">{{"colleges.profile.about.students" | translate}}</a></div>
+            <div class="link">
+                <a class="about-ratings" ng-href="/faculdades/{{collegeId}}/avaliacoes">{{"colleges.profile.about.ratings" | translate}}</a>
+            </div>
             <div class="link"><a class="about-courses" href="#">{{"colleges.profile.about.courses" | translate}}</a></div>
             <div class="link"><a class="about-local" href="#">{{"colleges.profile.about.local" | translate}}</a></div>
         </nav>

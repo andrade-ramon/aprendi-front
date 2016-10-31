@@ -1,6 +1,7 @@
-app.service('Rating', function() {
-
-	this.types = function() {
-		return ["STUDENT_INFRA", "STUDENT_PRICE", "STUDENT_TEACH"];
-	};
+app.constant('Rating', {
+    Types: {
+        STUDENT_INFRA: 'Infraestrutura',
+        STUDENT_PRICE: 'Preço',
+        STUDENT_TEACH: 'Ensino'
+    }
 });

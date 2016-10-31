@@ -1,4 +1,4 @@
-app.service('College', function($localStorage, $rootScope, $http, ENV) {
+app.service('College', function($location, messagesContainer, $http, ENV) {
 
     this.getBaseInfo = function(collegeId, scope) {
         scope.college = {};

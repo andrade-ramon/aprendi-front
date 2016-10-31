@@ -1,0 +1,50 @@
+@import 'base-college-profile';
+
+.college-ratings {
+
+    .ratings-title {
+        text-align: center;
+        font-size: 1.6em;
+        font-weight: 300;
+    }
+
+    .ratings-card {
+        background: white;
+        display: inline-block;
+        border: 0.1em solid $gray;
+        width: 100%;
+
+        .student {
+            position: relative;
+            padding: 1em;
+            border-bottom: 0.2em solid $light-gray;
+
+            .infra, .price, .teach {
+                width: 33%;
+                display: inline-block;
+            }
+
+            .date {
+                position: absolute;
+                top: 1em;
+                right: 1em;
+            }
+
+            .small.star {
+                @include filter(grayscale(100%));
+
+                img {
+                    width: 2em;
+                    height: 2em;
+                }
+            }
+
+            .small.star.is-selected {
+                @include filter(none);
+            }
+            
+        }
+
+    }
+    
+}

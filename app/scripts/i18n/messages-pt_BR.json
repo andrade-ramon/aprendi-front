@@ -130,7 +130,7 @@
     "colleges.profile.no.comments.yet":"Esta faculdade ainda não tem comentários",
     "colleges.profile.about":"Sobre",
     "colleges.profile.about.user":"Estuda nesta instituição?",
-    "colleges.profile.about.students":"Avaliações de alunos",
+    "colleges.profile.about.ratings":"Avaliações de alunos",
     "colleges.profile.about.courses":"Conheça os cursos",
     "colleges.profile.about.local":"Local",
     "colleges.profile.footer.about":"Sobre",
@@ -151,6 +151,7 @@
     "college.ranking.table.grade":"Nota",
     "college.ranking.table.update":"Última atualização",
 
+    "college.ratings.title":"Avaliações de alunos",
 
     "about.us.title":"Um pouquinho da nossa história",
     "about.us.subtitle":"O que nos levou a criar o QualFacul?",
