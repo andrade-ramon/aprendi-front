@@ -2,9 +2,9 @@
 	<div class="col-lg-8 col-lg-offset-2">
         <div class="title-row col-lg-12">
             <h1>{{"courses.search.title" | translate}}</h1>
-            <p ng-if="response.totalResults" class="results-count">
+            <p ng-if="courses.totalResults" class="results-count">
                 Sua busca por: <span class="underline">{{search.query}}</span> retornou 
-                <span>{{response.totalResults}}</span> {{"colleges.search.results" | translate}}
+                <span>{{courses.totalResults}}</span> {{"colleges.search.results" | translate}}
             </p>
         </div>
 

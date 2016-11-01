@@ -1,6 +1,5 @@
-app.controller('LinkCtrl', function ($scope, $location, $anchorScroll) {
+app.controller('LinkCtrl', function ($scope) {
     $scope.goToTop = function() {
-      $location.hash('site-top');
-      $anchorScroll();
+      $('body').scrollTop(0);
     };
 });

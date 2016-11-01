@@ -1,4 +1,4 @@
-app.controller('CourseSearchCtrl', function ($scope, $http, $location, $routeParams, $filter, ENV) {
+app.controller('CourseSearchCtrl', function ($scope, $http, $location, $routeParams, $filter, ENV, Course) {
 	$scope.search = {};
     $scope.filter = {};
 
@@ -9,32 +9,12 @@ app.controller('CourseSearchCtrl', function ($scope, $http, $location, $routePar
     $scope.limitPages = 5;
 
     var searchApi = function (filters) {
-        delete $scope.courses;
-
         $http.get(ENV.API.COURSE.SEARCH + $scope.search.query + filters).then(function(response) {
             $scope.courses = response.data;
 
             $scope.courses.result.forEach(function(course){
-                if(course.modality === "PRESENTIAL"){
-                    course.modality = "Presencial";
-                } else {
-                    course.modality = "A Distância";
-                }
-
-                switch(course.degree){
-                    case "BACHELOR":
-                        course.degree = "Bacharelado";
-                        break;
-                    case "GRADUATION":
-                        course.degree = "Licenciatura";
-                        break;
-                    case "SEQUENTIAL":
-                        course.degree = "Tecnológico";
-                        break;
-                    case "TECHNOLOGIST":
-                        course.degree = "Sequencial";
-                        break;
-                }
+                course.modality = Course.Modality[course.modality];
+                course.degree = Course.Degree[course.degree];
             });
 
             //FIXME - Limitar no backend
@@ -64,6 +44,7 @@ app.controller('CourseSearchCtrl', function ($scope, $http, $location, $routePar
         if(typeof page !== "undefined"){
             filters = "?page=" + page;
         }
+
         $('.college-list').hide();
         $('#course-' + courseId).show();
 
@@ -99,6 +80,11 @@ app.controller('CourseSearchCtrl', function ($scope, $http, $location, $routePar
                 i++;
             });
             $scope.colleges.result = results;
+
+            $('body').animate({
+                scrollTop: $("#course-" + courseId).parent().parent().parent().offset().top
+            }, 500);
+
         });
     };
 
