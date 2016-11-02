@@ -64,6 +64,10 @@ window.routes = {
     },
     "/sobre-nos": {
         templateUrl: 'views/about_us.html'
+    },
+    "/cursos/pesquisa/:query" : {
+        templateUrl: 'views/course_search.html',
+        controller: 'CourseSearchCtrl'
     }
 
 };

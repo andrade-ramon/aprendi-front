@@ -15,8 +15,10 @@
 						</span>
 					</div>
 					<label>Busque por um curso</label>
+				</form>
+				<form class="col-md-8 col-md-offset-2 form-search" ng-submit="courseSearch()">
 					<div class="input-group">
-						<input class="form-control"/>
+						<input class="form-control" ng-model="search.course.query"/>
 						<span class="input-group-btn">
 							<button class="btn btn-primary" type="button">Buscar</button>
 						</span>

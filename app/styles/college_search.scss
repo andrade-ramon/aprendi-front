@@ -1,77 +1,7 @@
-@import 'colors';
-@import 'fonts';
-@import 'images';
+@import 'base-search';
 
 .college-search {
-    background-color: $light-gray;
-    overflow: hidden;
-    min-height: 100%;
-
-    .title-row {
-        margin: 2em 0 0 0;
-        width: 100%;
-        padding: 0;
-        font-weight: 300;
-        color: $dark-gray;
-
-        h1 {
-            font-weight: 300;
-            font-size: 1.8em;
-            display: block;
-            margin: 0;
-        }
-
-        .results-count {
-            font-size: 1.2em;
-            font-weight: 300;
-            display: block;
-            margin: 0;
-        }
-
-        span {
-            font-weight: bolder;
-            color: black;
-            &.underline {
-                text-decoration: underline;
-            }
-        }
-    }
-
-    .no-results {
-        display: inline;
-        text-align: center;      
-
-        h2 { font-size: 1.6em}
-
-        p {font-size: 1.3em}
-    }
-
-    .results {        
-        padding: 0;
-
-        .advanced {
-            padding: 0;
-            margin: 1em 0;            
-        }
-
-        .order {
-            padding: 0;
-            height: 3em;
-            line-height: 3em;
-        }
-
-        .right-pagination {
-            display: inline-block;
-            margin: 0;
-            padding: 0;
-        }
-
-        .loading-gif {
-            width: 60px;
-            height: 60px;
-            margin-top: 2em;
-        }
-
+    .results {
         .card {
             background: white;
             border: 0.1em solid $gray;
@@ -92,17 +22,20 @@
                     font-weight: 300;
                     text-transform: uppercase;
                 }
-
+                .initials {
+                    color: $dark-gray;
+                    background: #f00;
+                    display: block;
+                }
                 .grades-link {
                     font-weight: bold;
                     color: $orange;
-                    cursor: pointer;
                 }
             }
 
             main {
                 width: 100%;
-                // overflow-y: hidden;
+                overflow-y: hidden;
 
                 .college-picture {
                     width: 12em;
@@ -159,7 +92,6 @@
             }
 
             .initials {
-                width: 100%;
                 padding:0;
                 margin-top: .2em;
                 text-transform: uppercase;
@@ -167,44 +99,19 @@
                 font-weight: 300;
             }
         }
-
-        .pagination-center{
-            display: block;
-            text-align: center;
-            margin-bottom: 2em;
-        }
-    }
-
-    @media (max-width: 500px) {
-        .title-row {
-            margin-top: 4em;
-            margin-bottom: 2em;
-        }
     }
 
     @media (max-width: 700px) {
         .results {
-            .advanced {
-                display: inline-block;
-            }
-            
-            .right-pagination {
-                margin-top: 1em;
-            }
-
             .card {
                 .college-picture {
                     display: none;
                 }
 
-                main{
-                    .details{
-                        width: 100%;
-                        .grades {
-                            width: 100%;
-                        }
-                    }
+                .details, .grades {
+                    width: 100% !important;
                 }
+
             }
         }
     }
