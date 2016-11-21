@@ -31,4 +31,15 @@ app.controller('CollegeSearchCtrl', function ($scope, $http, $location, $routePa
         $location.url($location.path() + params);
         searchApi(params);
     };
+
+    $scope.showFilter = function() {
+        console.log('a');
+        if($('#filter-box').is(":visible")){
+            $('#filter-box').slideUp();
+            $('.trigger').removeClass('dropup');
+        } else {
+            $('#filter-box').slideDown();
+            $('.trigger').addClass('dropup');
+        }
+    };
 });

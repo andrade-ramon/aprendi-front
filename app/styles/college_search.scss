@@ -2,6 +2,35 @@
 
 .college-search {
     .results {
+        .advanced {
+            background: white;
+            border: 0.1em solid $gray;
+            padding:.5em 1em;
+            margin: 2em 0;
+            
+            header {
+                padding: 0;
+                margin-bottom: .5em;
+
+                .trigger {
+                    cursor: pointer;
+                    color: $light-blue;
+                    padding: 0;
+
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            main.filter-box {
+                //display: none;
+
+                .input-group {
+                    margin-right: .8em;
+                }
+            }
+        }
         .card {
             background: white;
             border: 0.1em solid $gray;

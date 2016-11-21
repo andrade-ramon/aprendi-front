@@ -22,8 +22,9 @@ app.service('College', function($location, messagesContainer, $http, $filter, EN
             url: ENV.API.COLLEGE.RANKING.replace(ENV.ARG1, collegeId) + params
         }).then(function success(response) {
             callback.successRanking(response.data);
-        }, function error() {
-            callback.notFound();
+        }, function error(e) {
+            console.log(e);
+            // callback.notFound();
             return;
         });
     };

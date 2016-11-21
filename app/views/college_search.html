@@ -10,7 +10,33 @@
 
         <section class="results col-lg-12">
             <div class="advanced col-lg-12">
-                <!-- TODO -->
+                <header class="col-lg-12">
+                    <span class="trigger" ng-click="showFilter()">filtros<span class="caret"></span></span>
+                </header>
+                <main class="filter-box" id="filter-box">
+                    <div class="input-group pull-left">
+                        <label>Filtrar por estado</label>
+                        <select type="text" class="form-control">
+                            <option value="SP" selected>SP</option>
+                            <option value="MG">MG</option>
+                            <option value="SC">SC</option>
+                        </select>
+                    </div>
+                    <div class="input-group pull-left">
+                        <label>Nota minima do MEC</label>
+                        <select type="text" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="input-group pull-right">
+                        <label>a</label>
+                        <button class="btn btn-primary form-control">Atualizar filtros</button>
+                    </div>
+                </main>
             </div>
 
             <div ng-if="response.result && response.result.length > 0" class="order pull-left col-lg-6">
@@ -34,6 +60,10 @@
                     <span class="name pull-left">{{college.name}}</span>
                     <a href="/colleges/{{college.id}}/grades" class="grades-link pull-right">{{"colleges.search.grades" | translate}}</a>
                 </header>
+
+                <p ng-repeat="state in college.states" class="card box-shadow box-shadow-fade">
+                    {{state}}
+                </p>
 
                 <main>
                     <a href="/faculdades/{{college.id}}">
