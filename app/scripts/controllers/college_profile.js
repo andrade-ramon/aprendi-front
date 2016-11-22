@@ -4,12 +4,26 @@ app.controller('CollegeProfileCtrl', function (User, College, Rating, $scope, $h
     $scope.reply = {};
     $scope.assign = {};
     $scope.rating = {};
-
-    var ratingTypes = Object.keys(Rating.Types);
-    $scope.rating.current = ratingTypes[0];
+    $scope.ranking = {};
 
     var collegeId = $scope.collegeId = $routeParams.collegeId;
-    College.getBaseInfo(collegeId, $scope);
+    var ratingTypes = Object.keys(Rating.Types);
+    $scope.rating.current = ratingTypes[0];    
+
+    College.getInfo(collegeId, {
+        'success': function(college) {
+            $scope.college = college;
+        },
+        'successRanking': function(ranking) {
+            $scope.ranking = ranking;
+        },
+        'notFound': function() {
+            messagesContainer.addError("Faculdade não encontrada");
+            $location.path('/');
+        }
+    });
+    
+    $scope.commentsUrl = '/colleges/' + collegeId + '/comments';
 
     $scope.timeline = {};
     $scope.timeline.posts = [

@@ -103,17 +103,11 @@
 
             .details {
                 display: block;
+                padding-top: 2em;
 
-                div:first-of-type {
-                    margin-top: 1em;
-                    width: 50%;
-                    float: left;
-                    border-right: 1px solid #E9EFF3;
-                }
-                div:last-of-type {
-                    margin-top: 1em;
-                    float: right;
-                    width: 50%;
+                div {
+                    display: inline-block;
+                    width: calc(33% - 2px);
                 }
             }
 

@@ -17,6 +17,10 @@
                         <dt>{{"colleges.profile.grades" | translate}}</dt>
                         <dd>{{college.ratingsCount}}</dd>
                     </div>
+                    <div>
+                        <dt>{{"colleges.profile.ranking" | translate}}</dt>
+                        <dd>{{ranking.grade}}</dd>
+                    </div>
                 </dl>
                 <label for="rating-switch" class="rating" ng-if="isLogged && college.alreadyRated === false">
                     <p><strong>Avaliar</strong> agora</p>

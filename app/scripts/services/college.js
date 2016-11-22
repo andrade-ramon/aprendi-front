@@ -1,18 +1,30 @@
-app.service('College', function($location, messagesContainer, $http, ENV) {
+app.service('College', function($location, messagesContainer, $http, $filter, ENV) {
 
-    this.getBaseInfo = function(collegeId, scope) {
-        scope.college = {};
-        scope.college.alreadyRated = true;
+    this.getInfo = function(collegeId, callback) {
+        var college = {};
+        college.alreadyRated = true;
+
         $http({
             url: ENV.API.COLLEGE.PROFILE + collegeId
         }).then(function success(response) {
-            scope.college = response.data;
-            scope.commentsUrl = '/colleges/' + collegeId + '/comments';
+            college = response.data;
+            callback.success(college);
         }, function error(response) {
             if (response.status === 404) {
-                messagesContainer.addError("Faculdade não encontrada");
-                $location.path('/');
+                callback.notFound();
+                return;
             }
+        });
+
+        var params = $filter('addParam')('type', 'GENERAL_RANK');
+
+        $http({
+            url: ENV.API.COLLEGE.RANKING.replace(ENV.ARG1, collegeId) + params
+        }).then(function success(response) {
+            callback.successRanking(response.data);
+        }, function error() {
+            callback.notFound();
+            return;
         });
     };
 });
