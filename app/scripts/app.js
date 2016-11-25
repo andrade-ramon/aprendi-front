@@ -71,7 +71,8 @@ window.routes = {
     },
     "/configuracoes": {
         templateUrl: 'views/settings.html',
-        controller: 'SettingsCtrl'
+        controller: 'SettingsCtrl',
+        onlyLogged: true
     },
     "/ranking/entenda": {
         templateUrl: 'views/understand_ranking.html'
