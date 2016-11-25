@@ -10,7 +10,7 @@ app.controller('CollegeProfileCtrl', function (User, College, Rating, $scope, $h
     var ratingTypes = Object.keys(Rating.Types);
     $scope.rating.current = ratingTypes[0];    
 
-    College.getInfo(collegeId, {
+    College.getRankInfo(collegeId, {
         'success': function(college) {
             $scope.college = college;
         },
@@ -18,8 +18,6 @@ app.controller('CollegeProfileCtrl', function (User, College, Rating, $scope, $h
             $scope.ranking = ranking;
         },
         'notFound': function() {
-            messagesContainer.addError("Faculdade não encontrada");
-            $location.path('/');
         }
     });
     
@@ -37,6 +35,7 @@ app.controller('CollegeProfileCtrl', function (User, College, Rating, $scope, $h
     $scope.listCampus = function () {
         $http.get(ENV.API.COLLEGE.CAMPUS.replace(ENV.ARG1, collegeId)).then(function(response) {
             $scope.campus = response.data;
+            console.log(response.data);
         });
     };
 

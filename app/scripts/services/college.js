@@ -1,6 +1,6 @@
 app.service('College', function($location, messagesContainer, $http, $filter, ENV) {
 
-    this.getInfo = function(collegeId, callback) {
+    this.getRankInfo = function(collegeId, callback) {
         var college = {};
         college.alreadyRated = true;
 
