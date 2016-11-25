@@ -1,6 +1,6 @@
 app.service('College', function($location, messagesContainer, $http, $filter, ENV) {
 
-    this.getInfo = function(collegeId, callback) {
+    this.getRankInfo = function(collegeId, callback) {
         var college = {};
         college.alreadyRated = true;
 
@@ -22,9 +22,8 @@ app.service('College', function($location, messagesContainer, $http, $filter, EN
             url: ENV.API.COLLEGE.RANKING.replace(ENV.ARG1, collegeId) + params
         }).then(function success(response) {
             callback.successRanking(response.data);
-        }, function error(e) {
-            console.log(e);
-            // callback.notFound();
+        }, function error() {
+            callback.notFound();
             return;
         });
     };
