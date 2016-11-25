@@ -69,7 +69,7 @@ window.routes = {
         templateUrl: 'views/course_search.html',
         controller: 'CourseSearchCtrl'
     },
-    "/entenda_ranking": {
+    "/ranking/entenda": {
         templateUrl: 'views/understand_ranking.html'
     },
 
