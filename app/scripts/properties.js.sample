@@ -29,7 +29,8 @@ app.constant('ENV', (function() {
       },
 
       USER: {
-        CURRENT: api + '/users/current'
+        CURRENT: api + '/users/current',
+        SETTINGS: api + '/user/preferences'
       },
       
       COURSE: {

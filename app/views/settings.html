@@ -1,0 +1,30 @@
+<page header="true" footer="true">
+	<section class="box-settings">
+	    <section class="form-box">
+    		<div class="message-box">
+                <div class="message-icon glyphicon glyphicon-chevron-right"></div>
+                <span class="message-text">Informe os dados que serão alterados.</span>
+            </div>
+
+            <div class="message-box" ng-if="error.name">
+                <div class="message-icon glyphicon glyphicon-remove"></div>
+                <span class="message-text text-danger form-error-text" ng-bind-html="error.name"></span>
+            </div>
+
+            <div class="message-box" ng-if="error.password">
+                <div class="message-icon glyphicon glyphicon-remove"></div>
+                <span class="message-text text-danger form-error-text" ng-bind-html="error.password"></span>
+            </div>
+
+	        <form angular-validator-submit="updateInfo()" name="passwordRecoveryForm" method="post" novalidate angular-validator>
+	        	<input type="text" name="name" class="form-control" placeholder='{{"settings.user.name"|translate}}' 
+                    ng-model="settings.name">
+
+                <input type="password" name="password" class="form-control" placeholder='{{"settings.user.password"|translate}}'
+                    ng-model="settings.password">
+
+	            <button type="submit" class="btn btn-primary btn-md btn-form pull-right">Atualizar dados</button>
+	        </form>
+	    </div>
+	</section>
+</page>
