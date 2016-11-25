@@ -68,7 +68,10 @@ window.routes = {
     "/cursos/pesquisa/:query" : {
         templateUrl: 'views/course_search.html',
         controller: 'CourseSearchCtrl'
-    }
+    },
+    "/ranking/entenda": {
+        templateUrl: 'views/understand_ranking.html'
+    },
 
 };
 

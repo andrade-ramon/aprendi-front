@@ -163,5 +163,21 @@
     "about.us.text.line.3":"Assim surgiu o QualFacul, para facilitar a escolha do melhor curso, na melhor faculdade e com a sua cara.",
     "about.us.text.line.4":"Seja parte disso você também. Se já é aluno, avalie sua instituição e ajude quem esta por vir.",
 
+    "understand.ranking.title":"Entenda o nosso Ranking",
+    "understand.ranking.subtitle":"Para calcular o ranking, precisamos definir um bom critério para a atribuição de notas",
+    "understand.ranking.text.line.1":"As notas variam entre 1 e 5 para cada categoria, sendo de 1 à 2 consideradas ruins, e de 3 à 5 consideradas boas.",
+    "understand.ranking.text.line.2":"Não podemos fazer uma simples média aritmética, pois em casos de faculdades com poucas avaliações, uma simples nota vermelha poderá gerar uma queda na média final injusta. Por isso definimos um peso para as notas boas e para as ruins, veja o exemplo a seguir:",
+    "understand.ranking.text.line.3":"A Faculdade X possui 10 avaliações de alunos. Entre elas, 6 são notas boas, e as outras 4 são ruins. Para descobrir o peso das notas positivas e das negativas, vamos calcular suas porcentagens:",
+    "understand.ranking.text.line.4":"6/10 = 0.6, ou seja, 60% das notas são positivas",
+    "understand.ranking.text.line.5":"4/10 = 0.4, ou seja, 40% das notas são negativas",
+    "understand.ranking.text.line.6":"Somamos todas as notas positivas e negativas: Negativas: 7,0 (4 notas) | Positivas: 24,0 (6 notas) ",
+    "understand.ranking.text.line.7":"E é feita uma média: Média - Negativas: 1,75 | Média - Positivas: 4,0 ",
+    "understand.ranking.text.line.8":"Agora, aplicamos o peso a cada tipo de avaliação, para fazer com que a opinião da maioria seja mais importante para o resultado final: ",
+    "understand.ranking.text.line.9":"Negativas: 1,75 x 0,4 = 0,7",
+    "understand.ranking.text.line.10":"Positivas : 4,00 x 0,6 = 2,4",
+    "understand.ranking.text.line.11":"Para finalizar, subtraimos as notas positivas pelas notas negativas:",
+    "understand.ranking.text.line.12":"2,4 - 0,7 = 1,7",
+    "understand.ranking.text.line.13":"Levando em consideração a quantidade de avaliações e os seus devidos pesos, a nota final da Faculdade X é 1,7.",
+
     "hades.facebookaccount.notallowed":"Contas criadas via Facebook não podem ser utilizadas nesta operação"
 }
