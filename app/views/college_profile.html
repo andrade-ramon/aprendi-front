@@ -15,7 +15,7 @@
                         <time class="date">{{post.createdAt}}</time>
                         <p class="content">{{post.content}}</p>
                     </article>
-                    <form angular-validator-submit="leavePost()" name="leavePostForm" novalidate angular-validator method="POST" class="leave-comment" ng-if="isCollegeLogged()">
+                    <form angular-validator-submit="leavePost()" name="leavePostForm" novalidate angular-validator method="POST" class="leave-comment" ng-if="isLogged && isCollegeLogged()">
                         <p class="btn-comment">{{"colleges.profile.leave.post" | translate}}</p>
                         <div class="hided-content">
                             <textarea name="post" ng-model="post.text" class="comment-field" ng-enter></textarea>
@@ -54,7 +54,7 @@
                                         <time class="sent-date" am-time-ago="message.sentAt | amParse:'DD/MM/YYYY HH:mm:ss'"></time>
                                     </div>
                                 </div>
-                                <form angular-validator-submit="replyComment(conversation.id, $parent.$index)" name="replyCommentForm" novalidate angular-validator method="POST" ng-if="canLoggedUserReply(conversation.studentId)" class="answer">
+                                <form angular-validator-submit="replyComment(conversation.id, $parent.$index)" name="replyCommentForm" novalidate angular-validator method="POST" ng-if="isLogged && canLoggedUserReply(conversation.studentId)" class="answer">
                                     <p>Responder</p>
                                     <div class="reply-field">
                                         <textarea name="reply-{{conversation.id}}" ng-model="reply.text" ng-enter></textarea>
@@ -64,7 +64,7 @@
                             </main>
                         </label>
                     </article>
-                    <form angular-validator-submit="leaveComment()" name="leaveCommentForm" novalidate angular-validator method="POST" class="leave-comment" ng-if="timeline.conversations.length !== 0">
+                    <form angular-validator-submit="leaveComment()" name="leaveCommentForm" novalidate angular-validator method="POST" class="leave-comment" ng-if="isLogged && timeline.conversations.length !== 0">
                         <p class="btn-comment">{{"colleges.profile.leave.comment" | translate}}</p>
                         <div class="hided-content">
                             <textarea name="comment" ng-model="comment.text" class="comment-field" ng-enter></textarea>
