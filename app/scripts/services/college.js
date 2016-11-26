@@ -23,7 +23,6 @@ app.service('College', function($location, messagesContainer, $http, $filter, EN
         }).then(function success(response) {
             callback.successRanking(response.data);
         }, function error() {
-            callback.notFound();
             return;
         });
     };

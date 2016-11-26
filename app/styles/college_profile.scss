@@ -100,6 +100,7 @@
 
     .timeline-card {
         @extend .card;
+        width: 100%;
         border-top: none;
         position: relative;
         margin-bottom: 2em;

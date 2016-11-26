@@ -1,20 +1,27 @@
 <page main-class="college-profile" footer="false">
     <base-college-profile>
         <article>
-            <input id="posts-tab" type="radio" name="tab-group" class="tab"/>
+            <input id="posts-tab" type="radio" name="tab-group" class="tab" checked/>
             <label for="posts-tab" class="tab-label">{{"colleges.profile.timeline.posts" | translate}}</label>
 
-            <input id="comments-tab" type="radio" name="tab-group" class="tab" checked/>
+            <input id="comments-tab" type="radio" name="tab-group" class="tab"/>
             <label for="comments-tab" class="tab-label">{{"colleges.profile.timeline.comments" | translate}}</label>
 
             <div class="timeline-card box-shadow">
-                <div class="posts">
+                <div class="posts" ng-controller="CollegePostsCtrl">
                     <article ng-repeat="post in timeline.posts" class="post">
                         <img src="../images/college.png" class="college-logo">    
                         <h3 class="college-name">{{college.name}}</h3>
                         <time class="date">{{post.createdAt}}</time>
                         <p class="content">{{post.content}}</p>
                     </article>
+                    <form angular-validator-submit="leavePost()" name="leavePostForm" novalidate angular-validator method="POST" class="leave-comment" ng-if="isCollegeLogged()">
+                        <p class="btn-comment">{{"colleges.profile.leave.post" | translate}}</p>
+                        <div class="hided-content">
+                            <textarea name="post" ng-model="post.text" class="comment-field" ng-enter></textarea>
+                        </div>
+                        <input value="" type="submit" class="btn-comment-confirm">
+                    </form>
                 </div>
                 <div class="comments" ng-controller="CollegeConversationCtrl">
                     <article ng-if="timeline.conversations.length === 0" class="no-conversations">

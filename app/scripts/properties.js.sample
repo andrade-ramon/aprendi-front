@@ -18,6 +18,7 @@ app.constant('ENV', (function() {
           NEW: api + '/colleges/{0}/conversations',
           REPLY: api + '/colleges/{0}/conversations/{1}'
         },
+        POSTS: api + '/colleges/{0}/posts',
         CAMPUS: api + '/colleges/{0}/addresses',
         ASSIGN: api + '/colleges/{0}/assign',
         RATINGS: api + '/colleges/{0}/ratings',
