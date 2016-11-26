@@ -1,0 +1,32 @@
+@import 'base-college-profile';
+
+.college-courses {
+	.title {
+		text-align: center;
+        font-size: 1.6em;
+        font-weight: 300;
+	}
+
+	.courses-card {
+        background: white;
+        display: inline-block;
+        border: 0.1em solid $gray;
+        padding: 0;
+        width: 100%;
+
+
+        ul {
+        	height: 25em;
+        	overflow-y: scroll;
+        	list-style: none;
+        	padding: 0;
+
+        	li {
+        		padding: 1em;
+        		border-bottom: .1em solid $light-gray;
+        		width: 100%;
+        		float: left;
+        	}
+        }
+    }
+}

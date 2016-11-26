@@ -49,11 +49,8 @@
         </article>
     </div>
     <article class="courses-card box-shadow ">
-        <header><h2>{{college.coursesCount}} {{"colleges.profile.courses" | translate}} - <a href="#">{{"colleges.profile.courses.see.all" | translate}}</a></h2></header>
+        <header><h2>{{college.coursesCount}} {{"colleges.profile.courses" | translate}} - <a ng-href="/faculdades/{{collegeId}}/cursos">{{"colleges.profile.courses.see.all" | translate}}</a></h2></header>
         <hr/>
-        <!-- <footer class="question">
-            <p>{{"colleges.profile.courses.not.decided" | translate}} <a href="#">{{"colleges.profile.courses.not.decided.test" | translate}}</a> ?</p>
-        </footer> -->
     </article>
 </div>
 <div class="center-cards">
