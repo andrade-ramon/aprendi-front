@@ -180,5 +180,12 @@
     "understand.ranking.text.line.12":"2,4 - 0,7 = 1,7",
     "understand.ranking.text.line.13":"Levando em consideração a quantidade de avaliações e os seus devidos pesos, a nota final da Faculdade X é 1,7.",
 
-    "hades.facebookaccount.notallowed":"Contas criadas via Facebook não podem ser utilizadas nesta operação"
+    "hades.facebookaccount.notallowed":"Contas criadas via Facebook não podem ser utilizadas nesta operação",
+
+    "settings.user.empty.name":"Informe seu nome",
+    "settings.user.empty.password":"Senha",
+    "settings.user.name":"Nome",
+    "settings.user.password":"Senha",
+    "settings.user.invalid.password":"Digite uma senha com 4 caracteres ou mais"
+
 }
