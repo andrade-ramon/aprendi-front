@@ -11,6 +11,8 @@ app.constant('ENV', (function() {
       PASSWORDRECOVERY_CHANGE: api + "/password/change",
 
       COLLEGE: {
+        CURRENT: api + '/colleges/current',
+
         SEARCH: api + '/colleges/search/',
         PROFILE: api + '/colleges/',
         COMMENTS: {
