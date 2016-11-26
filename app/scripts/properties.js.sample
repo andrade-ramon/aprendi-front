@@ -24,7 +24,8 @@ app.constant('ENV', (function() {
         CAMPUS: api + '/colleges/{0}/addresses',
         ASSIGN: api + '/colleges/{0}/assign',
         RATINGS: api + '/colleges/{0}/ratings',
-        RANKING: api + '/colleges/{0}/ranking'
+        RANKING: api + '/colleges/{0}/ranking',
+        COURSES: api + '/colleges/{0}/courses'
       },
       
       RANK: {
