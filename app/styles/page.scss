@@ -102,4 +102,19 @@
             }
         }
     }
+
+    @media (max-width: 770px) {
+        .column {
+            text-align: center;
+            margin-bottom: 3em;
+
+            ul {
+                li {
+                    &:before {
+                        background: none !important;
+                    }
+                }
+            }
+        }
+    }
 }
