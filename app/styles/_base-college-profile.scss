@@ -65,6 +65,7 @@ body {
         @extend .card;
         height: 24em;
         width: 100%;
+        margin-bottom: 1em;
 
         header {
             position: relative;
@@ -115,8 +116,8 @@ body {
                 }
             }
         }
+        
         .rating {
-            position: relative;
             padding-top: 0;
             height: 3em;
             display: block;
@@ -136,7 +137,6 @@ body {
         @extend .card;
         height: 24em;
         width: 100%;
-        margin-top: 5em;
 
         .title {
             font-size: 1.2em;
