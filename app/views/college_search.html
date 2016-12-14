@@ -80,7 +80,7 @@
             <article ng-repeat="college in response.result" class="card box-shadow box-shadow-fade" ng-if="response.result">
                 <header>
                     <span class="name pull-left">{{college.name}}</span>
-                    <a href="/colleges/{{college.id}}/grades" class="grades-link pull-right">{{"colleges.search.grades" | translate}}</a>
+                    <a href="/faculdades/{{college.id}}/avaliacoes" class="grades-link pull-right">{{"colleges.search.grades" | translate}}</a>
                 </header>
 
                 <main>
