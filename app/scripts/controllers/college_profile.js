@@ -75,7 +75,6 @@ app.controller('CollegeProfileCtrl', function (User, College, Rating, $scope, $h
             ratingTypes.shift();
             $scope.rating.current = ratingTypes[0];
             if (ratingTypes.length === 0 ) {
-                $('.college-card .rating').hide();
                 $('#rating-switch').delay(2000).queue(function(next) {
                     $(this).prop('checked', false);
                     next();
