@@ -3,6 +3,10 @@
 @import 'mixins';
 @import 'buttons';
 
+body {
+    background-color: $light-gray;
+}
+
 .college-profile {
     background-color: $light-gray;
 

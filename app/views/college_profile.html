@@ -9,8 +9,11 @@
 
             <div class="timeline-card box-shadow">
                 <div class="posts" ng-controller="CollegePostsCtrl">
+                    <article ng-if="timeline.posts.length === 0" class="no-posts">
+                        <h2>{{"colleges.profile.no.posts.yet" | translate}}</h2>
+                    </article>
                     <article ng-repeat="post in timeline.posts" class="post">
-                        <img src="../images/college.png" class="college-logo">    
+                        <img src="../images/college.png" class="college-logo">
                         <h3 class="college-name">{{college.name}}</h3>
                         <time class="date">{{post.createdAt}}</time>
                         <p class="content">{{post.content}}</p>
