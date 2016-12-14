@@ -87,8 +87,8 @@
                 <main>
                     <ol class="campus-list">
                         <li ng-repeat="address in campus">
-                            <p class="address">{{address.address}}</p>
-                            <p class="state">{{address.state}} -{{address.city}}</p>
+                            <p class="address">{{address.address}}, {{address.number}}</p>
+                            <p class="state">{{address.neighborhood}}, {{address.city}} - {{address.state}} </p>
                         </li>
                     </ol>
                 </main>
