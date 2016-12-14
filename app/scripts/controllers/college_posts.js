@@ -22,10 +22,6 @@ app.controller('CollegePostsCtrl', function (User, $scope, $routeParams, $http, 
     };
     listPosts();
 
-    $scope.isCollegeLogged = function() {
-        return collegeLogged;
-    };
-
     $scope.leavePost = function() {
         $http({
             method: 'POST',

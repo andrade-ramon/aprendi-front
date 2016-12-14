@@ -2,9 +2,15 @@ app.controller('CollegeConversationCtrl', function (User, $scope, $http, $route,
 
 	var collegeId = $routeParams.collegeId;
 	var user = {};
+    var collegeLogged = false;
+
     if (User.isLogged()) {
         $http.get(ENV.API.USER.CURRENT).then(function(response) {
             user = response.data;
+        });
+
+        $http.get(ENV.API.COLLEGE.CURRENT).then(function(response) {
+            collegeLogged = response.data.id === parseInt(collegeId);
         });
     }
 
@@ -18,6 +24,10 @@ app.controller('CollegeConversationCtrl', function (User, $scope, $http, $route,
         });
     };
     listComments();
+
+    var isCollegeLogged = function() {
+        return collegeLogged;
+    };
     
     $scope.leaveComment = function() {
         $http({
@@ -53,7 +63,7 @@ app.controller('CollegeConversationCtrl', function (User, $scope, $http, $route,
     };
 
     $scope.canLoggedUserReply = function(studentId) {
-        return user.id === studentId;
+        return user.id === studentId || isCollegeLogged();
     };
 
     $scope.isFromStudent = function(message) {
@@ -70,4 +80,5 @@ app.controller('CollegeConversationCtrl', function (User, $scope, $http, $route,
         }
         return messages[index].direction === messages[index -1].direction;
     };
+
 });
