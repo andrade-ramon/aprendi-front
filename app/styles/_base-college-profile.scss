@@ -206,11 +206,12 @@ body {
     .courses-card {
         @extend .card;
         width: 100%;
-        margin-top: 2em;
+        margin-top: .5em;
+        margin-bottom: 1em;
 
         h2 {
             text-align: center;
-            font-size: 1em;
+            font-size: 1.2em;
         }
 
         hr {
@@ -241,7 +242,7 @@ body {
         @extend .card;
         padding: 1em;
         width: 100%;
-        margin-bottom: 2em;
+        margin-bottom: 1em;
 
         h2 {
             font-size: 1.2em;
@@ -264,6 +265,7 @@ body {
         padding: 1em;
         width: 100%;
         margin-bottom: 2em;
+        margin-top: 1em;
 
         h2 {
             font-size: 1.2em;

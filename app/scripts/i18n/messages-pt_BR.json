@@ -121,7 +121,7 @@
     "colleges.profile.grades":"Avaliações",
     "colleges.profile.courses":"Cursos",
     "colleges.profile.ranking":"Nota MEC",
-    "colleges.profile.courses.see.all":"ver todos",
+    "colleges.profile.courses.see.all":"cursos desta faculdade",
     "colleges.profile.courses.not.decided":"Não decidiu qual curso fazer ? Que tal conhecer nosso",
     "colleges.profile.courses.not.decided.test":"teste vocacional",
     "colleges.profile.timeline.posts":"Posts",
@@ -134,6 +134,7 @@
     "colleges.profile.no.comments.yet":"Esta faculdade ainda não tem comentários",
     "colleges.profile.no.posts.yet":"Esta faculdade ainda não tem posts",
     "colleges.profile.about":"Sobre",
+    "colleges.profile.about.posts":"Posts da faculdade",
     "colleges.profile.about.user":"Estuda nesta instituição?",
     "colleges.profile.about.ratings":"Avaliações de alunos",
     "colleges.profile.about.courses":"Conheça os cursos",
@@ -144,6 +145,9 @@
     "colleges.profile.footer.ranking":"Rankings",
     "colleges.profile.footer.test":"Teste vocacional",
     "colleges.profile.footer.colleges":"Faculdades",
+    "colleges.profile.courses.title":"Cursos da instituição",
+    "colleges.profile.courses.total":"Total de",
+    "colleges.profile.courses":"cursos",
 
 
     "college.ranking.empty":"Não foi encontrado nenhum dado para o tipo ranking solicitado",

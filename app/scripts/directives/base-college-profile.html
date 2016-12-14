@@ -48,9 +48,24 @@
             <main><label class="back" for="rating-switch">Voltar</label></main>
         </article>
     </div>
-    <article class="courses-card box-shadow ">
+    <!-- <article class="courses-card box-shadow ">
         <header><h2>{{college.coursesCount}} {{"colleges.profile.courses" | translate}} - <a ng-href="/faculdades/{{collegeId}}/cursos">{{"colleges.profile.courses.see.all" | translate}}</a></h2></header>
         <hr/>
+    </article> -->
+    <article class="about-card box-shadow ">
+        <header><h2>{{"colleges.profile.about" | translate}}</h2></header>
+        <nav>
+            <div class="link">
+                 <a class="about-ratings" ng-href="/faculdades/{{collegeId}}/" >{{"colleges.profile.about.posts" | translate}}</a>
+            </div>
+            <div class="link">
+                 <a class="about-user" data-target="#assign-student" data-toggle="modal" target="_blank" href ng-click="listCampus()">{{"colleges.profile.about.user" | translate}}</a>
+            </div>
+            <div class="link">
+                <a class="about-ratings" ng-href="/faculdades/{{collegeId}}/avaliacoes">{{"colleges.profile.about.ratings" | translate}}</a>
+            </div>
+            <div class="link"><a class="about-courses" href="/faculdades/{{collegeId}}/cursos">{{"colleges.profile.about.courses" | translate}}</a></div>
+        </nav>
     </article>
 </div>
 <div class="center-cards">
@@ -69,19 +84,12 @@
             </div>
         </main>
     </article>
-    <article class="about-card box-shadow ">
-        <header><h2>{{"colleges.profile.about" | translate}}</h2></header>
-        <nav>
-            <div class="link">
-                 <a class="about-user" data-target="#assign-student" data-toggle="modal" target="_blank" href ng-click="listCampus()">{{"colleges.profile.about.user" | translate}}</a>
-            </div>
-            <div class="link">
-                <a class="about-ratings" ng-href="/faculdades/{{collegeId}}/avaliacoes">{{"colleges.profile.about.ratings" | translate}}</a>
-            </div>
-            <div class="link"><a class="about-courses" href="#">{{"colleges.profile.about.courses" | translate}}</a></div>
-            <div class="link"><a class="about-local" href="#">{{"colleges.profile.about.local" | translate}}</a></div>
-        </nav>
+    
+    <article class="courses-card box-shadow ">
+        <header><h2><a ng-href="/faculdades/{{collegeId}}/cursos">{{"colleges.profile.courses.see.all" | translate}}</a></h2></header>
+        <hr/>
     </article>
+
     <article class="footer-card box-shadow ">
         <p>© 2016 QualFacul?</p>
         <nav class="links">

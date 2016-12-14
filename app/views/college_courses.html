@@ -1,6 +1,8 @@
 <page main-class="college-profile college-courses" footer="false">
     <base-college-profile>
-    	<h2 class="title">Cursos da instituição</h2>
+    	<h2 class="title">{{"colleges.profile.courses.title" | translate}}</h2>
+
+        {{"colleges.profile.courses.total" | translate}} {{college.coursesCount}} {{"colleges.profile.courses" | translate}}
     	<article class="courses-card" ng-controller="CollegeCoursesCtrl">
     		<ul>
     			<li ng-repeat="course in courses">
