@@ -17,7 +17,6 @@ app.controller('CollegeProfileCtrl', function (User, College, Rating, $scope, $h
     }
 
     $scope.isCollegeLogged = function() {
-        console.log(collegeLogged);
         return collegeLogged;
     };
 
