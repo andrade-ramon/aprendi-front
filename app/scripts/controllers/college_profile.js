@@ -7,6 +7,20 @@ app.controller('CollegeProfileCtrl', function (User, College, Rating, $scope, $h
     $scope.ranking = {};
     $scope.timeline = {};
 
+    var collegeId = $routeParams.collegeId;
+    var collegeLogged = false;
+
+    if (User.isLogged()) {
+        $http.get(ENV.API.COLLEGE.CURRENT).then(function(response) {
+            collegeLogged = response.data.id === parseInt(collegeId);
+        });
+    }
+
+    $scope.isCollegeLogged = function() {
+        return collegeLogged;
+    };
+
+
     var collegeId = $scope.collegeId = $routeParams.collegeId;
     var ratingTypes = Object.keys(Rating.Types);
     $scope.rating.current = ratingTypes[0];    

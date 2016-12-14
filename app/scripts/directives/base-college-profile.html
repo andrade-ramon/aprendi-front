@@ -58,7 +58,7 @@
             <div class="link">
                  <a class="about-ratings" ng-href="/faculdades/{{collegeId}}/" >{{"colleges.profile.about.posts" | translate}}</a>
             </div>
-            <div class="link" ng-if="isLogged">
+            <div class="link" ng-if="isLogged && !isCollegeLogged">
                  <a class="about-user" data-target="#assign-student" data-toggle="modal" target="_blank" href ng-click="listCampus()">{{"colleges.profile.about.user" | translate}}</a>
             </div>
             <div class="link">
