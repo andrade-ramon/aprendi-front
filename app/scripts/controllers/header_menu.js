@@ -1,6 +1,21 @@
-app.controller('HeaderMenuCtrl', function ($scope, $location) {
+app.controller('HeaderMenuCtrl', function ($scope, $location, User, $http, ENV) {
 	$scope.search = {};
 	
+
+	var collegeLogged = false;
+	$scope.collegeId = null;
+
+    if (User.isLogged()) {
+        $http.get(ENV.API.COLLEGE.CURRENT).then(function(response) {
+        	$scope.collegeId = response.data.id;
+            collegeLogged = true;
+        });
+    }
+    $scope.isCollegeLogged = function() {
+        return collegeLogged;
+    };
+
+
 	$scope.searchItems = [{ 
 		id: 'college',
 		label: 'Faculdades'

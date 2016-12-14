@@ -32,7 +32,8 @@
 	                <span class="caret"></span>
 	            </a>
 	            <ul class="dropdown-menu">
-	                <li><a href="/configuracoes">{{"page.account.configuration"|translate}}</a></li>
+	            	<li ng-if="isCollegeLogged()"><a href="/faculdades/{{collegeId}}">Meu perfil</a></li>
+	                <li ng-if="!isCollegeLogged()"><a href="/configuracoes">{{"page.account.configuration"|translate}}</a></li>
 	                <li><a href="#" ng-click="logout();" ng-controller="LoginCtrl">{{"page.account.exit"|translate}}</a></li>
 	            </ul>
 	        </li>

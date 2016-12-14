@@ -11,8 +11,8 @@ app.controller('CollegeProfileCtrl', function (User, College, Rating, $scope, $h
     var collegeId = $scope.collegeId = $routeParams.collegeId;
 
     if (User.isLogged()) {
-        $http.get(ENV.API.COLLEGE.CURRENT).then(function(response) {
-            collegeLogged = response.data.id === parseInt(collegeId);
+        $http.get(ENV.API.COLLEGE.CURRENT).then(function() {
+            collegeLogged = true;
         });
     }
 
