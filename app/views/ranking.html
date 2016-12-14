@@ -14,9 +14,9 @@
 
 
 	<div class="ranking col-md-10 col-md-offset-1">
-		<span class="title col-md-12"></span>
+		<span class="no-data text-center col-md-12" ng-if="rank.colleges.length == 0">{{"college.ranking.empty" | translate}}</span>
 
-		<table class="table">
+		<table class="table" ng-if="rank.colleges.length > 0">
 			<tr cols>
 				<th class="text-center">{{"college.ranking.table.position" | translate}} <i class=""></i></th>
 				<th>{{"college.ranking.table.college" | translate}}</th>

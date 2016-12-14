@@ -119,7 +119,7 @@
     "colleges.profile.rating.STUDENT_PRICE":"Preço",
     "colleges.profile.rating.STUDENT_TEACH":"Ensino",
     "colleges.profile.grades":"Avaliações",
-    "colleges.profile.courses":"Curso/s",
+    "colleges.profile.courses":"Cursos",
     "colleges.profile.ranking":"Nota MEC",
     "colleges.profile.courses.see.all":"ver todos",
     "colleges.profile.courses.not.decided":"Não decidiu qual curso fazer ? Que tal conhecer nosso",
@@ -144,6 +144,8 @@
     "colleges.profile.footer.test":"Teste vocacional",
     "colleges.profile.footer.colleges":"Faculdades",
 
+
+    "college.ranking.empty":"Não foi encontrado nenhum dado para o tipo ranking solicitado",
     "college.ranking.title":"Ranking de faculdades",
     "college.ranking.filter.0":"Geral",
     "college.ranking.filter.1":"Infraestrutura",

@@ -17,5 +17,6 @@ app.controller('RankingCtrl', function ($scope, $http, ENV, $routeParams) {
 		}, function error() {
 			$scope.rank.colleges = [];
 		});
-	}();
+	};
+	$scope.loadRank();
 });
