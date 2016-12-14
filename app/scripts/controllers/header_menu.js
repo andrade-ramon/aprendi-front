@@ -24,5 +24,4 @@ app.controller('HeaderMenuCtrl', function ($scope, $location) {
         	$location.path('/cursos/pesquisa/' + $scope.search.query);
         }
     };
-    // https://www.facebook.com/RockWins/videos/1195040287278262/
 });

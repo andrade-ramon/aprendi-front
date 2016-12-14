@@ -55,8 +55,13 @@
 	.ranking {
 		padding-top: 2.5em;
 
+		.no-data{
+			font-size: 2em;
+			margin-top: 2em;
+		}
 		.table {
 			border: 1px solid #bbb;
+			background-color: white;
 			td {
 				padding: .9em 0;
 			}
