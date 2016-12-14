@@ -16,10 +16,8 @@ app.service('College', function($location, messagesContainer, $http, $filter, EN
             }
         });
 
-        var params = $filter('addParam')('type', 'GENERAL_RANK');
-
         $http({
-            url: ENV.API.COLLEGE.RANKING.replace(ENV.ARG1, collegeId) + params
+            url: ENV.API.COLLEGE.RANKING.replace(ENV.ARG1, collegeId)
         }).then(function success(response) {
             callback.successRanking(response.data);
         }, function error() {
