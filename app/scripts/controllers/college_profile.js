@@ -7,8 +7,8 @@ app.controller('CollegeProfileCtrl', function (User, College, Rating, $scope, $h
     $scope.ranking = {};
     $scope.timeline = {};
 
-    var collegeId = $routeParams.collegeId;
     var collegeLogged = false;
+    var collegeId = $scope.collegeId = $routeParams.collegeId;
 
     if (User.isLogged()) {
         $http.get(ENV.API.COLLEGE.CURRENT).then(function(response) {
@@ -17,11 +17,11 @@ app.controller('CollegeProfileCtrl', function (User, College, Rating, $scope, $h
     }
 
     $scope.isCollegeLogged = function() {
+        console.log(collegeLogged);
         return collegeLogged;
     };
 
 
-    var collegeId = $scope.collegeId = $routeParams.collegeId;
     var ratingTypes = Object.keys(Rating.Types);
     $scope.rating.current = ratingTypes[0];    
 
