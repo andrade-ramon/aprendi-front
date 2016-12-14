@@ -2,10 +2,12 @@
     <input id="rating-switch" type="checkbox"/>
     <div class="college-card-container">
         <article class="college-card box-shadow front-card">
-            <header>
-                <img src="../images/book.jpg" class="college-background">
-                <img src="../images/college.png" class="college-logo">
-            </header>
+            <a ng-href="/faculdades/{{collegeId}}">
+                <header>
+                    <img src="../images/book.jpg" class="college-background">
+                    <img src="../images/college.png" class="college-logo">
+                </header>
+            </a>
             <main>
                 <h2 class="name">{{college.initials}}</h2>
                 <dl class="details">
@@ -22,11 +24,12 @@
                         <dd>{{ranking.grade}}</dd>
                     </div>
                 </dl>
-                <label for="rating-switch" class="rating" ng-if="isLogged && college.alreadyRated === false">
-                    <p><strong>Avaliar</strong> agora</p>
-                </label>
             </main>
+            <label for="rating-switch" class="rating rate-college-box" ng-if="isLogged && college.alreadyRated === false">
+                Avaliar faculdade
+            </label>
         </article>
+        
         <article class="rating-card box-shadow back-card" ng-if="rating.current">
             <header>
                 <h3 class="title">Avaliar sobre:</p>
@@ -48,17 +51,14 @@
             <main><label class="back" for="rating-switch">Voltar</label></main>
         </article>
     </div>
-    <!-- <article class="courses-card box-shadow ">
-        <header><h2>{{college.coursesCount}} {{"colleges.profile.courses" | translate}} - <a ng-href="/faculdades/{{collegeId}}/cursos">{{"colleges.profile.courses.see.all" | translate}}</a></h2></header>
-        <hr/>
-    </article> -->
+
     <article class="about-card box-shadow ">
         <header><h2>{{"colleges.profile.about" | translate}}</h2></header>
         <nav>
             <div class="link">
                  <a class="about-ratings" ng-href="/faculdades/{{collegeId}}/" >{{"colleges.profile.about.posts" | translate}}</a>
             </div>
-            <div class="link">
+            <div class="link" ng-if="isLogged">
                  <a class="about-user" data-target="#assign-student" data-toggle="modal" target="_blank" href ng-click="listCampus()">{{"colleges.profile.about.user" | translate}}</a>
             </div>
             <div class="link">
@@ -77,7 +77,7 @@
         <header><h2>{{"colleges.profile.contact" | translate}}</h2></header>
         <main>
             <div class="contact-row">
-                <p ng-if="college.site !== ''" >Site: </p><a ng-href="http://{{college.site}}">{{college.site}}</a>    
+                <p ng-if="college.site !== ''" >Site: </p><a ng-href="http://{{college.site}}" target="_blank">{{college.site}}</a>    
             </div>
             <div class="contact-row">
                 <p ng-if="college.phone !== undefined" class="phone">{{"colleges.profile.contact.phone" | translate}}:</p><p>{{college.phone}}</p>
@@ -86,23 +86,21 @@
     </article>
     
     <article class="courses-card box-shadow ">
-        <header><h2><a ng-href="/faculdades/{{collegeId}}/cursos">{{"colleges.profile.courses.see.all" | translate}}</a></h2></header>
-        <hr/>
+        <!-- <header><h2><a ng-href="/faculdades/{{collegeId}}/cursos">{{"colleges.profile.courses.see.all" | translate}}</a></h2></header> -->
+        <header><h2><a ng-href="/faculdades/{{collegeId}}/avaliacoes">{{"colleges.profile.rating.all" | translate}}</a></h2></header>
     </article>
 
     <article class="footer-card box-shadow ">
         <p>© 2016 QualFacul?</p>
         <nav class="links">
-            <a href="#">{{"colleges.profile.footer.about" | translate}}</a>
-            <a href="#">{{"colleges.profile.footer.help" | translate}}</a>
-            <a href="#">{{"colleges.profile.footer.terms" | translate}}</a>
-            <a href="#">{{"colleges.profile.footer.ranking" | translate}}</a>
-            <a href="#">{{"colleges.profile.footer.test" | translate}}</a>
-            <a href="#">{{"colleges.profile.footer.colleges" | translate}}</a>
+            <a href="/sobre-nos">{{"colleges.profile.footer.about" | translate}}</a>
+            <a href="/ranking/entenda">{{"colleges.profile.footer.understand" | translate}}</a>
+            <a href="/ranking">{{"colleges.profile.footer.ranking" | translate}}</a>
         </nav>
     </article>
 </div>
- <article class="modal fade assign-student" id="assign-student" tabindex="-1" role="dialog" aria-labelledby="Confirmar matricula" aria-hidden="true">
+
+<article class="modal fade assign-student" id="assign-student" tabindex="-1" role="dialog" aria-labelledby="Confirmar matricula" aria-hidden="true">
     <section class="modal-dialog modal-lg">
         <form angular-validator-submit="assignStudent()" name="assignStudentForm" novalidate angular-validator method="POST" class="modal-content">
             <header>
