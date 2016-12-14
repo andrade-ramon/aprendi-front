@@ -137,6 +137,7 @@ body {
         @extend .card;
         height: 24em;
         width: 100%;
+        margin-top: 1em;
 
         .title {
             font-size: 1.2em;
@@ -261,8 +262,7 @@ body {
         @extend .card;
         padding: 1em;
         width: 100%;
-        margin-bottom: 2em;
-        margin-top: 1em;
+        margin-top: 2em;
 
         h2 {
             font-size: 1.2em;
